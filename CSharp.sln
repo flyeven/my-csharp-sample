@@ -93,6 +93,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0015_OverloadOperator", "A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0075_AOPAttributes", "A0075_AOPAttributes\A0075_AOPAttributes.csproj", "{EEF956BD-70B0-4CB0-A664-FB580A69629C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0205_XmlSerializer", "A0205_XmlSerializer\A0205_XmlSerializer.csproj", "{5D100793-B2C6-496D-B45F-7747C87CD360}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -563,6 +565,16 @@ Global
 		{EEF956BD-70B0-4CB0-A664-FB580A69629C}.Release|Mixed Platforms.Build.0 = Release|x86
 		{EEF956BD-70B0-4CB0-A664-FB580A69629C}.Release|x86.ActiveCfg = Release|x86
 		{EEF956BD-70B0-4CB0-A664-FB580A69629C}.Release|x86.Build.0 = Release|x86
+		{5D100793-B2C6-496D-B45F-7747C87CD360}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{5D100793-B2C6-496D-B45F-7747C87CD360}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{5D100793-B2C6-496D-B45F-7747C87CD360}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{5D100793-B2C6-496D-B45F-7747C87CD360}.Debug|x86.ActiveCfg = Debug|x86
+		{5D100793-B2C6-496D-B45F-7747C87CD360}.Debug|x86.Build.0 = Debug|x86
+		{5D100793-B2C6-496D-B45F-7747C87CD360}.Release|Any CPU.ActiveCfg = Release|x86
+		{5D100793-B2C6-496D-B45F-7747C87CD360}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{5D100793-B2C6-496D-B45F-7747C87CD360}.Release|Mixed Platforms.Build.0 = Release|x86
+		{5D100793-B2C6-496D-B45F-7747C87CD360}.Release|x86.ActiveCfg = Release|x86
+		{5D100793-B2C6-496D-B45F-7747C87CD360}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
