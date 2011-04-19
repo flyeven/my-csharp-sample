@@ -11,9 +11,7 @@ namespace A0701_AutoUpdate
     {
         static void Main(string[] args)
         {
-
             CommonFunc func = new CommonFunc();
-
             func.DeleteMain();
 
         }
