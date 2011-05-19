@@ -101,6 +101,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0701_AutoUpdate", "A0701_A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0702_CommonFunc", "A0702_CommonFunc\A0702_CommonFunc.csproj", "{4C988834-9E78-4B20-80F1-DE209ED1A76D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0710_Merge", "A0710_Merge\A0710_Merge.csproj", "{78239056-E38F-48FB-B728-F86D007EF5C1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -611,6 +613,16 @@ Global
 		{4C988834-9E78-4B20-80F1-DE209ED1A76D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{4C988834-9E78-4B20-80F1-DE209ED1A76D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{4C988834-9E78-4B20-80F1-DE209ED1A76D}.Release|x86.ActiveCfg = Release|Any CPU
+		{78239056-E38F-48FB-B728-F86D007EF5C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78239056-E38F-48FB-B728-F86D007EF5C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78239056-E38F-48FB-B728-F86D007EF5C1}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{78239056-E38F-48FB-B728-F86D007EF5C1}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{78239056-E38F-48FB-B728-F86D007EF5C1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{78239056-E38F-48FB-B728-F86D007EF5C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78239056-E38F-48FB-B728-F86D007EF5C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78239056-E38F-48FB-B728-F86D007EF5C1}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{78239056-E38F-48FB-B728-F86D007EF5C1}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{78239056-E38F-48FB-B728-F86D007EF5C1}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
