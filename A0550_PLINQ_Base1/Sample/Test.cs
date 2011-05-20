@@ -8,6 +8,9 @@ namespace A0550_PLINQ_Base1.Sample
 {
     /// <summary>
     /// 并行 LINQ 测试.
+    /// 
+    /// 本测试主要用于演示 
+    ///   PLINQ 如何简单的使用 .AsParallel() 来实现 并行LINQ的处理。
     /// </summary>
     public class Test
     {
