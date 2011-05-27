@@ -23,7 +23,7 @@ namespace A0160_SQL_Server.Sample
         /// SQL Server 的数据库连接字符串.
         /// </summary>
         private const String connString =
-            @"Data Source=localhost\SQLEXPRESS;Initial Catalog=Sample;Integrated Security=True";
+            @"Data Source=localhost\SQLEXPRESS;Initial Catalog=TestWork;Integrated Security=True";
 
 
 
@@ -45,6 +45,9 @@ namespace A0160_SQL_Server.Sample
 
             // 调用存储过程
             CallProcedure(conn);
+
+            // 调用存储过程  返回结果集
+            CallProcedureWithReturnData(conn);
 
             // 关闭数据库连接.
             conn.Close();
@@ -154,6 +157,39 @@ namespace A0160_SQL_Server.Sample
 
             Console.WriteLine("调用 {0} 存储过程之后， @OutVal={1}; @InoutVal={2}", testCommand.CommandText, pa2, pa3);
 
+        }
+
+
+
+        /// <summary>
+        /// 测试执行存储过程. 返回结果集合.
+        /// </summary>
+        /// <param name="conn"></param>
+        private void CallProcedureWithReturnData(SqlConnection conn)
+        {
+            // 创建一个 Command.
+            SqlCommand testCommand = conn.CreateCommand();
+
+            // 定义需要执行的SQL语句.
+            testCommand.CommandText = "testProc";
+
+            // 定义好，本次执行的类型，是存储过程.
+            testCommand.CommandType = CommandType.StoredProcedure;
+
+            // 执行SQL命令，结果存储到Reader中.
+            SqlDataReader testReader = testCommand.ExecuteReader();
+
+            // 处理检索出来的每一条数据.
+            while (testReader.Read())
+            {
+                // 将检索出来的数据，输出到屏幕上.
+                Console.WriteLine("调用函数:{0}; 返回:{1} - {2}",
+                    testCommand.CommandText, testReader[0], testReader[1]
+                    );
+            }
+
+            // 关闭Reader.
+            testReader.Close();
         }
 
 
