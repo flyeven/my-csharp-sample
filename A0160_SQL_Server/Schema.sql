@@ -62,3 +62,13 @@ BEGIN
   SET @InoutVal = @UserName + @InoutVal;
 END;
 go
+
+
+
+-- 测试返回结果集的存储过程
+CREATE PROCEDURE testProc
+AS
+BEGIN
+  SELECT 'Hello 1' AS A, 'World 1' AS B UNION ALL
+  SELECT 'Hello 2' AS A, 'World 2' AS B;
+END
