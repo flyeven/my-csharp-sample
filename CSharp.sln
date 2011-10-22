@@ -107,6 +107,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0711_Merge", "A0711_Merge\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0180_MySQL_ODBC", "A0180_MySQL_ODBC\A0180_MySQL_ODBC.csproj", "{6E5CCDD0-5F2E-452A-A508-FA1F36FBB9E7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0151_Excel", "A0151_Excel\A0151_Excel.csproj", "{BC7772F5-58F0-4D93-9454-0E0BDD07FA73}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -647,6 +649,16 @@ Global
 		{6E5CCDD0-5F2E-452A-A508-FA1F36FBB9E7}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{6E5CCDD0-5F2E-452A-A508-FA1F36FBB9E7}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{6E5CCDD0-5F2E-452A-A508-FA1F36FBB9E7}.Release|x86.ActiveCfg = Release|Any CPU
+		{BC7772F5-58F0-4D93-9454-0E0BDD07FA73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC7772F5-58F0-4D93-9454-0E0BDD07FA73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC7772F5-58F0-4D93-9454-0E0BDD07FA73}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{BC7772F5-58F0-4D93-9454-0E0BDD07FA73}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{BC7772F5-58F0-4D93-9454-0E0BDD07FA73}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BC7772F5-58F0-4D93-9454-0E0BDD07FA73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC7772F5-58F0-4D93-9454-0E0BDD07FA73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC7772F5-58F0-4D93-9454-0E0BDD07FA73}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{BC7772F5-58F0-4D93-9454-0E0BDD07FA73}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{BC7772F5-58F0-4D93-9454-0E0BDD07FA73}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
