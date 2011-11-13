@@ -24,20 +24,33 @@ namespace A0151_Excel.Sample
 		/// </summary>
 		/// <param name="excelFileName"></param>
 		/// <returns></returns>
-		public static string GetOleDbConnectionString(string excelFileName)
+		public static string GetOleDbConnectionString(string excelFileName, bool hasTitle)
 		{
 
-			// Office 2007 以及 以下版本使用.
+            
+            string optionString = null;
+            
+            // HDR表示要把第一行作为数据还是作为列名，作为数据用 HDR=no，作为列名用HDR=yes；  
+            if (hasTitle)
+            {
+                optionString = "HDR=yes;";
+            }
+            else
+            {
+                optionString = "HDR=no;";
+            }
+            
+            // Office 2007 以及 以下版本使用.
 			string jetConnString =
-			  String.Format("Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};Extended Properties=Excel 8.0;", excelFileName);
+			  String.Format("Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};Extended Properties=\"Excel 8.0;" + optionString + "\"", excelFileName);
 
 			// xlsx 扩展名 使用.
 			string aceConnXlsxString =
-			  String.Format("Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties=\"Excel 12.0 Xml;HDR=YES\"", excelFileName);
+              String.Format("Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties=\"Excel 12.0 Xml;" + optionString + "\"", excelFileName);
 
 			// xls 扩展名 使用.
 			string aceConnXlsString =
-			  String.Format("Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties=\"Excel 8.0;HDR=YES\"", excelFileName);
+              String.Format("Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties=\"Excel 8.0;" + optionString + "\"", excelFileName);
 
 
 			// 默认非 xlsx
@@ -60,10 +73,10 @@ namespace A0151_Excel.Sample
 				// 使用 ACE
 				return aceConnString;
 			}
-			catch (Exception)
+			catch (Exception e)
 			{
 				// 启动 ACE 失败.
-
+                //Console.WriteLine(e.Message);
 			}
 
 
@@ -76,15 +89,28 @@ namespace A0151_Excel.Sample
 				// 使用 Jet
 				return jetConnString;
 			}
-			catch (Exception)
+			catch (Exception e)
 			{
 				// 启动 Jet 失败.
+                //Console.WriteLine(e.Message);
 			}
 
 
 			// 假如 ACE 与 JET 都失败了，默认使用 JET.
 			return jetConnString;
 		}
+
+
+        /// <summary>
+        /// 默认 认为 Excel 数据文件是包含 列名的.
+        /// </summary>
+        /// <param name="excelFileName"></param>
+        /// <returns></returns>
+        public static string GetOleDbConnectionString(string excelFileName)
+        {
+            
+            return GetOleDbConnectionString(excelFileName, true);
+        }
 
 
 
