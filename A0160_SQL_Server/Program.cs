@@ -27,6 +27,11 @@ namespace A0160_SQL_Server
             caller.TestCallFuncProc();
 
 
+            // 长时间处理.
+            CallLongTimeProc longTimeCaller = new CallLongTimeProc();
+            longTimeCaller.TestCallLongTimeProc();
+
+
             Console.ReadLine();
 
         }

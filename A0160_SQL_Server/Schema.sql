@@ -72,3 +72,22 @@ BEGIN
   SELECT 'Hello 1' AS A, 'World 1' AS B UNION ALL
   SELECT 'Hello 2' AS A, 'World 2' AS B;
 END
+
+
+
+
+-- 测试存储过程
+CREATE PROCEDURE HelloWorldLongTime
+  @UserName VARCHAR(10),
+  @OutVal   VARCHAR(10) OUTPUT,
+  @InoutVal VARCHAR(20) OUTPUT
+AS
+BEGIN
+  -- 模拟一个长时间的处理
+  -- 时间为5分钟.
+  WAITFOR DELAY '00:05:00';
+  SET @OutVal = 'A';
+  SET @InoutVal = @UserName + @InoutVal;
+
+END;
+go

@@ -21,7 +21,7 @@ namespace A0160_SQL_Server.Sample
         /// SQL Server 的数据库连接字符串.
         /// </summary>
         private const String connString =
-            @"Data Source=localhost\SQLEXPRESS;Initial Catalog=TestWork;Integrated Security=True";
+            @"Data Source=localhost\SQLEXPRESS;Initial Catalog=Test;Integrated Security=True";
 
 
         /// <summary>
