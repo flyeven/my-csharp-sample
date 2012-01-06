@@ -79,8 +79,22 @@ namespace A0303_ThreadSafe
 
             Thread.Sleep(2000);
 
-            
 
+
+            Console.WriteLine("然后运行 使用 [MethodImpl(MethodImplOptions.Synchronized)] 实现 线程安全的 例子！");
+
+            ThreadSampleWithMethodImplOptions sampleWithMethodImplOptions = new ThreadSampleWithMethodImplOptions();
+
+            tsa = new ThreadStart(sampleWithMethodImplOptions.ThreadFuncA);
+            tsb = new ThreadStart(sampleWithMethodImplOptions.ThreadFuncB);
+
+            ta = new Thread(tsa);
+            tb = new Thread(tsb);
+
+            ta.Start();
+            tb.Start();
+
+            Thread.Sleep(2000);
 
 
             Console.ReadLine();

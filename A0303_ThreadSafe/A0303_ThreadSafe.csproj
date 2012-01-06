@@ -73,6 +73,7 @@
     <Compile Include="Sample\ThreadSampleWithMonitor.cs" />
     <Compile Include="Sample\ThreadSampleWithLock.cs" />
     <Compile Include="Sample\ThreadSampleWithMutex.cs" />
+    <Compile Include="Sample\ThreadSampleWithMethodImplOptions.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
