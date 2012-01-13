@@ -68,7 +68,6 @@ namespace A0075_AOPAttributes.Sample
 		/// <param name="msg"></param>
 		private void Preprocess(IMessage msg)
 		{
-			//检查是否是方法调用，我们只拦截Order的Submit方法。
 			IMethodCallMessage call = msg as IMethodCallMessage;
 			if (call == null)
 				return;
