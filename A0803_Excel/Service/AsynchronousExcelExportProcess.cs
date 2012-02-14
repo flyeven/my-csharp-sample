@@ -17,8 +17,42 @@ namespace A0803_Excel.Service
     /// <typeparam name="T"></typeparam>
     public class AsynchronousExcelExportProcess<T1, T2>
         where T1 : ExcelDataExportFormater<T2>
-              
     {
+
+
+        /// <summary>
+        /// 运行状态.
+        /// </summary>
+        public enum ExcelExportProcessRunningStatus
+        {
+            /// <summary>
+            /// 还未开始处理.
+            /// </summary>
+            NotStart,
+
+            /// <summary>
+            /// 正在等待中.
+            /// </summary>
+            IsWaiting,
+
+            /// <summary>
+            /// 处理进行中.
+            /// </summary>
+            IsRunning,
+
+
+            /// <summary>
+            /// 处理结束.
+            /// </summary>
+            ProcessFinish
+        }
+
+
+
+
+
+        #region 外部属性.
+
 
         /// <summary>
         /// 基准的定义得对象.
@@ -31,7 +65,31 @@ namespace A0803_Excel.Service
         public string OutputFileName { set; get; }
 
 
+        /// <summary>
+        /// 运行状态.
+        /// </summary>
+        private ExcelExportProcessRunningStatus runningStatus = ExcelExportProcessRunningStatus.NotStart;
 
+        /// <summary>
+        /// 运行状态.
+        /// </summary>
+        public ExcelExportProcessRunningStatus RunningStatus
+        {
+            get
+            {
+                return runningStatus;
+            }
+        }
+    
+
+
+        #endregion
+
+
+
+
+
+        #region  内部使用变量.
 
 
         /// <summary>
@@ -53,6 +111,8 @@ namespace A0803_Excel.Service
         /// </summary>
         private Queue<T2> dataQueue = new Queue<T2>();
 
+
+        #endregion
 
 
 
@@ -120,6 +180,10 @@ namespace A0803_Excel.Service
                                 // 退出循环.
                                 break;
                             }
+
+                            // 等待数据.
+                            runningStatus = ExcelExportProcessRunningStatus.IsWaiting;
+
                             // 等待通知.
                             Monitor.Wait(locker);
                         }
@@ -134,30 +198,36 @@ namespace A0803_Excel.Service
                     }
 
 
-                    Console.WriteLine("写入{0}条数据到 Excel 中 AT {1}", dataList.Count, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
-
-
-                    // 将临时列表中的数据， 写入 Excel .
-                    foreach (T2 oneData in dataList)
+                    if (dataList.Count > 0)
                     {
-                        // 清空参数.
-                        icmd.Parameters.Clear();
+                        // 运行状态.
+                        runningStatus = ExcelExportProcessRunningStatus.IsRunning;
 
-                        // 从对象获取参数数组.
-                        OleDbParameter[] parameters =
-                            ExcelDataExportFormater.GetInsertParameter(oneData);
+                        Console.WriteLine(
+                            "写入{0}条数据到 Excel 中 AT {1}", dataList.Count, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
 
-                        // 遍历填写参数.
-                        for (int i = 0; i < parameters.Length; i++)
+                        // 将临时列表中的数据， 写入 Excel .
+                        foreach (T2 oneData in dataList)
                         {
-                            icmd.Parameters.Add(parameters[i]);
-                        }
-                        // 执行数据库插入操作.
-                        icmd.ExecuteNonQuery();
-                    }
+                            // 清空参数.
+                            icmd.Parameters.Clear();
 
-                    // 清空临时列表.
-                    dataList.Clear();
+                            // 从对象获取参数数组.
+                            OleDbParameter[] parameters =
+                                ExcelDataExportFormater.GetInsertParameter(oneData);
+
+                            // 遍历填写参数.
+                            for (int i = 0; i < parameters.Length; i++)
+                            {
+                                icmd.Parameters.Add(parameters[i]);
+                            }
+                            // 执行数据库插入操作.
+                            icmd.ExecuteNonQuery();
+                        }
+
+                        // 清空临时列表.
+                        dataList.Clear();
+                    }
 
                 }
             }
@@ -169,10 +239,10 @@ namespace A0803_Excel.Service
                     cn.Close();
                 }
             }
+
+            // 处理结束标志.
+            runningStatus = ExcelExportProcessRunningStatus.ProcessFinish;
         }
-
-
-
 
 
 
@@ -182,19 +252,67 @@ namespace A0803_Excel.Service
         /// </summary>
         public void StartAsynchronousProcess()
         {
-            // 消费线程.
-            Thread reader = new Thread(CreateExcelReport);
-            reader.Start();
+            // 首先判断 当前运行状态.
+            // 避免 同时打开多个线程进行处理.
+            if (runningStatus == ExcelExportProcessRunningStatus.NotStart
+                || runningStatus == ExcelExportProcessRunningStatus.ProcessFinish)
+            {
+                // 默认情况下， 线程处于 等待状态.
+                runningStatus = ExcelExportProcessRunningStatus.IsWaiting;
+
+                // 消费线程.
+                Thread reader = new Thread(CreateExcelReport);
+                reader.Start();
+            }
+            else
+            {
+                // 线程已经启动.
+                // 抛出异常.
+                throw new ThreadStateException("Excel 报表处理线程已经启动.");
+            }
         }
 
 
         /// <summary>
         /// 结束异步处理.
         /// </summary>
-        public void FinishAsynchronousProcess()
-        {
+        /// <param name="waitToFinish"></param>
+        public void FinishAsynchronousProcess(bool waitToFinish = true)
+        {            
+            // 设置 结束的标志位.
             finishResult = true;
+
+            lock (locker)
+            {
+                // 通知 其他等待的线程
+                Monitor.Pulse(locker);
+            }
+
+
+            // 参数 waitToFinish 
+            // 意义是， 主线程是否等待  报表线程处理结束。
+            // 还是 让 报表线程自己去处理， 主线程不等待.
+            // 对于 “无人值守” 的报表处理， 主线程可以不等待，直接去处理其他的事务.
+            // 对于 “有客户端UI” 的报表处理， 主线程需要等待，以在报表创建完毕以后，同时操作人.
+            // 错误的设置 waitToFinish ， 可能会导致， Excel 报表处理线程，还在插入数据
+            // 而主程序就已经提示用户，Excel报表创建完毕。
+            // 而此时用户去打开 Excel 文件的时候，得到 文件被打开，或者文件被损坏的提示。
+            if (waitToFinish)
+            {
+                // 等待 报表处理操作执行完毕后，才返回.
+                while (true)
+                {
+                    Thread.Sleep(100);
+                    if (runningStatus == ExcelExportProcessRunningStatus.ProcessFinish)
+                    {
+                        break;
+                    }
+                }
+            }
+            
         }
+
+
 
 
         /// <summary>
