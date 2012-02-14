@@ -76,6 +76,48 @@ namespace A0802_Excel
 
 
 
+
+
+
+            ExcelDataImportFormater<TestData> iformat1 = new TestDataExcelImportFormater1();
+            ExcelDataImportFormater<TestData> iformat2 = new TestDataExcelImportFormater2();
+
+            ExcelImportProcess<ExcelDataImportFormater<TestData>, TestData> impr = 
+                new ExcelImportProcess<ExcelDataImportFormater<TestData>,TestData>();
+
+
+            // 从 test1.xls 读取.
+            impr.ExcelDataImportFormater = iformat1;
+            List<TestData> fileList1 = impr.ReadDataFromExcelReport("test1.xls");
+
+            Console.WriteLine("从 test1.xls 读取数据！");
+
+            foreach (TestData data in fileList1)
+            {
+                Console.WriteLine("UserName = {0}, City = {1}, Zip ={2}",
+                    data.UserName,
+                    data.City,
+                    data.Zip);
+            }
+
+
+
+            // 从 test2.xls 读取.
+            impr.ExcelDataImportFormater = iformat2;
+            List<TestData> fileList2 = impr.ReadDataFromExcelReport("test2.xls");
+
+            Console.WriteLine("从 test2.xls 读取数据！");
+
+            foreach (TestData data in fileList2)
+            {
+                Console.WriteLine("UserName = {0}, City = {1}, Zip ={2}",
+                    data.UserName,
+                    data.City,
+                    data.Zip);
+            }
+
+
+
             Console.ReadLine();
         }
 

@@ -44,11 +44,15 @@
     <Compile Include="Model\TestData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServiceImpl\TestDataExcelExportFormater1.cs" />
+    <Compile Include="ServiceImpl\TestDataExcelImportFormater1.cs" />
     <Compile Include="ServiceImpl\TestDataExcelExportFormater2.cs" />
+    <Compile Include="ServiceImpl\TestDataExcelExportFormater1.cs" />
+    <Compile Include="ServiceImpl\TestDataExcelImportFormater2.cs" />
     <Compile Include="Service\Common.cs" />
     <Compile Include="Service\ExcelDataExportFormater.cs" />
+    <Compile Include="Service\ExcelDataImportFormater.cs" />
     <Compile Include="Service\ExcelExportProcess.cs" />
+    <Compile Include="Service\ExcelImportProcess.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

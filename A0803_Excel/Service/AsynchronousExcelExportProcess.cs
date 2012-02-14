@@ -14,7 +14,8 @@ namespace A0803_Excel.Service
     /// <summary>
     /// 异步 Excel 报表导出处理类.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T1">格式化类</typeparam>
+    /// <typeparam name="T2">数据类</typeparam>
     public class AsynchronousExcelExportProcess<T1, T2>
         where T1 : ExcelDataExportFormater<T2>
     {
