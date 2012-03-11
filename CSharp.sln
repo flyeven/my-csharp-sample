@@ -113,6 +113,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0185_MySQL_MySqlClient", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0350_WinFormThread", "A0350_WinFormThread\A0350_WinFormThread.csproj", "{9C2C012B-DAEC-4A98-ABA3-BD1914EB6E5E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0101_Serializable", "A0101_Serializable\A0101_Serializable.csproj", "{7EA773B6-DBF1-4717-BBD1-94B3E7DB757B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0102_Path", "A0102_Path\A0102_Path.csproj", "{A19EBA42-2C89-414A-A36C-0092F76AECBE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -683,6 +687,26 @@ Global
 		{9C2C012B-DAEC-4A98-ABA3-BD1914EB6E5E}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{9C2C012B-DAEC-4A98-ABA3-BD1914EB6E5E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{9C2C012B-DAEC-4A98-ABA3-BD1914EB6E5E}.Release|x86.ActiveCfg = Release|Any CPU
+		{7EA773B6-DBF1-4717-BBD1-94B3E7DB757B}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{7EA773B6-DBF1-4717-BBD1-94B3E7DB757B}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{7EA773B6-DBF1-4717-BBD1-94B3E7DB757B}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{7EA773B6-DBF1-4717-BBD1-94B3E7DB757B}.Debug|x86.ActiveCfg = Debug|x86
+		{7EA773B6-DBF1-4717-BBD1-94B3E7DB757B}.Debug|x86.Build.0 = Debug|x86
+		{7EA773B6-DBF1-4717-BBD1-94B3E7DB757B}.Release|Any CPU.ActiveCfg = Release|x86
+		{7EA773B6-DBF1-4717-BBD1-94B3E7DB757B}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{7EA773B6-DBF1-4717-BBD1-94B3E7DB757B}.Release|Mixed Platforms.Build.0 = Release|x86
+		{7EA773B6-DBF1-4717-BBD1-94B3E7DB757B}.Release|x86.ActiveCfg = Release|x86
+		{7EA773B6-DBF1-4717-BBD1-94B3E7DB757B}.Release|x86.Build.0 = Release|x86
+		{A19EBA42-2C89-414A-A36C-0092F76AECBE}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{A19EBA42-2C89-414A-A36C-0092F76AECBE}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{A19EBA42-2C89-414A-A36C-0092F76AECBE}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{A19EBA42-2C89-414A-A36C-0092F76AECBE}.Debug|x86.ActiveCfg = Debug|x86
+		{A19EBA42-2C89-414A-A36C-0092F76AECBE}.Debug|x86.Build.0 = Debug|x86
+		{A19EBA42-2C89-414A-A36C-0092F76AECBE}.Release|Any CPU.ActiveCfg = Release|x86
+		{A19EBA42-2C89-414A-A36C-0092F76AECBE}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{A19EBA42-2C89-414A-A36C-0092F76AECBE}.Release|Mixed Platforms.Build.0 = Release|x86
+		{A19EBA42-2C89-414A-A36C-0092F76AECBE}.Release|x86.ActiveCfg = Release|x86
+		{A19EBA42-2C89-414A-A36C-0092F76AECBE}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

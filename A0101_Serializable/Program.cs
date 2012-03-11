@@ -81,6 +81,17 @@ namespace A0101_Serializable
 
 
 
+            Console.WriteLine("测试使用 System.Runtime.Serialization.Json 进行 序列化与反序列化！");
+
+            iService = new JsonDataObjectSerialization();
+
+            // 写入文件.
+            iService.WriteToFile(testData, "test.js");
+
+            // 读取文件.
+            Console.WriteLine(iService.ReadFromFile("test.js"));
+
+
 
             Console.ReadLine();
         }

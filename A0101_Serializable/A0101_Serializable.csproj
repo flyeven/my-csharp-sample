@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{7EA773B6-DBF1-4717-BBD1-94B3E7DB757B}</ProjectGuid>
     <OutputType>Exe</OutputType>
@@ -35,7 +35,16 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
     <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel.Web">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
@@ -47,6 +56,7 @@
     <Compile Include="Model\DataObject.cs" />
     <Compile Include="ServiceImpl\AbstractDataObjectSerialization.cs" />
     <Compile Include="ServiceImpl\BinaryDataObjectSerialization.cs" />
+    <Compile Include="ServiceImpl\JsonDataObjectSerialization.cs" />
     <Compile Include="ServiceImpl\SoapDataObjectSerialization.cs" />
     <Compile Include="ServiceImpl\XMLDataObjectSerialization.cs" />
     <Compile Include="Service\IDataObjectSerialization.cs" />

@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+
+using System.Runtime.Serialization;
+
+
 namespace A0101_Serializable.Model
 {
     
@@ -11,6 +15,7 @@ namespace A0101_Serializable.Model
     /// 用于存储数据的类.
     /// </summary>
     [Serializable]
+    [DataContract] 
     public class DataObject
     {
 
@@ -18,6 +23,7 @@ namespace A0101_Serializable.Model
         /// 测试保存数据的属性.
         /// 用户名.
         /// </summary>
+        [DataMember(Order = 0, IsRequired = true)] 
         public string UserName { set; get; }
 
 
@@ -25,6 +31,7 @@ namespace A0101_Serializable.Model
         /// 测试保存数据的属性.
         /// 好友名列表.
         /// </summary>
+        [DataMember(Order = 1)] 
         public List<string> FirendList { set; get; }
 
 
