@@ -219,7 +219,7 @@ namespace A0103_FileEncoding.Sample
 
                     if (line != null)
                     {
-                        Console.WriteLine("{0} : {1}", lineNo, line);
+                        // Console.WriteLine("{0} : {1}", lineNo, line);
 
                         // 写入数据.
                         sw.WriteLine(line);

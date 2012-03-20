@@ -82,6 +82,46 @@ namespace A0103_FileEncoding
 
 
 
+
+
+            IdentifyEncoding test = new IdentifyEncoding();
+
+            Console.WriteLine("test_UTF8.txt 文件编码为：{0}",
+                test.GetEncodingString(new System.IO.FileInfo("test_UTF8.txt"))
+            );
+
+
+            Console.WriteLine("test_Unicode.txt 文件编码为：{0}",
+                test.GetEncodingString(new System.IO.FileInfo("test_Unicode.txt"))
+            );
+
+            Console.WriteLine("test_GB2312.txt 文件编码为：{0}",
+                test.GetEncodingString(new System.IO.FileInfo("test_GB2312.txt"))
+            );
+
+
+            Console.WriteLine("test_Default.txt 文件编码为：{0}",
+                test.GetEncodingString(new System.IO.FileInfo("test_Default.txt"))
+            );
+
+
+
+
+
+            Console.WriteLine("text\\GB2312.txt 文件编码为：{0}",
+                test.GetEncodingString(new System.IO.FileInfo("text\\GB2312.txt"))
+            );
+
+
+            Console.WriteLine("text\\Unicode.txt 文件编码为：{0}",
+                test.GetEncodingString(new System.IO.FileInfo("text\\Unicode.txt"))
+            );
+
+
+            Console.WriteLine("text\\UTF8.txt 文件编码为：{0}",
+                test.GetEncodingString(new System.IO.FileInfo("text\\UTF8.txt"))
+            );
+
             Console.ReadLine();
         }
     }
