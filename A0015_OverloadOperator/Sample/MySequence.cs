@@ -61,10 +61,15 @@ namespace A0015_OverloadOperator.Sample
 		/// <param name="strVal"></param>
 		public MySequence(string strVal)
 		{
-			if (String.IsNullOrEmpty(strVal) )
+            if (strVal == null)
+            {
+                // 首先传入的参数要非空
+                throw new ArgumentNullException();
+            }            
+            if (String.IsNullOrEmpty(strVal) )
 			{
-				// 首先传入的参数要非空
-				throw new ArgumentNullException();
+				// 首先传入的参数要不是空白
+                throw new ArgumentException();
 			}
 			if (strVal.Length != 3)
 			{
