@@ -24,6 +24,7 @@ namespace B0031_Ninject.Sample
         /// </summary>
         private HelloWorldSingleton()
         {
+            Keyword = String.Empty;
         }
 
         /// <summary>
@@ -51,10 +52,17 @@ namespace B0031_Ninject.Sample
 
 
 
+        /// <summary>
+        /// 用于演示在 Provider 中， 额外设置的属性.
+        /// 
+        /// </summary>
+        public string Keyword { set; get; }
+
+
 
         string IHelloWorld.HelloWorld()
         {
-            return "我是一个单例的 Hello World! ";
+            return "我是一个单例的 Hello World! " + Keyword;
         }
 
 
