@@ -23,7 +23,7 @@ namespace B0033_Ninject.Sample
 
 
 
-        [Inject, EnglishKnowAble]
+        [Inject, EnglishKnowAble, ChineseKnowAble]
         public HkPeople(IHelloWorld helloWorld)
         {
             if (helloWorld == null)

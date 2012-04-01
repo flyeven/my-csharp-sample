@@ -32,11 +32,11 @@ namespace B0033_Ninject
 
             using (IKernel kernel = new StandardKernel(new MyModulesByName()))
             {
-                Console.WriteLine("获取名称为 Chinese 的 ChinesePeople！");
+                Console.WriteLine("获取 ChinesePeople ( Chinese 定义在 ChinesePeople 类中 ) ！");
                 ChinesePeople cp = kernel.Get<ChinesePeople>();
                 cp.SayHello();
 
-                Console.WriteLine("获取名称为 English 的 EnglishPeople！");
+                Console.WriteLine("获取  EnglishPeople （ English 定义在 EnglishPeople 类中 ）！");
                 EnglishPeople ep = kernel.Get<EnglishPeople>();
                 ep.SayHello();
 
