@@ -163,6 +163,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A4001_PathAna", "A4001_Path
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A3002_Office_Outlook", "A3002_Office_Outlook\A3002_Office_Outlook.csproj", "{660F89E0-7EB9-4EC6-B2B4-E3B2AE9E2D19}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0502_LINQ_Base3", "A0502_LINQ_Base3\A0502_LINQ_Base3.csproj", "{B7DDCB6B-0796-4DA2-8C4D-F73EF593D8F3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -983,6 +985,16 @@ Global
 		{660F89E0-7EB9-4EC6-B2B4-E3B2AE9E2D19}.Release|Mixed Platforms.Build.0 = Release|x86
 		{660F89E0-7EB9-4EC6-B2B4-E3B2AE9E2D19}.Release|x86.ActiveCfg = Release|x86
 		{660F89E0-7EB9-4EC6-B2B4-E3B2AE9E2D19}.Release|x86.Build.0 = Release|x86
+		{B7DDCB6B-0796-4DA2-8C4D-F73EF593D8F3}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{B7DDCB6B-0796-4DA2-8C4D-F73EF593D8F3}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{B7DDCB6B-0796-4DA2-8C4D-F73EF593D8F3}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{B7DDCB6B-0796-4DA2-8C4D-F73EF593D8F3}.Debug|x86.ActiveCfg = Debug|x86
+		{B7DDCB6B-0796-4DA2-8C4D-F73EF593D8F3}.Debug|x86.Build.0 = Debug|x86
+		{B7DDCB6B-0796-4DA2-8C4D-F73EF593D8F3}.Release|Any CPU.ActiveCfg = Release|x86
+		{B7DDCB6B-0796-4DA2-8C4D-F73EF593D8F3}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{B7DDCB6B-0796-4DA2-8C4D-F73EF593D8F3}.Release|Mixed Platforms.Build.0 = Release|x86
+		{B7DDCB6B-0796-4DA2-8C4D-F73EF593D8F3}.Release|x86.ActiveCfg = Release|x86
+		{B7DDCB6B-0796-4DA2-8C4D-F73EF593D8F3}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
