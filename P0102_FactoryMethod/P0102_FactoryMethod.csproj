@@ -5,14 +5,13 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{71465B74-8BC4-4112-A913-99FB22062EA8}</ProjectGuid>
+    <ProjectGuid>{8F1DC5B4-DDA1-4E85-B628-39A947FE6389}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>A0800_Excel</RootNamespace>
-    <AssemblyName>A0800_Excel</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-    <TargetFrameworkProfile>
-    </TargetFrameworkProfile>
+    <RootNamespace>P0102_FactoryMethod</RootNamespace>
+    <AssemblyName>P0102_FactoryMethod</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -39,21 +38,26 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FactoryMethodImpl\AppleGardener.cs" />
+    <Compile Include="FactoryMethodImpl\GrapeGardener.cs" />
+    <Compile Include="FactoryMethodImpl\StrawberryFruitGardener.cs" />
+    <Compile Include="FactoryMethod\IFruitGardener.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sample\Common.cs" />
-    <Compile Include="Sample\ExcelExportAble.cs" />
-    <Compile Include="Sample\ExcelExportProcess.cs" />
-    <Compile Include="Sample\ExcelImportAble.cs" />
-    <Compile Include="Sample\ExcelImportProcess.cs" />
-    <Compile Include="Test\TestData.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <Content Include="readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\P0101_SimpleFactory\P0101_SimpleFactory.csproj">
+      <Project>{F500909D-0E75-4A19-8312-B3FAF6BDD1F2}</Project>
+      <Name>P0101_SimpleFactory</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

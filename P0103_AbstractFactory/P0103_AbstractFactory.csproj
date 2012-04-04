@@ -5,14 +5,13 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{71465B74-8BC4-4112-A913-99FB22062EA8}</ProjectGuid>
+    <ProjectGuid>{32012B65-7572-4055-9CCA-955E6ADFD657}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>A0800_Excel</RootNamespace>
-    <AssemblyName>A0800_Excel</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-    <TargetFrameworkProfile>
-    </TargetFrameworkProfile>
+    <RootNamespace>P0103_AbstractFactory</RootNamespace>
+    <AssemblyName>P0103_AbstractFactory</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -39,22 +38,27 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbstractFactoryImpl\NorthernGardener.cs" />
+    <Compile Include="AbstractFactoryImpl\TropicalGardener.cs" />
+    <Compile Include="AbstractFactory\IGardener.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sample\Common.cs" />
-    <Compile Include="Sample\ExcelExportAble.cs" />
-    <Compile Include="Sample\ExcelExportProcess.cs" />
-    <Compile Include="Sample\ExcelImportAble.cs" />
-    <Compile Include="Sample\ExcelImportProcess.cs" />
-    <Compile Include="Test\TestData.cs" />
+    <Compile Include="ServiceImpl\NorthernFruit.cs" />
+    <Compile Include="ServiceImpl\NorthernVeggie.cs" />
+    <Compile Include="ServiceImpl\TropicalFruit.cs" />
+    <Compile Include="ServiceImpl\TropicalVeggie.cs" />
+    <Compile Include="Service\IFruit.cs" />
+    <Compile Include="Service\IVeggie.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <Content Include="readme.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual C# Express 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P0101_SimpleFactory", "P0101_SimpleFactory\P0101_SimpleFactory.csproj", "{F500909D-0E75-4A19-8312-B3FAF6BDD1F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P0102_FactoryMethod", "P0102_FactoryMethod\P0102_FactoryMethod.csproj", "{8F1DC5B4-DDA1-4E85-B628-39A947FE6389}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P0103_AbstractFactory", "P0103_AbstractFactory\P0103_AbstractFactory.csproj", "{32012B65-7572-4055-9CCA-955E6ADFD657}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F500909D-0E75-4A19-8312-B3FAF6BDD1F2}.Debug|x86.ActiveCfg = Debug|x86
+		{F500909D-0E75-4A19-8312-B3FAF6BDD1F2}.Debug|x86.Build.0 = Debug|x86
+		{F500909D-0E75-4A19-8312-B3FAF6BDD1F2}.Release|x86.ActiveCfg = Release|x86
+		{F500909D-0E75-4A19-8312-B3FAF6BDD1F2}.Release|x86.Build.0 = Release|x86
+		{8F1DC5B4-DDA1-4E85-B628-39A947FE6389}.Debug|x86.ActiveCfg = Debug|x86
+		{8F1DC5B4-DDA1-4E85-B628-39A947FE6389}.Debug|x86.Build.0 = Debug|x86
+		{8F1DC5B4-DDA1-4E85-B628-39A947FE6389}.Release|x86.ActiveCfg = Release|x86
+		{8F1DC5B4-DDA1-4E85-B628-39A947FE6389}.Release|x86.Build.0 = Release|x86
+		{32012B65-7572-4055-9CCA-955E6ADFD657}.Debug|x86.ActiveCfg = Debug|x86
+		{32012B65-7572-4055-9CCA-955E6ADFD657}.Debug|x86.Build.0 = Debug|x86
+		{32012B65-7572-4055-9CCA-955E6ADFD657}.Release|x86.ActiveCfg = Release|x86
+		{32012B65-7572-4055-9CCA-955E6ADFD657}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
