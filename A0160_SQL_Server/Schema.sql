@@ -73,7 +73,7 @@ BEGIN
   SELECT 'Hello 2' AS A, 'World 2' AS B;
 END
 
-
+go
 
 
 -- ²âÊÔ´æ´¢¹ý³Ì
