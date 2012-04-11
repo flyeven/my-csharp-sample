@@ -379,6 +379,43 @@ namespace A3001_Office_Excel.Common
 
 
 
+        /// <summary>
+        /// 简单的 复制 粘贴
+        /// 从 源 Sheet 复制到 目标 Sheet.
+        /// </summary>
+        /// <param name="fromSheetName">源 Sheet 名称.</param>
+        /// <param name="toSheetName"> 目标 Sheet 名称. </param>
+        /// <param name="fromPlace"> 源 Sheet 的起始地址 </param>
+        /// <param name="toPlace"> 目标 Sheet 的起始地址</param>
+        public void SimpleCopy(string fromSheetName, string toSheetName, 
+            string fromPlace,
+            string toPlace)
+        {
+            // 选择源工作表.
+            Excel.Worksheet fromSheet = (Excel.Worksheet)xlBook.Sheets.get_Item(fromSheetName);
+
+            // 选择
+            fromSheet.Select();
+            // 复制. （从指定坐标开始， 到全部）
+            fromSheet.Range[fromPlace, GetEndAddress(fromSheet)].Copy();
+
+            // 选择目的工作表.
+            Excel.Worksheet toSheet = (Excel.Worksheet)xlBook.Sheets.get_Item(toSheetName);
+
+
+            // 选择.
+            toSheet.Activate();
+            toSheet.Select();
+
+            // 粘贴格式.
+            toSheet.Range[toPlace].PasteSpecial(Excel.XlPasteType.xlPasteFormats);
+
+            // 粘贴数据.
+            toSheet.Range[toPlace].PasteSpecial(Excel.XlPasteType.xlPasteValues);
+        }
+
+
+
 
         #region  条件格式代码.
 
