@@ -449,6 +449,25 @@
       <td> Entity Framework 的例子 </td>
     </tr>
 
+	<tr>
+      <td> A0620_EFv4 </td>
+      <td> Entity Framework v4.1 的例子 (需要 .NET 4.0)
+      <p>
+      本例子中，没有以前的那种 命令行下 执行 EdmGen 产生源代码的处理。
+
+      本例子在 C# 中定义了一个 mr_demo_data 类。
+      在 SQL Server 中，定义一个 mr_demo_data 表
+      类中的属性，与表中的字段，一一对应。
+      </p>
+      
+      <p>
+      通过定义一个 DbContext 类。
+      在 DbContext 中， 为表定义 DbSet。
+      
+      Business 类 将直接使用 DbContext ，来对特定的表，进行 更新、删除、查询的处理。
+      </p>
+      </td>
+    </tr>
 
     <tr>
       <td> A0700_Main/A0701_AutoUpdate/A0702_CommonFunc </td>
