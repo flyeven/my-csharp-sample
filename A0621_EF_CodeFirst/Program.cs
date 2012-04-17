@@ -3,26 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using A0620_EFv4.Sample;
+using A0621_EF_CodeFirst.Sample;
 
 
-
-namespace A0620_EFv4
+namespace A0621_EF_CodeFirst
 {
-
     class Program
     {
         static void Main(string[] args)
         {
+
             // 测试类.
             Test p = new Test();
 
-
-
-            mr_demo_data data1 = new mr_demo_data() { city_id = 1, dept_id = 1, demo_info = "C1_D1" };
-            mr_demo_data data2 = new mr_demo_data() { city_id = 1, dept_id = 2, demo_info = "C1_D2" };
-            mr_demo_data data3 = new mr_demo_data() { city_id = 2, dept_id = 1, demo_info = "C2_D1" };
-            mr_demo_data data4 = new mr_demo_data() { city_id = 2, dept_id = 2, demo_info = "C2_D2" };
+            MrDemoData data1 = new MrDemoData() { CityID = 1, DeptID = 1, DemoInfo = "C1_D1" };
+            MrDemoData data2 = new MrDemoData() { CityID = 1, DeptID = 2, DemoInfo = "C1_D2" };
+            MrDemoData data3 = new MrDemoData() { CityID = 2, DeptID = 1, DemoInfo = "C2_D1" };
+            MrDemoData data4 = new MrDemoData() { CityID = 2, DeptID = 2, DemoInfo = "C2_D2" };
 
 
             Console.WriteLine("测试插入数据!");
@@ -37,32 +34,34 @@ namespace A0620_EFv4
 
             var query =
                 from data in p.MrDemoDataSource
-                where data.city_id == 1
+                where data.CityID == 1
                 select data;
 
 
-            foreach (mr_demo_data d in query)
+            foreach (MrDemoData d in query)
             {
                 Console.WriteLine(d.ToString());
             }
 
-            data2.demo_info = "Update 22";
-            data4.demo_info = "Update 44";
-
+            data2.DemoInfo = "Update 22";
+            data4.DemoInfo = "Update 44";
 
             Console.WriteLine("测试更新!");
             p.SaveMrDemoData(data2);
             p.SaveMrDemoData(data4);
 
 
+
+
+
             query =
                 from data in p.MrDemoDataSource
                 where
-                    data.city_id == 1
-                    || data.city_id == 2
+                    data.CityID == 1
+                    || data.CityID == 2
                 select data;
 
-            foreach (mr_demo_data d in query)
+            foreach (MrDemoData d in query)
             {
                 Console.WriteLine(d.ToString());
             }
@@ -76,14 +75,16 @@ namespace A0620_EFv4
             query =
                 from data in p.MrDemoDataSource
                 where
-                    data.city_id == 1
-                    || data.city_id == 2
+                    data.CityID == 1
+                    || data.CityID == 2
                 select data;
 
-            foreach (mr_demo_data d in query)
+            foreach (MrDemoData d in query)
             {
                 Console.WriteLine(d.ToString());
             }
+
+
 
             p.DeleteMrDemoData(data2);
             p.DeleteMrDemoData(data4);
@@ -94,5 +95,4 @@ namespace A0620_EFv4
 
         }
     }
-
 }

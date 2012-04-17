@@ -68,8 +68,8 @@
       <td> 扩展方法给我们提供了一种很便捷的方式，
 	      通过这种方式我可以给那些不是我们自己创建的类(如第三方组件里面的)
 		  或是我们不能直接修改的类添加方法。 </td>
-    </tr>	
-	
+    </tr>
+
     <tr>
       <td>A0020_Function</td>
       <td> 函数中、参数数量可变、REF、OUT 的例子 </td>
@@ -459,15 +459,87 @@
       在 SQL Server 中，定义一个 mr_demo_data 表
       类中的属性，与表中的字段，一一对应。
       </p>
-      
+
       <p>
       通过定义一个 DbContext 类。
       在 DbContext 中， 为表定义 DbSet。
-      
+
       Business 类 将直接使用 DbContext ，来对特定的表，进行 更新、删除、查询的处理。
       </p>
       </td>
     </tr>
+
+
+    <tr>
+      <td> A0621_EF_CodeFirst </td>
+      <td> Entity Framework CodeFirst 的例子  (需要 .NET 4.0)
+        <p>
+          CodeFirst 意味着，不是先设计表、或者数据库模型。
+          而是先从设计 C# 的类开始。
+          定义具体的业务需求。
+          最后，通过 C# 中的定义， 来创建数据库与表。
+          此功能需要 Entity Framework 4.x 支持。
+        </p>
+      </td>
+    </tr>
+
+    <tr>
+      <td> A0622_EF_OneToMany </td>
+      <td> Entity Framework 的 One To Many 例子 (需要 .NET 4.0)
+        <p>
+Code First在处理多重性关系时应用了一系列规则。
+规则使用导航属性确定多重性关系。
+即可以是一对导航属性互相指定（双向关系），也可以是单个导航属性（单向关系）。
+
+如果你的类中包含一个引用和一个集合导航属性，Code First视为一对多关系；
+如果你的类中仅在单边包含导航属性（即要么是集合要么是引用，只有一种），Code First也将其视为一对多关系；
+
+如果你的类包含两个集合属性，Code First默认会使用多对多关系；
+
+如果你的类包含两个引用属性，Code First会视为一对一关系；
+在一对一关系中，你需要提供附加信息以使Code First获知何为主何为辅。
+        </p>
+      </td>
+    </tr>
+
+    <tr>
+      <td> A0623_EF_ManyToMany </td>
+      <td> Entity Framework 的 Many To Many 例子 (需要 .NET 4.0)
+      </td>
+    </tr>
+
+    <tr>
+      <td> A0624_EF_OneToOne </td>
+      <td> Entity Framework 的 One To One 例子 (需要 .NET 4.0)
+      </td>
+    </tr>
+
+    <tr>
+      <td> A0630_EF_Inherit_TPH </td>
+      <td> Entity Framework 的 继承处理的例子 (需要 .NET 4.0)
+        <p>
+          本例子用于演示 Entity Framework CodeFirst 中 继承 的处理方式。
+          这里使用的是 默认的 TPH 方式。
+          也就是 所有的子类，使用同一张表。
+          该表有一个 Discriminator 列，用于区分各个子类。          
+          这个表的列，包含了各个子类的属性。
+        </p>
+      </td>
+    </tr>
+
+
+    <tr>
+      <td> A0631_EF_Inherit_TPT </td>
+      <td> Entity Framework 的 继承处理的例子 (需要 .NET 4.0)
+        <p>
+          本例子用于演示 Entity Framework CodeFirst 中 继承 的处理方式。
+          这里使用的是 TPT 的方式。
+          也就是 基类使用一张表。
+          各个子类的使用各自单独的表。
+        </p>
+      </td>
+    </tr>
+
 
     <tr>
       <td> A0700_Main/A0701_AutoUpdate/A0702_CommonFunc </td>
@@ -659,7 +731,7 @@
     </tr>
 
 
-	
+
     <tr>
       <td>B0040_MOQ</td>
       <td> MOQ 使用的基本例子。 </td>
@@ -668,9 +740,9 @@
     <tr>
       <td>B0045_MOQ_Ninject</td>
       <td> MOQ 与 Ninject 结合使用的例子。 </td>
-    </tr>	
-	
-	
+    </tr>
+
+
     <tr>
       <td>-</td>
       <td>-</td>
@@ -721,12 +793,12 @@
       <td>P0202_DefaultAdapter</td>
       <td>设计模式 [结构模式]中，缺省适配 的例子</td>
     </tr>
-	
+
 	<tr>
       <td>P0203_Composite</td>
       <td>设计模式 [结构模式]中，合成模式 的例子</td>
     </tr>
-	
+
 	<tr>
       <td>P0204_Decorator</td>
       <td> 设计模式 [结构模式]中，装饰的例子 </td>

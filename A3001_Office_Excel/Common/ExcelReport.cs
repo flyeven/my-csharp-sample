@@ -368,12 +368,17 @@ namespace A3001_Office_Excel.Common
             toSheet.Activate();
             toSheet.Select();
 
-            // 粘贴格式.
-            toSheet.Range[startPlace].PasteSpecial(Excel.XlPasteType.xlPasteFormats);
+            // 注意:
+            // 这里是  先粘贴数据， 后粘贴格式
+            // 假如  先粘贴格式 后粘贴数据的话
+            // 如果 源Sheet 有 合并单元格的情况下
+            // 粘贴格式完毕以后， 再粘贴数据将发生错误。
 
             // 粘贴数据.
             toSheet.Range[startPlace].PasteSpecial(Excel.XlPasteType.xlPasteValues);
-
+            
+            // 粘贴格式.
+            toSheet.Range[startPlace].PasteSpecial(Excel.XlPasteType.xlPasteFormats);
         }
 
 
@@ -402,16 +407,16 @@ namespace A3001_Office_Excel.Common
             // 选择目的工作表.
             Excel.Worksheet toSheet = (Excel.Worksheet)xlBook.Sheets.get_Item(toSheetName);
 
-
             // 选择.
             toSheet.Activate();
             toSheet.Select();
 
+            // 粘贴数据.
+            toSheet.Range[toPlace].PasteSpecial(Excel.XlPasteType.xlPasteValues);
+            
             // 粘贴格式.
             toSheet.Range[toPlace].PasteSpecial(Excel.XlPasteType.xlPasteFormats);
 
-            // 粘贴数据.
-            toSheet.Range[toPlace].PasteSpecial(Excel.XlPasteType.xlPasteValues);
         }
 
 
@@ -640,6 +645,122 @@ namespace A3001_Office_Excel.Common
         #endregion
 
 
+
+
+
+        #region 格式设定代码.
+
+
+
+
+        /// <summary>
+        /// 合并单元格.
+        /// </summary>
+        /// <param name="fromAddr"></param>
+        /// <param name="toAddr"></param>
+        public void Merge(string fromAddr, string toAddr)
+        {
+            xlSheet.Range[fromAddr, toAddr].Merge();
+        }
+
+
+        /// <summary>
+        /// 插入一列.
+        /// </summary>
+        public void InsertCol(int colIndex)
+        {
+            xlSheet.Columns[colIndex].Insert(
+                Shift: -4161,
+                CopyOrigin: 0
+                );
+        }
+
+
+
+        /// <summary>
+        /// 删除列.
+        /// </summary>
+        /// <param name="colIndex"></param>
+        public void RemoveCol(int colIndex)
+        {
+            xlSheet.Columns[colIndex].Delete(
+                Shift: -4159
+                );
+        }
+
+        /// <summary>
+        /// 删除行.
+        /// </summary>
+        /// <param name="rowIndex"></param>
+        public void RemoveRow(int rowIndex)
+        {
+            xlSheet.Rows[rowIndex].Delete(
+                Shift: -4162
+                );
+        }
+
+
+
+
+        /// <summary>
+        /// 复制一列.
+        /// </summary>
+        /// <param name="fromColumn"></param>
+        /// <param name="toColumn"></param>
+        public void SimpleCopyColumn(int fromColumn, string startPlace)
+        {
+            xlSheet.Columns[fromColumn].Copy();
+
+            // 粘贴格式.
+            xlSheet.Range[startPlace].PasteSpecial(Excel.XlPasteType.xlPasteFormats);
+
+            // 粘贴数据.
+            xlSheet.Range[startPlace].PasteSpecial(Excel.XlPasteType.xlPasteValues);
+        }
+
+
+        /// <summary>
+        /// 在同一个 Sheet 范围内， 简单的复制粘贴处理.
+        /// </summary>
+        /// <param name="fromPlaceBegin"></param>
+        /// <param name="fromPlaceEnd"></param>
+        /// <param name="startPlace"></param>
+        public void SimpleCopyInOneSheet(
+            string fromPlaceBegin, string fromPlaceEnd,
+            string startPlace)
+        {
+            // 复制.
+            xlSheet.Range[fromPlaceBegin, fromPlaceEnd].Copy();
+
+            // 粘贴
+            xlSheet.Range[startPlace].Select();
+            xlSheet.Paste();
+        }
+
+
+
+        /// <summary>
+        /// 获取最大列索引.
+        /// </summary>
+        /// <returns></returns>
+        public int GetMaxColIndex()
+        {
+            return xlSheet.UsedRange.Columns.Count;
+        }
+
+
+        /// <summary>
+        /// 获取最大行索引.
+        /// </summary>
+        /// <returns></returns>
+        public int GetMaxRowIndex()
+        {
+            return xlSheet.UsedRange.Rows.Count;
+        }
+
+
+
+        #endregion
 
     }
 
