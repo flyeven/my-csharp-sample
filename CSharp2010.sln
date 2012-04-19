@@ -163,8 +163,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0502_LINQ_Base3", "A0502_L
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0016_ExtensionMethods", "A0016_ExtensionMethods\A0016_ExtensionMethods.csproj", "{436B7B00-6D0A-42A5-856D-3CDAEFD7F2AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0620_EFv4", "A0620_EFv4\A0620_EFv4.csproj", "{81F13FE0-80FB-42AE-8533-3739AC023211}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -985,16 +983,6 @@ Global
 		{436B7B00-6D0A-42A5-856D-3CDAEFD7F2AF}.Release|Mixed Platforms.Build.0 = Release|x86
 		{436B7B00-6D0A-42A5-856D-3CDAEFD7F2AF}.Release|x86.ActiveCfg = Release|x86
 		{436B7B00-6D0A-42A5-856D-3CDAEFD7F2AF}.Release|x86.Build.0 = Release|x86
-		{81F13FE0-80FB-42AE-8533-3739AC023211}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{81F13FE0-80FB-42AE-8533-3739AC023211}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{81F13FE0-80FB-42AE-8533-3739AC023211}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{81F13FE0-80FB-42AE-8533-3739AC023211}.Debug|x86.ActiveCfg = Debug|x86
-		{81F13FE0-80FB-42AE-8533-3739AC023211}.Debug|x86.Build.0 = Debug|x86
-		{81F13FE0-80FB-42AE-8533-3739AC023211}.Release|Any CPU.ActiveCfg = Release|x86
-		{81F13FE0-80FB-42AE-8533-3739AC023211}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{81F13FE0-80FB-42AE-8533-3739AC023211}.Release|Mixed Platforms.Build.0 = Release|x86
-		{81F13FE0-80FB-42AE-8533-3739AC023211}.Release|x86.ActiveCfg = Release|x86
-		{81F13FE0-80FB-42AE-8533-3739AC023211}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

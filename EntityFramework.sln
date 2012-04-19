@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0630_EF_Inherit_TPH", "A06
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0631_EF_Inherit_TPT", "A0631_EF_Inherit_TPT\A0631_EF_Inherit_TPT.csproj", "{0A77EEF5-5587-44F4-9670-736477B87196}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0640_EF_Enum", "A0640_EF_Enum\A0640_EF_Enum.csproj", "{F42F4B47-8F58-4DB9-99AD-4AAAB6399D60}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -49,6 +51,10 @@ Global
 		{0A77EEF5-5587-44F4-9670-736477B87196}.Debug|x86.Build.0 = Debug|x86
 		{0A77EEF5-5587-44F4-9670-736477B87196}.Release|x86.ActiveCfg = Release|x86
 		{0A77EEF5-5587-44F4-9670-736477B87196}.Release|x86.Build.0 = Release|x86
+		{F42F4B47-8F58-4DB9-99AD-4AAAB6399D60}.Debug|x86.ActiveCfg = Debug|x86
+		{F42F4B47-8F58-4DB9-99AD-4AAAB6399D60}.Debug|x86.Build.0 = Debug|x86
+		{F42F4B47-8F58-4DB9-99AD-4AAAB6399D60}.Release|x86.ActiveCfg = Release|x86
+		{F42F4B47-8F58-4DB9-99AD-4AAAB6399D60}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
