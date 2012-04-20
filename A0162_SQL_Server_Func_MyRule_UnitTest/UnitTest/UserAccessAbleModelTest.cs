@@ -17,7 +17,7 @@ namespace A0162_SQL_Server_Func_MyRule_UnitTest.UnitTest
     ///  用户的 "可访问模块" 列表 方法测试.
     /// </summary>
     [TestFixture]
-    public class UserAccessAbleModelTest
+    public class UserAccessAbleModuleTest
     {
 
         /// <summary>
@@ -62,8 +62,8 @@ namespace A0162_SQL_Server_Func_MyRule_UnitTest.UnitTest
             // 测试数据中， 张三是  人事管理 
 
             // 查询测试数据中 “张三” 的可访问 “模块” 列表.
-            List<MyRule_UserAccessAbleModelResult> modelList =
-                context.MyRule_UserAccessAbleModel(1).ToList();
+            List<MyRule_UserAccessAbleModuleResult> modelList =
+                context.MyRule_UserAccessAbleModule(1).ToList();
 
             // 9个 模块.
             Assert.AreEqual(9, modelList.Count);
@@ -159,8 +159,8 @@ namespace A0162_SQL_Server_Func_MyRule_UnitTest.UnitTest
             // 测试数据中， 李四是  人事组织管理 
 
             // 查询测试数据中 “李四” 的可访问 “模块” 列表.
-            List<MyRule_UserAccessAbleModelResult> modelList =
-                context.MyRule_UserAccessAbleModel(userID).ToList();
+            List<MyRule_UserAccessAbleModuleResult> modelList =
+                context.MyRule_UserAccessAbleModule(userID).ToList();
 
             // 4个 模块.
             Assert.AreEqual(4, modelList.Count);
@@ -253,8 +253,8 @@ namespace A0162_SQL_Server_Func_MyRule_UnitTest.UnitTest
             // 测试数据中， 王五是  部门管理 
 
             // 查询测试数据中 “王五” 的可访问 “模块” 列表.
-            List<MyRule_UserAccessAbleModelResult> modelList =
-                context.MyRule_UserAccessAbleModel(userID).ToList();
+            List<MyRule_UserAccessAbleModuleResult> modelList =
+                context.MyRule_UserAccessAbleModule(userID).ToList();
 
             // 1个 模块.
             Assert.AreEqual(1, modelList.Count);
@@ -347,8 +347,8 @@ namespace A0162_SQL_Server_Func_MyRule_UnitTest.UnitTest
             // 测试数据中， 赵六是  权限管理 
 
             // 查询测试数据中 “赵六” 的可访问 “模块” 列表.
-            List<MyRule_UserAccessAbleModelResult> modelList =
-                context.MyRule_UserAccessAbleModel(userID).ToList();
+            List<MyRule_UserAccessAbleModuleResult> modelList =
+                context.MyRule_UserAccessAbleModule(userID).ToList();
 
             // 1个 模块.
             Assert.AreEqual(1, modelList.Count);
@@ -437,8 +437,8 @@ namespace A0162_SQL_Server_Func_MyRule_UnitTest.UnitTest
                 // 测试数据中，  张A 李B 王C 赵D  是  没有配置任何  用户模块权限. 
 
                 // 查询测试数据中 “ 张A 李B 王C 赵D ” 的可访问 “模块” 列表.
-                List<MyRule_UserAccessAbleModelResult> modelList =
-                    context.MyRule_UserAccessAbleModel(userID).ToList();
+                List<MyRule_UserAccessAbleModuleResult> modelList =
+                    context.MyRule_UserAccessAbleModule(userID).ToList();
 
                 // 0个 模块.
                 Assert.AreEqual(0, modelList.Count);
@@ -507,8 +507,8 @@ namespace A0162_SQL_Server_Func_MyRule_UnitTest.UnitTest
             int userID = 99;
 
             // 查询测试数据中 “ 不存在用户 ” 的可访问 “模块” 列表.
-            List<MyRule_UserAccessAbleModelResult> modelList =
-                context.MyRule_UserAccessAbleModel(userID).ToList();
+            List<MyRule_UserAccessAbleModuleResult> modelList =
+                context.MyRule_UserAccessAbleModule(userID).ToList();
 
             // 0个 模块.
             Assert.AreEqual(0, modelList.Count);
@@ -578,8 +578,8 @@ namespace A0162_SQL_Server_Func_MyRule_UnitTest.UnitTest
             int? userID = null;
 
             // 查询测试数据中 “ 不存在用户 ” 的可访问 “模块” 列表.
-            List<MyRule_UserAccessAbleModelResult> modelList =
-                context.MyRule_UserAccessAbleModel(userID).ToList();
+            List<MyRule_UserAccessAbleModuleResult> modelList =
+                context.MyRule_UserAccessAbleModule(userID).ToList();
 
             // 0个 模块.
             Assert.AreEqual(0, modelList.Count);

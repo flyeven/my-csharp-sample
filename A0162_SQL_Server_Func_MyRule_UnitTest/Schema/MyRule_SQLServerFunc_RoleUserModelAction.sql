@@ -51,8 +51,8 @@ GO
 IF EXISTS(SELECT * FROM dbo.sysobjects WHERE
     xtype IN ('IF', 'TF', 'FN')
     AND OBJECTPROPERTY(id, N'IsMSShipped') = 0
-    AND name='MyRule_RoleAccessAbleModel')
-  DROP FUNCTION MyRule_RoleAccessAbleModel
+    AND name='MyRule_RoleAccessAbleModule')
+  DROP FUNCTION MyRule_RoleAccessAbleModule
 GO
 
 
@@ -62,7 +62,7 @@ GO
 -- Description:	获取 指定 角色的 "可访问模块" 列表.
 --              可访问模块包含 角色直接可访问模块 与 角色直接可访问模块的下属模块.
 -- =============================================
-CREATE FUNCTION MyRule_RoleAccessAbleModel
+CREATE FUNCTION MyRule_RoleAccessAbleModule
 (
     @roleID     int
 )
@@ -110,8 +110,8 @@ GO
 
 
 ---------------------------------------------------------------
--- SELECT * FROM MyRule_RoleAccessAbleModel(1);
--- SELECT * FROM MyRule_RoleAccessAbleModel(2);
+-- SELECT * FROM MyRule_RoleAccessAbleModule(1);
+-- SELECT * FROM MyRule_RoleAccessAbleModule(2);
 ---------------------------------------------------------------
 
 
@@ -170,7 +170,7 @@ RETURN
             EXISTS (
                 SELECT 1
                 FROM
-                    MyRule_RoleAccessAbleModel(@roleID) AS RAAM
+                    MyRule_RoleAccessAbleModule(@roleID) AS RAAM
                 WHERE
                     RAAM.module_id = mr_action.module_id
             )

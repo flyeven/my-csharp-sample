@@ -211,22 +211,10 @@ namespace A0162_SQL_Server_Func_MyRule_UnitTest
 			return this.CreateMethodCallQuery<MyRule_RoleAccessAbleActionResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), roleID, moduleID);
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MyRule_RoleAccessAbleModel", IsComposable=true)]
-		public IQueryable<MyRule_RoleAccessAbleModelResult> MyRule_RoleAccessAbleModel([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> roleID)
-		{
-			return this.CreateMethodCallQuery<MyRule_RoleAccessAbleModelResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), roleID);
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MyRule_UserAccessAbleAction", IsComposable=true)]
 		public IQueryable<MyRule_UserAccessAbleActionResult> MyRule_UserAccessAbleAction([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> userID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> moduleID)
 		{
 			return this.CreateMethodCallQuery<MyRule_UserAccessAbleActionResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userID, moduleID);
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MyRule_UserAccessAbleModel", IsComposable=true)]
-		public IQueryable<MyRule_UserAccessAbleModelResult> MyRule_UserAccessAbleModel([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> userID)
-		{
-			return this.CreateMethodCallQuery<MyRule_UserAccessAbleModelResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userID);
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MyRule_UserOwnRole", IsComposable=true)]
@@ -247,10 +235,22 @@ namespace A0162_SQL_Server_Func_MyRule_UnitTest
 			return this.CreateMethodCallQuery<MyRule_AllUserAccessAbleActionResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userID, moduleID);
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MyRule_AllUserAccessAbleModel", IsComposable=true)]
-		public IQueryable<MyRule_AllUserAccessAbleModelResult> MyRule_AllUserAccessAbleModel([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> userID)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MyRule_AllUserAccessAbleModule", IsComposable=true)]
+		public IQueryable<MyRule_AllUserAccessAbleModuleResult> MyRule_AllUserAccessAbleModule([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> userID)
 		{
-			return this.CreateMethodCallQuery<MyRule_AllUserAccessAbleModelResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userID);
+			return this.CreateMethodCallQuery<MyRule_AllUserAccessAbleModuleResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userID);
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MyRule_RoleAccessAbleModule", IsComposable=true)]
+		public IQueryable<MyRule_RoleAccessAbleModuleResult> MyRule_RoleAccessAbleModule([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> roleID)
+		{
+			return this.CreateMethodCallQuery<MyRule_RoleAccessAbleModuleResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), roleID);
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MyRule_UserAccessAbleModule", IsComposable=true)]
+		public IQueryable<MyRule_UserAccessAbleModuleResult> MyRule_UserAccessAbleModule([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> userID)
+		{
+			return this.CreateMethodCallQuery<MyRule_UserAccessAbleModuleResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userID);
 		}
 	}
 	
@@ -2841,86 +2841,6 @@ namespace A0162_SQL_Server_Func_MyRule_UnitTest
 		}
 	}
 	
-	public partial class MyRule_RoleAccessAbleModelResult
-	{
-		
-		private System.Nullable<int> _module_id;
-		
-		private System.Nullable<int> _parent_id;
-		
-		private string _module_name;
-		
-		private System.Nullable<short> _status;
-		
-		public MyRule_RoleAccessAbleModelResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_module_id", DbType="Int")]
-		public System.Nullable<int> module_id
-		{
-			get
-			{
-				return this._module_id;
-			}
-			set
-			{
-				if ((this._module_id != value))
-				{
-					this._module_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_parent_id", DbType="Int")]
-		public System.Nullable<int> parent_id
-		{
-			get
-			{
-				return this._parent_id;
-			}
-			set
-			{
-				if ((this._parent_id != value))
-				{
-					this._parent_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_module_name", DbType="NVarChar(20)")]
-		public string module_name
-		{
-			get
-			{
-				return this._module_name;
-			}
-			set
-			{
-				if ((this._module_name != value))
-				{
-					this._module_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="SmallInt")]
-		public System.Nullable<short> status
-		{
-			get
-			{
-				return this._status;
-			}
-			set
-			{
-				if ((this._status != value))
-				{
-					this._status = value;
-				}
-			}
-		}
-	}
-	
 	public partial class MyRule_UserAccessAbleActionResult
 	{
 		
@@ -3004,86 +2924,6 @@ namespace A0162_SQL_Server_Func_MyRule_UnitTest
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="SmallInt NOT NULL")]
 		public short status
-		{
-			get
-			{
-				return this._status;
-			}
-			set
-			{
-				if ((this._status != value))
-				{
-					this._status = value;
-				}
-			}
-		}
-	}
-	
-	public partial class MyRule_UserAccessAbleModelResult
-	{
-		
-		private System.Nullable<int> _module_id;
-		
-		private System.Nullable<int> _parent_id;
-		
-		private string _module_name;
-		
-		private System.Nullable<short> _status;
-		
-		public MyRule_UserAccessAbleModelResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_module_id", DbType="Int")]
-		public System.Nullable<int> module_id
-		{
-			get
-			{
-				return this._module_id;
-			}
-			set
-			{
-				if ((this._module_id != value))
-				{
-					this._module_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_parent_id", DbType="Int")]
-		public System.Nullable<int> parent_id
-		{
-			get
-			{
-				return this._parent_id;
-			}
-			set
-			{
-				if ((this._parent_id != value))
-				{
-					this._parent_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_module_name", DbType="NVarChar(20)")]
-		public string module_name
-		{
-			get
-			{
-				return this._module_name;
-			}
-			set
-			{
-				if ((this._module_name != value))
-				{
-					this._module_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="SmallInt")]
-		public System.Nullable<short> status
 		{
 			get
 			{
@@ -3357,7 +3197,7 @@ namespace A0162_SQL_Server_Func_MyRule_UnitTest
 		}
 	}
 	
-	public partial class MyRule_AllUserAccessAbleModelResult
+	public partial class MyRule_AllUserAccessAbleModuleResult
 	{
 		
 		private System.Nullable<int> _module_id;
@@ -3368,7 +3208,167 @@ namespace A0162_SQL_Server_Func_MyRule_UnitTest
 		
 		private System.Nullable<short> _status;
 		
-		public MyRule_AllUserAccessAbleModelResult()
+		public MyRule_AllUserAccessAbleModuleResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_module_id", DbType="Int")]
+		public System.Nullable<int> module_id
+		{
+			get
+			{
+				return this._module_id;
+			}
+			set
+			{
+				if ((this._module_id != value))
+				{
+					this._module_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_parent_id", DbType="Int")]
+		public System.Nullable<int> parent_id
+		{
+			get
+			{
+				return this._parent_id;
+			}
+			set
+			{
+				if ((this._parent_id != value))
+				{
+					this._parent_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_module_name", DbType="NVarChar(20)")]
+		public string module_name
+		{
+			get
+			{
+				return this._module_name;
+			}
+			set
+			{
+				if ((this._module_name != value))
+				{
+					this._module_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="SmallInt")]
+		public System.Nullable<short> status
+		{
+			get
+			{
+				return this._status;
+			}
+			set
+			{
+				if ((this._status != value))
+				{
+					this._status = value;
+				}
+			}
+		}
+	}
+	
+	public partial class MyRule_RoleAccessAbleModuleResult
+	{
+		
+		private System.Nullable<int> _module_id;
+		
+		private System.Nullable<int> _parent_id;
+		
+		private string _module_name;
+		
+		private System.Nullable<short> _status;
+		
+		public MyRule_RoleAccessAbleModuleResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_module_id", DbType="Int")]
+		public System.Nullable<int> module_id
+		{
+			get
+			{
+				return this._module_id;
+			}
+			set
+			{
+				if ((this._module_id != value))
+				{
+					this._module_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_parent_id", DbType="Int")]
+		public System.Nullable<int> parent_id
+		{
+			get
+			{
+				return this._parent_id;
+			}
+			set
+			{
+				if ((this._parent_id != value))
+				{
+					this._parent_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_module_name", DbType="NVarChar(20)")]
+		public string module_name
+		{
+			get
+			{
+				return this._module_name;
+			}
+			set
+			{
+				if ((this._module_name != value))
+				{
+					this._module_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="SmallInt")]
+		public System.Nullable<short> status
+		{
+			get
+			{
+				return this._status;
+			}
+			set
+			{
+				if ((this._status != value))
+				{
+					this._status = value;
+				}
+			}
+		}
+	}
+	
+	public partial class MyRule_UserAccessAbleModuleResult
+	{
+		
+		private System.Nullable<int> _module_id;
+		
+		private System.Nullable<int> _parent_id;
+		
+		private string _module_name;
+		
+		private System.Nullable<short> _status;
+		
+		public MyRule_UserAccessAbleModuleResult()
 		{
 		}
 		

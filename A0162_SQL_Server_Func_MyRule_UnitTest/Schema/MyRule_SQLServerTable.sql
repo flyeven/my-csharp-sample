@@ -1,4 +1,4 @@
-/* SQL Server 建表语句  */ 
+/* SQL Server 建表语句  */
 IF EXISTS(SELECT * FROM sys.Tables WHERE name='mr_permission')
   DROP TABLE mr_permission
 go
@@ -28,7 +28,49 @@ go
 
 
 
-/* SQL Server 建表语句  */ 
+
+
+/* SQL Server 建表语句  */
+IF EXISTS(SELECT * FROM sys.Tables WHERE name='mr_dept_type')
+  DROP TABLE mr_dept_type
+go
+
+CREATE TABLE mr_dept_type(
+  dept_type varchar(10) NOT NULL ,
+  dept_type_desc nvarchar(100),
+  up_recursive_able bit NOT NULL ,
+  down_recursive_able bit NOT NULL ,
+  status smallint NOT NULL  DEFAULT 1
+  CONSTRAINT PK_mr_dept_type PRIMARY KEY(dept_type )
+);
+go
+
+EXECUTE sp_addextendedproperty N'MS_Description', '部门',  N'user',  N'dbo',  N'Table', N'mr_dept_type', NULL, NULL;
+go
+
+EXECUTE sp_addextendedproperty   N'MS_Description', '部门类型',   N'user',  N'dbo',  N'Table', N'mr_dept_type', N'column' , N'dept_type';
+go
+
+EXECUTE sp_addextendedproperty   N'MS_Description', '部门类型描述',   N'user',  N'dbo',  N'Table', N'mr_dept_type', N'column' , N'dept_type_desc';
+go
+
+EXECUTE sp_addextendedproperty   N'MS_Description', '是否允许向上递归 ',   N'user',  N'dbo',  N'Table', N'mr_dept_type', N'column' , N'up_recursive_able';
+go
+
+EXECUTE sp_addextendedproperty   N'MS_Description', '是否允许向下递归',   N'user',  N'dbo',  N'Table', N'mr_dept_type', N'column' , N'down_recursive_able';
+go
+
+EXECUTE sp_addextendedproperty   N'MS_Description', '状态',   N'user',  N'dbo',  N'Table', N'mr_dept_type', N'column' , N'status';
+go
+
+
+
+
+
+
+
+
+/* SQL Server 建表语句  */
 IF EXISTS(SELECT * FROM sys.Tables WHERE name='mr_dept')
   DROP TABLE mr_dept
 go
@@ -72,7 +114,7 @@ go
 
 
 
-/* SQL Server 建表语句  */ 
+/* SQL Server 建表语句  */
 IF EXISTS(SELECT * FROM sys.Tables WHERE name='mr_user')
   DROP TABLE mr_user
 go
@@ -103,7 +145,7 @@ go
 
 
 
-/* SQL Server 建表语句  */ 
+/* SQL Server 建表语句  */
 IF EXISTS(SELECT * FROM sys.Tables WHERE name='mr_dept_user')
   DROP TABLE mr_dept_user
 go
@@ -141,7 +183,7 @@ go
 
 
 
-/* SQL Server 建表语句  */ 
+/* SQL Server 建表语句  */
 IF EXISTS(SELECT * FROM sys.Tables WHERE name='mr_module')
   DROP TABLE mr_module
 go
@@ -179,7 +221,7 @@ go
 
 
 
-/* SQL Server 建表语句  */ 
+/* SQL Server 建表语句  */
 IF EXISTS(SELECT * FROM sys.Tables WHERE name='mr_action')
   DROP TABLE mr_action
 go
@@ -222,14 +264,14 @@ go
 
 
 
-/* SQL Server 建表语句  */ 
+/* SQL Server 建表语句  */
 IF EXISTS(SELECT * FROM sys.Tables WHERE name='mr_user_module')
   DROP TABLE mr_user_module
 go
 
 CREATE TABLE mr_user_module(
   user_id int NOT NULL ,
-  module_id int NOT NULL 
+  module_id int NOT NULL
   CONSTRAINT PK_mr_user_module PRIMARY KEY(user_id, module_id )
 );
 go
@@ -255,14 +297,14 @@ go
 
 
 
-/* SQL Server 建表语句  */ 
+/* SQL Server 建表语句  */
 IF EXISTS(SELECT * FROM sys.Tables WHERE name='mr_user_action')
   DROP TABLE mr_user_action
 go
 
 CREATE TABLE mr_user_action(
   user_id int NOT NULL ,
-  action_id int NOT NULL 
+  action_id int NOT NULL
   CONSTRAINT PK_mr_user_action PRIMARY KEY(user_id, action_id )
 );
 go
@@ -289,7 +331,7 @@ go
 
 
 
-/* SQL Server 建表语句  */ 
+/* SQL Server 建表语句  */
 IF EXISTS(SELECT * FROM sys.Tables WHERE name='mr_role')
   DROP TABLE mr_role
 go
@@ -321,14 +363,14 @@ go
 
 
 
-/* SQL Server 建表语句  */ 
+/* SQL Server 建表语句  */
 IF EXISTS(SELECT * FROM sys.Tables WHERE name='mr_user_role')
   DROP TABLE mr_user_role
 go
 
 CREATE TABLE mr_user_role(
   user_id int NOT NULL ,
-  role_id int NOT NULL 
+  role_id int NOT NULL
   CONSTRAINT PK_mr_user_role PRIMARY KEY(user_id, role_id )
 );
 go
@@ -353,14 +395,14 @@ go
 
 
 
-/* SQL Server 建表语句  */ 
+/* SQL Server 建表语句  */
 IF EXISTS(SELECT * FROM sys.Tables WHERE name='mr_role_module')
   DROP TABLE mr_role_module
 go
 
 CREATE TABLE mr_role_module(
   role_id int NOT NULL ,
-  module_id int NOT NULL 
+  module_id int NOT NULL
   CONSTRAINT PK_mr_role_module PRIMARY KEY(role_id, module_id )
 );
 go
@@ -387,14 +429,14 @@ go
 
 
 
-/* SQL Server 建表语句  */ 
+/* SQL Server 建表语句  */
 IF EXISTS(SELECT * FROM sys.Tables WHERE name='mr_role_action')
   DROP TABLE mr_role_action
 go
 
 CREATE TABLE mr_role_action(
   role_id int NOT NULL ,
-  action_id int NOT NULL 
+  action_id int NOT NULL
   CONSTRAINT PK_mr_role_action PRIMARY KEY(role_id, action_id )
 );
 go
@@ -431,9 +473,7 @@ go
 
 
 
-
-
-/* SQL Server 建表语句  */ 
+/* SQL Server 建表语句  */
 IF EXISTS(SELECT * FROM sys.Tables WHERE name='mr_demo_data')
   DROP TABLE mr_demo_data
 go

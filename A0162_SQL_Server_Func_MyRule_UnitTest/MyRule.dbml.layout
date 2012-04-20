@@ -108,7 +108,7 @@
         <classShapeMoniker Id="4754de76-d1f0-4996-b890-d393abc20ccd" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.72932749399038 : 7.625); (3.3125 : 7.04182749399038); (3.3125 : 2.04860677083333); (3.5 : 1.86110677083333)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.72932749399038 : 7.625); (3.06607443490112 : 7.28825305908926 : JumpStart); (3.18392556509888 : 7.1704019288915 : JumpEnd); (3.3125 : 7.04182749399038); (3.3125 : 2.04860677083333); (3.5 : 1.86110677083333)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/MyRuleDataContext/mr_role/mr_role_mr_user_role" />
       <nodes>
         <classShapeMoniker Id="4c82232b-041a-4516-a3b1-9bb8690167dd" />
@@ -122,21 +122,21 @@
         <classShapeMoniker Id="e87c3cfb-284b-4dbd-a8de-50432e497887" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 7.96851075901442); (7.25 : 7.96851075901442); (7.25 : 8.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.75 : 7.96851075901442); (3.04166666666667 : 7.96851075901442 : JumpStart); (3.20833333333333 : 7.96851075901442 : JumpEnd); (4.43229166666667 : 7.96851075901442 : JumpStart); (4.59895833333333 : 7.96851075901442 : JumpEnd); (7.25 : 7.96851075901442); (7.25 : 8.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/MyRuleDataContext/mr_role/mr_role_mr_role_action" />
       <nodes>
         <classShapeMoniker Id="4c82232b-041a-4516-a3b1-9bb8690167dd" />
         <classShapeMoniker Id="e87c3cfb-284b-4dbd-a8de-50432e497887" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 5.30555338541667); (3.22916666666667 : 5.30555338541667 : JumpStart); (3.39583333333333 : 5.30555338541667 : JumpEnd); (3.5 : 5.30555338541667)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.75 : 5.30555338541667); (3.5 : 5.30555338541667)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/MyRuleDataContext/mr_module/mr_module_mr_role_module" />
       <nodes>
         <classShapeMoniker Id="4754de76-d1f0-4996-b890-d393abc20ccd" />
         <classShapeMoniker Id="4eb85966-293f-42f6-be92-00d8e34edac5" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 7.67717246754808); (3.53125 : 6.89592246754808); (3.53125 : 5.82985677083333); (3.5 : 5.86110677083333)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.75 : 7.67717246754808); (3.06607443490112 : 7.36109803264696 : JumpStart); (3.18392556509888 : 7.2432469024492 : JumpEnd); (3.53125 : 6.89592246754808); (3.53125 : 5.82985677083333); (3.5 : 5.86110677083333)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/MyRuleDataContext/mr_role/mr_role_mr_role_module" />
       <nodes>
         <classShapeMoniker Id="4c82232b-041a-4516-a3b1-9bb8690167dd" />

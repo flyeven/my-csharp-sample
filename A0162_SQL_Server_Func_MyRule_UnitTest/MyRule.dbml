@@ -133,15 +133,6 @@
       <Column Name="status" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.MyRule_RoleAccessAbleModel" Method="MyRule_RoleAccessAbleModel" IsComposable="true">
-    <Parameter Name="roleID" Type="System.Int32" DbType="Int" />
-    <ElementType Name="MyRule_RoleAccessAbleModelResult">
-      <Column Name="module_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="parent_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="module_name" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="status" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.MyRule_UserAccessAbleAction" Method="MyRule_UserAccessAbleAction" IsComposable="true">
     <Parameter Name="userID" Type="System.Int32" DbType="Int" />
     <Parameter Name="moduleID" Type="System.Int32" DbType="Int" />
@@ -151,15 +142,6 @@
       <Column Name="action_name" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
       <Column Name="default_rule" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
       <Column Name="status" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.MyRule_UserAccessAbleModel" Method="MyRule_UserAccessAbleModel" IsComposable="true">
-    <Parameter Name="userID" Type="System.Int32" DbType="Int" />
-    <ElementType Name="MyRule_UserAccessAbleModelResult">
-      <Column Name="module_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="parent_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="module_name" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="status" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.MyRule_UserOwnRole" Method="MyRule_UserOwnRole" IsComposable="true">
@@ -192,9 +174,27 @@
       <Column Name="status" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.MyRule_AllUserAccessAbleModel" Method="MyRule_AllUserAccessAbleModel" IsComposable="true">
+  <Function Name="dbo.MyRule_AllUserAccessAbleModule" Method="MyRule_AllUserAccessAbleModule" IsComposable="true">
     <Parameter Name="userID" Type="System.Int32" DbType="Int" />
-    <ElementType Name="MyRule_AllUserAccessAbleModelResult">
+    <ElementType Name="MyRule_AllUserAccessAbleModuleResult">
+      <Column Name="module_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="parent_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="module_name" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="status" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MyRule_RoleAccessAbleModule" Method="MyRule_RoleAccessAbleModule" IsComposable="true">
+    <Parameter Name="roleID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="MyRule_RoleAccessAbleModuleResult">
+      <Column Name="module_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="parent_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="module_name" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="status" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MyRule_UserAccessAbleModule" Method="MyRule_UserAccessAbleModule" IsComposable="true">
+    <Parameter Name="userID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="MyRule_UserAccessAbleModuleResult">
       <Column Name="module_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="parent_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="module_name" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />

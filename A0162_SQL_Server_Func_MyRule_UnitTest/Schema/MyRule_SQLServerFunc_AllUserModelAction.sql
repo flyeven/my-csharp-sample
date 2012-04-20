@@ -7,8 +7,8 @@ GO
 IF EXISTS(SELECT * FROM dbo.sysobjects WHERE
     xtype IN ('IF', 'TF', 'FN')
     AND OBJECTPROPERTY(id, N'IsMSShipped') = 0
-    AND name='MyRule_AllUserAccessAbleModel')
-  DROP FUNCTION MyRule_AllUserAccessAbleModel
+    AND name='MyRule_AllUserAccessAbleModule')
+  DROP FUNCTION MyRule_AllUserAccessAbleModule
 GO
 
 
@@ -19,7 +19,7 @@ GO
 --              可访问模块包含 用户直接可访问模块 与 用户直接可访问模块的下属模块.
 --              以及 用户的角色 直接可访问模块 与 用户的角色直接可访问模块的下属模块.
 -- =============================================
-CREATE FUNCTION MyRule_AllUserAccessAbleModel
+CREATE FUNCTION MyRule_AllUserAccessAbleModule
 (
     @userID     int
 )
@@ -34,7 +34,7 @@ RETURN
         module_name,
         status
     FROM
-        MyRule_UserAccessAbleModel(@userID)
+        MyRule_UserAccessAbleModule(@userID)
     UNION ALL   -- 这里使用 UNION ALL， 将合并掉 重复的数据
     -- 用户的角色可访问模块
     SELECT
@@ -45,7 +45,7 @@ RETURN
     FROM
         MyRule_UserOwnRole(@userID) AS UOR
         CROSS APPLY
-        MyRule_RoleAccessAbleModel( UOR.role_id )  AS  RAAM
+        MyRule_RoleAccessAbleModule( UOR.role_id )  AS  RAAM
 )
 GO
 

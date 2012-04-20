@@ -59,6 +59,11 @@ IF EXISTS(SELECT * FROM sys.Tables WHERE name='mr_dept')
 go
 
 
+IF EXISTS(SELECT * FROM sys.Tables WHERE name='mr_dept_type')
+  DROP TABLE mr_dept_type
+go
+
+
 IF EXISTS(SELECT * FROM sys.Tables WHERE name='mr_permission')
   DROP TABLE mr_permission
 go
