@@ -307,7 +307,15 @@ namespace A3001_Office_Excel.Common
                     && cell.MergeArea.Column == col)
                 {
                     // 当前单元格 就是 合并单元格的 左上角 内容.
-                    return cell.Text;
+                    
+                    // 注意: 当 单元格数据类型为 日期, 且列宽比较短的时候
+                    // 会显示为  ###
+                    // 最后导致  cell.Text  的数据为  ###
+                    // 现在修改为  cell.Value.ToString() 。 
+                    // 以能够获取到正确的 日期数据 （而不是 ###）
+
+                    // return cell.Text;
+                    return cell.Value.ToString();
                 }
                 else
                 {
@@ -319,7 +327,8 @@ namespace A3001_Office_Excel.Common
             {
                 // 本单元格是 “普通单元格”
                 // 获取文本信息.
-                return cell.Text;
+                // return cell.Text;
+                return cell.Value.ToString();
             }
         }
 
