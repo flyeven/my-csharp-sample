@@ -3,21 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-
-namespace P0304_Observer
+namespace P0312_Mediator
 {
     class Program
     {
         static void Main(string[] args)
         {
-            DesignPatterns.Observer.WeatherData.Demo.ShowDemo();
 
+            P0312_Mediator.Sample.Demo.ShowDemo();
+            Console.WriteLine();
 
-            P0304_Observer.SampleHappyBar.Demo.ShowDemo();
-
-
-            P0304_Observer.SampleWithDelegate.Demo.ShowDemo();
-
+            P0312_Mediator.SampleChatroom.Demo.ShowDemo();
 
             Console.ReadLine();
         }
