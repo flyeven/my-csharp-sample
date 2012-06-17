@@ -3,19 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+using System.Data;
+using System.Data.Objects;
+
 using A0600_EF.Sample;
 
 namespace A0600_EF
 {
 	class Program
 	{
-		/// <summary>
-		/// SQL Server 的数据库连接字符串.
-		/// </summary>
-		private const String connString =
-			@"metadata=.\Sample\Test.csdl|.\Sample\Test.ssdl|.\Sample\Test.msl;
-provider=System.Data.SqlClient;
-provider connection string='Data Source=localhost\SQLEXPRESS;Initial Catalog=Test;Integrated Security=True'";
 
 		static void Main(string[] args)
 		{
@@ -33,6 +29,18 @@ provider connection string='Data Source=localhost\SQLEXPRESS;Initial Catalog=Tes
             IQueryableTest(1, "ONE");
 
 
+
+            // 应用对已分离对象的更改
+            ApplyPropertyChangesTest();
+
+
+            // ESQL 测试.
+            EsqlTest();
+
+
+            // 延迟加载/Include  测试.
+            IncludeTest();
+
             Console.ReadLine();
         }
 
@@ -43,7 +51,7 @@ provider connection string='Data Source=localhost\SQLEXPRESS;Initial Catalog=Tes
         /// </summary>
         private static void BaseTest()
         {
-			TestContext context = new TestContext(connString);
+            TestEntities context = new TestEntities();
 			// 单表查询
 			var query =
 				from testMain in context.test_main
@@ -107,12 +115,121 @@ provider connection string='Data Source=localhost\SQLEXPRESS;Initial Catalog=Tes
 
 
         /// <summary>
+        /// 应用对已分离对象的更改
+        /// </summary>
+        private static void ApplyPropertyChangesTest()
+        {
+
+            Console.WriteLine("========== 应用对已分离对象的更改 ==========");
+
+            TestEntities context = new TestEntities();
+
+            // 单表查询
+            test_main mainData = context.test_main.FirstOrDefault(p=>p.id == 2);
+            Console.WriteLine("Init:  Main[{0}, {1}]", mainData.id, mainData.value);
+
+
+
+
+            // 分离对象 
+            // 在分离对象时，应考虑以下注意事项：
+            // Detach 只影响传递给该方法的特定对象。如果要分离的对象在对象上下文中具有相关对象，则那些相关对象不会分离。
+            // 不会为已分离的对象维护关系信息。
+            // 分离对象后，不会维护对象状态信息。这包括所跟踪的更改和临时键值。
+            // 分离对象不影响数据存储区中的数据。
+            // 在分离操作过程中不会强制执行级联删除指令和引用约束。
+            // 在考虑分离对象的优点时，应该注意执行该操作所需的处理。当用户数据的范围已经更改（例如，用一组不同的数据显示新窗体）时，应该考虑创建一个新的 ObjectContext 实例，而不只是从现有 ObjectContext 分离对象。
+
+            context.Detach(mainData);
+
+
+            // 上面的代码， 可以理解为：
+            // 首先，从数据库检索出数据
+            // 然后，分离对象
+            // 分离后的对象， Context 不再管理了
+            // 主要应用于 服务器端， 查询数据以后， 不维持数据的变更管理
+            // 把数据 发送给客户端。
+
+            
+            // 而客户端 拿到的数据， 相当于是  与 数据库无关的
+            // 因为对 “分离后的数据” 做任意修改
+            // 简单调用  SaveChanges 将不会更新数据库表中的数据。
+
+            // 分离对象的修改. 
+            mainData.value = "TwoTwo";
+
+            // 保持数据更改.
+            context.SaveChanges();
+
+            // 再次查询， 数据没有发生任何变化.
+            test_main mainData2 = context.test_main.FirstOrDefault(p => p.id == 2);
+            Console.WriteLine("Detach and Save Main[{0}, {1}]", mainData2.id, mainData2.value);
+            context.Detach(mainData2);
+
+
+
+
+
+
+            // 下面是模拟 服务器端， 接收到一个 客户端的 更新请求时， 如何处理的例子.
+
+            // 主键
+            EntityKey key;
+            // 旧数据.
+            object originalItem;
+
+            using (TestEntities updateContext = new TestEntities())
+            {
+                try
+                {
+                    // 根据 修改后的数据， 获取其主键 （注意： 更新处理是只改数据，不修改主键的）
+                    key = updateContext.CreateEntityKey("test_main", mainData);
+
+                    // 尝试通过主键， 获取数据库中的数据.
+                    if (updateContext.TryGetObjectByKey(key, out originalItem))
+                    {
+                        // 调用 ApplyPropertyChanges 方法，来更新数据.
+                        updateContext.ApplyPropertyChanges(
+                            key.EntitySetName, mainData);
+                    }
+
+                    updateContext.SaveChanges();
+                }
+                catch (InvalidOperationException ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
+            }
+
+
+
+            // 再次查询， 数据没有发生任何变化.
+            mainData2 = context.test_main.FirstOrDefault(p => p.id == 2);
+            Console.WriteLine("ApplyPropertyChanges and Save  Main[{0}, {1}]", mainData2.id, mainData2.value);
+
+            // 最后改回原始情况
+            mainData2.value = "TWO";
+            context.SaveChanges();
+
+
+
+
+        }
+
+
+
+        /// <summary>
         /// 事务处理测试.
+        /// 
+        /// 当调用 SaveChanges 时，如果当前事务存在，则对象服务将此事务用于对数据源进行的操作。
+        /// 否则，将为操作创建新事务。
+        /// 
+        /// 可以使用 EntityTransaction、Transaction 或 TransactionScope 来定义事务。
         /// </summary>
         private static void TransactionTest()
         {
 
-            TestContext context = new TestContext(connString);
+            TestEntities context = new TestEntities();
 
 
             // 插入.
@@ -168,7 +285,7 @@ provider connection string='Data Source=localhost\SQLEXPRESS;Initial Catalog=Tes
             Console.WriteLine("传入的参数：id={0}, val={1}", id, val);
 
 
-            TestContext context = new TestContext(connString);
+            TestEntities context = new TestEntities();
 
 
             IQueryable<test_main> result = context.test_main;
@@ -189,6 +306,102 @@ provider connection string='Data Source=localhost\SQLEXPRESS;Initial Catalog=Tes
         }
 
 
+
+
+        /// <summary>
+        /// ESQL 测试.
+        /// </summary>
+        private static void EsqlTest()
+        {
+
+            Console.WriteLine("==========  ESQL 测试.  ==========");
+
+            using (var edm = new TestEntities())
+            {
+
+                // 定义 ESQL 查询.
+                string esql =
+                    @"
+select 
+  value c 
+from 
+  TestEntities.test_main as c
+where
+  NOT EXISTS (
+    SELECT 1
+    FROM
+      TestEntities.test_main as c2
+    WHERE
+      c.id < c2.id
+  )
+";
+
+                // 执行查询.
+                ObjectQuery<test_main> query = edm.CreateQuery<test_main>(esql);
+
+                // 输出 实际执行的 SQL 语句.
+                Console.WriteLine(query.ToTraceString());
+
+                // 获取查询结果
+                ObjectResult<test_main> results = query.Execute(MergeOption.NoTracking);
+
+                // 注意： MergeOption 枚举的说明.
+                // AppendOnly
+                // 不会从数据源加载对象上下文中已存在的对象。这是查询或调用 EntityCollection<TEntity> 的 Load 方法时的默认行为。
+                // OverwriteChanges
+                // 对象始终从数据源进行加载。数据源值会重写在对象上下文中对对象所做的任何属性更改。
+                // PreserveChanges
+                // 当一个对象存在于对象上下文中时，不会从数据源加载该对象。保存在对象上下文中对对象所做的任何属性更改。
+                // NoTracking
+                // 对象保持为 Detached 状态，也不在 ObjectStateManager 中进行跟踪。
+
+                foreach (test_main data in results)
+                {
+                    Console.WriteLine("Main[{0}, {1}]", data.id, data.value);
+                }
+
+            }
+
+        }
+
+
+
+
+        /// <summary>
+        /// 延迟加载/Include  测试.
+        /// </summary>
+        private static void IncludeTest()
+        {
+
+            Console.WriteLine("========== 延迟加载/Include测试 (Default) ==========");
+
+            using (var db = new TestEntities())
+            {
+                var tMain = db.test_main;
+                foreach (var data in tMain)
+                {
+                    Console.WriteLine("Main[{0}, {1}]", data.id, data.value);
+
+                    foreach (var sData in data.test_sub)
+                        Console.WriteLine("  Sub[{0}, {1}]", sData.id, sData.value );
+                }
+            }
+
+
+            Console.WriteLine("========== 延迟加载/Include测试 ( With Include)==========");
+
+            using (var db2 = new TestEntities())
+            {
+                var tMain = db2.test_main.Include("test_sub");
+                foreach (var data in tMain)
+                {
+                    Console.WriteLine("Main[{0}, {1}]", data.id, data.value);
+
+                    foreach (var sData in data.test_sub)
+                        Console.WriteLine("  Sub[{0}, {1}]", sData.id, sData.value);
+                }
+            }
+        }
 
 
 
