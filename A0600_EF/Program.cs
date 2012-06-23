@@ -203,7 +203,7 @@ namespace A0600_EF
 
 
 
-            // 再次查询， 数据没有发生任何变化.
+            // 再次查询， 数据发生变化.
             mainData2 = context.test_main.FirstOrDefault(p => p.id == 2);
             Console.WriteLine("ApplyPropertyChanges and Save  Main[{0}, {1}]", mainData2.id, mainData2.value);
 
