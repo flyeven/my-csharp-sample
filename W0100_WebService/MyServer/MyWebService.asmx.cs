@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
+using System.Web.Services.Protocols;
 
 using System.Diagnostics;
 
@@ -76,6 +77,37 @@ namespace MyServer
             resultMessage = "登录成功！";
             return true;
         }
+
+
+
+
+
+
+        /// <summary>
+        /// 用于 来实现  WebService 安全性的  SoapHeader.
+        /// 需要定义为  public
+        /// </summary>
+        public Util.SecuritySoapHeader MySecuritySoapHeader = new Util.SecuritySoapHeader();
+
+
+
+        [SoapHeader("MySecuritySoapHeader")]
+        [WebMethod]
+        public bool DoSomething(string something)
+        {
+
+            // 这里模拟检查
+            // 如果 用户代码 与密码。
+            // 如果检查失败， 返回 false 或抛出异常.
+            if (!(MySecuritySoapHeader.UserCode == "TEST"
+                && MySecuritySoapHeader.PassWord == "TEST"))
+            {
+                return false;
+            }
+
+            return true;
+        }
+
 
 
     }
