@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 11
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyWcfService", "MyWcfService\MyWcfService.csproj", "{5A57A709-3FA2-4BE8-A6E0-ADB3EAA3C3DB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyWcfServiceContract", "MyWcfServiceContract\MyWcfServiceContract.csproj", "{6336CCC3-D73B-458F-A004-ECB2899312A0}"
