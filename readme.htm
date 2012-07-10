@@ -981,6 +981,19 @@ Code First在处理多重性关系时应用了一系列规则。
 	  </td>
     </tr>	
 
+	<tr>
+      <td> W0240_WCF_Transaction </td>
+      <td> 
+		<p> WCF 事务处理的简单例子 </p> 
+		
+		此项目在 WCF 服务处理代码中， 简单使用 System.Data.SqlClient 包进行 数据更新处理操作。
+		代码中没有直接使用 SqlTransaction 来进行事务管理。
+		而是让 WCF 进行事务的管理。
+		
+		具体步骤见该目录下的  readme.txt
+	  </td>
+    </tr>
+
 
 	<tr>
       <td>W0250_WCF_EF</td>
