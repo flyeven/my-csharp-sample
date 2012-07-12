@@ -27,6 +27,7 @@ namespace A0501_LINQ_Base2
 
             sample.Test6();
 
+            sample.Test7();
 
             sample.TestXml();
 

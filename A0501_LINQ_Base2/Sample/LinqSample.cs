@@ -460,6 +460,69 @@ namespace A0501_LINQ_Base2.Sample
 
 
 
+        /// <summary>
+        /// 演示 LINQ 中的  翻页处理.
+        /// </summary>
+        public void Test7()
+        {
+            Console.WriteLine("[07] 使用 Take / Skip  进行翻页处理！");
+
+            // 定义查询.
+            var query =
+                 from apple in appleList
+                 select apple;
+
+
+            Console.WriteLine("[07] 每页5行  （第1页） ");
+
+            // 执行查询.
+            foreach (Apple apple in query.Take(5))
+            {
+                Console.WriteLine("=={0} ", apple);
+            }
+
+
+            Console.WriteLine("[07] 每页5行  第一次翻页 （第2页）");
+
+            // 执行查询.
+            foreach (Apple apple in query.Skip(5).Take(5))
+            {
+                Console.WriteLine("=={0} ", apple);
+            }
+
+
+            Console.WriteLine("[07] 每页5行  第二次翻页 （第3页）");
+
+            // 执行查询.
+            foreach (Apple apple in query.Skip(10).Take(5))
+            {
+                Console.WriteLine("=={0} ", apple);
+            }
+
+            Console.WriteLine("[07] 每页5行  第三次翻页 （第4页）");
+
+            // 执行查询.
+            foreach (Apple apple in query.Skip(15).Take(5))
+            {
+                Console.WriteLine("=={0} ", apple);
+            }
+
+
+
+            Console.WriteLine("[07] 每页5行  第四次翻页 （第5页）");
+            
+            // 请注意这里是最后一页了，只有2行数据。
+            // 但是 Take (5) 执行是没有抱错的.
+
+            // 执行查询.
+            foreach (Apple apple in query.Skip(20).Take(5))
+            {
+                Console.WriteLine("=={0} ", apple);
+            }
+        }
+
+
+
 
 
         /// <summary>
