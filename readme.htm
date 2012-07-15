@@ -975,15 +975,55 @@ Code First在处理多重性关系时应用了一系列规则。
 	<tr>
       <td>W0203_WCF_Scurity_NetTcp</td>
       <td>
-		<p>  WCF 在使用NetTcpBinding绑定的服务上启动消息加密.  </p> 
+		<p>  WCF 在使用NetTcpBinding绑定的服务上启动消息加密.  </p>
 		具体步骤见该目录下的  readme.txt
 	  </td>
-    </tr>	
+    </tr>
+
+
+	<tr>
+      <td>W0204_WCF_Scurity_BaseHttp</td>
+      <td>
+		<p>  WCF 在使用 BasicHttpBing 绑定的服务上启动传输加密.  </p>
+
+		解决方案包含 5个项目， 分别为 ：
+		Contract (基本的接口定义与数据类定义) 、
+		Service (接口服务的具体实现) 、
+
+
+		Web (Web方式的 WCF 服务端代码)  需要服务器配置好 SSL   、
+		Client (调用 WCF 服务的代码  手动编写调用的处理)
+
+		Client_ByAuto (调用 WCF 服务的代码  通过 VS 添加服务引用的方式， 产生客户端代码的处理。)
+
+
+		具体步骤见该目录下的  readme.txt
+	  </td>
+    </tr>
+
+
+	<tr>
+      <td>W0205_WCF_Scurity_BaseHttp</td>
+      <td>
+	    <p> WCF 在使用 BasicHttpBing 绑定的服务上启动传输加密.  </p> 
+	  
+		此项目结构与  W0204_WCF_Scurity_BaseHttp  基本一致
+		
+		区别在于  W0204_WCF_Scurity_BaseHttp  只做了 传输加密.		
+		
+		W0205_WCF_Scurity_BaseHttp 在 传输加密的基础之上， 还做了 Windows 操作系统认证的处理。 
+		(主要工作是 修改配置文件，  以及客户端增加  用户名/密码的 代码 )
+		
+		具体步骤见该目录下的  readme.txt
+	  </td>
+    </tr>
+
+
 
 	<tr>
       <td> W0240_WCF_Transaction </td>
-      <td> 
-		<p> WCF 事务处理的简单例子 </p> 
+      <td>
+		<p> WCF 事务处理的简单例子 </p>
 		此项目在 WCF 服务处理代码中， 简单使用 System.Data.SqlClient 包进行 数据更新处理操作。
 		代码中没有直接使用 SqlTransaction 来进行事务管理。
 		而是让 WCF 进行事务的管理。
@@ -994,8 +1034,8 @@ Code First在处理多重性关系时应用了一系列规则。
 
 	<tr>
       <td> W0241_WCF_Trans_Linq2sql </td>
-      <td> 
-		<p> WCF 事务处理的简单例子 </p> 
+      <td>
+		<p> WCF 事务处理的简单例子 </p>
 		此项目在 WCF 服务处理代码中， 使用 LINQ2SQL 包进行 数据更新处理操作。
 		让 WCF 进行事务的管理。
 		具体步骤见该目录下的  readme.txt
@@ -1005,8 +1045,8 @@ Code First在处理多重性关系时应用了一系列规则。
 
 	<tr>
       <td> W0242_WCF_Trans_EF </td>
-      <td> 
-		<p> WCF 事务处理的简单例子 </p> 
+      <td>
+		<p> WCF 事务处理的简单例子 </p>
 		此项目在 WCF 服务处理代码中， 使用 Entity Framework 包进行数据更新处理操作。
 		让 WCF 进行事务的管理。
 		具体步骤见该目录下的  readme.txt
@@ -1016,8 +1056,8 @@ Code First在处理多重性关系时应用了一系列规则。
 
 	<tr>
       <td> W0242_WCF_Trans_EF_Ora </td>
-      <td> 
-		<p> WCF 事务处理的简单例子 </p> 
+      <td>
+		<p> WCF 事务处理的简单例子 </p>
 		此项目在 WCF 服务处理代码中， 使用 Entity Framework 包进行数据更新处理操作。  ( 访问 Oracle 数据库 )
 		让 WCF 进行事务的管理。
 		具体步骤见该目录下的  readme.txt
@@ -1030,12 +1070,12 @@ Code First在处理多重性关系时应用了一系列规则。
 
 	<tr>
       <td>W0250_WCF_EF</td>
-      <td> 
-		<p>  WCF 与 Entity Framework 配合使用的例子  </p> 
-		
+      <td>
+		<p>  WCF 与 Entity Framework 配合使用的例子  </p>
+
 		此项目主要用于解决 默认的 “Entity Framework” 代码生成器， 不能生成带有 [DataContract] 与 [DataMember]  标记的类的问题。
 		以及 Context 使用 代理类，导致 WCF 序列化出错的问题。
-		
+
 		具体步骤见该目录下的  readme.txt
 	  </td>
     </tr>

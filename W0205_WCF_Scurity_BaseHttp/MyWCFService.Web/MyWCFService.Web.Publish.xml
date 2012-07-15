@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="E:\my-csharp-sample\W0205_WCF_Scurity_BaseHttp\WebSite" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Test" publishMethod="FileSystem" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="bin/MyWCFService.Service.dll" publishTime="07/15/2012 13:30:43" />
+    <file relUrl="bin/MyWCFService.Contract.pdb" publishTime="07/15/2012 13:30:42" />
+    <file relUrl="MyWCFService.svc" publishTime="07/08/2012 13:54:05" />
+    <file relUrl="Web.config" publishTime="07/15/2012 15:40:22" />
+    <file relUrl="bin/MyWCFService.Web.dll" publishTime="07/15/2012 13:30:43" />
+    <file relUrl="bin/MyWCFService.Web.pdb" publishTime="07/15/2012 13:30:43" />
+    <file relUrl="Default.aspx" publishTime="07/15/2012 11:18:50" />
+    <file relUrl="bin/MyWCFService.Contract.dll" publishTime="07/15/2012 13:30:42" />
+    <file relUrl="bin/MyWCFService.Service.pdb" publishTime="07/15/2012 13:30:43" />
+  </publishProfile>
+</publishData>
