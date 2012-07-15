@@ -72,6 +72,7 @@
     <Compile Include="Sample\CallLongTimeProc.cs" />
     <Compile Include="Sample\CallSqlServerFuncProc.cs" />
     <Compile Include="Sample\ReadSqlServerData.cs" />
+    <Compile Include="Sample\UpdateByDataSet.cs" />
     <Compile Include="Sample\WriteSqlServerData.cs" />
   </ItemGroup>
   <ItemGroup>

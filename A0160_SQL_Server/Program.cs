@@ -11,6 +11,15 @@ namespace A0160_SQL_Server
     {
         static void Main(string[] args)
         {
+            // 使用 DataSet 来对数据库进行 更新操作.
+            // 比较古老的技术
+            // 可用是可用
+            // 不推荐.
+            UpdateByDataSet dsTest = new UpdateByDataSet();
+            dsTest.Test();
+
+
+
             // 读
             ReadSqlServerData reader = new ReadSqlServerData();
             reader.ReadDataToDataSet();
