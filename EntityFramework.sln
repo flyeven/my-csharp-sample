@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0631_EF_Inherit_TPT", "A06
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0640_EF_Enum", "A0640_EF_Enum\A0640_EF_Enum.csproj", "{F42F4B47-8F58-4DB9-99AD-4AAAB6399D60}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0650_EF_SqlServer", "A0650_EF_SqlServer\A0650_EF_SqlServer.csproj", "{41ABCFF2-1367-41B9-9998-F762B76D4DDD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0650_EF_Oracle", "A0650_EF_Oracle\A0650_EF_Oracle.csproj", "{FF41C39D-EFA1-4934-BA64-434D5E55040E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -55,6 +59,14 @@ Global
 		{F42F4B47-8F58-4DB9-99AD-4AAAB6399D60}.Debug|x86.Build.0 = Debug|x86
 		{F42F4B47-8F58-4DB9-99AD-4AAAB6399D60}.Release|x86.ActiveCfg = Release|x86
 		{F42F4B47-8F58-4DB9-99AD-4AAAB6399D60}.Release|x86.Build.0 = Release|x86
+		{41ABCFF2-1367-41B9-9998-F762B76D4DDD}.Debug|x86.ActiveCfg = Debug|x86
+		{41ABCFF2-1367-41B9-9998-F762B76D4DDD}.Debug|x86.Build.0 = Debug|x86
+		{41ABCFF2-1367-41B9-9998-F762B76D4DDD}.Release|x86.ActiveCfg = Release|x86
+		{41ABCFF2-1367-41B9-9998-F762B76D4DDD}.Release|x86.Build.0 = Release|x86
+		{FF41C39D-EFA1-4934-BA64-434D5E55040E}.Debug|x86.ActiveCfg = Debug|x86
+		{FF41C39D-EFA1-4934-BA64-434D5E55040E}.Debug|x86.Build.0 = Debug|x86
+		{FF41C39D-EFA1-4934-BA64-434D5E55040E}.Release|x86.ActiveCfg = Release|x86
+		{FF41C39D-EFA1-4934-BA64-434D5E55040E}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
