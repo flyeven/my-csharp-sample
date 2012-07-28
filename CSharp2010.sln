@@ -169,6 +169,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0171_Oracle_ODAC", "A0171_
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0205_XmlToSql", "A0205_XmlToSql\A0205_XmlToSql.csproj", "{B8476F99-B295-4244-AD29-8C3156A58601}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A4001_DebugRelease", "A4001_DebugRelease\A4001_DebugRelease.csproj", "{FC81CEA1-0BD3-45CC-AC60-C6A8ECB1A47C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -1019,6 +1021,16 @@ Global
 		{B8476F99-B295-4244-AD29-8C3156A58601}.Release|Mixed Platforms.Build.0 = Release|x86
 		{B8476F99-B295-4244-AD29-8C3156A58601}.Release|x86.ActiveCfg = Release|x86
 		{B8476F99-B295-4244-AD29-8C3156A58601}.Release|x86.Build.0 = Release|x86
+		{FC81CEA1-0BD3-45CC-AC60-C6A8ECB1A47C}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{FC81CEA1-0BD3-45CC-AC60-C6A8ECB1A47C}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{FC81CEA1-0BD3-45CC-AC60-C6A8ECB1A47C}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{FC81CEA1-0BD3-45CC-AC60-C6A8ECB1A47C}.Debug|x86.ActiveCfg = Debug|x86
+		{FC81CEA1-0BD3-45CC-AC60-C6A8ECB1A47C}.Debug|x86.Build.0 = Debug|x86
+		{FC81CEA1-0BD3-45CC-AC60-C6A8ECB1A47C}.Release|Any CPU.ActiveCfg = Release|x86
+		{FC81CEA1-0BD3-45CC-AC60-C6A8ECB1A47C}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{FC81CEA1-0BD3-45CC-AC60-C6A8ECB1A47C}.Release|Mixed Platforms.Build.0 = Release|x86
+		{FC81CEA1-0BD3-45CC-AC60-C6A8ECB1A47C}.Release|x86.ActiveCfg = Release|x86
+		{FC81CEA1-0BD3-45CC-AC60-C6A8ECB1A47C}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
