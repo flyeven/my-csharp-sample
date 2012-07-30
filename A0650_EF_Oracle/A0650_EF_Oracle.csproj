@@ -55,6 +55,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TestModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Sample\TestMulQuery.cs" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="Sample\TestModel.edmx">

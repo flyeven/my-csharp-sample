@@ -61,6 +61,7 @@
       <DependentUpon>TestModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Sample\TestConcurrency.cs" />
+    <Compile Include="Sample\TestMulQuery.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

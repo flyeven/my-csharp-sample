@@ -19,8 +19,17 @@ namespace A0650_EF_SqlServer
 
 
 
+            // 测试 多次查询.
+            TestMulQuery.DoTest();
+
+
+
             // 测试并发处理.
             TestConcurrency.DoTest();
+
+
+
+
 
 
             Console.ReadLine();
