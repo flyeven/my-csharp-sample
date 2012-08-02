@@ -19,6 +19,8 @@ using System.Runtime.Serialization;
 #region EDM 关系源元数据
 
 [assembly: EdmRelationshipAttribute("TestModel", "main_id_cons", "test_main", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(A0650_EF_SqlServer.Sample.test_main), "test_sub", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(A0650_EF_SqlServer.Sample.test_sub), true)]
+[assembly: EdmRelationshipAttribute("TestModel", "fk_test_score_course", "test_course", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(A0650_EF_SqlServer.Sample.test_course), "test_score", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(A0650_EF_SqlServer.Sample.test_score), true)]
+[assembly: EdmRelationshipAttribute("TestModel", "fk_test_score_student", "test_student", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(A0650_EF_SqlServer.Sample.test_student), "test_score", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(A0650_EF_SqlServer.Sample.test_score), true)]
 
 #endregion
 
@@ -117,6 +119,54 @@ namespace A0650_EF_SqlServer.Sample
             }
         }
         private ObjectSet<test_sequence> _test_sequence;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<test_course> test_course
+        {
+            get
+            {
+                if ((_test_course == null))
+                {
+                    _test_course = base.CreateObjectSet<test_course>("test_course");
+                }
+                return _test_course;
+            }
+        }
+        private ObjectSet<test_course> _test_course;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<test_score> test_score
+        {
+            get
+            {
+                if ((_test_score == null))
+                {
+                    _test_score = base.CreateObjectSet<test_score>("test_score");
+                }
+                return _test_score;
+            }
+        }
+        private ObjectSet<test_score> _test_score;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<test_student> test_student
+        {
+            get
+            {
+                if ((_test_student == null))
+                {
+                    _test_student = base.CreateObjectSet<test_student>("test_student");
+                }
+                return _test_student;
+            }
+        }
+        private ObjectSet<test_student> _test_student;
 
         #endregion
         #region AddTo 方法
@@ -144,6 +194,30 @@ namespace A0650_EF_SqlServer.Sample
         {
             base.AddObject("test_sequence", test_sequence);
         }
+    
+        /// <summary>
+        /// 用于向 test_course EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddTotest_course(test_course test_course)
+        {
+            base.AddObject("test_course", test_course);
+        }
+    
+        /// <summary>
+        /// 用于向 test_score EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddTotest_score(test_score test_score)
+        {
+            base.AddObject("test_score", test_score);
+        }
+    
+        /// <summary>
+        /// 用于向 test_student EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddTotest_student(test_student test_student)
+        {
+            base.AddObject("test_student", test_student);
+        }
 
         #endregion
     }
@@ -152,6 +226,112 @@ namespace A0650_EF_SqlServer.Sample
     #endregion
     
     #region 实体
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="TestModel", Name="test_course")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class test_course : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 test_course 对象。
+        /// </summary>
+        /// <param name="course_code">course_code 属性的初始值。</param>
+        /// <param name="course_name">course_name 属性的初始值。</param>
+        public static test_course Createtest_course(global::System.Int32 course_code, global::System.String course_name)
+        {
+            test_course test_course = new test_course();
+            test_course.course_code = course_code;
+            test_course.course_name = course_name;
+            return test_course;
+        }
+
+        #endregion
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 course_code
+        {
+            get
+            {
+                return _course_code;
+            }
+            set
+            {
+                if (_course_code != value)
+                {
+                    Oncourse_codeChanging(value);
+                    ReportPropertyChanging("course_code");
+                    _course_code = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("course_code");
+                    Oncourse_codeChanged();
+                }
+            }
+        }
+        private global::System.Int32 _course_code;
+        partial void Oncourse_codeChanging(global::System.Int32 value);
+        partial void Oncourse_codeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String course_name
+        {
+            get
+            {
+                return _course_name;
+            }
+            set
+            {
+                Oncourse_nameChanging(value);
+                ReportPropertyChanging("course_name");
+                _course_name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("course_name");
+                Oncourse_nameChanged();
+            }
+        }
+        private global::System.String _course_name;
+        partial void Oncourse_nameChanging(global::System.String value);
+        partial void Oncourse_nameChanged();
+
+        #endregion
+    
+        #region 导航属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("TestModel", "fk_test_score_course", "test_score")]
+        public EntityCollection<test_score> test_score
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<test_score>("TestModel.fk_test_score_course", "test_score");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<test_score>("TestModel.fk_test_score_course", "test_score", value);
+                }
+            }
+        }
+
+        #endregion
+    }
     
     /// <summary>
     /// 没有元数据文档可用。
@@ -260,6 +440,195 @@ namespace A0650_EF_SqlServer.Sample
     /// <summary>
     /// 没有元数据文档可用。
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="TestModel", Name="test_score")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class test_score : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 test_score 对象。
+        /// </summary>
+        /// <param name="student_code">student_code 属性的初始值。</param>
+        /// <param name="course_code">course_code 属性的初始值。</param>
+        /// <param name="score_value">score_value 属性的初始值。</param>
+        public static test_score Createtest_score(global::System.Int32 student_code, global::System.Int32 course_code, global::System.Int32 score_value)
+        {
+            test_score test_score = new test_score();
+            test_score.student_code = student_code;
+            test_score.course_code = course_code;
+            test_score.score_value = score_value;
+            return test_score;
+        }
+
+        #endregion
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 student_code
+        {
+            get
+            {
+                return _student_code;
+            }
+            set
+            {
+                if (_student_code != value)
+                {
+                    Onstudent_codeChanging(value);
+                    ReportPropertyChanging("student_code");
+                    _student_code = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("student_code");
+                    Onstudent_codeChanged();
+                }
+            }
+        }
+        private global::System.Int32 _student_code;
+        partial void Onstudent_codeChanging(global::System.Int32 value);
+        partial void Onstudent_codeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 course_code
+        {
+            get
+            {
+                return _course_code;
+            }
+            set
+            {
+                if (_course_code != value)
+                {
+                    Oncourse_codeChanging(value);
+                    ReportPropertyChanging("course_code");
+                    _course_code = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("course_code");
+                    Oncourse_codeChanged();
+                }
+            }
+        }
+        private global::System.Int32 _course_code;
+        partial void Oncourse_codeChanging(global::System.Int32 value);
+        partial void Oncourse_codeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 score_value
+        {
+            get
+            {
+                return _score_value;
+            }
+            set
+            {
+                Onscore_valueChanging(value);
+                ReportPropertyChanging("score_value");
+                _score_value = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("score_value");
+                Onscore_valueChanged();
+            }
+        }
+        private global::System.Int32 _score_value;
+        partial void Onscore_valueChanging(global::System.Int32 value);
+        partial void Onscore_valueChanged();
+
+        #endregion
+    
+        #region 导航属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("TestModel", "fk_test_score_course", "test_course")]
+        public test_course test_course
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<test_course>("TestModel.fk_test_score_course", "test_course").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<test_course>("TestModel.fk_test_score_course", "test_course").Value = value;
+            }
+        }
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<test_course> test_courseReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<test_course>("TestModel.fk_test_score_course", "test_course");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<test_course>("TestModel.fk_test_score_course", "test_course", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("TestModel", "fk_test_score_student", "test_student")]
+        public test_student test_student
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<test_student>("TestModel.fk_test_score_student", "test_student").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<test_student>("TestModel.fk_test_score_student", "test_student").Value = value;
+            }
+        }
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<test_student> test_studentReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<test_student>("TestModel.fk_test_score_student", "test_student");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<test_student>("TestModel.fk_test_score_student", "test_student", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="TestModel", Name="test_sequence")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -336,6 +705,112 @@ namespace A0650_EF_SqlServer.Sample
 
         #endregion
     
+    }
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="TestModel", Name="test_student")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class test_student : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 test_student 对象。
+        /// </summary>
+        /// <param name="student_code">student_code 属性的初始值。</param>
+        /// <param name="student_name">student_name 属性的初始值。</param>
+        public static test_student Createtest_student(global::System.Int32 student_code, global::System.String student_name)
+        {
+            test_student test_student = new test_student();
+            test_student.student_code = student_code;
+            test_student.student_name = student_name;
+            return test_student;
+        }
+
+        #endregion
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 student_code
+        {
+            get
+            {
+                return _student_code;
+            }
+            set
+            {
+                if (_student_code != value)
+                {
+                    Onstudent_codeChanging(value);
+                    ReportPropertyChanging("student_code");
+                    _student_code = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("student_code");
+                    Onstudent_codeChanged();
+                }
+            }
+        }
+        private global::System.Int32 _student_code;
+        partial void Onstudent_codeChanging(global::System.Int32 value);
+        partial void Onstudent_codeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String student_name
+        {
+            get
+            {
+                return _student_name;
+            }
+            set
+            {
+                Onstudent_nameChanging(value);
+                ReportPropertyChanging("student_name");
+                _student_name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("student_name");
+                Onstudent_nameChanged();
+            }
+        }
+        private global::System.String _student_name;
+        partial void Onstudent_nameChanging(global::System.String value);
+        partial void Onstudent_nameChanged();
+
+        #endregion
+    
+        #region 导航属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("TestModel", "fk_test_score_student", "test_score")]
+        public EntityCollection<test_score> test_score
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<test_score>("TestModel.fk_test_score_student", "test_score");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<test_score>("TestModel.fk_test_score_student", "test_score", value);
+                }
+            }
+        }
+
+        #endregion
     }
     
     /// <summary>

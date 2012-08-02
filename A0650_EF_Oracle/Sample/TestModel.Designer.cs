@@ -19,6 +19,8 @@ using System.Runtime.Serialization;
 #region EDM 关系源元数据
 
 [assembly: EdmRelationshipAttribute("Model", "MAIN_ID_CONS", "TEST_MAIN", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(A0650_EF_Oracle.Sample.TEST_MAIN), "TEST_SUB", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(A0650_EF_Oracle.Sample.TEST_SUB), true)]
+[assembly: EdmRelationshipAttribute("Model", "FK_TEST_SCORE_COURSE", "TEST_COURSE", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(A0650_EF_Oracle.Sample.TEST_COURSE), "TEST_SCORE", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(A0650_EF_Oracle.Sample.TEST_SCORE), true)]
+[assembly: EdmRelationshipAttribute("Model", "FK_TEST_SCORE_STUDENT", "TEST_STUDENT", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(A0650_EF_Oracle.Sample.TEST_STUDENT), "TEST_SCORE", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(A0650_EF_Oracle.Sample.TEST_SCORE), true)]
 
 #endregion
 
@@ -117,6 +119,54 @@ namespace A0650_EF_Oracle.Sample
             }
         }
         private ObjectSet<TEST_SEQUENCE> _TEST_SEQUENCE;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<TEST_COURSE> TEST_COURSE
+        {
+            get
+            {
+                if ((_TEST_COURSE == null))
+                {
+                    _TEST_COURSE = base.CreateObjectSet<TEST_COURSE>("TEST_COURSE");
+                }
+                return _TEST_COURSE;
+            }
+        }
+        private ObjectSet<TEST_COURSE> _TEST_COURSE;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<TEST_SCORE> TEST_SCORE
+        {
+            get
+            {
+                if ((_TEST_SCORE == null))
+                {
+                    _TEST_SCORE = base.CreateObjectSet<TEST_SCORE>("TEST_SCORE");
+                }
+                return _TEST_SCORE;
+            }
+        }
+        private ObjectSet<TEST_SCORE> _TEST_SCORE;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<TEST_STUDENT> TEST_STUDENT
+        {
+            get
+            {
+                if ((_TEST_STUDENT == null))
+                {
+                    _TEST_STUDENT = base.CreateObjectSet<TEST_STUDENT>("TEST_STUDENT");
+                }
+                return _TEST_STUDENT;
+            }
+        }
+        private ObjectSet<TEST_STUDENT> _TEST_STUDENT;
 
         #endregion
         #region AddTo 方法
@@ -144,6 +194,30 @@ namespace A0650_EF_Oracle.Sample
         {
             base.AddObject("TEST_SEQUENCE", tEST_SEQUENCE);
         }
+    
+        /// <summary>
+        /// 用于向 TEST_COURSE EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddToTEST_COURSE(TEST_COURSE tEST_COURSE)
+        {
+            base.AddObject("TEST_COURSE", tEST_COURSE);
+        }
+    
+        /// <summary>
+        /// 用于向 TEST_SCORE EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddToTEST_SCORE(TEST_SCORE tEST_SCORE)
+        {
+            base.AddObject("TEST_SCORE", tEST_SCORE);
+        }
+    
+        /// <summary>
+        /// 用于向 TEST_STUDENT EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddToTEST_STUDENT(TEST_STUDENT tEST_STUDENT)
+        {
+            base.AddObject("TEST_STUDENT", tEST_STUDENT);
+        }
 
         #endregion
     }
@@ -152,6 +226,112 @@ namespace A0650_EF_Oracle.Sample
     #endregion
     
     #region 实体
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Model", Name="TEST_COURSE")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class TEST_COURSE : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 TEST_COURSE 对象。
+        /// </summary>
+        /// <param name="cOURSE_CODE">COURSE_CODE 属性的初始值。</param>
+        /// <param name="cOURSE_NAME">COURSE_NAME 属性的初始值。</param>
+        public static TEST_COURSE CreateTEST_COURSE(global::System.Decimal cOURSE_CODE, global::System.String cOURSE_NAME)
+        {
+            TEST_COURSE tEST_COURSE = new TEST_COURSE();
+            tEST_COURSE.COURSE_CODE = cOURSE_CODE;
+            tEST_COURSE.COURSE_NAME = cOURSE_NAME;
+            return tEST_COURSE;
+        }
+
+        #endregion
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal COURSE_CODE
+        {
+            get
+            {
+                return _COURSE_CODE;
+            }
+            set
+            {
+                if (_COURSE_CODE != value)
+                {
+                    OnCOURSE_CODEChanging(value);
+                    ReportPropertyChanging("COURSE_CODE");
+                    _COURSE_CODE = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("COURSE_CODE");
+                    OnCOURSE_CODEChanged();
+                }
+            }
+        }
+        private global::System.Decimal _COURSE_CODE;
+        partial void OnCOURSE_CODEChanging(global::System.Decimal value);
+        partial void OnCOURSE_CODEChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String COURSE_NAME
+        {
+            get
+            {
+                return _COURSE_NAME;
+            }
+            set
+            {
+                OnCOURSE_NAMEChanging(value);
+                ReportPropertyChanging("COURSE_NAME");
+                _COURSE_NAME = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("COURSE_NAME");
+                OnCOURSE_NAMEChanged();
+            }
+        }
+        private global::System.String _COURSE_NAME;
+        partial void OnCOURSE_NAMEChanging(global::System.String value);
+        partial void OnCOURSE_NAMEChanged();
+
+        #endregion
+    
+        #region 导航属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Model", "FK_TEST_SCORE_COURSE", "TEST_SCORE")]
+        public EntityCollection<TEST_SCORE> TEST_SCORE
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<TEST_SCORE>("Model.FK_TEST_SCORE_COURSE", "TEST_SCORE");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TEST_SCORE>("Model.FK_TEST_SCORE_COURSE", "TEST_SCORE", value);
+                }
+            }
+        }
+
+        #endregion
+    }
     
     /// <summary>
     /// 没有元数据文档可用。
@@ -260,6 +440,195 @@ namespace A0650_EF_Oracle.Sample
     /// <summary>
     /// 没有元数据文档可用。
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Model", Name="TEST_SCORE")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class TEST_SCORE : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 TEST_SCORE 对象。
+        /// </summary>
+        /// <param name="sTUDENT_CODE">STUDENT_CODE 属性的初始值。</param>
+        /// <param name="cOURSE_CODE">COURSE_CODE 属性的初始值。</param>
+        /// <param name="sCORE_VALUE">SCORE_VALUE 属性的初始值。</param>
+        public static TEST_SCORE CreateTEST_SCORE(global::System.Decimal sTUDENT_CODE, global::System.Decimal cOURSE_CODE, global::System.Decimal sCORE_VALUE)
+        {
+            TEST_SCORE tEST_SCORE = new TEST_SCORE();
+            tEST_SCORE.STUDENT_CODE = sTUDENT_CODE;
+            tEST_SCORE.COURSE_CODE = cOURSE_CODE;
+            tEST_SCORE.SCORE_VALUE = sCORE_VALUE;
+            return tEST_SCORE;
+        }
+
+        #endregion
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal STUDENT_CODE
+        {
+            get
+            {
+                return _STUDENT_CODE;
+            }
+            set
+            {
+                if (_STUDENT_CODE != value)
+                {
+                    OnSTUDENT_CODEChanging(value);
+                    ReportPropertyChanging("STUDENT_CODE");
+                    _STUDENT_CODE = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("STUDENT_CODE");
+                    OnSTUDENT_CODEChanged();
+                }
+            }
+        }
+        private global::System.Decimal _STUDENT_CODE;
+        partial void OnSTUDENT_CODEChanging(global::System.Decimal value);
+        partial void OnSTUDENT_CODEChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal COURSE_CODE
+        {
+            get
+            {
+                return _COURSE_CODE;
+            }
+            set
+            {
+                if (_COURSE_CODE != value)
+                {
+                    OnCOURSE_CODEChanging(value);
+                    ReportPropertyChanging("COURSE_CODE");
+                    _COURSE_CODE = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("COURSE_CODE");
+                    OnCOURSE_CODEChanged();
+                }
+            }
+        }
+        private global::System.Decimal _COURSE_CODE;
+        partial void OnCOURSE_CODEChanging(global::System.Decimal value);
+        partial void OnCOURSE_CODEChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal SCORE_VALUE
+        {
+            get
+            {
+                return _SCORE_VALUE;
+            }
+            set
+            {
+                OnSCORE_VALUEChanging(value);
+                ReportPropertyChanging("SCORE_VALUE");
+                _SCORE_VALUE = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("SCORE_VALUE");
+                OnSCORE_VALUEChanged();
+            }
+        }
+        private global::System.Decimal _SCORE_VALUE;
+        partial void OnSCORE_VALUEChanging(global::System.Decimal value);
+        partial void OnSCORE_VALUEChanged();
+
+        #endregion
+    
+        #region 导航属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Model", "FK_TEST_SCORE_COURSE", "TEST_COURSE")]
+        public TEST_COURSE TEST_COURSE
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TEST_COURSE>("Model.FK_TEST_SCORE_COURSE", "TEST_COURSE").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TEST_COURSE>("Model.FK_TEST_SCORE_COURSE", "TEST_COURSE").Value = value;
+            }
+        }
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<TEST_COURSE> TEST_COURSEReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TEST_COURSE>("Model.FK_TEST_SCORE_COURSE", "TEST_COURSE");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TEST_COURSE>("Model.FK_TEST_SCORE_COURSE", "TEST_COURSE", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Model", "FK_TEST_SCORE_STUDENT", "TEST_STUDENT")]
+        public TEST_STUDENT TEST_STUDENT
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TEST_STUDENT>("Model.FK_TEST_SCORE_STUDENT", "TEST_STUDENT").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TEST_STUDENT>("Model.FK_TEST_SCORE_STUDENT", "TEST_STUDENT").Value = value;
+            }
+        }
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<TEST_STUDENT> TEST_STUDENTReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TEST_STUDENT>("Model.FK_TEST_SCORE_STUDENT", "TEST_STUDENT");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TEST_STUDENT>("Model.FK_TEST_SCORE_STUDENT", "TEST_STUDENT", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="Model", Name="TEST_SEQUENCE")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -336,6 +705,112 @@ namespace A0650_EF_Oracle.Sample
 
         #endregion
     
+    }
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Model", Name="TEST_STUDENT")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class TEST_STUDENT : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 TEST_STUDENT 对象。
+        /// </summary>
+        /// <param name="sTUDENT_CODE">STUDENT_CODE 属性的初始值。</param>
+        /// <param name="sTUDENT_NAME">STUDENT_NAME 属性的初始值。</param>
+        public static TEST_STUDENT CreateTEST_STUDENT(global::System.Decimal sTUDENT_CODE, global::System.String sTUDENT_NAME)
+        {
+            TEST_STUDENT tEST_STUDENT = new TEST_STUDENT();
+            tEST_STUDENT.STUDENT_CODE = sTUDENT_CODE;
+            tEST_STUDENT.STUDENT_NAME = sTUDENT_NAME;
+            return tEST_STUDENT;
+        }
+
+        #endregion
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal STUDENT_CODE
+        {
+            get
+            {
+                return _STUDENT_CODE;
+            }
+            set
+            {
+                if (_STUDENT_CODE != value)
+                {
+                    OnSTUDENT_CODEChanging(value);
+                    ReportPropertyChanging("STUDENT_CODE");
+                    _STUDENT_CODE = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("STUDENT_CODE");
+                    OnSTUDENT_CODEChanged();
+                }
+            }
+        }
+        private global::System.Decimal _STUDENT_CODE;
+        partial void OnSTUDENT_CODEChanging(global::System.Decimal value);
+        partial void OnSTUDENT_CODEChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String STUDENT_NAME
+        {
+            get
+            {
+                return _STUDENT_NAME;
+            }
+            set
+            {
+                OnSTUDENT_NAMEChanging(value);
+                ReportPropertyChanging("STUDENT_NAME");
+                _STUDENT_NAME = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("STUDENT_NAME");
+                OnSTUDENT_NAMEChanged();
+            }
+        }
+        private global::System.String _STUDENT_NAME;
+        partial void OnSTUDENT_NAMEChanging(global::System.String value);
+        partial void OnSTUDENT_NAMEChanged();
+
+        #endregion
+    
+        #region 导航属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Model", "FK_TEST_SCORE_STUDENT", "TEST_SCORE")]
+        public EntityCollection<TEST_SCORE> TEST_SCORE
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<TEST_SCORE>("Model.FK_TEST_SCORE_STUDENT", "TEST_SCORE");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TEST_SCORE>("Model.FK_TEST_SCORE_STUDENT", "TEST_SCORE", value);
+                }
+            }
+        }
+
+        #endregion
     }
     
     /// <summary>

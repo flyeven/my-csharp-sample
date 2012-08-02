@@ -171,6 +171,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0205_XmlToSql", "A0205_Xml
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A4001_DebugRelease", "A4001_DebugRelease\A4001_DebugRelease.csproj", "{FC81CEA1-0BD3-45CC-AC60-C6A8ECB1A47C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0007_Reflection_ModelCopyer", "A0007_Reflection_ModelCopyer\A0007_Reflection_ModelCopyer.csproj", "{D3BC2424-3449-439F-BD51-E801AC5FF0AF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -1031,6 +1033,16 @@ Global
 		{FC81CEA1-0BD3-45CC-AC60-C6A8ECB1A47C}.Release|Mixed Platforms.Build.0 = Release|x86
 		{FC81CEA1-0BD3-45CC-AC60-C6A8ECB1A47C}.Release|x86.ActiveCfg = Release|x86
 		{FC81CEA1-0BD3-45CC-AC60-C6A8ECB1A47C}.Release|x86.Build.0 = Release|x86
+		{D3BC2424-3449-439F-BD51-E801AC5FF0AF}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{D3BC2424-3449-439F-BD51-E801AC5FF0AF}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{D3BC2424-3449-439F-BD51-E801AC5FF0AF}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{D3BC2424-3449-439F-BD51-E801AC5FF0AF}.Debug|x86.ActiveCfg = Debug|x86
+		{D3BC2424-3449-439F-BD51-E801AC5FF0AF}.Debug|x86.Build.0 = Debug|x86
+		{D3BC2424-3449-439F-BD51-E801AC5FF0AF}.Release|Any CPU.ActiveCfg = Release|x86
+		{D3BC2424-3449-439F-BD51-E801AC5FF0AF}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{D3BC2424-3449-439F-BD51-E801AC5FF0AF}.Release|Mixed Platforms.Build.0 = Release|x86
+		{D3BC2424-3449-439F-BD51-E801AC5FF0AF}.Release|x86.ActiveCfg = Release|x86
+		{D3BC2424-3449-439F-BD51-E801AC5FF0AF}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

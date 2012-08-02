@@ -21,6 +21,10 @@ namespace A0650_EF_Oracle.Sample
                 Console.WriteLine("测试 使用 延迟加载！");
                 // 使用 延迟加载.
                 context.ContextOptions.LazyLoadingEnabled = true;
+
+
+
+                Console.WriteLine("### 开始测试 一对多 的延迟加载！ ###");
                 // 这里主动查询 test_main
                 foreach (TEST_MAIN m in context.TEST_MAIN.Where(p => p.ID < 100))
                 {
@@ -32,6 +36,24 @@ namespace A0650_EF_Oracle.Sample
                         foreach (TEST_SUB s in m.TEST_SUB)
                         {
                             Console.WriteLine("----- Sub = {0}:{1}", s.ID, s.VALUE);
+                        }
+                    }
+                }
+
+
+
+                Console.WriteLine("### 开始测试 多对多 的延迟加载！ ###");
+
+                foreach (TEST_STUDENT m in context.TEST_STUDENT)
+                {
+                    Console.WriteLine("学生 = {0}:{1}", m.STUDENT_CODE, m.STUDENT_NAME);
+                    // 下面使用 延迟加载， 自动取查询 test_score
+                    if (m.TEST_SCORE != null)
+                    {
+                        foreach (TEST_SCORE s in m.TEST_SCORE)
+                        {
+                            Console.WriteLine("----- 成绩 = {0}:{1}:{2}", 
+                                s.COURSE_CODE, s.TEST_COURSE.COURSE_NAME, s.SCORE_VALUE);
                         }
                     }
                 }
@@ -88,6 +110,35 @@ namespace A0650_EF_Oracle.Sample
                     }
                 }
 
+
+
+                Console.WriteLine();
+                Console.WriteLine("多对多关系，Include 多层次 查询！");
+
+                foreach (TEST_STUDENT m in context.TEST_STUDENT.Include("TEST_SCORE.TEST_COURSE"))
+                {
+                    Console.WriteLine("学生 = {0}:{1}", m.STUDENT_CODE, m.STUDENT_NAME);
+                    // 下面使用 延迟加载， 自动取查询 test_score
+                    if (m.TEST_SCORE != null)
+                    {
+                        foreach (TEST_SCORE s in m.TEST_SCORE)
+                        {
+                            Console.WriteLine("----- 成绩 = {0}:{1}:{2}", 
+                                s.COURSE_CODE, s.TEST_COURSE.COURSE_NAME, s.SCORE_VALUE);
+                        }
+                    }
+                }
+
+
+                Console.WriteLine();
+                Console.WriteLine("多对多关系，Include 多表 查询！");
+                foreach (TEST_SCORE s in context.TEST_SCORE.Include("TEST_STUDENT").Include("TEST_COURSE"))
+                {
+                    Console.WriteLine("学生 = {0}  课程 = {1}  成绩 = {2} ",
+                        s.TEST_STUDENT.STUDENT_NAME,
+                        s.TEST_COURSE.COURSE_NAME,
+                        s.SCORE_VALUE);
+                }
 
             }
         }
