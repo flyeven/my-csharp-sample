@@ -29,7 +29,9 @@ namespace A0650_EF_SqlServer
 
 
 
-
+            // Model First 的测试.
+            TestModelFirst.DoTest();
+            
 
 
             Console.ReadLine();

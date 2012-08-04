@@ -61,6 +61,7 @@
       <DependentUpon>TestModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Sample\TestConcurrency.cs" />
+    <Compile Include="Sample\TestModelFirst.cs" />
     <Compile Include="Sample\TestMulQuery.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -74,7 +75,9 @@
       <LastGenOutput>ModelFirst.Designer.cs</LastGenOutput>
     </EntityDeploy>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Sample\ModelFirst.edmx.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
