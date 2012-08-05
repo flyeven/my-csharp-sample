@@ -9,6 +9,7 @@
           <EntitySet Name="TEST_COURSE" EntityType="Model.Store.TEST_COURSE" store:Type="Tables" Schema="TEST" />
           <EntitySet Name="TEST_MAIN" EntityType="Model.Store.TEST_MAIN" store:Type="Tables" Schema="TEST" />
           <EntitySet Name="TEST_SCORE" EntityType="Model.Store.TEST_SCORE" store:Type="Tables" Schema="TEST" />
+          <EntitySet Name="TEST_SEQ_TAB" EntityType="Model.Store.TEST_SEQ_TAB" store:Type="Tables" Schema="TEST" />
           <EntitySet Name="TEST_SEQUENCE" EntityType="Model.Store.TEST_SEQUENCE" store:Type="Tables" Schema="TEST" />
           <EntitySet Name="TEST_STUDENT" EntityType="Model.Store.TEST_STUDENT" store:Type="Tables" Schema="TEST" />
           <EntitySet Name="TEST_SUB" EntityType="Model.Store.TEST_SUB" store:Type="Tables" Schema="TEST" />
@@ -47,6 +48,13 @@
           <Property Name="STUDENT_CODE" Type="number" Nullable="false" />
           <Property Name="COURSE_CODE" Type="number" Nullable="false" />
           <Property Name="SCORE_VALUE" Type="number" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TEST_SEQ_TAB">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Nullable="false" />
+          <Property Name="VALUE" Type="varchar2" MaxLength="10" />
         </EntityType>
         <EntityType Name="TEST_SEQUENCE">
           <Key>
@@ -129,6 +137,7 @@
             <End Role="TEST_STUDENT" EntitySet="TEST_STUDENT" />
             <End Role="TEST_SCORE" EntitySet="TEST_SCORE" />
           </AssociationSet>
+          <EntitySet Name="TEST_SEQ_TAB" EntityType="Model.TEST_SEQ_TAB" />
         </EntityContainer>
         <EntityType Name="TEST_MAIN">
           <Key>
@@ -217,6 +226,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="TEST_SEQ_TAB">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Decimal" Name="ID" Nullable="false" Precision="38" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="VALUE" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -265,6 +281,14 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="TEST_SEQ_TAB">
+            <EntityTypeMapping TypeName="Model.TEST_SEQ_TAB">
+              <MappingFragment StoreEntitySet="TEST_SEQ_TAB">
+                <ScalarProperty Name="VALUE" ColumnName="VALUE" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -304,6 +328,7 @@
           <ConnectorPoint PointX="5.5" PointY="3.351796875" />
           <ConnectorPoint PointX="4.375" PointY="3.351796875" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="Model.TEST_SEQ_TAB" Width="1.5" PointX="0.75" PointY="5.75" Height="1.2849739583333317" />
       </Diagram>
     </Diagrams>
   </Designer>

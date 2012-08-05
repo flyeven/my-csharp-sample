@@ -20,6 +20,10 @@ namespace A0650_EF_Oracle
             TestLazyLoading.DoTest();
 
 
+            // 测试 序列号.
+            TestSequence.DoTest();
+
+
             // 测试 多次查询.
             TestMulQuery.DoTest();
 

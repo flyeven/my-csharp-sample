@@ -167,6 +167,22 @@ namespace A0650_EF_Oracle.Sample
             }
         }
         private ObjectSet<TEST_STUDENT> _TEST_STUDENT;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<TEST_SEQ_TAB> TEST_SEQ_TAB
+        {
+            get
+            {
+                if ((_TEST_SEQ_TAB == null))
+                {
+                    _TEST_SEQ_TAB = base.CreateObjectSet<TEST_SEQ_TAB>("TEST_SEQ_TAB");
+                }
+                return _TEST_SEQ_TAB;
+            }
+        }
+        private ObjectSet<TEST_SEQ_TAB> _TEST_SEQ_TAB;
 
         #endregion
         #region AddTo 方法
@@ -217,6 +233,14 @@ namespace A0650_EF_Oracle.Sample
         public void AddToTEST_STUDENT(TEST_STUDENT tEST_STUDENT)
         {
             base.AddObject("TEST_STUDENT", tEST_STUDENT);
+        }
+    
+        /// <summary>
+        /// 用于向 TEST_SEQ_TAB EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddToTEST_SEQ_TAB(TEST_SEQ_TAB tEST_SEQ_TAB)
+        {
+            base.AddObject("TEST_SEQ_TAB", tEST_SEQ_TAB);
         }
 
         #endregion
@@ -624,6 +648,85 @@ namespace A0650_EF_Oracle.Sample
         }
 
         #endregion
+    }
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Model", Name="TEST_SEQ_TAB")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class TEST_SEQ_TAB : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 TEST_SEQ_TAB 对象。
+        /// </summary>
+        /// <param name="id">ID 属性的初始值。</param>
+        public static TEST_SEQ_TAB CreateTEST_SEQ_TAB(global::System.Decimal id)
+        {
+            TEST_SEQ_TAB tEST_SEQ_TAB = new TEST_SEQ_TAB();
+            tEST_SEQ_TAB.ID = id;
+            return tEST_SEQ_TAB;
+        }
+
+        #endregion
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Decimal _ID;
+        partial void OnIDChanging(global::System.Decimal value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String VALUE
+        {
+            get
+            {
+                return _VALUE;
+            }
+            set
+            {
+                OnVALUEChanging(value);
+                ReportPropertyChanging("VALUE");
+                _VALUE = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("VALUE");
+                OnVALUEChanged();
+            }
+        }
+        private global::System.String _VALUE;
+        partial void OnVALUEChanging(global::System.String value);
+        partial void OnVALUEChanged();
+
+        #endregion
+    
     }
     
     /// <summary>
