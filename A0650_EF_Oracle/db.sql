@@ -124,7 +124,8 @@ CREATE SEQUENCE SEQ_TEST_EF
 	START WITH 1       -- 从1开始
 	NOMAXVALUE      -- 没有最大值
 	MINVALUE 1       -- 最小值=1
-	NOCYCLE;      -- 不循环
+	NOCYCLE      -- 不循环
+;
 
 
 -- 创建测试表. ID 是主键.  数据将由 触发器 从序列号中获取.
@@ -142,3 +143,80 @@ BEGIN
 	SELECT SEQ_TEST_EF.NEXTVAL INTO :NEW.id FROM DUAL;
 END;
 /
+
+
+
+
+
+
+----------
+--  存储过程 测试.
+----------
+
+CREATE OR REPLACE PROCEDURE "TEST_INSERT_MAIN_SUB" (
+	p_main_val  	test_main.value%TYPE,
+	p_sub_val  		test_sub.value%TYPE
+) AS
+	v_main_id	test_main.id%TYPE;
+	v_sub_id	test_sub.id%TYPE;
+BEGIN
+
+	SELECT 
+		sequence_number  INTO  v_main_id
+	FROM 
+		test_sequence
+	WHERE
+		table_name = 'test_main';
+
+	UPDATE 
+		test_sequence
+	SET
+		sequence_number = sequence_number + 1
+	WHERE
+		table_name = 'test_main';
+		
+		
+	SELECT 
+		sequence_number  INTO  v_sub_id
+	FROM 
+		test_sequence
+	WHERE
+		table_name = 'test_sub';
+	
+	UPDATE 
+		test_sequence
+	SET
+		sequence_number = sequence_number + 1
+	WHERE
+		table_name = 'test_sub';
+
+	-- 先插入主表数据.
+	INSERT INTO test_main (id, value) VALUES ( v_main_id, p_main_val);
+
+	-- 后插入子表数据.
+	INSERT INTO test_sub (id, main_id, value) VALUES ( v_sub_id, v_main_id, p_sub_val);
+
+END;
+/
+
+
+CREATE OR REPLACE PROCEDURE "TEST_REMOVE_MAIN_SUB" (
+	p_main_id  	test_main.id%TYPE
+) AS
+BEGIN
+
+	-- 先删除子表数据.
+	DELETE 
+		test_sub 
+	WHERE
+		main_id = p_main_id;
+
+	-- 后删除主表数据.
+	DELETE 
+		test_main
+	WHERE
+		id = p_main_id;
+
+END;
+/
+

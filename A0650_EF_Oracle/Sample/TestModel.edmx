@@ -114,6 +114,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="TEST_INSERT_MAIN_SUB" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="TEST">
+          <Parameter Name="P_MAIN_VAL" Type="varchar2" Mode="In" />
+          <Parameter Name="P_SUB_VAL" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="TEST_REMOVE_MAIN_SUB" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="TEST">
+          <Parameter Name="P_MAIN_ID" Type="number" Mode="In" />
+        </Function>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -138,6 +145,13 @@
             <End Role="TEST_SCORE" EntitySet="TEST_SCORE" />
           </AssociationSet>
           <EntitySet Name="TEST_SEQ_TAB" EntityType="Model.TEST_SEQ_TAB" />
+          <FunctionImport Name="TestInsertMainSub">
+            <Parameter Name="P_MAIN_VAL" Mode="In" Type="String" />
+            <Parameter Name="P_SUB_VAL" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="TestRemoveMainSub">
+            <Parameter Name="P_MAIN_ID" Mode="In" Type="Decimal" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="TEST_MAIN">
           <Key>
@@ -289,6 +303,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="TestInsertMainSub" FunctionName="Model.Store.TEST_INSERT_MAIN_SUB" />
+          <FunctionImportMapping FunctionImportName="TestRemoveMainSub" FunctionName="Model.Store.TEST_REMOVE_MAIN_SUB" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

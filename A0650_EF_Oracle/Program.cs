@@ -24,6 +24,15 @@ namespace A0650_EF_Oracle
             TestSequence.DoTest();
 
 
+
+            // 测试 存储过程
+            TestCallProcedure.DoTest();
+
+
+            // 测试 事务处理.
+            TestTransaction.DoTest();
+
+
             // 测试 多次查询.
             TestMulQuery.DoTest();
 

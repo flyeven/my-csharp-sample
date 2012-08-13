@@ -167,6 +167,22 @@ namespace A0650_EF_SqlServer.Sample
             }
         }
         private ObjectSet<test_student> _test_student;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<test_Identity_tab> test_Identity_tab
+        {
+            get
+            {
+                if ((_test_Identity_tab == null))
+                {
+                    _test_Identity_tab = base.CreateObjectSet<test_Identity_tab>("test_Identity_tab");
+                }
+                return _test_Identity_tab;
+            }
+        }
+        private ObjectSet<test_Identity_tab> _test_Identity_tab;
 
         #endregion
         #region AddTo 方法
@@ -217,6 +233,66 @@ namespace A0650_EF_SqlServer.Sample
         public void AddTotest_student(test_student test_student)
         {
             base.AddObject("test_student", test_student);
+        }
+    
+        /// <summary>
+        /// 用于向 test_Identity_tab EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddTotest_Identity_tab(test_Identity_tab test_Identity_tab)
+        {
+            base.AddObject("test_Identity_tab", test_Identity_tab);
+        }
+
+        #endregion
+        #region 函数导入
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        /// <param name="main_val">没有元数据文档可用。</param>
+        /// <param name="sub_val">没有元数据文档可用。</param>
+        public int TestInsertMainSub(global::System.String main_val, global::System.String sub_val)
+        {
+            ObjectParameter main_valParameter;
+            if (main_val != null)
+            {
+                main_valParameter = new ObjectParameter("main_val", main_val);
+            }
+            else
+            {
+                main_valParameter = new ObjectParameter("main_val", typeof(global::System.String));
+            }
+    
+            ObjectParameter sub_valParameter;
+            if (sub_val != null)
+            {
+                sub_valParameter = new ObjectParameter("sub_val", sub_val);
+            }
+            else
+            {
+                sub_valParameter = new ObjectParameter("sub_val", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction("TestInsertMainSub", main_valParameter, sub_valParameter);
+        }
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        /// <param name="main_id">没有元数据文档可用。</param>
+        public int TestRemoveMainSub(Nullable<global::System.Int32> main_id)
+        {
+            ObjectParameter main_idParameter;
+            if (main_id.HasValue)
+            {
+                main_idParameter = new ObjectParameter("main_id", main_id);
+            }
+            else
+            {
+                main_idParameter = new ObjectParameter("main_id", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction("TestRemoveMainSub", main_idParameter);
         }
 
         #endregion
@@ -331,6 +407,85 @@ namespace A0650_EF_SqlServer.Sample
         }
 
         #endregion
+    }
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="TestModel", Name="test_Identity_tab")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class test_Identity_tab : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 test_Identity_tab 对象。
+        /// </summary>
+        /// <param name="id">id 属性的初始值。</param>
+        public static test_Identity_tab Createtest_Identity_tab(global::System.Int32 id)
+        {
+            test_Identity_tab test_Identity_tab = new test_Identity_tab();
+            test_Identity_tab.id = id;
+            return test_Identity_tab;
+        }
+
+        #endregion
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                if (_id != value)
+                {
+                    OnidChanging(value);
+                    ReportPropertyChanging("id");
+                    _id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("id");
+                    OnidChanged();
+                }
+            }
+        }
+        private global::System.Int32 _id;
+        partial void OnidChanging(global::System.Int32 value);
+        partial void OnidChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String value
+        {
+            get
+            {
+                return _value;
+            }
+            set
+            {
+                OnvalueChanging(value);
+                ReportPropertyChanging("value");
+                _value = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("value");
+                OnvalueChanged();
+            }
+        }
+        private global::System.String _value;
+        partial void OnvalueChanging(global::System.String value);
+        partial void OnvalueChanged();
+
+        #endregion
+    
     }
     
     /// <summary>

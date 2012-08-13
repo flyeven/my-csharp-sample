@@ -68,7 +68,7 @@ namespace A0650_EF_SqlServer.Sample
         /// </summary>
         public static void DoTest()
         {
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 3; i++)
             {
                 ThreadStart tsa = new ThreadStart(DoTestConcurrency);
                 Thread ta = new Thread(tsa);

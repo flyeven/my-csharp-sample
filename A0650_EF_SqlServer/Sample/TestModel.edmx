@@ -7,6 +7,7 @@
     <Schema Namespace="TestModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="TestModelStoreContainer">
           <EntitySet Name="test_course" EntityType="TestModel.Store.test_course" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="test_Identity_tab" EntityType="TestModel.Store.test_Identity_tab" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="test_main" EntityType="TestModel.Store.test_main" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="test_score" EntityType="TestModel.Store.test_score" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="test_sequence" EntityType="TestModel.Store.test_sequence" store:Type="Tables" Schema="dbo" />
@@ -31,6 +32,13 @@
           </Key>
           <Property Name="course_code" Type="int" Nullable="false" />
           <Property Name="course_name" Type="varchar" Nullable="false" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="test_Identity_tab">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="value" Type="varchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="test_main">
           <Key>
@@ -106,6 +114,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="test_insert_main_sub" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="main_val" Type="varchar" Mode="In" />
+          <Parameter Name="sub_val" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="test_remove_main_sub" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="main_id" Type="int" Mode="In" />
+        </Function>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -129,6 +144,14 @@
             <End Role="test_student" EntitySet="test_student" />
             <End Role="test_score" EntitySet="test_score" />
           </AssociationSet>
+          <FunctionImport Name="TestInsertMainSub">
+            <Parameter Name="main_val" Mode="In" Type="String" />
+            <Parameter Name="sub_val" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="TestRemoveMainSub">
+          <Parameter Name="main_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="test_Identity_tab" EntityType="TestModel.test_Identity_tab" />
         </EntityContainer>
         <EntityType Name="test_main">
           <Key>
@@ -217,6 +240,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="test_Identity_tab">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="value" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -265,6 +295,16 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="TestInsertMainSub" FunctionName="TestModel.Store.test_insert_main_sub" />
+          <FunctionImportMapping FunctionImportName="TestRemoveMainSub" FunctionName="TestModel.Store.test_remove_main_sub" />
+          <EntitySetMapping Name="test_Identity_tab">
+            <EntityTypeMapping TypeName="TestModel.test_Identity_tab">
+              <MappingFragment StoreEntitySet="test_Identity_tab">
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -304,6 +344,7 @@
           <ConnectorPoint PointX="5.25" PointY="3.664296875" />
           <ConnectorPoint PointX="4.375" PointY="3.664296875" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="TestModel.test_Identity_tab" Width="1.5" PointX="0.75" PointY="5.75" Height="1.2849739583333317" />
       </Diagram>
     </Diagrams>
   </Designer>

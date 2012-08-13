@@ -40,6 +40,7 @@
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -54,6 +55,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelFirst.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Sample\TestCallProcedure.cs" />
     <Compile Include="Sample\TestLazyLoading.cs" />
     <Compile Include="Sample\TestModel.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -63,6 +65,8 @@
     <Compile Include="Sample\TestConcurrency.cs" />
     <Compile Include="Sample\TestModelFirst.cs" />
     <Compile Include="Sample\TestMulQuery.cs" />
+    <Compile Include="Sample\TestTransaction.cs" />
+    <Compile Include="Sample\TestIdentity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

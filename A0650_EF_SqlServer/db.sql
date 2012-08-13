@@ -100,3 +100,99 @@ ALTER TABLE test_score ADD CONSTRAINT fk_test_score_student FOREIGN KEY (student
 ALTER TABLE test_score ADD CONSTRAINT fk_test_score_course FOREIGN KEY (course_code) REFERENCES test_course;
 
 
+
+
+
+
+----------
+--  Identity 测试.
+----------
+
+
+-- 创建测试表. ID 是主键.  数据将由 Identity 方式自增.
+CREATE TABLE test_Identity_tab (
+	id      INT  identity(1, 1),
+	value   VARCHAR(10),
+	PRIMARY KEY(id) 
+);
+
+
+
+
+
+
+----------
+--  存储过程 测试.
+----------
+CREATE PROCEDURE test_insert_main_sub (
+	@main_val  	VARCHAR(10),
+	@sub_val  	VARCHAR(10)
+) AS
+BEGIN
+
+	DECLARE @main_id	INT,
+			@sub_id		INT;
+
+	SELECT 
+		@main_id = sequence_number
+	FROM 
+		test_sequence
+	WHERE
+		table_name = 'test_main';
+
+	UPDATE 
+		test_sequence
+	SET
+		sequence_number = sequence_number + 1
+	WHERE
+		table_name = 'test_main';
+		
+		
+	SELECT 
+		@sub_id = sequence_number
+	FROM 
+		test_sequence
+	WHERE
+		table_name = 'test_sub';
+	
+	UPDATE 
+		test_sequence
+	SET
+		sequence_number = sequence_number + 1
+	WHERE
+		table_name = 'test_sub';
+
+	-- 先插入主表数据.
+	INSERT INTO test_main (id, value) VALUES (@main_id, @main_val);
+
+	-- 后插入子表数据.
+	INSERT INTO test_sub (id, main_id, value) VALUES (@sub_id, @main_id, @sub_val);
+
+END;
+
+
+
+
+CREATE PROCEDURE test_remove_main_sub (
+	@main_id  	INT
+) AS
+BEGIN
+
+	-- 先删除子表数据.
+	DELETE 
+		test_sub 
+	WHERE
+		main_id = @main_id;
+
+	-- 后删除主表数据.
+	DELETE 
+		test_main
+	WHERE
+		id = @main_id;
+
+END;
+
+
+
+
+

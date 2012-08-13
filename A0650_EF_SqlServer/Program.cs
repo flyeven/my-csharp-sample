@@ -17,6 +17,19 @@ namespace A0650_EF_SqlServer
             // 测试延迟加载.
             TestLazyLoading.DoTest();
 
+            // 测试  identity.
+            TestIdentity.DoTest();
+
+            // 测试 存储过程
+            TestCallProcedure.DoTest();
+
+
+
+            // 测试 事务处理.
+            TestTransaction.DoTest();
+
+
+
 
 
             // 测试 多次查询.
@@ -30,7 +43,7 @@ namespace A0650_EF_SqlServer
 
 
             // Model First 的测试.
-            TestModelFirst.DoTest();
+            // TestModelFirst.DoTest();
             
 
 

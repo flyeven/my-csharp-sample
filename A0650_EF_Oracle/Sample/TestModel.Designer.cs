@@ -244,6 +244,58 @@ namespace A0650_EF_Oracle.Sample
         }
 
         #endregion
+        #region 函数导入
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        /// <param name="p_MAIN_VAL">没有元数据文档可用。</param>
+        /// <param name="p_SUB_VAL">没有元数据文档可用。</param>
+        public int TestInsertMainSub(global::System.String p_MAIN_VAL, global::System.String p_SUB_VAL)
+        {
+            ObjectParameter p_MAIN_VALParameter;
+            if (p_MAIN_VAL != null)
+            {
+                p_MAIN_VALParameter = new ObjectParameter("P_MAIN_VAL", p_MAIN_VAL);
+            }
+            else
+            {
+                p_MAIN_VALParameter = new ObjectParameter("P_MAIN_VAL", typeof(global::System.String));
+            }
+    
+            ObjectParameter p_SUB_VALParameter;
+            if (p_SUB_VAL != null)
+            {
+                p_SUB_VALParameter = new ObjectParameter("P_SUB_VAL", p_SUB_VAL);
+            }
+            else
+            {
+                p_SUB_VALParameter = new ObjectParameter("P_SUB_VAL", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction("TestInsertMainSub", p_MAIN_VALParameter, p_SUB_VALParameter);
+        }
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        /// <param name="p_MAIN_ID">没有元数据文档可用。</param>
+        public int TestRemoveMainSub(Nullable<global::System.Decimal> p_MAIN_ID)
+        {
+            ObjectParameter p_MAIN_IDParameter;
+            if (p_MAIN_ID.HasValue)
+            {
+                p_MAIN_IDParameter = new ObjectParameter("P_MAIN_ID", p_MAIN_ID);
+            }
+            else
+            {
+                p_MAIN_IDParameter = new ObjectParameter("P_MAIN_ID", typeof(global::System.Decimal));
+            }
+    
+            return base.ExecuteFunction("TestRemoveMainSub", p_MAIN_IDParameter);
+        }
+
+        #endregion
     }
     
 
