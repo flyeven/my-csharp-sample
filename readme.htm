@@ -263,9 +263,31 @@
 
     <tr>
       <td> A0170_Oracle </td>
-      <td>访问 Oracle 数据库的例子 </td>
+      <td>访问 Oracle 数据库的例子 
+	      （使用 微软的类库来访问。  命名空间为  System.Data.OracleClient ）
+	  </td>
     </tr>
 
+	
+	<tr>
+      <td> A0171_Oracle_ODAC </td>
+      <td>访问 Oracle 数据库的例子  
+	      ( 使用 Oracle 的 ODAC 来访问。 命名空间为  Oracle.DataAccess.Client ) 
+	  </td>
+    </tr>
+
+	<tr>
+      <td> A0172_Oracle_MyRule </td>
+      <td> 
+	    使用 Oracle 来 实现  A0162_SQL_Server_Func_MyRule_UnitTest 的 处理 。
+	    因为 Oracle 中， 没有 SQL Server 那种 “表值函数” 的东西。
+		因此，具体业务处理逻辑， 是以 C# 代码的方式实现的。
+		( 本项目 使用 Entity Framework 进行处理 )
+	  </td>
+    </tr>
+	
+	
+	
 
     <tr>
       <td> A0180_MySQL_ODBC </td>
