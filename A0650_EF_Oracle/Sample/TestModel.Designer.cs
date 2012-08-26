@@ -183,6 +183,22 @@ namespace A0650_EF_Oracle.Sample
             }
         }
         private ObjectSet<TEST_SEQ_TAB> _TEST_SEQ_TAB;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<QUERY_RESULT_MAIN_AND_SUB> QUERY_RESULT_MAIN_AND_SUB
+        {
+            get
+            {
+                if ((_QUERY_RESULT_MAIN_AND_SUB == null))
+                {
+                    _QUERY_RESULT_MAIN_AND_SUB = base.CreateObjectSet<QUERY_RESULT_MAIN_AND_SUB>("QUERY_RESULT_MAIN_AND_SUB");
+                }
+                return _QUERY_RESULT_MAIN_AND_SUB;
+            }
+        }
+        private ObjectSet<QUERY_RESULT_MAIN_AND_SUB> _QUERY_RESULT_MAIN_AND_SUB;
 
         #endregion
         #region AddTo 方法
@@ -241,6 +257,14 @@ namespace A0650_EF_Oracle.Sample
         public void AddToTEST_SEQ_TAB(TEST_SEQ_TAB tEST_SEQ_TAB)
         {
             base.AddObject("TEST_SEQ_TAB", tEST_SEQ_TAB);
+        }
+    
+        /// <summary>
+        /// 用于向 QUERY_RESULT_MAIN_AND_SUB EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddToQUERY_RESULT_MAIN_AND_SUB(QUERY_RESULT_MAIN_AND_SUB qUERY_RESULT_MAIN_AND_SUB)
+        {
+            base.AddObject("QUERY_RESULT_MAIN_AND_SUB", qUERY_RESULT_MAIN_AND_SUB);
         }
 
         #endregion
@@ -302,6 +326,109 @@ namespace A0650_EF_Oracle.Sample
     #endregion
     
     #region 实体
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Model", Name="QUERY_RESULT_MAIN_AND_SUB")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class QUERY_RESULT_MAIN_AND_SUB : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 QUERY_RESULT_MAIN_AND_SUB 对象。
+        /// </summary>
+        /// <param name="id">ID 属性的初始值。</param>
+        public static QUERY_RESULT_MAIN_AND_SUB CreateQUERY_RESULT_MAIN_AND_SUB(global::System.Decimal id)
+        {
+            QUERY_RESULT_MAIN_AND_SUB qUERY_RESULT_MAIN_AND_SUB = new QUERY_RESULT_MAIN_AND_SUB();
+            qUERY_RESULT_MAIN_AND_SUB.ID = id;
+            return qUERY_RESULT_MAIN_AND_SUB;
+        }
+
+        #endregion
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Decimal _ID;
+        partial void OnIDChanging(global::System.Decimal value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String MAIN_VALUE
+        {
+            get
+            {
+                return _MAIN_VALUE;
+            }
+            set
+            {
+                OnMAIN_VALUEChanging(value);
+                ReportPropertyChanging("MAIN_VALUE");
+                _MAIN_VALUE = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("MAIN_VALUE");
+                OnMAIN_VALUEChanged();
+            }
+        }
+        private global::System.String _MAIN_VALUE;
+        partial void OnMAIN_VALUEChanging(global::System.String value);
+        partial void OnMAIN_VALUEChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String SUB_VALUE
+        {
+            get
+            {
+                return _SUB_VALUE;
+            }
+            set
+            {
+                OnSUB_VALUEChanging(value);
+                ReportPropertyChanging("SUB_VALUE");
+                _SUB_VALUE = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("SUB_VALUE");
+                OnSUB_VALUEChanged();
+            }
+        }
+        private global::System.String _SUB_VALUE;
+        partial void OnSUB_VALUEChanging(global::System.String value);
+        partial void OnSUB_VALUEChanged();
+
+        #endregion
+    
+    }
     
     /// <summary>
     /// 没有元数据文档可用。

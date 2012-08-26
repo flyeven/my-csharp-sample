@@ -77,6 +77,7 @@
     </Compile>
     <Compile Include="Sample\TestCallProcedure.cs" />
     <Compile Include="Sample\TestConcurrency.cs" />
+    <Compile Include="Sample\TestExecSql.cs" />
     <Compile Include="Sample\TestLazyLoading.cs" />
     <Compile Include="Sample\TestModel.Designer.cs">
       <AutoGen>True</AutoGen>

@@ -220,3 +220,35 @@ BEGIN
 END;
 /
 
+
+
+
+
+----------
+--  手动执行 SQL 语句的测试.
+--  这里仅仅是为了 验证  “手动执行 SQL 语句”  技术上的可行性。
+----------
+
+
+-- 这个表， 是用于模拟 sql 语句返回结果的  结构。 
+-- 仅仅是一个 空壳， 不需要添加任何数据的。
+CREATE TABLE QUERY_RESULT_MAIN_AND_SUB (
+	id				INT,
+	main_value		VARCHAR(10),
+	sub_value		VARCHAR(10),
+	PRIMARY KEY(id) 
+);
+
+
+-- 下面是 准备在 Entity Framework 中， 执行的 SQL 语句.
+-- 需要注意， 每一列， 需要与 上面的那个 空壳的表的 字段相一致.
+select
+  s.id		as id,
+  m.value 	as main_value, 
+  s.value 	as sub_value
+from
+  test_main  m
+    join test_sub  s
+      on (m.id = s.main_id)
+
+

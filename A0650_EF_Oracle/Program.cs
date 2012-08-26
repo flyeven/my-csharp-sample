@@ -16,6 +16,10 @@ namespace A0650_EF_Oracle
             Console.WriteLine("Oracle Entity Framework Test...");
 
 
+            // 测试直接执行 SQL 语句.
+            TestExecSql.DoTest();
+
+
             // 测试延迟加载.
             TestLazyLoading.DoTest();
 
