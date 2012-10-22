@@ -91,3 +91,14 @@ BEGIN
 
 END;
 go
+
+
+
+
+-- ≤‚ ‘ identity ¡–.
+CREATE TABLE test_SCOPE_IDENTITY (
+  id   int IDENTITY(1,1) PRIMARY KEY,
+  val VARCHAR(10)
+)
+go
+

@@ -71,6 +71,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sample\CallLongTimeProc.cs" />
     <Compile Include="Sample\CallSqlServerFuncProc.cs" />
+    <Compile Include="Sample\GetScopeIdentity.cs" />
     <Compile Include="Sample\ReadSqlServerData.cs" />
     <Compile Include="Sample\UpdateByDataSet.cs" />
     <Compile Include="Sample\WriteSqlServerData.cs" />

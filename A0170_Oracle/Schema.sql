@@ -65,3 +65,39 @@ CREATE OR REPLACE package body pkg_HelloWorld as
   END getHelloWorld;
 end pkg_HelloWorld;
 /
+
+
+
+
+
+
+
+----------
+--  SEQUENCE 测试.
+----------
+
+CREATE SEQUENCE SEQ_TEST_EF
+	INCREMENT BY 1    -- 每次递增1
+	START WITH 1       -- 从1开始
+	NOMAXVALUE      -- 没有最大值
+	MINVALUE 1       -- 最小值=1
+	NOCYCLE      -- 不循环
+;
+
+
+-- 创建测试表. ID 是主键.  数据将由 触发器 从序列号中获取.
+CREATE TABLE test_seq_tab (
+	id      INT,
+	value   VARCHAR(10),
+	PRIMARY KEY(id) 
+);
+
+
+-- 触发器.
+CREATE OR REPLACE TRIGGER "T_SEQ_TEST_EF" BEFORE INSERT
+ON test_seq_tab FOR EACH ROW
+BEGIN
+	SELECT SEQ_TEST_EF.NEXTVAL INTO :NEW.id FROM DUAL;
+END;
+/
+

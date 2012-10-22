@@ -19,6 +19,9 @@ namespace A0160_SQL_Server
             dsTest.Test();
 
 
+            GetScopeIdentity gTest = new GetScopeIdentity();
+            gTest.TestInsert();
+
 
             // 读
             ReadSqlServerData reader = new ReadSqlServerData();
