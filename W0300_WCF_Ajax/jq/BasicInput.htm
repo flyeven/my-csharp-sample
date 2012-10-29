@@ -1,0 +1,420 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title> jQuery  基本 输入控件的 处理机制  </title>
+    
+    <script src="../Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+    
+    <script type="text/javascript">
+
+
+        $(document).ready(function () {
+
+
+            // -------------------- Text --------------------
+
+            // 测试读取 Text  点击处理事件.
+            $("#btnTestReadText").click(function () {
+
+                // 取得用户输入.
+                // $("#txtTest")  为获取画面上的 id = txtTest 的对象.
+                // val() 为 获取对象上的数据.
+                var vText = $("#txtTest").val();
+
+                alert("Input Text 上输入的信息为：" + vText);
+            });
+
+
+
+            // 测试写入 Text  点击处理事件.
+            $("#btnTestWriteText").click(function () {
+
+                // $("#txtTest")  为获取画面上的 id = txtTest 的对象.
+                // val( "测试写入数据" ) 为 修改对象上的数据.
+                $("#txtTest").val("测试写入数据");
+
+            });
+
+            // -------------------- Text --------------------
+
+
+
+
+
+
+
+            // -------------------- Checkbox --------------------
+
+            // 全选  点击处理事件.
+            $("#btnTestSelectAllCheckbox").click(function () {
+                // 遍历画面中的 每一个 名称为 chkABCD 的元素.
+                $("input[name='chkABCD']").each(function (index) {
+                    // 设置 checkbox 的选择.
+                    $(this).attr("checked", "checked");
+                });
+            });
+
+
+            // 全取消  点击处理事件.
+            $("#btnTestSelectNoneCheckbox").click(function () {
+                // 遍历画面中的 每一个 
+                // 名称为 chkABCD 的元素 :  input[name='chkABCD']
+                // [checked] 表示 筛选那些  已经 选择了的.
+                $("input[name='chkABCD'][checked]").each(function (index) {
+                    // 取消 checkbox 的选择.
+                    $(this).removeAttr("checked");
+                });
+            });
+
+
+            // 测试读取 CheckBox 点击处理事件
+            $("#btnTestReadCheckBox").click(function () {
+
+                var vCheckBoxVal = "";
+
+                $("input[name='chkABCD'][checked]").each(function (index) {
+                    vCheckBoxVal = vCheckBoxVal + $(this).val() + " ";
+                });
+
+                alert("Input CheckBox 上输入的信息为：" + vCheckBoxVal);
+            });
+
+
+            // 测试写入 CheckBox 点击处理事件
+            $("#btnTestWriteCheckBox").click(function () {
+
+                // 遍历画面中的 每一个 名称为 chkABCD 的元素.
+                $("input[name='chkABCD']").each(function (index) {
+
+                    if ($(this).val() == "A" || $(this).val() == "C") {
+                        // 设置 checkbox 的选择.
+                        $(this).attr("checked", "checked");
+                    } else {
+                        // 取消 checkbox 的选择.
+                        $(this).removeAttr("checked");
+                    }
+
+                });
+
+            });
+
+
+
+            // -------------------- Checkbox --------------------
+
+
+
+
+
+
+
+            // -------------------- Radio --------------------
+
+            // 测试读取 Radio  点击处理事件.
+            $("#btnTestReadRadio").click(function () {
+
+                // 取得用户输入.
+                var vUserSelectVal = "";
+
+                // 遍历画面中的 每一个 名称为 rdoABCD 的元素.
+                $("input[name='rdoABCD']").each(function (index) {
+                    if ($(this).attr("checked") == "checked") {
+                        // 本 Radio 被选择了.
+                        vUserSelectVal = $(this).val();
+                    }
+                });
+
+                if (vUserSelectVal == "") {
+                    alert("Input Radio 上还没有输入信息！");
+                } else {
+                    alert("Input Radio 上输入的信息为：" + vUserSelectVal);
+                }
+            });
+
+
+
+            // 测试写入 Radio  点击处理事件.
+            $("#btnTestWriteRadio").click(function () {
+
+                // 遍历画面中的 每一个 名称为 rdoABCD 的元素.
+                $("input[name='rdoABCD']").each(function (index) {
+
+                    if ($(this).val() == "C") {
+                        // 如果是 C ， 那么选择.
+                        $(this).attr("checked", "checked");
+                    } else {
+                        // 其他的，取消选择.
+                        $(this).removeAttr("checked");
+                    }
+                });
+
+            });
+
+
+
+            // -------------------- Radio --------------------
+
+
+
+
+
+
+            // -------------------- Select --------------------
+
+
+
+            // 测试读取 Select  点击处理事件.
+            $("#btnTestReadSelect").click(function () {
+
+                // 选择的文本.
+                var vSelectText = $("#cboABCD").find('option:selected').text();
+
+                // 选择的 Value.
+                var vSelectValue = $("#cboABCD").val();
+
+
+                alert("Select 选择的文本为：" + vSelectText + " Value为:" + vSelectValue);
+            });
+
+
+
+            // 测试写入 Select  点击处理事件.
+            $("#btnTestWriteSelect").click(function () {
+
+                $("#cboABCD option").each(function (index) {
+                    if ($(this).val() == "C") {
+                        // 如果是 C ， 那么选择.
+                        $(this).attr("selected", "selected");
+                    } else {
+                        // 其他的，取消选择.
+                        $(this).removeAttr("selected");
+                    }
+                });
+
+            });
+
+
+
+            // -------------------- Select --------------------
+
+
+
+
+
+
+
+
+
+
+
+
+            // -------------------- Select (复选) --------------------
+
+
+
+            // 测试读取 Select  点击处理事件.
+            $("#btnTestReadSelectMul").click(function () {
+
+                // 选择的文本.
+                var vSelectText = $("#lstABCD").find('option:selected').text();
+
+                // 选择的 Value.
+                var vSelectValue = $("#lstABCD").val();
+
+
+                alert("Select 选择的文本为：" + vSelectText + " Value为:" + vSelectValue);
+            });
+
+
+
+            // 测试写入 Select  点击处理事件.
+            $("#btnTestWriteSelectMul").click(function () {
+
+                $("#lstABCD option").each(function (index) {
+                    if ($(this).val() == "A" || $(this).val() == "C") {
+                        // 如果是 A 或 C ， 那么选择.
+                        $(this).attr("selected", "selected");
+                    } else {
+                        // 其他的，取消选择.
+                        $(this).removeAttr("selected");
+                    }
+                });
+
+            });
+
+
+
+            // -------------------- Select (复选)  --------------------
+
+        })
+        
+    </script>
+
+</head>
+
+
+
+<body>
+
+
+
+<form id="form1" action="#">
+     
+
+  <h4> Text </h4>
+  
+  <table>
+    <tr>
+      <td> 
+          <input id="txtTest" type="text" value="123" /> 
+      </td>
+
+      <td>
+          <input id="btnTestReadText" type="button" value="测试读取 Text " />
+      </td>
+
+      <td>
+          <input id="btnTestWriteText" type="button" value="测试写入 Text " />
+      </td>
+    </tr>
+  </table>
+
+
+
+  <h4> Checkbox </h4>
+
+  <table>
+
+    <tr>
+      <td> A <input id="chkA" name="chkABCD" type="checkbox"  value="A" checked="checked" /> </td>
+      <td> B <input id="chkB" name="chkABCD" type="checkbox"  value="B" /> </td>
+      <td> C <input id="chkC" name="chkABCD" type="checkbox"  value="C" /> </td>
+      <td> D <input id="chkD" name="chkABCD" type="checkbox"  value="D" checked="checked" /> </td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+          <input id="btnTestSelectAllCheckbox" type="button" value="全选" />
+      </td>
+
+      <td colspan="2">
+          <input id="btnTestSelectNoneCheckbox" type="button" value="全取消" />
+      </td>
+    </tr>
+
+
+    <tr>
+      <td colspan="2">
+          <input id="btnTestReadCheckBox" type="button" value="测试读取" />
+      </td>
+
+      <td colspan="2">
+          <input id="btnTestWriteCheckBox" type="button" value="测试写入 = A,C" />
+      </td>
+    </tr>
+
+  </table>
+
+
+
+
+  <h4> Radio </h4>
+
+  
+  <table>
+
+    <tr>
+      <td> A <input id="rdoA" name="rdoABCD" type="radio"  value="A" /> </td>
+      <td> B <input id="rdoB" name="rdoABCD" type="radio"  value="B" /> </td>
+      <td> C <input id="rdoC" name="rdoABCD" type="radio"  value="C" /> </td>
+      <td> D <input id="rdoD" name="rdoABCD" type="radio"  value="D" /> </td>
+    </tr>
+      
+    <tr>
+      <td colspan="2">
+          <input id="btnTestReadRadio" type="button" value="测试读取 Radio" />
+      </td>
+
+      <td colspan="2">
+          <input id="btnTestWriteRadio" type="button" value="测试写入 Radio = C" />
+      </td>
+
+    </tr>
+
+  </table>
+
+
+
+
+
+  
+  <h4> Select </h4>
+
+
+  <table>
+    <tr>
+      <td colspan="2">
+          <select id="cboABCD">
+              <option value="A" selected="selected">A1</option>
+              <option value="B">B2</option>
+              <option value="C">C3</option>
+              <option value="D">D4</option>
+          </select>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <input id="btnTestReadSelect" type="button" value="测试读取 Select" />
+      </td>
+
+      <td>
+        <input id="btnTestWriteSelect" type="button" value="测试写入 Select = C" />
+      </td>
+    </tr>
+  </table>
+
+
+
+
+ 
+  <h4> Select ( Mul ) </h4>
+
+
+  <table>
+    <tr>
+      <td colspan="2">
+          <select id="lstABCD" multiple="multiple">
+              <option value="A" selected="selected">A1</option>
+              <option value="B">B2</option>
+              <option value="C">C3</option>
+              <option value="D" selected="selected">D4</option>
+          </select>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <input id="btnTestReadSelectMul" type="button" value="测试读取 Select" />
+      </td>
+
+      <td>
+        <input id="btnTestWriteSelectMul" type="button" value="测试写入 Select = A,C" />
+      </td>
+    </tr>
+  </table>
+
+
+
+
+
+
+
+</form>
+
+
+</body>
+
+
+
+</html>

@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title> jQuery  表格处理的例子  </title>
+
+    <script src="../Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+    
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            // 查询 按钮的 点击处理事件.
+            $("#btnQuery").click(function () {
+
+                // 获取用户输入的参数.
+                var vParam = $("#txtUserName").val();
+
+
+                // 调用 ajax 
+                $.ajax({
+                    url: "/WcfMyDemoService.svc/SearchUser",
+                    type: "POST",
+                    contentType: "text/json",
+                    dataType: "json",
+                    data: '{"name":"' + vParam + '"}',
+                    success: function (data) {
+
+                        // 首先清除旧有的数据.
+                        $("tr.UserData").remove();
+
+                        // 开始追加新数据.
+                        for (var i = 0; i < data.d.length; i++) {
+
+                            $("#ResultTable").append("<tr class='UserData'> <td>" + data.d[i].UserName +
+                                    "</td>   <td>" + data.d[i].Password + 
+                                    "</td> </tr>");
+
+                        }
+
+
+                    },
+                    error: function (msg) {
+                        alert(msg.responseText);
+                    }
+                });
+
+            });
+
+        });
+
+    </script>
+
+</head>
+
+
+<body>
+
+
+<h4> 查询条件 </h4>
+
+<table>
+  <tr>
+    <td> 用户名: </td>
+    <td> <input id="txtUserName" type="text" value="" />  </td>
+  </tr>
+
+  <tr>
+    <td colspan="2">
+        <input id="btnQuery" type="button" value="查询" />
+    </td>
+  </tr>
+</table>
+
+
+
+<h4> 查询结果 </h4>
+
+
+<table id="ResultTable" border="1">
+  <tr>
+    <th> 用户名 </th>
+    <th> 密码 </th>
+  </tr>
+</table>
+
+
+
+
+</body>
+</html>
