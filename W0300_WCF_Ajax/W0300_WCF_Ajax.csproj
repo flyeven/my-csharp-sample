@@ -63,6 +63,10 @@
     <Content Include="html\JsonParamTest.htm" />
     <Content Include="html\JsonResultTest.htm" />
     <Content Include="html\BasicPostTest.htm" />
+    <Content Include="html\JsonParamPostTest.htm" />
+    <Content Include="html\JsonResultPostTest.htm" />
+    <Content Include="html\CachePostTest.htm" />
+    <Content Include="html\AsyncPostTest.htm" />
     <Content Include="index.htm" />
     <Content Include="Scripts\jquery-1.8.2-vsdoc.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
