@@ -57,6 +57,51 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\images\ajax-loader.gif" />
+    <Content Include="Content\images\icons-18-black.png" />
+    <Content Include="Content\images\icons-18-white.png" />
+    <Content Include="Content\images\icons-36-black.png" />
+    <Content Include="Content\images\icons-36-white.png" />
+    <Content Include="Content\images\jquery-logo.png" />
+    <Content Include="Content\jquery.mobile-1.2.0.css" />
+    <Content Include="Content\jquery.mobile-1.2.0.min.css" />
+    <Content Include="Content\jquery.mobile.structure-1.2.0.css" />
+    <Content Include="Content\jquery.mobile.structure-1.2.0.min.css" />
+    <Content Include="Content\jquery.mobile.theme-1.2.0.css" />
+    <Content Include="Content\jquery.mobile.theme-1.2.0.min.css" />
+    <Content Include="html5\buttons\buttons-grouped.html" />
+    <Content Include="html5\buttons\buttons-icons.html" />
+    <Content Include="html5\buttons\buttons-inline.html" />
+    <Content Include="html5\buttons\buttons-types.html" />
+    <Content Include="html5\content\content-collapsible-set.html" />
+    <Content Include="html5\content\content-collapsible.html" />
+    <Content Include="html5\content\content-grids.html" />
+    <Content Include="html5\dialog\dialog.html" />
+    <Content Include="html5\dialog\LoginError.html" />
+    <Content Include="html5\dialog\LoginFail.html" />
+    <Content Include="html5\forms\radioinput.html" />
+    <Content Include="html5\forms\searchinput.html" />
+    <Content Include="html5\forms\sliderinput.html" />
+    <Content Include="html5\forms\switchinput.html" />
+    <Content Include="html5\forms\textinputs.html" />
+    <Content Include="html5\home.html" />
+    <Content Include="html5\index.html" />
+    <Content Include="html5\my.css" />
+    <Content Include="html5\my.js" />
+    <Content Include="html5\pages\loader.html" />
+    <Content Include="html5\pages\MultiPage.html" />
+    <Content Include="html5\pages\page-links.html" />
+    <Content Include="html5\pages\page-transitions.html" />
+    <Content Include="html5\pages\RunLongTimeDialog.aspx" />
+    <Content Include="html5\pages\RunLongTimePage.aspx" />
+    <Content Include="html5\pages\SinglePage.html" />
+    <Content Include="html5\toolbars\footer-persist-a.html" />
+    <Content Include="html5\toolbars\footer-persist-b.html" />
+    <Content Include="html5\toolbars\footer-persist-c.html" />
+    <Content Include="html5\toolbars\footer-persist-d.html" />
+    <Content Include="html5\toolbars\footers.html" />
+    <Content Include="html5\toolbars\headers.html" />
+    <Content Include="html5\toolbars\navbar.html" />
     <Content Include="html\AsyncTest.htm" />
     <Content Include="html\BasicTest.htm" />
     <Content Include="html\CacheTest.htm" />
@@ -74,6 +119,8 @@
     <Content Include="Scripts\jquery-1.8.2-vsdoc.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
+    <Content Include="Scripts\jquery.mobile-1.2.0.js" />
+    <Content Include="Scripts\jquery.mobile-1.2.0.min.js" />
     <Content Include="Scripts\json2.js" />
     <Content Include="Scripts\json2.min.js" />
     <Content Include="WcfMyDemoService.svc" />
@@ -88,6 +135,20 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="html5\pages\RunLongTimeDialog.aspx.cs">
+      <DependentUpon>RunLongTimeDialog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="html5\pages\RunLongTimeDialog.aspx.designer.cs">
+      <DependentUpon>RunLongTimeDialog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="html5\pages\RunLongTimePage.aspx.cs">
+      <DependentUpon>RunLongTimePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="html5\pages\RunLongTimePage.aspx.designer.cs">
+      <DependentUpon>RunLongTimePage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SelectOption.cs" />
     <Compile Include="WcfMyDemoService.svc.cs">
@@ -103,7 +164,9 @@
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Content\glyphish-icons\" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <ProjectExtensions>

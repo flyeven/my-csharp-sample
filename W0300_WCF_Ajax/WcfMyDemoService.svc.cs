@@ -62,7 +62,40 @@ namespace W0300_WCF_Ajax
         }
 
 
+
+
+
+
+
+
+
+        /// <summary>
+        /// 用于模拟一个 登录的处理.
+        /// 返回用户.
+        /// </summary>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public MyDemoUserInfo DoLogin(string name, string password)
+        {
+
+            var query =
+                from data in testUserList
+                where 
+                    data.UserName == name.ToLower()
+                    && data.Password == password.ToLower()
+                select data;
+
+            return query.FirstOrDefault();
+
+        }
+
+
+
         #endregion
+
+
+
 
 
 
