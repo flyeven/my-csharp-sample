@@ -1,63 +1,66 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <publishData>
   <publishProfile publishUrl="E:\my-csharp-sample2\W0300_WCF_Ajax\Web" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Test" publishMethod="FileSystem" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="html5/photo/UploadPhoto.html" publishTime="11/09/2012 18:35:39" />
     <file relUrl="html/JsonParamPostTest.htm" publishTime="10/29/2012 11:44:14" />
     <file relUrl="html/JsonParamTest.htm" publishTime="10/26/2012 15:29:53" />
     <file relUrl="Content/jquery.mobile.theme-1.2.0.css" publishTime="11/02/2012 11:00:10" />
     <file relUrl="jq/TableResult.htm" publishTime="10/29/2012 15:52:27" />
     <file relUrl="html/CacheTest.htm" publishTime="10/26/2012 18:19:20" />
     <file relUrl="html5/forms/radioinput.html" publishTime="11/05/2012 19:01:56" />
+    <file relUrl="Content/jquery.mobile-1.2.0.min.css" publishTime="11/02/2012 11:00:09" />
     <file relUrl="html5/buttons/buttons-grouped.html" publishTime="11/05/2012 16:17:06" />
     <file relUrl="html5/toolbars/footer-persist-b.html" publishTime="11/05/2012 15:39:53" />
     <file relUrl="html/CachePostTest.htm" publishTime="10/29/2012 11:57:40" />
-    <file relUrl="html5/toolbars/footer-persist-d.html" publishTime="11/05/2012 15:40:01" />
     <file relUrl="html5/toolbars/headers.html" publishTime="11/05/2012 15:29:40" />
     <file relUrl="Web.config" publishTime="11/03/2012 21:41:24" />
+    <file relUrl="PhotoUploadHandler.ashx" publishTime="11/09/2012 14:24:21" />
     <file relUrl="Content/jquery.mobile-1.2.0.css" publishTime="11/02/2012 11:00:09" />
-    <file relUrl="WcfTestPostService.svc" publishTime="10/26/2012 18:29:15" />
-    <file relUrl="html5/content/content-collapsible-set.html" publishTime="11/05/2012 17:31:27" />
+    <file relUrl="html5/photo/TakePhoto.html" publishTime="11/09/2012 18:34:28" />
+    <file relUrl="html5/forms/sliderinput.html" publishTime="11/05/2012 18:03:05" />
+    <file relUrl="html/BasicPostTest.htm" publishTime="10/26/2012 18:59:25" />
     <file relUrl="Content/images/icons-18-black.png" publishTime="11/02/2012 11:00:10" />
     <file relUrl="bin/Newtonsoft.Json.xml" publishTime="10/26/2012 12:27:13" />
-    <file relUrl="html5/forms/sliderinput.html" publishTime="11/05/2012 18:03:05" />
-    <file relUrl="html/BasicTest.htm" publishTime="10/26/2012 15:14:21" />
-    <file relUrl="html/BasicPostTest.htm" publishTime="10/26/2012 18:59:25" />
+    <file relUrl="html5/my.js" publishTime="06/26/2012 19:09:38" />
+    <file relUrl="html/AsyncTest.htm" publishTime="10/26/2012 18:21:13" />
     <file relUrl="WcfTestService.svc" publishTime="10/26/2012 11:18:14" />
     <file relUrl="html5/buttons/buttons-inline.html" publishTime="11/05/2012 16:11:36" />
+    <file relUrl="html5/home.html" publishTime="11/09/2012 17:07:13" />
     <file relUrl="html5/pages/RunLongTimePage.aspx" publishTime="11/05/2012 11:57:26" />
-    <file relUrl="html/AsyncTest.htm" publishTime="10/26/2012 18:21:13" />
-    <file relUrl="Scripts/json2.js" publishTime="10/26/2012 12:23:02" />
+    <file relUrl="html5/toolbars/footer-persist-d.html" publishTime="11/05/2012 15:40:01" />
     <file relUrl="Content/images/icons-36-white.png" publishTime="11/02/2012 11:00:10" />
-    <file relUrl="html5/index.html" publishTime="11/05/2012 09:58:50" />
+    <file relUrl="html5/index.html" publishTime="11/09/2012 16:16:35" />
     <file relUrl="html5/pages/page-links.html" publishTime="11/05/2012 11:45:09" />
     <file relUrl="index.htm" publishTime="11/02/2012 17:17:54" />
     <file relUrl="html5/buttons/buttons-types.html" publishTime="11/05/2012 15:52:45" />
     <file relUrl="html/AsyncPostTest.htm" publishTime="10/29/2012 11:59:39" />
     <file relUrl="html5/pages/SinglePage.html" publishTime="11/03/2012 21:41:56" />
     <file relUrl="html5/content/content-collapsible.html" publishTime="11/05/2012 17:47:23" />
-    <file relUrl="bin/W0300_WCF_Ajax.pdb" publishTime="11/05/2012 19:02:02" />
+    <file relUrl="bin/W0300_WCF_Ajax.pdb" publishTime="11/09/2012 18:00:41" />
     <file relUrl="Content/images/icons-18-white.png" publishTime="11/02/2012 11:00:10" />
     <file relUrl="Scripts/jquery-1.8.2.js" publishTime="10/26/2012 11:16:24" />
     <file relUrl="packages.config" publishTime="11/02/2012 11:00:10" />
     <file relUrl="Scripts/jquery-1.8.2.min.js" publishTime="10/26/2012 11:16:24" />
     <file relUrl="html5/forms/switchinput.html" publishTime="11/05/2012 18:11:42" />
-    <file relUrl="html5/buttons/buttons-icons.html" publishTime="11/05/2012 16:01:55" />
+    <file relUrl="bin/W0300_WCF_Ajax.dll" publishTime="11/09/2012 18:00:41" />
     <file relUrl="Scripts/jquery.mobile-1.2.0.js" publishTime="11/02/2012 11:00:09" />
-    <file relUrl="html5/content/content-grids.html" publishTime="11/05/2012 16:32:50" />
-    <file relUrl="bin/W0300_WCF_Ajax.dll" publishTime="11/05/2012 19:02:02" />
+    <file relUrl="html5/content/content-grids.html" publishTime="11/09/2012 16:13:59" />
     <file relUrl="html/JsonResultTest.htm" publishTime="10/26/2012 16:20:39" />
     <file relUrl="Content/images/icons-36-black.png" publishTime="11/02/2012 11:00:10" />
     <file relUrl="jq/BasicInput.htm" publishTime="10/29/2012 15:19:41" />
     <file relUrl="Content/jquery.mobile.theme-1.2.0.min.css" publishTime="11/02/2012 11:00:09" />
+    <file relUrl="html5/pages/page-transitions.html" publishTime="11/05/2012 11:58:18" />
     <file relUrl="bin/Newtonsoft.Json.dll" publishTime="10/26/2012 12:27:13" />
     <file relUrl="html5/forms/textinputs.html" publishTime="11/05/2012 17:42:03" />
-    <file relUrl="html5/home.html" publishTime="11/05/2012 18:14:59" />
-    <file relUrl="html5/my.js" publishTime="06/26/2012 19:09:38" />
+    <file relUrl="html5/content/content-collapsible-set.html" publishTime="11/05/2012 17:31:27" />
+    <file relUrl="WcfTestPostService.svc" publishTime="10/26/2012 18:29:15" />
     <file relUrl="Content/images/ajax-loader.gif" publishTime="11/02/2012 11:00:10" />
     <file relUrl="Scripts/jquery.mobile-1.2.0.min.js" publishTime="11/02/2012 11:00:09" />
     <file relUrl="jq/MainSubCheckBox.htm" publishTime="10/29/2012 16:32:16" />
     <file relUrl="html5/toolbars/navbar.html" publishTime="11/05/2012 15:30:21" />
     <file relUrl="html5/toolbars/footers.html" publishTime="11/05/2012 15:30:10" />
     <file relUrl="Content/images/jquery-logo.png" publishTime="11/05/2012 12:15:34" />
+    <file relUrl="html5/buttons/buttons-icons.html" publishTime="11/05/2012 16:01:55" />
     <file relUrl="html5/pages/loader.html" publishTime="11/05/2012 12:20:05" />
     <file relUrl="html5/dialog/dialog.html" publishTime="11/05/2012 11:23:14" />
     <file relUrl="Scripts/json2.min.js" publishTime="10/26/2012 12:23:02" />
@@ -65,14 +68,14 @@
     <file relUrl="html5/pages/MultiPage.html" publishTime="11/05/2012 09:41:46" />
     <file relUrl="html5/my.css" publishTime="09/10/2012 20:10:14" />
     <file relUrl="html5/pages/RunLongTimeDialog.aspx" publishTime="11/05/2012 11:57:17" />
-    <file relUrl="Content/jquery.mobile.structure-1.2.0.min.css" publishTime="11/02/2012 11:00:10" />
-    <file relUrl="html5/pages/page-transitions.html" publishTime="11/05/2012 11:58:18" />
+    <file relUrl="html/BasicTest.htm" publishTime="10/26/2012 15:14:21" />
+    <file relUrl="Scripts/json2.js" publishTime="10/26/2012 12:23:02" />
     <file relUrl="Scripts/jquery-1.8.2-vsdoc.js" publishTime="10/26/2012 11:16:24" />
     <file relUrl="html5/forms/searchinput.html" publishTime="11/05/2012 17:56:55" />
     <file relUrl="html5/dialog/LoginFail.html" publishTime="11/05/2012 09:38:22" />
     <file relUrl="html5/toolbars/footer-persist-a.html" publishTime="11/05/2012 15:39:46" />
     <file relUrl="Content/jquery.mobile.structure-1.2.0.css" publishTime="11/02/2012 11:00:10" />
-    <file relUrl="Content/jquery.mobile-1.2.0.min.css" publishTime="11/02/2012 11:00:09" />
+    <file relUrl="Content/jquery.mobile.structure-1.2.0.min.css" publishTime="11/02/2012 11:00:10" />
     <file relUrl="WcfMyDemoService.svc" publishTime="10/29/2012 15:26:04" />
     <file relUrl="html5/toolbars/footer-persist-c.html" publishTime="11/05/2012 15:39:57" />
     <file relUrl="html/JsonResultPostTest.htm" publishTime="10/29/2012 11:33:59" />
