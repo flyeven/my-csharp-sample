@@ -79,13 +79,35 @@
     <Content Include="html5\dialog\dialog.html" />
     <Content Include="html5\dialog\LoginError.html" />
     <Content Include="html5\dialog\LoginFail.html" />
+    <Content Include="html5\forms\checkboxes.html" />
     <Content Include="html5\forms\radioinput.html" />
     <Content Include="html5\forms\searchinput.html" />
+    <Content Include="html5\forms\selects.html" />
     <Content Include="html5\forms\sliderinput.html" />
     <Content Include="html5\forms\switchinput.html" />
     <Content Include="html5\forms\textinputs.html" />
     <Content Include="html5\home.html" />
     <Content Include="html5\index.html" />
+    <Content Include="html5\lists\lists-autodividers.html" />
+    <Content Include="html5\lists\lists-collapsible.html" />
+    <Content Include="html5\lists\lists-count.html" />
+    <Content Include="html5\lists\lists-divider.html" />
+    <Content Include="html5\lists\lists-formatting.html" />
+    <Content Include="html5\lists\lists-forms.html" />
+    <Content Include="html5\lists\lists-icons.html" />
+    <Content Include="html5\lists\lists-inset.html" />
+    <Content Include="html5\lists\lists-nested.html" />
+    <Content Include="html5\lists\lists-ol.html" />
+    <Content Include="html5\lists\lists-search-filtertext.html" />
+    <Content Include="html5\lists\lists-search-with-dividers.html" />
+    <Content Include="html5\lists\lists-search.html" />
+    <Content Include="html5\lists\lists-split.html" />
+    <Content Include="html5\lists\lists-thumbnails.html" />
+    <Content Include="html5\lists\lists-ul.html" />
+    <Content Include="html5\lists\lists-search-inset.html" />
+    <Content Include="html5\methods\changePage.html" />
+    <Content Include="html5\methods\ChangeToPage.html" />
+    <Content Include="html5\methods\loadPage.html" />
     <Content Include="html5\my.css" />
     <Content Include="html5\my.js" />
     <Content Include="html5\pages\loader.html" />
@@ -171,6 +193,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\glyphish-icons\" />
+    <Folder Include="html5\images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="PhotoUploadHandler.ashx" />

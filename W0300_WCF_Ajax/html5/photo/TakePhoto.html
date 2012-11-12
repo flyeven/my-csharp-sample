@@ -29,10 +29,11 @@
  
          <h2> 拍照 </h2>
 
-        本页面使用 “ navigator.getUserMedia ” 获取用户的摄像头信息.
+        <p> 本页面使用 “ navigator.getUserMedia ” 获取用户的摄像头信息.  </p>
 
-        此画面在 Opera 12.10 下测试通过.
-        在 Google Chrome 20.0 下 需要通过 在網址列輸入chrome://flags/ 啟用Media Stream 后方能生效！
+        <p> 此画面在 Opera 12.10 下测试通过. </p>
+        
+        <p> 在 Google Chrome 20.0 下 需要通过 在網址列輸入chrome://flags/ 啟用Media Stream 后方能生效！ </p>
 
 
         <div class="ui-grid-solo" id="splash">
@@ -75,15 +76,12 @@
 <script type="text/jscript">
 
 
-    
-
-
-
     // 本页面中的 视频对象.
     var video = document.getElementById('monitor');
 
     // 本画面中的 图形容器 对象.
     var canvas = document.getElementById('photo');
+
 
 
     $(document).ready(function () {
