@@ -69,6 +69,7 @@
     <Content Include="Content\jquery.mobile.structure-1.2.0.min.css" />
     <Content Include="Content\jquery.mobile.theme-1.2.0.css" />
     <Content Include="Content\jquery.mobile.theme-1.2.0.min.css" />
+    <Content Include="html5\baidu\map\helloworld.html" />
     <Content Include="html5\buttons\buttons-grouped.html" />
     <Content Include="html5\buttons\buttons-icons.html" />
     <Content Include="html5\buttons\buttons-inline.html" />
@@ -86,6 +87,8 @@
     <Content Include="html5\forms\sliderinput.html" />
     <Content Include="html5\forms\switchinput.html" />
     <Content Include="html5\forms\textinputs.html" />
+    <Content Include="html5\forms\selects-ajax.html" />
+    <Content Include="html5\geolocation\demo.html" />
     <Content Include="html5\home.html" />
     <Content Include="html5\index.html" />
     <Content Include="html5\lists\lists-autodividers.html" />
@@ -105,6 +108,8 @@
     <Content Include="html5\lists\lists-thumbnails.html" />
     <Content Include="html5\lists\lists-ul.html" />
     <Content Include="html5\lists\lists-search-inset.html" />
+    <Content Include="html5\lists\lists-ajax.html" />
+    <Content Include="html5\lists\lists-ajax-page.html" />
     <Content Include="html5\methods\changePage.html" />
     <Content Include="html5\methods\ChangeToPage.html" />
     <Content Include="html5\methods\loadPage.html" />
@@ -140,6 +145,7 @@
     <Content Include="jq\BasicInput.htm" />
     <Content Include="jq\MainSubCheckBox.htm" />
     <Content Include="jq\TableResult.htm" />
+    <Content Include="Scripts\MyPageInfo.js" />
     <Content Include="Scripts\jquery-1.8.2-vsdoc.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />

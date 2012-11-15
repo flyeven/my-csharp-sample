@@ -66,7 +66,15 @@
 
 
 
+<script type="text/javascript">
 
+    // 下面的代码， 用于测试 
+    // 使用 ajax 迁移到本画面  与  不使用 ajax 迁移到本画面的区别.
+    $(document).ready(function () {
+        alert("$(document).ready 执行了......");
+    });
+
+</script>
 
 
 </body>
