@@ -74,6 +74,7 @@
     <Content Include="html5\buttons\buttons-icons.html" />
     <Content Include="html5\buttons\buttons-inline.html" />
     <Content Include="html5\buttons\buttons-types.html" />
+    <Content Include="html5\Cache\TestCache.html" />
     <Content Include="html5\content\content-collapsible-set.html" />
     <Content Include="html5\content\content-collapsible.html" />
     <Content Include="html5\content\content-grids.html" />
@@ -90,6 +91,15 @@
     <Content Include="html5\forms\selects-ajax.html" />
     <Content Include="html5\geolocation\demo.html" />
     <Content Include="html5\home.html" />
+    <Content Include="html5\images\album-bb.jpg" />
+    <Content Include="html5\images\album-hc.jpg" />
+    <Content Include="html5\images\album-p.jpg" />
+    <Content Include="html5\images\de.png" />
+    <Content Include="html5\images\fi.png" />
+    <Content Include="html5\images\gb.png" />
+    <Content Include="html5\images\gf.png" />
+    <Content Include="html5\images\sj.png" />
+    <Content Include="html5\images\us.png" />
     <Content Include="html5\index.html" />
     <Content Include="html5\lists\lists-autodividers.html" />
     <Content Include="html5\lists\lists-collapsible.html" />
@@ -124,6 +134,7 @@
     <Content Include="html5\pages\SinglePage.html" />
     <Content Include="html5\photo\TakePhoto.html" />
     <Content Include="html5\photo\UploadPhoto.html" />
+    <Content Include="html5\Storage\TestStorage.html" />
     <Content Include="html5\toolbars\footer-persist-a.html" />
     <Content Include="html5\toolbars\footer-persist-b.html" />
     <Content Include="html5\toolbars\footer-persist-c.html" />
@@ -131,6 +142,8 @@
     <Content Include="html5\toolbars\footers.html" />
     <Content Include="html5\toolbars\headers.html" />
     <Content Include="html5\toolbars\navbar.html" />
+    <Content Include="html5\WebWorkers\demo_workers.js" />
+    <Content Include="html5\WebWorkers\Test.html" />
     <Content Include="html\AsyncTest.htm" />
     <Content Include="html\BasicTest.htm" />
     <Content Include="html\CacheTest.htm" />
@@ -199,10 +212,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\glyphish-icons\" />
-    <Folder Include="html5\images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="PhotoUploadHandler.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="html5\Cache\test.appcache" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

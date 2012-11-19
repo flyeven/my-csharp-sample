@@ -148,7 +148,17 @@
 
         $("#pLoading").html("正在加载后续数据...");
 
-        sleep(2);
+
+        // 3秒钟以后， 再去显示数据
+        // 以模拟网络后台处理的延迟.
+        setTimeout("DoRealLoadData()", 3000);
+
+
+    }
+
+
+
+    function DoRealLoadData() {
 
         // 这里主要是为了模拟动态加载， 就不去 ajax 了， 简单 for 循环一下.
         for (var i = 1; i <= vMyPageInfo.PageSize; i++) {
@@ -164,24 +174,10 @@
 
         // 隐藏 “加载过程中的动画”
         $.mobile.loading('hide');
+
     }
 
 
-    /*
-    * 该方法用于延时
-    * @param seconds 需要延时的秒数
-    */
-    function sleep(seconds) {
-        var d1 = new Date();
-        var t1 = d1.getTime();
-        for (; ; ) {
-            var d2 = new Date();
-            var t2 = d2.getTime();
-            if (t2 - t1 > seconds * 1000) {
-                break;
-            }
-        }
-    }
 
 </script>
 
