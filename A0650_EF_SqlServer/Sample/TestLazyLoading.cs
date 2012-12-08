@@ -91,6 +91,23 @@ namespace A0650_EF_SqlServer.Sample
                     {
                         Console.WriteLine("m.test_sub  is  null...");
                     }
+
+
+
+                    Console.WriteLine("测试 IsLoaded 的判断");
+
+                    // 在 不使用 延迟加载 的情况下，
+                    // 可以通过  IsLoaded / Load 来手动加载.
+                    if (!m.test_sub.IsLoaded)
+                    {
+                        m.test_sub.Load();
+                        foreach (test_sub s in m.test_sub)
+                        {
+                            Console.WriteLine("----- Sub = {0}:{1}", s.id, s.value);
+                        }
+
+                    }
+
                 }
 
                 Console.WriteLine();
