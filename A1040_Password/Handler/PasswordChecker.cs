@@ -65,7 +65,12 @@ namespace A1040_Password.Handler
             if (this.NextChecker != null)
             {
                 // 如果 后续项目不为空， 那么调用后续的检查处理.
-                return this.NextChecker.DoPasswordCheck(userName, oldPassword, newPassword);
+                bool nextResult = this.NextChecker.DoPasswordCheck(userName, oldPassword, newPassword);
+                if (!nextResult)
+                {
+                    this.ErrorMessage = this.NextChecker.ErrorMessage;
+                    return false;
+                }
             }
 
             // 如果能执行到这里， 说明 本项目检查通过， 且没有后续，那么可以返回 true 了.
