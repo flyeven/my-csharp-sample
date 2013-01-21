@@ -14,7 +14,7 @@ namespace A0720_MultiTime.Test
 {
 
     [TestFixture]
-    public class MultiTimeTest
+    public class MultiTimeTestWithoutDate
     {
 
         /// <summary>
@@ -37,19 +37,19 @@ namespace A0720_MultiTime.Test
 
 
             // 加入第一行数据.
-            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S01", SalesAmt = 100 });
+            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S01", SalesAmt = 100, SalesDate = DateTime.Today, });
             // 由于是第一次加入， 因此结果列表中数据为 0.
             Assert.AreEqual(0, processer.ResultList.Count);
 
             // 加入第二行数据.
-            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S02", SalesAmt = 120 });
+            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S02", SalesAmt = 120, SalesDate = DateTime.Today, });
             // 由于是第二次加入， 满足 “至少2次”的条件，因此结果列表数据中 2行数据都被加入.
             Assert.AreEqual(2, processer.ResultList.Count);
 
             // 后续持续加入
             for (int i = 0; i < 10; i++)
             {
-                processer.AddData(new TestData() { VipNo = "V01", SalesNo = "A0" + i , SalesAmt = 120 + i });
+                processer.AddData(new TestData() { VipNo = "V01", SalesNo = "A0" + i, SalesAmt = 120 + i, SalesDate = DateTime.Today, });
                 Assert.AreEqual(2 + i + 1, processer.ResultList.Count);
             }
         }
@@ -69,17 +69,17 @@ namespace A0720_MultiTime.Test
 
 
             // 加入第一行数据.
-            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S01", SalesAmt = 100 });
+            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S01", SalesAmt = 100, SalesDate = DateTime.Today, });
             // 由于是第一次加入， 不满足 “至少3次”，  因此结果列表中数据为 0.
             Assert.AreEqual(0, processer.ResultList.Count);
 
             // 加入第二行数据.
-            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S02", SalesAmt = 120 });
+            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S02", SalesAmt = 120, SalesDate = DateTime.Today, });
             // 由于是第二次加入， 不满足 “至少3次”， 因此结果列表中数据为 0.
             Assert.AreEqual(0, processer.ResultList.Count);
 
             // 加入第三行数据.
-            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S03", SalesAmt = 130 });
+            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S03", SalesAmt = 130, SalesDate = DateTime.Today, });
 
             // 由于是第三次加入， 满足 “至少3次”的条件，因此结果列表数据中 3行数据都被加入.
             Assert.AreEqual(3, processer.ResultList.Count);
@@ -88,7 +88,7 @@ namespace A0720_MultiTime.Test
             // 后续持续加入
             for (int i = 0; i < 10; i++)
             {
-                processer.AddData(new TestData() { VipNo = "V01", SalesNo = "A0" + i, SalesAmt = 120 + i });
+                processer.AddData(new TestData() { VipNo = "V01", SalesNo = "A0" + i, SalesAmt = 120 + i, SalesDate = DateTime.Today, });
                 Assert.AreEqual(3 + i + 1, processer.ResultList.Count);
             }
         }
@@ -110,17 +110,17 @@ namespace A0720_MultiTime.Test
 
 
             // 加入第一行数据.
-            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S01", SalesAmt = 100 });
+            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S01", SalesAmt = 100, SalesDate = DateTime.Today, });
             // 由于是第一次加入， 不满足 “至少2次”，  因此结果列表中数据为 0.
             Assert.AreEqual(0, processer.ResultList.Count);
 
             // 加入第二行数据.
-            processer.AddData(new TestData() { VipNo = "V02", SalesNo = "S02", SalesAmt = 120 });
+            processer.AddData(new TestData() { VipNo = "V02", SalesNo = "S02", SalesAmt = 120, SalesDate = DateTime.Today, });
             // 加入了 2 行， 2个不同的 Vip，  不满足 “至少2次”，(因为目前每个 vip 各1次) 因此结果列表中数据为 0.
             Assert.AreEqual(0, processer.ResultList.Count);
 
             // 加入第三行数据.
-            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S03", SalesAmt = 130 });
+            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S03", SalesAmt = 130, SalesDate = DateTime.Today, });
 
             // 由于本次加入的数据， 使 V01 满足 “至少2次”的条件，因此结果列表数据中 V01 的 2行数据都被加入.
             Assert.AreEqual(2, processer.ResultList.Count);
@@ -129,7 +129,7 @@ namespace A0720_MultiTime.Test
             // 后续持续加入
             for (int i = 0; i < 10; i++)
             {
-                processer.AddData(new TestData() { VipNo = "V01", SalesNo = "A0" + i, SalesAmt = 120 + i });
+                processer.AddData(new TestData() { VipNo = "V01", SalesNo = "A0" + i, SalesAmt = 120 + i, SalesDate = DateTime.Today, });
                 Assert.AreEqual(2 + i + 1, processer.ResultList.Count);
             }
         }
@@ -152,19 +152,19 @@ namespace A0720_MultiTime.Test
 
 
             // 加入第一行数据.
-            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S01", SalesAmt = 100 });
+            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S01", SalesAmt = 100, SalesDate = DateTime.Today, });
             // 由于是第一次加入， 因此结果列表中数据为 0.
             Assert.AreEqual(0, processer.ResultList.Count);
 
             // 加入第二行数据.
-            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S02", SalesAmt = 120 });
+            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S02", SalesAmt = 120, SalesDate = DateTime.Today, });
             // 由于是第二次加入， 满足 “至少2次”的条件，因此结果列表数据中 2行数据都被加入.
             Assert.AreEqual(2, processer.ResultList.Count);
 
             // 后续持续加入
             for (int i = 0; i < 10; i++)
             {
-                processer.AddData(new TestData() { VipNo = "V01", SalesNo = "A0" + i, SalesAmt = 120 + i });
+                processer.AddData(new TestData() { VipNo = "V01", SalesNo = "A0" + i, SalesAmt = 120 + i, SalesDate = DateTime.Today, });
                 Assert.AreEqual(2 + i + 1, processer.ResultList.Count);
             }
 
@@ -172,19 +172,19 @@ namespace A0720_MultiTime.Test
             // 开始持续删除.
             for (int i = 0; i < 10; i++)
             {
-                processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "A0" + i, SalesAmt = 120 + i });
+                processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "A0" + i, SalesAmt = 120 + i, SalesDate = DateTime.Today, });
                 Assert.AreEqual(12 - i - 1, processer.ResultList.Count);
             }
 
 
             // 再删除.
-            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "S01", SalesAmt = 100 });
+            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "S01", SalesAmt = 100, SalesDate = DateTime.Today, });
             // 只剩下一个了.
             Assert.AreEqual(1, processer.ResultList.Count);
 
 
             // 再删除.
-            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "S02", SalesAmt = 100 });
+            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "S02", SalesAmt = 100, SalesDate = DateTime.Today, });
             // 全部删除干净了.
             Assert.AreEqual(0, processer.ResultList.Count);
         }
@@ -206,19 +206,19 @@ namespace A0720_MultiTime.Test
 
 
             // 加入第一行数据.
-            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S01", SalesAmt = 100 });
+            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S01", SalesAmt = 100, SalesDate = DateTime.Today, });
             // 由于是第一次加入， 因此结果列表中数据为 0.
             Assert.AreEqual(0, processer.ResultList.Count);
 
             // 加入第二行数据.
-            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S02", SalesAmt = 120 });
+            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S02", SalesAmt = 120, SalesDate = DateTime.Today, });
             // 由于是第二次加入， 满足 “至少2次”的条件，因此结果列表数据中 2行数据都被加入.
             Assert.AreEqual(2, processer.ResultList.Count);
 
             // 后续持续加入
             for (int i = 0; i < 10; i++)
             {
-                processer.AddData(new TestData() { VipNo = "V01", SalesNo = "A0" + i, SalesAmt = 120 + i });
+                processer.AddData(new TestData() { VipNo = "V01", SalesNo = "A0" + i, SalesAmt = 120 + i, SalesDate = DateTime.Today, });
                 Assert.AreEqual(2 + i + 1, processer.ResultList.Count);
             }
 
@@ -226,25 +226,25 @@ namespace A0720_MultiTime.Test
             // 开始持续删除.
             for (int i = 0; i < 10; i++)
             {
-                processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "A0" + i, SalesAmt = 120 + i });
+                processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "A0" + i, SalesAmt = 120 + i, SalesDate = DateTime.Today, });
                 Assert.AreEqual(12 - i - 1, processer.ResultList.Count);
             }
 
 
             // 再删除.
-            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "S01", SalesAmt = 100 });
+            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "S01", SalesAmt = 100, SalesDate = DateTime.Today, });
             // 因为 启用了 “自动重置”
             // 当结果列表中数据不足 2个的时候， 自动将数据从结果列表中 移出.
             Assert.AreEqual(0, processer.ResultList.Count);
 
 
             // 再加入数据.
-            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S03", SalesAmt = 120 });
+            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S03", SalesAmt = 120, SalesDate = DateTime.Today, });
             // 本次加入， 满足 “至少2次”的条件，因此结果列表数据中 2行数据都被加入.
             Assert.AreEqual(2, processer.ResultList.Count);
 
             // 再删除.
-            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "S02", SalesAmt = 100 });
+            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "S02", SalesAmt = 100, SalesDate = DateTime.Today, });
             // 因为 启用了 “自动重置”
             // 当结果列表中数据不足 2个的时候， 自动将数据从结果列表中 移出.
             Assert.AreEqual(0, processer.ResultList.Count);
@@ -268,25 +268,25 @@ namespace A0720_MultiTime.Test
 
 
             // 加入第一行数据.
-            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S01", SalesAmt = 100 });
+            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S01", SalesAmt = 100, SalesDate = DateTime.Today, });
             // 由于是第一次加入， 因此结果列表中数据为 0.
             Assert.AreEqual(0, processer.ResultList.Count);
 
             // 加入第二行数据.
-            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S02", SalesAmt = 120 });
+            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S02", SalesAmt = 120, SalesDate = DateTime.Today, });
             // 由于是第二次加入， 因此结果列表中数据为 0.
             Assert.AreEqual(0, processer.ResultList.Count);
 
 
             // 再删除.
-            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "S01", SalesAmt = 100 });
+            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "S01", SalesAmt = 100, SalesDate = DateTime.Today, });
             // 再删除.
-            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "S02", SalesAmt = 120 });
+            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "S02", SalesAmt = 120, SalesDate = DateTime.Today, });
 
 
 
             // 加入第三行数据.
-            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S03", SalesAmt = 130 });
+            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S03", SalesAmt = 130, SalesDate = DateTime.Today, });
             // 由于是第三次加入， 因此结果列表中数据为 1.
             // 因为不数据重置， 前面加2次， 减少2次。 
             // 相当于是 前面加了2次，后面发现前2次 已被加过了，为了重复计算， 从列表中清除了， 但是还是 需要  “算次数”的。
@@ -295,14 +295,14 @@ namespace A0720_MultiTime.Test
 
 
             // 加入第四行数据.
-            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S04", SalesAmt = 140 });
+            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S04", SalesAmt = 140, SalesDate = DateTime.Today, });
             Assert.AreEqual(2, processer.ResultList.Count);
 
 
             // 后续持续加入
             for (int i = 0; i < 10; i++)
             {
-                processer.AddData(new TestData() { VipNo = "V01", SalesNo = "A0" + i, SalesAmt = 120 + i });
+                processer.AddData(new TestData() { VipNo = "V01", SalesNo = "A0" + i, SalesAmt = 120 + i, SalesDate = DateTime.Today, });
                 Assert.AreEqual(2 + i + 1, processer.ResultList.Count);
             }
 
@@ -310,19 +310,19 @@ namespace A0720_MultiTime.Test
             // 开始持续删除.
             for (int i = 0; i < 10; i++)
             {
-                processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "A0" + i, SalesAmt = 120 + i });
+                processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "A0" + i, SalesAmt = 120 + i, SalesDate = DateTime.Today, });
                 Assert.AreEqual(12 - i - 1, processer.ResultList.Count);
             }
 
 
             // 再删除.
-            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "S03", SalesAmt = 130 });
+            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "S03", SalesAmt = 130, SalesDate = DateTime.Today, });
             // 只剩下1个了.
             Assert.AreEqual(1, processer.ResultList.Count);
 
 
             // 再删除.
-            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "S04", SalesAmt = 140 });
+            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "S04", SalesAmt = 140, SalesDate = DateTime.Today, });
             // 全部删除干净了.
             Assert.AreEqual(0, processer.ResultList.Count);
         }
@@ -346,25 +346,25 @@ namespace A0720_MultiTime.Test
 
 
             // 加入第一行数据.
-            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S01", SalesAmt = 100 });
+            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S01", SalesAmt = 100, SalesDate = DateTime.Today, });
             // 由于是第一次加入， 因此结果列表中数据为 0.
             Assert.AreEqual(0, processer.ResultList.Count);
 
             // 加入第二行数据.
-            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S02", SalesAmt = 120 });
+            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S02", SalesAmt = 120, SalesDate = DateTime.Today, });
             // 由于是第二次加入， 不满足 “至少3次”的条件，因此结果列表中数据为 0.
             Assert.AreEqual(0, processer.ResultList.Count);
 
 
             // 再删除.
-            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "S01", SalesAmt = 100 });
+            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "S01", SalesAmt = 100, SalesDate = DateTime.Today, });
             // 再删除.
-            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "S02", SalesAmt = 120 });
+            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "S02", SalesAmt = 120, SalesDate = DateTime.Today, });
 
 
 
             // 加入第三行数据.
-            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S03", SalesAmt = 130 });
+            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S03", SalesAmt = 130, SalesDate = DateTime.Today, });
             // 由于是第三次加入， 因此结果列表中数据为 0.
             // 因为数据重置， 前面加2次， 减少2次。 
             // 相当于是 前面加了2次，后面发现前2次 已被退货了， 需要  取消掉前面的数据。
@@ -373,11 +373,11 @@ namespace A0720_MultiTime.Test
 
 
             // 加入第四行数据.
-            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S04", SalesAmt = 140 });
+            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S04", SalesAmt = 140, SalesDate = DateTime.Today, });
             Assert.AreEqual(0, processer.ResultList.Count);
 
             // 加入第五行数据.
-            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S05", SalesAmt = 150 });
+            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S05", SalesAmt = 150, SalesDate = DateTime.Today, });
             Assert.AreEqual(3, processer.ResultList.Count);
 
 
@@ -387,7 +387,7 @@ namespace A0720_MultiTime.Test
             // 后续持续加入
             for (int i = 0; i < 10; i++)
             {
-                processer.AddData(new TestData() { VipNo = "V01", SalesNo = "A0" + i, SalesAmt = 120 + i });
+                processer.AddData(new TestData() { VipNo = "V01", SalesNo = "A0" + i, SalesAmt = 120 + i, SalesDate = DateTime.Today, });
                 Assert.AreEqual(3 + i + 1, processer.ResultList.Count);
             }
 
@@ -395,25 +395,25 @@ namespace A0720_MultiTime.Test
             // 开始持续删除.
             for (int i = 0; i < 10; i++)
             {
-                processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "A0" + i, SalesAmt = 120 + i });
+                processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "A0" + i, SalesAmt = 120 + i, SalesDate = DateTime.Today, });
                 Assert.AreEqual(13 - i - 1, processer.ResultList.Count);
             }
 
 
             // 再删除.
-            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "S05", SalesAmt = 150 });
+            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "S05", SalesAmt = 150, SalesDate = DateTime.Today, });
             // 因为 启用了 “自动重置”
             // 当结果列表中数据不足 3个的时候， 自动将数据从结果列表中 移出.
             Assert.AreEqual(0, processer.ResultList.Count);
 
 
             // 再加入数据.
-            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S06", SalesAmt = 160 });
+            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S06", SalesAmt = 160, SalesDate = DateTime.Today, });
             // 本次加入， 满足 “至少3次”的条件，因此结果列表数据中 3行数据都被加入.
             Assert.AreEqual(3, processer.ResultList.Count);
 
             // 再删除.
-            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "S04", SalesAmt = 140 });
+            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "S04", SalesAmt = 140, SalesDate = DateTime.Today, });
             // 因为 启用了 “自动重置”
             // 当结果列表中数据不足 3个的时候， 自动将数据从结果列表中 移出.
             Assert.AreEqual(0, processer.ResultList.Count);
@@ -443,59 +443,59 @@ namespace A0720_MultiTime.Test
 
 
             // 加入第一行数据.
-            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S01", SalesAmt = 100 });
+            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S01", SalesAmt = 100, SalesDate = DateTime.Today, });
             // 由于是第一次加入， 因此结果列表中数据为 0.
             Assert.AreEqual(0, processer.ResultList.Count);
 
             // 加入第二行数据.
-            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S02", SalesAmt = 120 });
+            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S02", SalesAmt = 120, SalesDate = DateTime.Today, });
             // 由于是第二次加入， 满足 “至少2次”的条件，因此结果列表数据中 2行数据都被加入.
             Assert.AreEqual(2, processer.ResultList.Count);
 
             // 后续持续加入
             for (int i = 0; i < 10; i++)
             {
-                processer.AddData(new TestData() { VipNo = "V01", SalesNo = "A0" + i, SalesAmt = 120 + i });
+                processer.AddData(new TestData() { VipNo = "V01", SalesNo = "A0" + i, SalesAmt = 120 + i, SalesDate = DateTime.Today, });
                 Assert.AreEqual(2 + i + 1, processer.ResultList.Count);
             }
 
 
             // 尝试删除不存在的数据. 检查会不会出异常.
-            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "X00", SalesAmt = 120 });
+            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "X00", SalesAmt = 120, SalesDate = DateTime.Today, });
             Assert.AreEqual(12, processer.ResultList.Count);
 
 
             // 开始持续删除.
             for (int i = 0; i < 10; i++)
             {
-                processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "A0" + i, SalesAmt = 120 + i });
+                processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "A0" + i, SalesAmt = 120 + i, SalesDate = DateTime.Today, });
                 Assert.AreEqual(12 - i - 1, processer.ResultList.Count);
             }
 
             // 尝试删除不存在的数据. 检查会不会出异常.
-            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "X00", SalesAmt = 120 });
+            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "X00", SalesAmt = 120, SalesDate = DateTime.Today, });
             Assert.AreEqual(2, processer.ResultList.Count);
 
 
             // 再删除.
-            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "S01", SalesAmt = 100 });
+            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "S01", SalesAmt = 100, SalesDate = DateTime.Today, });
             // 只剩下一个了.
             Assert.AreEqual(1, processer.ResultList.Count);
 
 
             // 尝试删除不存在的数据. 检查会不会出异常.
-            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "X00", SalesAmt = 120 });
+            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "X00", SalesAmt = 120, SalesDate = DateTime.Today, });
             Assert.AreEqual(1, processer.ResultList.Count);
 
 
             // 再删除.
-            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "S02", SalesAmt = 100 });
+            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "S02", SalesAmt = 100, SalesDate = DateTime.Today, });
             // 全部删除干净了.
             Assert.AreEqual(0, processer.ResultList.Count);
 
 
             // 尝试删除不存在的数据. 检查会不会出异常.
-            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "X00", SalesAmt = 120 });
+            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "X00", SalesAmt = 120, SalesDate = DateTime.Today, });
             Assert.AreEqual(0, processer.ResultList.Count);
         }
 
@@ -518,72 +518,72 @@ namespace A0720_MultiTime.Test
 
 
             // 加入第一行数据.
-            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S01", SalesAmt = 100 });
+            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S01", SalesAmt = 100, SalesDate = DateTime.Today, });
             // 由于是第一次加入， 因此结果列表中数据为 0.
             Assert.AreEqual(0, processer.ResultList.Count);
 
             // 加入第二行数据.
-            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S02", SalesAmt = 120 });
+            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S02", SalesAmt = 120, SalesDate = DateTime.Today, });
             // 由于是第二次加入， 满足 “至少2次”的条件，因此结果列表数据中 2行数据都被加入.
             Assert.AreEqual(2, processer.ResultList.Count);
 
             // 后续持续加入
             for (int i = 0; i < 10; i++)
             {
-                processer.AddData(new TestData() { VipNo = "V01", SalesNo = "A0" + i, SalesAmt = 120 + i });
+                processer.AddData(new TestData() { VipNo = "V01", SalesNo = "A0" + i, SalesAmt = 120 + i, SalesDate = DateTime.Today, });
                 Assert.AreEqual(2 + i + 1, processer.ResultList.Count);
             }
 
 
             // 尝试删除不存在的数据. 检查会不会出异常.
-            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "X00", SalesAmt = 120 });
+            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "X00", SalesAmt = 120, SalesDate = DateTime.Today, });
             Assert.AreEqual(12, processer.ResultList.Count);
 
 
             // 开始持续删除.
             for (int i = 0; i < 10; i++)
             {
-                processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "A0" + i, SalesAmt = 120 + i });
+                processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "A0" + i, SalesAmt = 120 + i, SalesDate = DateTime.Today, });
                 Assert.AreEqual(12 - i - 1, processer.ResultList.Count);
             }
 
 
             // 尝试删除不存在的数据. 检查会不会出异常.
-            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "X00", SalesAmt = 120 });
+            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "X00", SalesAmt = 120, SalesDate = DateTime.Today, });
             Assert.AreEqual(2, processer.ResultList.Count);
 
 
             // 再删除.
-            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "S01", SalesAmt = 100 });
+            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "S01", SalesAmt = 100, SalesDate = DateTime.Today, });
             // 因为 启用了 “自动重置”
             // 当结果列表中数据不足 2个的时候， 自动将数据从结果列表中 移出.
             Assert.AreEqual(0, processer.ResultList.Count);
 
 
             // 尝试删除不存在的数据. 检查会不会出异常.
-            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "X00", SalesAmt = 120 });
+            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "X00", SalesAmt = 120, SalesDate = DateTime.Today, });
             Assert.AreEqual(0, processer.ResultList.Count);
 
 
             // 再加入数据.
-            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S03", SalesAmt = 120 });
+            processer.AddData(new TestData() { VipNo = "V01", SalesNo = "S03", SalesAmt = 120, SalesDate = DateTime.Today, });
             // 本次加入， 满足 “至少2次”的条件，因此结果列表数据中 2行数据都被加入.
             Assert.AreEqual(2, processer.ResultList.Count);
 
 
             // 尝试删除不存在的数据. 检查会不会出异常.
-            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "X00", SalesAmt = 120 });
+            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "X00", SalesAmt = 120, SalesDate = DateTime.Today, });
             Assert.AreEqual(2, processer.ResultList.Count);
 
             // 再删除.
-            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "S02", SalesAmt = 100 });
+            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "S02", SalesAmt = 100, SalesDate = DateTime.Today, });
             // 因为 启用了 “自动重置”
             // 当结果列表中数据不足 2个的时候， 自动将数据从结果列表中 移出.
             Assert.AreEqual(0, processer.ResultList.Count);
 
 
             // 尝试删除不存在的数据. 检查会不会出异常.
-            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "X00", SalesAmt = 120 });
+            processer.RemoveData(new TestData() { VipNo = "V01", SalesNo = "X00", SalesAmt = 120, SalesDate = DateTime.Today, });
             Assert.AreEqual(0, processer.ResultList.Count);
         }
 

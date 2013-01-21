@@ -29,11 +29,17 @@ namespace A0720_MultiTime.Test
         public decimal SalesAmt { set; get; }
 
 
+        /// <summary>
+        /// 销售日期.
+        /// </summary>
+        public DateTime SalesDate { set; get; }
+
+
 
 
         public override string ToString()
         {
-            return String.Format("会员代码:{0};  发票号：{1}; 销售额:{3}", VipNo, SalesNo, SalesAmt);
+            return String.Format("会员代码:{0};  发票号：{1}; 销售额:{3}; 销售日期：{4}", VipNo, SalesNo, SalesAmt, SalesDate);
         }
 
 
@@ -56,6 +62,16 @@ namespace A0720_MultiTime.Test
         public string GetKeyWord()
         {
             return this.VipNo;
+        }
+
+
+        /// <summary>
+        /// 日期关键字.
+        /// </summary>
+        /// <returns></returns>
+        public  DateTime GetProcessDate()
+        {
+            return this.SalesDate;
         }
     }
 }

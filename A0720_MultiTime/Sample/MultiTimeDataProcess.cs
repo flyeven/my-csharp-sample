@@ -49,6 +49,20 @@ namespace A0720_MultiTime.Sample
 
 
         /// <summary>
+        /// 不允许 所有的处理， 都在一天内.
+        /// 
+        /// 
+        /// 此属性用于设置， 
+        /// 为了避免 有人利用优惠条件， 本来要购买 5件商品的。
+        /// 
+        /// 发现有 本月购物3次（含）以上的活动， 就自己手动拆单， 5件商品， 分3个单子购买。
+        /// 
+        /// </summary>
+        public bool NotAllowAllInOneDay { set; get; }
+
+
+
+        /// <summary>
         /// 是否需要自动重至.
         /// 
         /// 因为存在 新增 与 删除 两种操作.
@@ -116,8 +130,33 @@ namespace A0720_MultiTime.Sample
         /// 
         /// 用于存储 关键字 与 进入的次数
         /// </summary>
-        private Dictionary<string, int> flagDictionary = new Dictionary<string, int>();
+        private Dictionary<string, Dictionary<DateTime, int>> flagDictionary = new Dictionary<string, Dictionary<DateTime, int>>();
 
+
+
+
+        /// <summary>
+        /// 取得当前有效行数.
+        /// </summary>
+        /// <returns></returns>
+        private int GetCurrentCount(string keyword)
+        {
+            if (NotAllowAllInOneDay)
+            {
+                // 不允许多个交易在同一天.
+                // 那就就是 简单返回， 存在有交易的天数。
+                return flagDictionary[keyword].Count;
+            }
+            // 允许多个交易在同一天.
+            int result = 0;
+            foreach (KeyValuePair<DateTime, int> oneData in flagDictionary[keyword])
+            {
+                // 递增 交易次数.
+                result += oneData.Value;
+            }
+            // 返回结果.
+            return result;
+        }
 
 
 
@@ -135,8 +174,11 @@ namespace A0720_MultiTime.Sample
             if (!flagDictionary.ContainsKey(keyword))
             {
                 // 如果是 首次加入， 那么设置 标记列表。
-                // 注明是  进入次数 = 1.
-                flagDictionary.Add(keyword, 1);
+                Dictionary<DateTime, int> dateCount = new Dictionary<DateTime, int>();
+                // 注明是  指定日期， 进入次数 = 1.
+                dateCount.Add(data.GetProcessDate(), 1);
+                // 加入列表.
+                flagDictionary.Add(keyword, dateCount);
 
                 // 这种情况下， 认为是 “首次加入”
                 // 简单加入 临时列表.
@@ -148,16 +190,26 @@ namespace A0720_MultiTime.Sample
 
 
             // 递增进入次数.
-            flagDictionary[keyword] = flagDictionary[keyword] + 1;
+            Dictionary<DateTime, int> oldDateCount = flagDictionary[keyword];
+            if (oldDateCount.ContainsKey(data.GetProcessDate()))
+            {
+                // 该日期，以前曾经增加过数据.
+                oldDateCount[data.GetProcessDate()] = oldDateCount[data.GetProcessDate()] + 1;
+            }
+            else
+            {
+                // 该日期，以前从未增加过数据.
+                oldDateCount.Add(data.GetProcessDate(), 1);
+            }
 
 
 
-            if (flagDictionary[keyword] < accessAbleCount)
+
+            if (GetCurrentCount(keyword) < accessAbleCount)
             {
                 // 进入次数小于  “数据有效的次数”
                 // 还是要暂时加入到临时列表中.
                 tempList.Add(data);
-
                 // 返回.
                 return;
             }
@@ -238,10 +290,15 @@ namespace A0720_MultiTime.Sample
                 // 取得用于 判断多次处理的 关键字.
                 string keyword = data.GetKeyWord();
                 // 递减进入次数.
-                flagDictionary[keyword] = flagDictionary[keyword] - 1;
+                flagDictionary[keyword][data.GetProcessDate()] = flagDictionary[keyword][data.GetProcessDate()] - 1;
+                if (flagDictionary[keyword][data.GetProcessDate()] == 0)
+                {
+                    // 指定日期无数据的情况， 删除掉.
+                    flagDictionary[keyword].Remove(data.GetProcessDate());
+                }
 
                 // 需要重置.
-                if (flagDictionary[keyword] < accessAbleCount)
+                if (GetCurrentCount(keyword) < accessAbleCount)
                 {
                     // 如果 进入次数小于  “数据有效的次数”
                     // 检查一下，是否有数据，要从结果列表中，移动到临时列表中.
