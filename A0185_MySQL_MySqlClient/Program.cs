@@ -12,6 +12,9 @@ namespace A0185_MySQL_MySqlClient
         static void Main(string[] args)
         {
 
+
+
+
             // 读
             ReadMySQLData reader = new ReadMySQLData();
             reader.ReadDataToDataSet();
@@ -21,6 +24,14 @@ namespace A0185_MySQL_MySqlClient
             // 写
             WriteMySQLData writer = new WriteMySQLData();
             writer.TestInsertUpdateDelete();
+
+         
+
+
+
+            // UTF-8 编码的读写.
+            ReadWriteUtf8 utf8WritrReader = new ReadWriteUtf8();
+            utf8WritrReader.TestInsertSelect();
 
 
             Console.ReadLine();
