@@ -32,8 +32,65 @@ BEGIN
 END;
 //
 
+DELIMITER ;
 
-mysql> call CreateReportData() //
+
+call CreateReportData();
+
+
+
+
+/* 用于测试 调用存储过程  */
+
+
+DELIMITER //
+CREATE PROCEDURE HelloWorld2(
+  IN vUserName VARCHAR(10),
+  OUT vOutValue VARCHAR(10),
+  INOUT vInOutValue VARCHAR(10))
+BEGIN
+  SELECT CONCAT('Hello ', vUserName);
+  SET vOutValue = 'A';
+  SET vInOutValue = 'B';
+END//
+
+DELIMITER ;
+
+
+
+
+/* 用于测试 调用函数  */
+
+DELIMITER //
+CREATE FUNCTION HelloWorldFunc()
+RETURNS VARCHAR(20)
+BEGIN
+  RETURN 'Hello World!';
+END;
+//
+
+DELIMITER ;
+
+
+
+
+
+
+
+
+DELIMITER //
+
+CREATE DEFINER=`root`@`%` PROCEDURE testProc()
+BEGIN
+  SELECT 'Hello 1' AS A, 'World 1' AS B UNION ALL
+  SELECT 'Hello 2' AS A, 'World 2' AS B;
+END //
+
+DELIMITER ;
+
+
+
+
 
 
 

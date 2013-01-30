@@ -16,10 +16,10 @@ namespace A0185_MySQL_MySqlClient.Sample
 
 
         /// <summary>
-        /// MySQL ODBC 的数据库连接字符串.
+        /// MySQL 的数据库连接字符串.
         /// </summary>
         private const String connString =
-            @"Server=localhost;Database=Test;Uid=root;Pwd=mysql123";
+            @"Server=192.168.56.101;Database=Test;Uid=root;Pwd=mysql123";
 
 
 

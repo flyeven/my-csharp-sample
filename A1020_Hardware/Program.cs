@@ -23,7 +23,205 @@ namespace A1020_Hardware
 
 
             // 硬盘信息.
-            Test.ShowHardwareInfo("Win32_DiskDrive");
+            // Test.ShowHardwareInfo("Win32_DiskDrive");
+
+
+            // 当前计算机的基本信息.
+            // Test.ShowHardwareInfo("Win32_ComputerSystem");
+
+
+
+            // 操作系统基本信息.
+            // 包含：
+            //    引导区 (BootDevice)
+            //    编译版本号(BuildNumber)
+            //    名称 (Name)
+            //    代码集 (CodeSet)
+            //    标题 (Caption)
+            //    国家代码 (CountryCode)
+            //    所在时区分钟 (CurrentTimeZone)
+            //    计算机名(CSName)
+            //    语言 (MUILanguages)
+            //    体系构架 (OSArchitecture)
+            //    国家代码 (OSLanguage).
+            //    系统设备 (SystemDevice)
+            //    系统目录 (SystemDirectory)
+            //    系统盘 (SystemDrive)
+            //    版本 (Version) 
+            //    SP版本 (CSDVersion)
+            //    Windows目录 (WindowsDirectory)
+            // Test.ShowHardwareInfo("Win32_OperatingSystem");
+
+
+
+            // 物理内存.
+            // Test.ShowHardwareInfo("Win32_PhysicalMemory");
+
+
+            // 计算机上安装的软件 （此过程执行时间非常的长...）
+            // Test.ShowHardwareInfo("Win32_Product");
+
+            // （此过程执行时间非常的长...）
+            // Test.ShowHardwareInfo("Win32_Property");
+
+            // 查询计算机的 服务.
+            //Test.ShowHardwareInfo("Win32_Service");
+
+
+            // 查询系统用户.
+            // Test.ShowHardwareInfo("Win32_SystemUsers");
+
+
+            // 查询系统基本用户信息.
+            // Test.ShowHardwareInfo("Win32_UserAccount");
+
+
+
+
+
+
+
+
+
+
+            // 查询操作系统的 语言.
+            Console.WriteLine (Test.GetHardwareInfoValue("Win32_OperatingSystem", "OSLanguage"));
+
+
+
+            /*
+             * 结果参考:
+
+            http://msdn.microsoft.com/ja-jp/library/aa394239(VS.85).aspx
+             
+            Value Meaning
+            1 (0x1)  Arabic
+            4 (0x4)  Chinese (Simplified)– China
+            9 (0x9)  English
+            1025 (0x401)  Arabic – Saudi Arabia
+            1026 (0x402)  Bulgarian
+            1027 (0x403)  Catalan
+            1028 (0x404)  Chinese (Traditional) – Taiwan
+            1029 (0x405)  Czech
+            1030 (0x406)  Danish
+            1031 (0x407)  German – Germany
+            1032 (0x408)  Greek
+            1033 (0x409)  English – United States
+            1034 (0x40A)  Spanish – Traditional Sort
+            1035 (0x40B)  Finnish
+            1036 (0x40C)  French – France
+            1037 (0x40D)  Hebrew
+            1038 (0x40E)  Hungarian
+            1039 (0x40F)  Icelandic
+            1040 (0x410)  Italian – Italy
+            1041 (0x411)  Japanese
+            1042 (0x412)  Korean
+            1043 (0x413)  Dutch – Netherlands
+            1044 (0x414)  Norwegian – Bokmal
+            1045 (0x415)  Polish
+            1046 (0x416)  Portuguese – Brazil
+            1047 (0x417)  Rhaeto-Romanic
+            1048 (0x418)  Romanian
+            1049 (0x419)  Russian
+            1050 (0x41A)  Croatian
+            1051 (0x41B)  Slovak
+            1052 (0x41C)  Albanian
+            1053 (0x41D)  Swedish
+            1054 (0x41E)  Thai
+            1055 (0x41F)  Turkish
+            1056 (0x420)  Urdu
+            1057 (0x421)  Indonesian
+            1058 (0x422)  Ukrainian
+            1059 (0x423)  Belarusian
+            1060 (0x424)  Slovenian
+            1061 (0x425)  Estonian
+            1062 (0x426)  Latvian
+            1063 (0x427)  Lithuanian
+            1065 (0x429)  Persian
+            1066 (0x42A)  Vietnamese
+            1069 (0x42D)  Basque (Basque) – Basque
+            1070 (0x42E)  Serbian
+            1071 (0x42F)  Macedonian (FYROM)
+            1072 (0x430)  Sutu
+            1073 (0x431)  Tsonga
+            1074 (0x432)  Tswana
+            1076 (0x434)  Xhosa
+            1077 (0x435)  Zulu
+            1078 (0x436)  Afrikaans
+            1080 (0x438)  Faeroese
+            1081 (0x439)  Hindi
+            1082 (0x43A)  Maltese
+            1084 (0x43C)  Scottish Gaelic (United Kingdom)
+            1085 (0x43D)  Yiddish
+            1086 (0x43E)  Malay – Malaysia
+            2049 (0x801)  Arabic – Iraq
+            2052 (0x804)  Chinese (Simplified) – PRC
+            2055 (0x807)  German – Switzerland
+            2057 (0x809)  English – United Kingdom
+            2058 (0x80A)  Spanish – Mexico
+            2060 (0x80C)  French – Belgium
+            2064 (0x810)  Italian – Switzerland
+            2067 (0x813)  Dutch – Belgium
+            2068 (0x814)  Norwegian – Nynorsk
+            2070 (0x816)  Portuguese – Portugal
+            2072 (0x818)  Romanian – Moldova
+            2073 (0x819)  Russian – Moldova
+            2074 (0x81A)  Serbian – Latin
+            2077 (0x81D)  Swedish – Finland
+            3073 (0xC01)  Arabic – Egypt
+            3076 (0xC04)  Chinese (Traditional) – Hong Kong SAR
+            3079 (0xC07)  German – Austria
+            3081 (0xC09)  English – Australia
+            3082 (0xC0A)  Spanish – International Sort
+            3084 (0xC0C)  French – Canada
+            3098 (0xC1A)  Serbian – Cyrillic
+            4097 (0x1001)  Arabic – Libya
+            4100 (0x1004)  Chinese (Simplified) – Singapore
+            4103 (0x1007)  German – Luxembourg
+            4105 (0x1009)  English – Canada
+            4106 (0x100A)  Spanish – Guatemala
+            4108 (0x100C)  French – Switzerland
+            5121 (0x1401)  Arabic – Algeria
+            5127 (0x1407)  German – Liechtenstein
+            5129 (0x1409)  English – New Zealand
+            5130 (0x140A)  Spanish – Costa Rica
+            5132 (0x140C)  French – Luxembourg
+            6145 (0x1801)  Arabic – Morocco
+            6153 (0x1809)  English – Ireland
+            6154 (0x180A)  Spanish – Panama
+            7169 (0x1C01)  Arabic – Tunisia
+            7177 (0x1C09)  English – South Africa
+            7178 (0x1C0A)  Spanish – Dominican Republic
+            8193 (0x2001)  Arabic – Oman
+            8201 (0x2009)  English – Jamaica
+            8202 (0x200A)  Spanish – Venezuela
+            9217 (0x2401)  Arabic – Yemen
+            9226 (0x240A)  Spanish – Colombia
+            10241 (0x2801)  Arabic – Syria
+            10249 (0x2809)  English – Belize
+            10250 (0x280A)  Spanish – Peru
+            11265 (0x2C01)  Arabic – Jordan
+            11273 (0x2C09)  English – Trinidad
+            11274 (0x2C0A)  Spanish – Argentina
+            12289 (0x3001)  Arabic – Lebanon
+            12298 (0x300A)  Spanish – Ecuador
+            13313 (0x3401)  Arabic – Kuwait
+            13322 (0x340A)  Spanish – Chile
+            14337 (0x3801)  Arabic – U.A.E.
+            14346 (0x380A)  Spanish – Uruguay
+            15361 (0x3C01)  Arabic – Bahrain
+            15370 (0x3C0A)  Spanish – Paraguay
+            16385 (0x4001)  Arabic – Qatar
+            16394 (0x400A)  Spanish – Bolivia
+            17418 (0x440A)  Spanish – El Salvador
+            18442 (0x480A)  Spanish – Honduras
+            19466 (0x4C0A)  Spanish – Nicaragua
+            20490 (0x500A)  Spanish – Puerto Rico
+
+            */
+
+
+
 
 
 

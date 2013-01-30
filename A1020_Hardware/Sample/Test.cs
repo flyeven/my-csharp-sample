@@ -28,5 +28,29 @@ namespace A1020_Hardware.Sample
         }
 
 
+
+
+        /// <summary>
+        /// 获取硬件信息数值
+        /// </summary>
+        /// <param name="path"> 路径 </param>
+        /// <param name="propName"> 属性 </param>
+        /// <returns></returns>
+        public static string GetHardwareInfoValue(string path, string propName)
+        {
+            // Get the WMI class
+            ManagementClass processClass = new ManagementClass(path);
+            // Get the properties in the class
+            PropertyDataCollection properties = processClass.Properties;
+            ManagementObjectCollection moc = processClass.GetInstances();
+            foreach (ManagementObject mo in moc)
+            {
+                return mo.GetPropertyValue(propName).ToString();
+            }
+            return null;
+        }
+
+
+
     }
 }

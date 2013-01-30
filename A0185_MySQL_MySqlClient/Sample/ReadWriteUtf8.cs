@@ -15,10 +15,12 @@ namespace A0185_MySQL_MySqlClient.Sample
     {
 
         /// <summary>
-        /// MySQL ODBC 的数据库连接字符串.
+        /// MySQL 的数据库连接字符串.
+        /// 
+        /// 注意： UTF8 的情况下， 需要设置 charset=utf8
         /// </summary>
         private const String connString =
-            @"Server=192.168.56.101;Database=test_utf8;Uid=test_user;Pwd=testpassword; charset=utf8";
+            @"Server=192.168.56.101;Database=test_utf8;Uid=root;Pwd=mysql123;charset=utf8";
 
 
         /// <summary>
