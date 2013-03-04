@@ -187,6 +187,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A4002_PI", "A4002_PI\A4002_
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0188_SQLite_SQLiteClient", "A0188_SQLite_SQLiteClient\A0188_SQLite_SQLiteClient.csproj", "{B9861F17-0DD8-43C0-A689-9876D13A0E3C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0730_TimeRange", "A0730_TimeRange\A0730_TimeRange.csproj", "{5F8D4A54-5A50-43B2-BD87-9FA64444FE52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0740_AutoMatch", "A0740_AutoMatch\A0740_AutoMatch.csproj", "{EEA6C614-253E-42E2-8A78-C46698A0B122}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -1127,6 +1131,26 @@ Global
 		{B9861F17-0DD8-43C0-A689-9876D13A0E3C}.Release|Mixed Platforms.Build.0 = Release|x86
 		{B9861F17-0DD8-43C0-A689-9876D13A0E3C}.Release|x86.ActiveCfg = Release|x86
 		{B9861F17-0DD8-43C0-A689-9876D13A0E3C}.Release|x86.Build.0 = Release|x86
+		{5F8D4A54-5A50-43B2-BD87-9FA64444FE52}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{5F8D4A54-5A50-43B2-BD87-9FA64444FE52}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{5F8D4A54-5A50-43B2-BD87-9FA64444FE52}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{5F8D4A54-5A50-43B2-BD87-9FA64444FE52}.Debug|x86.ActiveCfg = Debug|x86
+		{5F8D4A54-5A50-43B2-BD87-9FA64444FE52}.Debug|x86.Build.0 = Debug|x86
+		{5F8D4A54-5A50-43B2-BD87-9FA64444FE52}.Release|Any CPU.ActiveCfg = Release|x86
+		{5F8D4A54-5A50-43B2-BD87-9FA64444FE52}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{5F8D4A54-5A50-43B2-BD87-9FA64444FE52}.Release|Mixed Platforms.Build.0 = Release|x86
+		{5F8D4A54-5A50-43B2-BD87-9FA64444FE52}.Release|x86.ActiveCfg = Release|x86
+		{5F8D4A54-5A50-43B2-BD87-9FA64444FE52}.Release|x86.Build.0 = Release|x86
+		{EEA6C614-253E-42E2-8A78-C46698A0B122}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{EEA6C614-253E-42E2-8A78-C46698A0B122}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{EEA6C614-253E-42E2-8A78-C46698A0B122}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{EEA6C614-253E-42E2-8A78-C46698A0B122}.Debug|x86.ActiveCfg = Debug|x86
+		{EEA6C614-253E-42E2-8A78-C46698A0B122}.Debug|x86.Build.0 = Debug|x86
+		{EEA6C614-253E-42E2-8A78-C46698A0B122}.Release|Any CPU.ActiveCfg = Release|x86
+		{EEA6C614-253E-42E2-8A78-C46698A0B122}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{EEA6C614-253E-42E2-8A78-C46698A0B122}.Release|Mixed Platforms.Build.0 = Release|x86
+		{EEA6C614-253E-42E2-8A78-C46698A0B122}.Release|x86.ActiveCfg = Release|x86
+		{EEA6C614-253E-42E2-8A78-C46698A0B122}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
