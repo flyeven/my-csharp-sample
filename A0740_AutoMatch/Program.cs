@@ -35,7 +35,7 @@ namespace A0740_AutoMatch
             //List<AutoMatchResult> actual = null;
 
 
-            //actual = autoMatchProcesser.DoAutoMatchProcess(1200);
+            //actual = autoMatchProcesser.DoAutoMatchProcess(200);
 
             Console.ReadLine();
         }

@@ -57,6 +57,7 @@
     <Compile Include="Test\AutoMatchAbleTest.cs" />
     <Compile Include="Test\BiggerFirstAutoMatchProcesserTest.cs" />
     <Compile Include="Test\MinRemainderAutoMatchProcesserTest.cs" />
+    <Compile Include="Test\MinRemainderAutoMatchProcesserPlusTest.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

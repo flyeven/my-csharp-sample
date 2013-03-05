@@ -107,7 +107,8 @@ namespace A0740_AutoMatch.Sample
         /// <param name="currentValue"> 当前剩余点数 </param>
         /// <returns> 匹配后的结果. </returns>
         public List<AutoMatchResult> DoAutoMatchProcess(decimal currentValue)
-        {        
+        {
+            /*
             //  大数字优先的算法
             BiggerFirstAutoMatchProcesser biggerFirstAutoMatchProcesser = new BiggerFirstAutoMatchProcesser()
             {
@@ -133,7 +134,7 @@ namespace A0740_AutoMatch.Sample
                 this.RemainderValue = biggerFirstAutoMatchProcesser.RemainderValue;
                 return resultList;
             }
-
+            */
 
 
 
@@ -154,6 +155,7 @@ namespace A0740_AutoMatch.Sample
             // 初始化 当前可用值  与 最小余额.
             this.currentMaxValue = currentValue;
             this.minRemainderValue = currentValue;
+            this.RemainderValue = currentValue;
 
             // 最大可能使用的数量.
             maxTimesArray = new int[this.BaseDataList.Count];
@@ -172,6 +174,9 @@ namespace A0740_AutoMatch.Sample
             minRemainderUseTimes = new int[this.BaseDataList.Count];
 
 
+            
+
+
             for (int i = maxTimesArray[0]; i >=0 ; i--)
             {
                 currentTimesIndex[0] = i;
@@ -179,7 +184,7 @@ namespace A0740_AutoMatch.Sample
             }
 
 
-            resultList = new List<AutoMatchResult>();
+            List<AutoMatchResult> resultList = new List<AutoMatchResult>();
             for (int i = 0; i < minRemainderUseTimes.Count(); i++)
             {
                 if (minRemainderUseTimes[i] > 0)
