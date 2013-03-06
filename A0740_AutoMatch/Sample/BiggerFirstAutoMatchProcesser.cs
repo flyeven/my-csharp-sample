@@ -43,53 +43,21 @@ namespace A0740_AutoMatch.Sample
     /// 200             -              200
     /// 100             -              100
     /// </summary>
-    public class BiggerFirstAutoMatchProcesser : IAutoMatchProcesser
+    public class BiggerFirstAutoMatchProcesser : AbstractAutoMatchProcesser
     {
-
-        /// <summary>
-        /// 可消耗的商品列表
-        /// </summary>
-        public List<IAutoMatchAble> BaseDataList
-        {
-            get;
-            set;
-        }
-
-
-
-        /// <summary>
-        /// 处理完毕后， 节余点数.
-        /// </summary>
-        public decimal RemainderValue
-        {
-            private set;
-            get;
-        }
-
-
 
         /// <summary>
         /// 自动匹配处理.
         /// </summary>
         /// <returns> 匹配后的结果. </returns>
-        public List<AutoMatchResult> DoAutoMatchProcess(decimal currentValue)
+        public override List<AutoMatchResult> GetAutoMatchProcessResult()
         {
             // 预期结果.
             List<AutoMatchResult> resultList = new List<AutoMatchResult>();
 
 
-            // 将 可消耗的商品列表，按照积分大小，  从高到低排序.
-            var query =
-                from data in BaseDataList
-                orderby data.GetExpendValue() descending
-                select data;
-
-            // 节余点数 初始值=当前剩余点数
-            RemainderValue = currentValue;
-
-
             // 遍历 排序后的 可消耗的商品列表.
-            foreach (IAutoMatchAble oneItem in query)
+            foreach (IAutoMatchAble oneItem in BaseDataList)
             {
                 if (RemainderValue >= oneItem.GetExpendValue())
                 {

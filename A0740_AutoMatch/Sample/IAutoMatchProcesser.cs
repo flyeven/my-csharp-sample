@@ -23,7 +23,9 @@ namespace A0740_AutoMatch.Sample
         List<IAutoMatchAble> BaseDataList{set;get;}
 
 
-
+        /// <summary>
+        /// 处理完毕后， 节余点数.
+        /// </summary>
         decimal RemainderValue { get; }
 
 

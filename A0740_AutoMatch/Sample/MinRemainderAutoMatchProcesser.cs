@@ -45,29 +45,8 @@ namespace A0740_AutoMatch.Sample
     /// 100             -              100
     /// 
     /// </summary>
-    public class MinRemainderAutoMatchProcesser : IAutoMatchProcesser
+    public class MinRemainderAutoMatchProcesser : AbstractAutoMatchProcesser
     {
-
-
-        /// <summary>
-        /// 可消耗的商品列表
-        /// </summary>
-        public List<IAutoMatchAble> BaseDataList
-        {
-            get;
-            set;
-        }
-
-
-        /// <summary>
-        /// 处理完毕后， 节余点数.
-        /// </summary>
-        public decimal RemainderValue
-        {
-            private set;
-            get;
-        }
-
 
         /// <summary>
         /// 当前最大值.
@@ -98,64 +77,18 @@ namespace A0740_AutoMatch.Sample
         /// </summary>
         private int[] minRemainderUseTimes;
 
-
+        
 
         /// <summary>
         /// 自动匹配处理.
         /// </summary>
-        /// <param name="baseDataList"> 可消耗的商品列表 </param>
-        /// <param name="currentValue"> 当前剩余点数 </param>
         /// <returns> 匹配后的结果. </returns>
-        public List<AutoMatchResult> DoAutoMatchProcess(decimal currentValue)
+        public override List<AutoMatchResult> GetAutoMatchProcessResult()
         {
-            /*
-            //  大数字优先的算法
-            BiggerFirstAutoMatchProcesser biggerFirstAutoMatchProcesser = new BiggerFirstAutoMatchProcesser()
-            {
-                 BaseDataList = this.BaseDataList,
-            };
-
-
-            // 预期结果. 首先先用 大数字优先的算法 计算一次.
-            List<AutoMatchResult> resultList = biggerFirstAutoMatchProcesser.DoAutoMatchProcess(currentValue);
-
-
-            if (biggerFirstAutoMatchProcesser.RemainderValue == 0)
-            {
-                // 如果 大数字优先的算法， 节余已经为 0， 那么就可以直接返回了
-                // 不需要再做  “最小节余的算法” 了.
-                return resultList;
-            }
-
-            if (resultList.Count == 0)
-            {
-                // 如果 大数字优先的算法， 一行结果也没有， 那么也可以直接返回了.
-                // 因为最基本的条件都不满足啊.
-                this.RemainderValue = biggerFirstAutoMatchProcesser.RemainderValue;
-                return resultList;
-            }
-            */
-
-
-
-
-
-            // 下面尝试对数据结果进行调整.
-            // 使得剩余点数， 尽可能小.
-
-            // 将 可消耗的商品列表，按照积分大小，  从高到低排序.
-            var query =
-                from data in BaseDataList
-                orderby data.GetExpendValue() descending
-                select data;
-
-            BaseDataList = query.ToList();
-
-
             // 初始化 当前可用值  与 最小余额.
-            this.currentMaxValue = currentValue;
-            this.minRemainderValue = currentValue;
-            this.RemainderValue = currentValue;
+            this.currentMaxValue = RemainderValue;
+            this.minRemainderValue = RemainderValue;
+
 
             // 最大可能使用的数量.
             maxTimesArray = new int[this.BaseDataList.Count];
@@ -163,7 +96,7 @@ namespace A0740_AutoMatch.Sample
             for (int i = 0; i < maxTimesArray.Count(); i++)
             {
                 // 用于存储， 假如积分全部用于购买指定物品， 最多能买几个.
-                maxTimesArray[i] = Convert.ToInt32(Math.Truncate(currentValue / this.BaseDataList[i].GetExpendValue()));
+                maxTimesArray[i] = Convert.ToInt32(Math.Truncate(RemainderValue / this.BaseDataList[i].GetExpendValue()));
             }
 
 
