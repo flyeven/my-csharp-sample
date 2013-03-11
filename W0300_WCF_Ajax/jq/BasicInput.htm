@@ -110,6 +110,14 @@
 
             // -------------------- Radio --------------------
 
+			
+			$(":radio[name='rdoABCD']").change(function(){ 
+				// 取得用户输入.
+                var vUserSelectVal = $(this).val();
+				$("#radioResult").html("用户选择了：" + vUserSelectVal);
+			});
+			
+			
             // 测试读取 Radio  点击处理事件.
             $("#btnTestReadRadio").click(function () {
 
@@ -161,6 +169,18 @@
 
             // -------------------- Select --------------------
 
+			
+			// 测试 Select 选择发生变化处理事件.
+			$("#cboABCD").change(function(){ 
+				// 选择的文本.
+                var vSelectText = $(this).find('option:selected').text();
+
+                // 选择的 Value.
+                var vSelectValue = $(this).val();
+				
+				$("#selectResult").html("Select 选择的文本为：" + vSelectText + " Value为:" + vSelectValue);
+			});
+			
 
 
             // 测试读取 Select  点击处理事件.
@@ -329,7 +349,13 @@
       <td> C <input id="rdoC" name="rdoABCD" type="radio"  value="C" /> </td>
       <td> D <input id="rdoD" name="rdoABCD" type="radio"  value="D" /> </td>
     </tr>
-      
+    
+	<tr>
+	  <td id="radioResult"  colspan="4">
+	    
+	  </td>
+	</tr>
+	
     <tr>
       <td colspan="2">
           <input id="btnTestReadRadio" type="button" value="测试读取 Radio" />
@@ -353,7 +379,7 @@
 
   <table>
     <tr>
-      <td colspan="2">
+      <td>
           <select id="cboABCD">
               <option value="A" selected="selected">A1</option>
               <option value="B">B2</option>
@@ -361,7 +387,14 @@
               <option value="D">D4</option>
           </select>
       </td>
+
+	  <td id="selectResult">
+	    
+	  </td>
+	  
     </tr>
+	
+	
   
     <tr>
       <td>

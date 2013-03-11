@@ -24,6 +24,10 @@
                     contentType: "text/json",
                     dataType: "json",
                     data: '{"name":"' + vParam + '"}',
+                    beforeSend: function (XMLHttpRequest) {
+                        // Ajax 以前， 加载一个 等待处理的画面.
+						$("#Loading").html("<img src='waiting.gif' />");
+					},					
                     success: function (data) {
 
                         // 首先清除旧有的数据.
@@ -38,10 +42,14 @@
 
                         }
 
-
+                        // Ajax 处理完毕后，清除 等待处理的画面.
+                        $("#Loading").empty();
                     },
                     error: function (msg) {
                         alert(msg.responseText);
+
+                        // Ajax 处理完毕后，清除 等待处理的画面.
+                        $("#Loading").empty();
                     }
                 });
 
@@ -70,6 +78,12 @@
         <input id="btnQuery" type="button" value="查询" />
     </td>
   </tr>
+  
+  <tr>
+    <td id="Loading">
+	</td>
+  </tr>
+  
 </table>
 
 

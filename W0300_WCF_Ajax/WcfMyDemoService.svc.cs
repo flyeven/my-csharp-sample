@@ -7,6 +7,9 @@ using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
 using System.Text;
 
+using System.Threading;
+
+
 namespace W0300_WCF_Ajax
 {
     [ServiceContract(Namespace = "")]
@@ -45,6 +48,12 @@ namespace W0300_WCF_Ajax
         {
             if (String.IsNullOrEmpty(name))
             {
+
+                // 模拟一个长时间操作。
+                // 以观察客户端 如何显示.
+                Thread.Sleep(3000);
+
+
                 // 未输入条件，全部返回.
                 return testUserList;
             }
