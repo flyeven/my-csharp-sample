@@ -15,7 +15,7 @@ namespace A0188_SQLite_SQLiteClient.Sample
     {
 
         /// <summary>
-        /// MySQL 的数据库连接字符串.
+        /// SQLite 的数据库连接字符串.
         /// </summary>
         private const String connString =
             @"Data Source=mytest.db";

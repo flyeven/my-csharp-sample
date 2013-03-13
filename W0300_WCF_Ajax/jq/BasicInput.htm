@@ -45,6 +45,16 @@
 
             // -------------------- Checkbox --------------------
 
+			$(":checkbox[name='chkABCD']").change(function(){ 
+				// 取得用户输入.
+                var vUserSelectVal = $(this).val();
+				if( $(this).attr("checked") == "checked") {
+					$("#checkResult").html("用户选择了：" + vUserSelectVal);
+				} else {
+					$("#checkResult").html("用户取消了：" + vUserSelectVal);
+				}
+			});
+			
             // 全选  点击处理事件.
             $("#btnTestSelectAllCheckbox").click(function () {
                 // 遍历画面中的 每一个 名称为 chkABCD 的元素.
@@ -312,6 +322,12 @@
       <td> D <input id="chkD" name="chkABCD" type="checkbox"  value="D" checked="checked" /> </td>
     </tr>
 
+	<tr>
+	  <td id="checkResult"  colspan="4">
+	    
+	  </td>
+	</tr>	
+	
     <tr>
       <td colspan="2">
           <input id="btnTestSelectAllCheckbox" type="button" value="全选" />
