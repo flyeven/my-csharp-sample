@@ -68,6 +68,21 @@ FROM
 
 
         /// <summary>
+        /// 用于查询的 SQL 语句.  (带 汉字的查询条件)
+        /// </summary>
+        private const String SELECT_SQL_WHERE =
+            @"
+SELECT
+  value1,  value2
+FROM
+  test_tab
+WHERE
+  value1 = ?value1";
+
+
+
+
+        /// <summary>
         /// 测试 新增 读取.
         /// </summary>
         public void TestInsertSelect()
@@ -89,11 +104,20 @@ FROM
                 // 查询.
                 SelectData(conn);
 
+                // 按指定名称查询. (目的为了测试 UTF8 的情况下， 汉字的查询是否正常)
+                SelectDataByValue1(conn, "测试UTF8_1");
+
+
                 // 更新
                 UpdateData(conn);
 
                 // 查询.
                 SelectData(conn);
+
+
+                // 按指定名称查询. (目的为了测试 UTF8 的情况下， 汉字的查询是否正常)
+                SelectDataByValue1(conn, "再次测试UTF8_1");
+
 
                 // 删除数据.
                 DeleteData(conn);
@@ -223,6 +247,44 @@ FROM
             // 关闭Reader.
             testReader.Close();
         }
+
+
+
+
+        /// <summary>
+        /// 查询数据.  根据汉字作为查询条件.
+        /// </summary>
+        /// <param name="conn"></param>
+        /// <param name="value1"></param>
+        private void SelectDataByValue1(MySqlConnection conn, string value1)
+        {
+
+            // 创建一个 Command.
+            MySqlCommand testCommand = conn.CreateCommand();
+
+            // 定义需要执行的SQL语句.
+            testCommand.CommandText = SELECT_SQL_WHERE;
+
+            // 定义要查询的参数.
+            testCommand.Parameters.Add(new MySqlParameter("?value1", MySqlDbType.VarChar)).Value = value1;
+
+
+            // 执行SQL命令，结果存储到Reader中.
+            MySqlDataReader testReader = testCommand.ExecuteReader();
+
+            // 处理检索出来的每一条数据.
+            while (testReader.Read())
+            {
+                // 将检索出来的数据，输出到屏幕上.
+                Console.WriteLine("根据 value1 = {0} 作为条件， 查询出; value2 = {1} 。  ",
+                    testReader["value1"], testReader["value2"]
+                    );
+            }
+
+            // 关闭Reader.
+            testReader.Close();
+        }
+
 
 
     }
