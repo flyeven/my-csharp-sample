@@ -41,6 +41,27 @@ namespace A0650_EF_SqlServer.Sample
                             Console.WriteLine("----- Sub = {0}:{1}", s.id, s.value);
                         }
                     }
+
+
+                    Console.WriteLine("========================================");
+
+                    // 测试三层的.
+                    if (m.test_sub_s != null)
+                    {
+                        foreach (test_sub_s s in m.test_sub_s)
+                        {
+                            Console.WriteLine("----- Sub_S = {0}:{1}", s.id, s.value);
+
+                            if (s.test_sub_of_sub != null)
+                            {
+                                foreach (test_sub_of_sub ss in s.test_sub_of_sub)
+                                {
+                                    Console.WriteLine("---------- Sub_S = {0}:{1}", ss.id, ss.value);
+                                }
+                            }
+
+                        }
+                    }
                 }
 
 
@@ -61,6 +82,12 @@ namespace A0650_EF_SqlServer.Sample
                 }
 
             }
+
+
+
+
+
+
 
 
 
@@ -93,6 +120,8 @@ namespace A0650_EF_SqlServer.Sample
                     }
 
 
+                    // 三层的这里就不测试了......
+
 
                     Console.WriteLine("测试 IsLoaded 的判断");
 
@@ -108,12 +137,24 @@ namespace A0650_EF_SqlServer.Sample
 
                     }
 
+
+                    // 三层的这里就不测试了......
                 }
+
+
+
+
+
 
                 Console.WriteLine();
                 Console.WriteLine("Include 方式查询 test_main！");
+
+
                 // 这里使用 贪婪加载.
-                foreach (test_main m in context.test_main.Include("test_sub").Where(p => p.id < 100))
+                // 请注意：
+                // 1、如果一个 主表， 同时关联有很多套子表， 那么可以通过  Include("子表1").Include("子表2").Include("子表3") 的方式， 来进行加载.
+                // 2、当表的层级结构是多层的时候，例如 爷爷-父亲-孙子 ， 那么需要通过 爷爷.Include("父亲.孙子") 的方式来处理。
+                foreach (test_main m in context.test_main.Include("test_sub").Include("test_sub_s.test_sub_of_sub").Where(p => p.id < 100))
                 {
                     Console.WriteLine("Main = {0}:{1}", m.id, m.value);
                     if (m.test_sub != null)
@@ -126,6 +167,29 @@ namespace A0650_EF_SqlServer.Sample
                     else
                     {
                         Console.WriteLine("m.test_sub  is  null...");
+                    }
+
+
+
+
+                    Console.WriteLine("========================================");
+
+                    // 测试三层的.
+                    if (m.test_sub_s != null)
+                    {
+                        foreach (test_sub_s s in m.test_sub_s)
+                        {
+                            Console.WriteLine("----- Sub_S = {0}:{1}", s.id, s.value);
+
+                            if (s.test_sub_of_sub != null)
+                            {
+                                foreach (test_sub_of_sub ss in s.test_sub_of_sub)
+                                {
+                                    Console.WriteLine("---------- Sub_S = {0}:{1}", ss.id, ss.value);
+                                }
+                            }
+
+                        }
                     }
                 }
 
@@ -146,6 +210,9 @@ namespace A0650_EF_SqlServer.Sample
                             Console.WriteLine("----- 成绩 = {0}:{1}:{2}", s.course_code, s.test_course.course_name, s.score_value);
                         }
                     }
+
+
+
                 }
 
 

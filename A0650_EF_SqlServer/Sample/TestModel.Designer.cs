@@ -8,12 +8,13 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.ComponentModel;
+using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
-using System.Data.EntityClient;
-using System.ComponentModel;
-using System.Xml.Serialization;
+using System.Linq;
 using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 [assembly: EdmSchemaAttribute()]
 #region EDM 关系源元数据
@@ -21,6 +22,8 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("TestModel", "main_id_cons", "test_main", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(A0650_EF_SqlServer.Sample.test_main), "test_sub", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(A0650_EF_SqlServer.Sample.test_sub), true)]
 [assembly: EdmRelationshipAttribute("TestModel", "fk_test_score_course", "test_course", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(A0650_EF_SqlServer.Sample.test_course), "test_score", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(A0650_EF_SqlServer.Sample.test_score), true)]
 [assembly: EdmRelationshipAttribute("TestModel", "fk_test_score_student", "test_student", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(A0650_EF_SqlServer.Sample.test_student), "test_score", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(A0650_EF_SqlServer.Sample.test_score), true)]
+[assembly: EdmRelationshipAttribute("TestModel", "fk_test_sub_s", "test_main", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(A0650_EF_SqlServer.Sample.test_main), "test_sub_s", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(A0650_EF_SqlServer.Sample.test_sub_s), true)]
+[assembly: EdmRelationshipAttribute("TestModel", "fk_test_sub_of_sub", "test_sub_s", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(A0650_EF_SqlServer.Sample.test_sub_s), "test_sub_of_sub", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(A0650_EF_SqlServer.Sample.test_sub_of_sub), true)]
 
 #endregion
 
@@ -183,8 +186,41 @@ namespace A0650_EF_SqlServer.Sample
             }
         }
         private ObjectSet<test_Identity_tab> _test_Identity_tab;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<test_sub_of_sub> test_sub_of_sub
+        {
+            get
+            {
+                if ((_test_sub_of_sub == null))
+                {
+                    _test_sub_of_sub = base.CreateObjectSet<test_sub_of_sub>("test_sub_of_sub");
+                }
+                return _test_sub_of_sub;
+            }
+        }
+        private ObjectSet<test_sub_of_sub> _test_sub_of_sub;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<test_sub_s> test_sub_s
+        {
+            get
+            {
+                if ((_test_sub_s == null))
+                {
+                    _test_sub_s = base.CreateObjectSet<test_sub_s>("test_sub_s");
+                }
+                return _test_sub_s;
+            }
+        }
+        private ObjectSet<test_sub_s> _test_sub_s;
 
         #endregion
+
         #region AddTo 方法
     
         /// <summary>
@@ -242,8 +278,25 @@ namespace A0650_EF_SqlServer.Sample
         {
             base.AddObject("test_Identity_tab", test_Identity_tab);
         }
+    
+        /// <summary>
+        /// 用于向 test_sub_of_sub EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddTotest_sub_of_sub(test_sub_of_sub test_sub_of_sub)
+        {
+            base.AddObject("test_sub_of_sub", test_sub_of_sub);
+        }
+    
+        /// <summary>
+        /// 用于向 test_sub_s EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddTotest_sub_s(test_sub_s test_sub_s)
+        {
+            base.AddObject("test_sub_s", test_sub_s);
+        }
 
         #endregion
+
         #region 函数导入
     
         /// <summary>
@@ -296,11 +349,11 @@ namespace A0650_EF_SqlServer.Sample
         }
 
         #endregion
+
     }
-    
 
     #endregion
-    
+
     #region 实体
     
     /// <summary>
@@ -327,6 +380,7 @@ namespace A0650_EF_SqlServer.Sample
         }
 
         #endregion
+
         #region 基元属性
     
         /// <summary>
@@ -381,6 +435,7 @@ namespace A0650_EF_SqlServer.Sample
         partial void Oncourse_nameChanged();
 
         #endregion
+
     
         #region 导航属性
     
@@ -407,6 +462,7 @@ namespace A0650_EF_SqlServer.Sample
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -431,6 +487,7 @@ namespace A0650_EF_SqlServer.Sample
         }
 
         #endregion
+
         #region 基元属性
     
         /// <summary>
@@ -485,6 +542,7 @@ namespace A0650_EF_SqlServer.Sample
         partial void OnvalueChanged();
 
         #endregion
+
     
     }
     
@@ -510,6 +568,7 @@ namespace A0650_EF_SqlServer.Sample
         }
 
         #endregion
+
         #region 基元属性
     
         /// <summary>
@@ -564,6 +623,7 @@ namespace A0650_EF_SqlServer.Sample
         partial void OnvalueChanged();
 
         #endregion
+
     
         #region 导航属性
     
@@ -588,8 +648,31 @@ namespace A0650_EF_SqlServer.Sample
                 }
             }
         }
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("TestModel", "fk_test_sub_s", "test_sub_s")]
+        public EntityCollection<test_sub_s> test_sub_s
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<test_sub_s>("TestModel.fk_test_sub_s", "test_sub_s");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<test_sub_s>("TestModel.fk_test_sub_s", "test_sub_s", value);
+                }
+            }
+        }
 
         #endregion
+
     }
     
     /// <summary>
@@ -618,6 +701,7 @@ namespace A0650_EF_SqlServer.Sample
         }
 
         #endregion
+
         #region 基元属性
     
         /// <summary>
@@ -699,6 +783,7 @@ namespace A0650_EF_SqlServer.Sample
         partial void Onscore_valueChanged();
 
         #endregion
+
     
         #region 导航属性
     
@@ -779,6 +864,7 @@ namespace A0650_EF_SqlServer.Sample
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -805,6 +891,7 @@ namespace A0650_EF_SqlServer.Sample
         }
 
         #endregion
+
         #region 基元属性
     
         /// <summary>
@@ -859,6 +946,7 @@ namespace A0650_EF_SqlServer.Sample
         partial void Onsequence_numberChanged();
 
         #endregion
+
     
     }
     
@@ -886,6 +974,7 @@ namespace A0650_EF_SqlServer.Sample
         }
 
         #endregion
+
         #region 基元属性
     
         /// <summary>
@@ -940,6 +1029,7 @@ namespace A0650_EF_SqlServer.Sample
         partial void Onstudent_nameChanged();
 
         #endregion
+
     
         #region 导航属性
     
@@ -966,6 +1056,7 @@ namespace A0650_EF_SqlServer.Sample
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -990,6 +1081,7 @@ namespace A0650_EF_SqlServer.Sample
         }
 
         #endregion
+
         #region 基元属性
     
         /// <summary>
@@ -1068,6 +1160,7 @@ namespace A0650_EF_SqlServer.Sample
         partial void OnvalueChanged();
 
         #endregion
+
     
         #region 导航属性
     
@@ -1110,8 +1203,326 @@ namespace A0650_EF_SqlServer.Sample
         }
 
         #endregion
+
+    }
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="TestModel", Name="test_sub_of_sub")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class test_sub_of_sub : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 test_sub_of_sub 对象。
+        /// </summary>
+        /// <param name="id">id 属性的初始值。</param>
+        public static test_sub_of_sub Createtest_sub_of_sub(global::System.Int32 id)
+        {
+            test_sub_of_sub test_sub_of_sub = new test_sub_of_sub();
+            test_sub_of_sub.id = id;
+            return test_sub_of_sub;
+        }
+
+        #endregion
+
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                if (_id != value)
+                {
+                    OnidChanging(value);
+                    ReportPropertyChanging("id");
+                    _id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("id");
+                    OnidChanged();
+                }
+            }
+        }
+        private global::System.Int32 _id;
+        partial void OnidChanging(global::System.Int32 value);
+        partial void OnidChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> sub_main_id
+        {
+            get
+            {
+                return _sub_main_id;
+            }
+            set
+            {
+                Onsub_main_idChanging(value);
+                ReportPropertyChanging("sub_main_id");
+                _sub_main_id = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("sub_main_id");
+                Onsub_main_idChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _sub_main_id;
+        partial void Onsub_main_idChanging(Nullable<global::System.Int32> value);
+        partial void Onsub_main_idChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String value
+        {
+            get
+            {
+                return _value;
+            }
+            set
+            {
+                OnvalueChanging(value);
+                ReportPropertyChanging("value");
+                _value = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("value");
+                OnvalueChanged();
+            }
+        }
+        private global::System.String _value;
+        partial void OnvalueChanging(global::System.String value);
+        partial void OnvalueChanged();
+
+        #endregion
+
+    
+        #region 导航属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("TestModel", "fk_test_sub_of_sub", "test_sub_s")]
+        public test_sub_s test_sub_s
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<test_sub_s>("TestModel.fk_test_sub_of_sub", "test_sub_s").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<test_sub_s>("TestModel.fk_test_sub_of_sub", "test_sub_s").Value = value;
+            }
+        }
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<test_sub_s> test_sub_sReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<test_sub_s>("TestModel.fk_test_sub_of_sub", "test_sub_s");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<test_sub_s>("TestModel.fk_test_sub_of_sub", "test_sub_s", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="TestModel", Name="test_sub_s")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class test_sub_s : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 test_sub_s 对象。
+        /// </summary>
+        /// <param name="id">id 属性的初始值。</param>
+        public static test_sub_s Createtest_sub_s(global::System.Int32 id)
+        {
+            test_sub_s test_sub_s = new test_sub_s();
+            test_sub_s.id = id;
+            return test_sub_s;
+        }
+
+        #endregion
+
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                if (_id != value)
+                {
+                    OnidChanging(value);
+                    ReportPropertyChanging("id");
+                    _id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("id");
+                    OnidChanged();
+                }
+            }
+        }
+        private global::System.Int32 _id;
+        partial void OnidChanging(global::System.Int32 value);
+        partial void OnidChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> main_id
+        {
+            get
+            {
+                return _main_id;
+            }
+            set
+            {
+                Onmain_idChanging(value);
+                ReportPropertyChanging("main_id");
+                _main_id = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("main_id");
+                Onmain_idChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _main_id;
+        partial void Onmain_idChanging(Nullable<global::System.Int32> value);
+        partial void Onmain_idChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String value
+        {
+            get
+            {
+                return _value;
+            }
+            set
+            {
+                OnvalueChanging(value);
+                ReportPropertyChanging("value");
+                _value = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("value");
+                OnvalueChanged();
+            }
+        }
+        private global::System.String _value;
+        partial void OnvalueChanging(global::System.String value);
+        partial void OnvalueChanged();
+
+        #endregion
+
+    
+        #region 导航属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("TestModel", "fk_test_sub_s", "test_main")]
+        public test_main test_main
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<test_main>("TestModel.fk_test_sub_s", "test_main").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<test_main>("TestModel.fk_test_sub_s", "test_main").Value = value;
+            }
+        }
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<test_main> test_mainReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<test_main>("TestModel.fk_test_sub_s", "test_main");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<test_main>("TestModel.fk_test_sub_s", "test_main", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("TestModel", "fk_test_sub_of_sub", "test_sub_of_sub")]
+        public EntityCollection<test_sub_of_sub> test_sub_of_sub
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<test_sub_of_sub>("TestModel.fk_test_sub_of_sub", "test_sub_of_sub");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<test_sub_of_sub>("TestModel.fk_test_sub_of_sub", "test_sub_of_sub", value);
+                }
+            }
+        }
+
+        #endregion
+
     }
 
     #endregion
+
     
 }
