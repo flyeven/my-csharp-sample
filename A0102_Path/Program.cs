@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+using System.IO;
+
+
 namespace A0102_Path
 {
     class Program
@@ -23,6 +26,11 @@ namespace A0102_Path
             Console.WriteLine();
 
 
+  
+
+
+
+
             Console.WriteLine("System.Environment.CurrentDirectory");
             Console.WriteLine(System.Environment.CurrentDirectory);
             Console.WriteLine();
@@ -40,6 +48,19 @@ namespace A0102_Path
             Console.WriteLine("System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase");
             Console.WriteLine(System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase);
             Console.WriteLine();
+
+
+
+            string path = System.IO.Directory.GetCurrentDirectory();
+            DirectoryInfo parentPath1 = Directory.GetParent(path);
+            DirectoryInfo parentPath2 = Directory.GetParent(parentPath1.FullName);
+            DirectoryInfo parentPath3 = Directory.GetParent(parentPath2.FullName);
+
+            Console.WriteLine("当前路径: {0}", path);
+            Console.WriteLine("当前路径上1级: {0}", parentPath1.FullName);
+            Console.WriteLine("当前路径上2级: {0}", parentPath2.FullName);
+            Console.WriteLine("当前路径上3级: {0}", parentPath3.FullName);
+
 
 
             Console.ReadLine();

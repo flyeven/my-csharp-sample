@@ -157,6 +157,7 @@
     <Content Include="index.htm" />
     <Content Include="jq\BasicInput.htm" />
     <Content Include="jq\MainSubCheckBox.htm" />
+    <Content Include="jq\MainSubTable.htm" />
     <Content Include="jq\TableResult.htm" />
     <Content Include="Scripts\MyPageInfo.js" />
     <Content Include="Scripts\jquery-1.8.2-vsdoc.js" />
