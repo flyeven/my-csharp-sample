@@ -36,7 +36,7 @@
                         // 开始追加新数据.
                         for (var i = 0; i < data.d.length; i++) {
 
-                            $("#ResultTable").append("<tr class='UserData'> <td>" + data.d[i].UserName +
+                            $("#ResultTable").append("<tr class='UserData'> <td title='~" + data.d[i].UserName + "~'>" + data.d[i].UserName +
                                     "</td>   <td>" + data.d[i].Password + 
                                     "</td> </tr>");
 
@@ -70,12 +70,12 @@
 <table>
   <tr>
     <td> 用户名: </td>
-    <td> <input id="txtUserName" type="text" value="" />  </td>
+    <td> <input id="txtUserName" type="text" value=""  title="这里输入查询的用户名" />  </td>
   </tr>
 
   <tr>
     <td colspan="2">
-        <input id="btnQuery" type="button" value="查询" />
+        <input id="btnQuery" type="button" value="查询" title="按此按钮开始查询" />
     </td>
   </tr>
   
@@ -91,10 +91,10 @@
 <h4> 查询结果 </h4>
 
 
-<table id="ResultTable" border="1">
-  <tr>
-    <th> 用户名 </th>
-    <th> 密码 </th>
+<table id="ResultTable" border="1" title="查询结果将显示在本表格中">
+  <tr title="查询标题行">
+    <th title="标题是 用户名"> 用户名 </th>
+    <th title="标题是密码"> 密码 </th>
   </tr>
 </table>
 

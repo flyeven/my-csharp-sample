@@ -203,6 +203,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0760_PageToken", "A0760_Pa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0175_PostgreSQL", "A0175_PostgreSQL\A0175_PostgreSQL.csproj", "{672374FE-4785-4592-88F5-85D412A00968}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0211_DataTableCompute", "A0211_DataTableCompute\A0211_DataTableCompute.csproj", "{B5204B12-6C11-4496-AF85-AB992574FD44}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -1223,6 +1225,16 @@ Global
 		{672374FE-4785-4592-88F5-85D412A00968}.Release|Mixed Platforms.Build.0 = Release|x86
 		{672374FE-4785-4592-88F5-85D412A00968}.Release|x86.ActiveCfg = Release|x86
 		{672374FE-4785-4592-88F5-85D412A00968}.Release|x86.Build.0 = Release|x86
+		{B5204B12-6C11-4496-AF85-AB992574FD44}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{B5204B12-6C11-4496-AF85-AB992574FD44}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{B5204B12-6C11-4496-AF85-AB992574FD44}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{B5204B12-6C11-4496-AF85-AB992574FD44}.Debug|x86.ActiveCfg = Debug|x86
+		{B5204B12-6C11-4496-AF85-AB992574FD44}.Debug|x86.Build.0 = Debug|x86
+		{B5204B12-6C11-4496-AF85-AB992574FD44}.Release|Any CPU.ActiveCfg = Release|x86
+		{B5204B12-6C11-4496-AF85-AB992574FD44}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{B5204B12-6C11-4496-AF85-AB992574FD44}.Release|Mixed Platforms.Build.0 = Release|x86
+		{B5204B12-6C11-4496-AF85-AB992574FD44}.Release|x86.ActiveCfg = Release|x86
+		{B5204B12-6C11-4496-AF85-AB992574FD44}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
