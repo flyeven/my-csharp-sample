@@ -14,8 +14,14 @@ namespace A0500_LINQ
         {
             LinqSample sample = new LinqSample();
             sample.BaseDemo();
-
             sample.BaseDemo2();
+            sample.BaseDemo3();
+
+
+
+
+            LinqSample2 sample2 = new LinqSample2();
+            sample2.BaseDemo();
 
 
 

@@ -132,5 +132,32 @@ namespace A0500_LINQ.Sample
 
 
 
+
+        
+        /// <summary>
+        /// 进一步的演示  翻页处理.
+        /// </summary>
+        public void BaseDemo3()
+        {
+            Console.WriteLine("==========  翻页处理  =========="); 
+
+            // 初始化一个  长度为 100 的数组.
+            int[] testArray = Enumerable.Range(1, 100).ToArray();
+
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine("第{0}页", i+1);
+                List<int> pageDataList = testArray.Skip( i * 10).Take(10).ToList();
+
+                foreach (int val in pageDataList)
+                {
+                    Console.Write("{0}   ", val);
+                }
+                Console.WriteLine();
+            }
+
+
+        }
+
     }
 }
