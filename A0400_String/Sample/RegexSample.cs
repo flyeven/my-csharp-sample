@@ -50,6 +50,11 @@ namespace A0401_String.Sample
 			String pat = "[a-z0-9]";
 			Console.WriteLine("[01]使用正则表达式静态方法IsMatch({0}, {1})的结果为：{2}", val, pat, Regex.IsMatch(val, pat));
 
+
+
+
+
+
 		}
 
 
@@ -157,6 +162,23 @@ namespace A0401_String.Sample
 
 			val = "0.1.2.3";
 			Console.WriteLine("[04]使用正则表达式静态方法IsMatch({0}, {1})的结果为：{2}", val, pattern, Regex.IsMatch(val, pattern));
+
+
+
+            // 正则表达式检查  身份证号码.
+            //   
+            string cradPat = @"^\d{17}(\d|X|x)$";
+
+            string[] cardValueArray = { 
+                "11010519491231002X", 
+                "110105194912310011", 
+                "11010519491231001C", 
+                "11010519491231001"};
+
+            foreach (string cardValue in cardValueArray)
+            {
+                Console.WriteLine("[04]使用正则表达式静态方法IsMatch({0}, {1})的结果为：{2}", cardValue, cradPat, Regex.IsMatch(cardValue, cradPat));
+            }
 		}
 
 
@@ -237,6 +259,24 @@ namespace A0401_String.Sample
 				m = m.NextMatch();
 
 			}
+
+
+            // 电子邮件地址
+            string emailPat = @"^(\w)+(\.\w+)*@(\w)+((\.\w+)+)$";
+
+            string[] emailValueArray = { 
+                "zhang3@sina.com",
+                "li4@sina.com",
+                "abc.def@sina.com",
+                "@sina.com",
+                "zhang3@",
+                "zhang3@com",};
+
+            foreach (string value in emailValueArray)
+            {
+                Console.WriteLine("[06]使用正则表达式静态方法IsMatch({0}, {1})的结果为：{2}", value, emailPat, Regex.IsMatch(value, emailPat));
+            }
+
 		}
 
 

@@ -30,7 +30,28 @@ namespace A001_BaseFunction
             // Stack
             collectionSample.StackSample();
 
+      
+
+
+
+
+
+            GenericCollectionSample genericCollectionSample = new GenericCollectionSample();
+
+            // List<T>
+            genericCollectionSample.ListSample();
+
+            // Dictionary <T1,T2>
+            genericCollectionSample.DictionarySample();
+
+            // Queue<T>
+            genericCollectionSample.QueueSample();
+
+            // Stack<T>
+            genericCollectionSample.StackSample();
+
             Console.ReadLine();
+
         }
 
     }

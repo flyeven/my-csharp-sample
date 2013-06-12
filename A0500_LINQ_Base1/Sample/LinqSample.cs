@@ -157,6 +157,36 @@ namespace A0500_LINQ.Sample
             }
 
 
+
+        }
+
+
+
+
+
+        /// <summary>
+        /// 进一步的演示  随机排序.
+        /// </summary>
+        public void BaseDemo4()
+        {
+            Console.WriteLine("==========  随机排序 Top 10.  ==========");
+
+            // 初始化一个  长度为 100 的数组.
+            int[] testArray = Enumerable.Range(1, 100).ToArray();
+
+            var query =
+                from data in testArray
+                orderby Guid.NewGuid()
+                select data;
+
+
+            List<int> top10DataList = query.Take(10).ToList();
+
+            foreach (int val in top10DataList)
+            {
+                Console.Write("{0}   ", val);
+            }
+            Console.WriteLine();
         }
 
     }
