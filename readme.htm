@@ -111,12 +111,12 @@
       <td>A0050_TryCatchFinally</td>
       <td> Try / Catch/ Finally 的例子 </td>
     </tr>
-	
+
     <tr>
       <td>A0055_GenericMethod</td>
       <td> 泛型方法的例子 </td>
     </tr>
-	
+
     <tr>
       <td>A0060_Enum</td>
       <td> 枚举 的例子 </td>
@@ -314,8 +314,8 @@
     <tr>
       <td> A0188_SQLite_SQLiteClient </td>
       <td>访问 SQLite 数据库的例子  </td>
-    </tr>	
-	
+    </tr>
+
     <tr>
       <td>A0200_XML </td>
       <td> XML 读取/写入 的例子 </td>
@@ -334,9 +334,9 @@
     <tr>
       <td>A0211_DataTableCompute </td>
       <td> 通过 DataTable 进行数据计算的例子 </td>
-    </tr>	
-	
-	
+    </tr>
+
+
     <tr>
       <td>A0300_Thread </td>
       <td> 最简单的 线程 的例子 </td>
@@ -387,14 +387,14 @@
       某些 Case 使用了 .NET 4.0 的新特性. </td>
     </tr>
 
-	
-	
+
+
 	<tr>
       <td> A0360_Timers </td>
       <td> 定时器处理的例子代码。 </td>
     </tr>
-	
-	
+
+
 
 
     <tr>
@@ -667,11 +667,11 @@ Code First在处理多重性关系时应用了一系列规则。
       <td> 泛型处理 的例子 （要求用户数据类实现 MergeAble 接口） </td>
     </tr>
 
-	
+
     <tr>
       <td> A0720_MultiTime </td>
-      <td> 
-	  存在有指定行数的数据，才做处理 的处理例子。 
+      <td>
+	  存在有指定行数的数据，才做处理 的处理例子。
 	  例如 一个月内，消费 2次以上（含2次）的顾客， 享受双倍积分，
 	  <p>
 	  为什么写这个类，而不用 SQL 语句直接查询的处理的原因有2点：
@@ -679,47 +679,47 @@ Code First在处理多重性关系时应用了一系列规则。
 	  1、存在 退货的情况。 一个退货要取消掉 一个消费。
 	  <br/>
 	  2、需要避免重复计算。
-	  例如 本月15号的时候，已经把上半月 满足 消费 2次以上（含2次）条件的， 都赠送了 双倍的积分了。 
+	  例如 本月15号的时候，已经把上半月 满足 消费 2次以上（含2次）条件的， 都赠送了 双倍的积分了。
 	  月末再次计算的时候，单纯用 SQL 语句处理， 较为麻烦。
 	  </p>
 	  </td>
-    </tr>	
+    </tr>
 
 
 
 	<tr>
       <td>A0730_TimeRange</td>
       <td> 时间范围 重叠检查处理类. </td>
-    </tr>	
+    </tr>
 
 
 
 	<tr>
       <td>A0740_AutoMatch</td>
-      <td> 自动匹配处理类. 
+      <td> 自动匹配处理类.
 <br/>
 用于 顾客 VIP 积分自动兑换礼品处理的算法。
-两种算法： 
+两种算法：
 <br/>
 一种是  大数字优先， 也就是  贪婪算法。
 优先兑换掉  大积分的商品。
-最大积分商品不能兑换时， 尝试兑换 积分第二大的商品。 
+最大积分商品不能兑换时， 尝试兑换 积分第二大的商品。
 直到没有商品可兑换了， 结束处理。
 
-<br/> 
+<br/>
 一种是  最小剩余，也就是 尽可能把所有的积分使用完毕，不留下多余的部分出来。
-<br/> 
+<br/>
 
 例如 礼品有 500；400；300 三个积分档次。
-<br/> 
+<br/>
 对于 一个有 1200 积分的顾客。
-<br/> 
+<br/>
 大数字优先算法， 将为该顾客优先兑换 2个 500分的礼品， 然后剩余 200分。
-<br/> 
+<br/>
 最小剩余算法， 将为该顾客兑换 500；400；300  各一个，  然后剩余 0 分。
 
 	  </td>
-    </tr>	
+    </tr>
 
 
 	<tr>
@@ -743,7 +743,7 @@ Code First在处理多重性关系时应用了一系列规则。
 如果画面处理完毕，那么结束。
 
 如果发生一个画面， 多次提交了，由于令牌是唯一的。
-那么后续的提交，将失败。	  
+那么后续的提交，将失败。
 	  </td>
     </tr>
 
@@ -822,7 +822,7 @@ Code First在处理多重性关系时应用了一系列规则。
       <td> A1021_CPU_Info </td>
       <td> 使用 PerformanceCounter 获取 CPU 使用率的例子 </td>
     </tr>
-	
+
     <tr>
       <td> A1030_SMS </td>
       <td> 使用 System.IO.Ports.SerialPort  通过 手机 或者 GSM 模块， 发送短消息的例子  </td>
@@ -833,25 +833,25 @@ Code First在处理多重性关系时应用了一系列规则。
       <td> A1040_Password </td>
       <td> 用于检查密码复杂度的一些处理代码。</td>
     </tr>
-	
-	
+
+
 	<tr>
       <td>A1050_Email</td>
-      <td> 通过  System.Net.Mail.MailMessage  构造电子邮件信息. 
+      <td> 通过  System.Net.Mail.MailMessage  构造电子邮件信息.
 	       通过  SmtpClient  发送电子邮件的例子.
 	  </td>
-    </tr>	
-	
+    </tr>
+
 	<tr>
       <td>A1055_log4net_Email</td>
       <td> 通过配置  Log4Net， 通过电子邮件，发送日志信息的例子。 </td>
-    </tr>	
-	
-	
-	
-	
-	
-	
+    </tr>
+
+
+
+
+
+
     <tr>
       <td> A3001_Office_Excel </td>
       <td> 使用 Microsoft.Office.Interop.Excel 来 读写 Excel 的例子 </td>
@@ -1003,8 +1003,8 @@ Code First在处理多重性关系时应用了一系列规则。
       <td>
 	    一个数独计算的项目。
 	    通过 递归， 来实现 回朔 的计算处理。
-		
-		算法是 
+
+		算法是
 		1、首先根据现有的数据， 计算出每一个单元格   可能选择 的数据。
 		2、按照 可能选择 的数据 最少的单元格，  尝试设置数据。 然后再次更新 剩余的 未设置的单元格的 可能选择 的数据。
 		3、如果全部设置完毕的情况下，返回 true。
@@ -1021,21 +1021,21 @@ Code First在处理多重性关系时应用了一系列规则。
       <td>G0011_Elevator</td>
       <td>一个 模拟电梯 上下运行的例子
 	  主要涉及到的知识点：
-	  
+
 	  状态模式.
 	  多线程处理.
 
 	  </td>
     </tr>
 
-	
+
     <tr>
       <td>G0021_Calculate.App / G0021_Calculate.Service</td>
       <td> 模拟出一道计算题，由操作者选择正确答案的情况。
 	  （基本无技术含量）
 	  </td>
     </tr>
-	
+
 
 
     <tr>
@@ -1185,6 +1185,42 @@ Code First在处理多重性关系时应用了一系列规则。
       <td>-</td>
     </tr>
 
+
+	<tr>
+      <td>S0001_GROUP_CONCAT</td>
+      <td>
+	  在 SQL Server 下，实现 MySQL 的 GROUP_CONCAT 函数的功能.
+	  </td>
+    </tr>
+
+	<tr>
+      <td>S0011_MEDIAN</td>
+      <td>
+	  在 SQL Server 下， 实现 Oracle 的 Median （中位数）函数的功能.
+	  </td>
+    </tr>
+
+
+	<tr>
+      <td>S0021_GetPinYin</td>
+      <td>
+	  在 SQL Server 下， 获取汉字拼音首字母的函数的处理.
+	  </td>
+    </tr>
+
+
+	<tr>
+      <td>S0031_IsTableExists</td>
+      <td>
+	  在 SQL Server 下， 函数中执行动态 SQL 的一个例子.
+	  </td>
+    </tr>
+
+
+	<tr>
+      <td>-</td>
+      <td>-</td>
+    </tr>
 
 	<tr>
       <td>W0001_WCFDataService</td>
@@ -1359,15 +1395,15 @@ Code First在处理多重性关系时应用了一系列规则。
 
 	<tr>
       <td> W0300_WCF_Ajax </td>
-      <td> 
+      <td>
 	    <p> 关于  “启用了 AJAX 的 WCF 服务”  的例子  </p>
-		
+
 		此项目为  通过  jQuery 的 ajax  调用  C# 服务的例子代码。
-		
+
 		服务端为  C# 代码.
-		
+
 		客户端为  HTML + jQuery + json
-		
+
 	  </td>
     </tr>
 
