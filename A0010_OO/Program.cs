@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 using A002_OO.Sample;
+using A002_OO.CardSample;
 
 namespace A002_OO
 {
@@ -34,6 +35,28 @@ namespace A002_OO
             sample3b.SayHello("山本桑");
             sample3b.SayEnd();
 
+
+
+
+
+
+            Console.WriteLine("==== override 与 new 的区别 ===");
+
+
+            Console.WriteLine("卡=普通卡！");
+            Card card1 = new NormalCard();
+            card1.LineUp();
+            card1.TakeMoney();
+
+            Console.WriteLine("卡=金卡！");
+            Card card2 = new GoldCard();
+            card2.LineUp();
+            card2.TakeMoney();
+
+            Console.WriteLine("金卡=金卡！");
+            GoldCard card3 = new GoldCard();
+            card3.LineUp();
+            card3.TakeMoney();
 
 
             Console.ReadLine();

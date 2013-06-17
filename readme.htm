@@ -1039,6 +1039,32 @@ Code First在处理多重性关系时应用了一系列规则。
 
 
     <tr>
+      <td>G0031_QueuingMachine.Machine</td>
+      <td> 排队机的  服务窗口客户端. （Socket 客户端，发送一个请求，针对一个排队号进行处理， 处理完毕后，获取下一个排队号继续处理。） </td>
+    </tr>
+    <tr>
+      <td>G0031_QueuingMachine.Machine</td>
+      <td> 排队机的  排队机客户端. （Socket 客户端，发送一个请求，获取一个排队号） </td>
+    </tr>
+    <tr>
+      <td>G0031_QueuingMachine.Protocol</td>
+      <td> 排队机的   网络消息协议. （也就是 数据对象，以什么样的方式 编码解码，通过Socket传送） </td>
+    </tr>
+    <tr>
+      <td>G0031_QueuingMachine.Server</td>
+      <td> 排队机的   服务器端.  （开始 Socket 服务端，接收请求消息， 处理，然后反馈消息） </td>
+    </tr>
+    <tr>
+      <td>G0031_QueuingMachine.Service</td>
+      <td> 排队机的   对号管理与消息处理逻辑. （消息流水的管理） </td>
+    </tr>
+    <tr>
+      <td>G0031_QueuingMachine.Test</td>
+      <td> 排队机的   单元测试. </td>
+    </tr>
+
+
+    <tr>
       <td>-</td>
       <td>-</td>
     </tr>
