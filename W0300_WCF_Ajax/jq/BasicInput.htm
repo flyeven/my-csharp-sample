@@ -79,16 +79,29 @@
 
             // 测试读取 CheckBox 点击处理事件
             $("#btnTestReadCheckBox").click(function () {
-
+				// 用字符串存储选择的项目.
                 var vCheckBoxVal = "";
-
+				// 遍历已选择的数据的时候，传入一个参数.
                 $("input[name='chkABCD'][checked]").each(function (index) {
                     vCheckBoxVal = vCheckBoxVal + $(this).val() + " ";
                 });
-
                 alert("Input CheckBox 上输入的信息为：" + vCheckBoxVal);
             });
 
+			
+			// 测试读取 CheckBox 点击处理事件
+            $("#btnTestReadCheckBox2").click(function () {
+				// 用数组存储选择的项目.
+				var arr = new Array();
+				// 遍历已选择的数据的时候， 传入2个参数.
+                $("input[name='chkABCD'][checked]").each(function (key, value) {
+					// 因为传递进来2个参数， 已经包含了索引和数值.
+					// 这种情况下， 不需要使用 $(this) 了.
+                    arr[key] = $(value).val(); 
+                });
+                alert("一共选择了" + arr.length + "项:" + arr.join(","));
+            });
+			
 
             // 测试写入 CheckBox 点击处理事件
             $("#btnTestWriteCheckBox").click(function () {
@@ -342,8 +355,11 @@
 
 
     <tr>
-      <td colspan="2">
-          <input id="btnTestReadCheckBox" type="button" value="测试读取" />
+	  <td>
+	    <input id="btnTestReadCheckBox" type="button" value="测试读取" />
+	  </td>
+      <td>
+        <input id="btnTestReadCheckBox2" type="button" value="测试读取2" />
       </td>
 
       <td colspan="2">
