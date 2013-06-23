@@ -66,14 +66,22 @@ namespace A0160_SQL_Server.Sample
             // 建立数据库连接.
             SqlConnection conn = new SqlConnection(connString);
 
-            // 创建一个适配器
-            SqlDataAdapter adapter = new SqlDataAdapter(SQL, conn);
-
             // 创建DataSet，用于存储数据.
             DataSet testDataSet = new DataSet();
 
+            Console.WriteLine("执行第一个 SQL.");
+            // 创建一个适配器
+            SqlDataAdapter adapter = new SqlDataAdapter(SQL, conn);            
             // 执行查询，并将数据导入DataSet.
             adapter.Fill(testDataSet, "result_data");
+
+
+            Console.WriteLine("执行第二个 SQL.");
+            //  创建另一个适配器（这里主要用于测试 向一个 DateSet 中，写入多个 DataTable ）
+            SqlDataAdapter adapter2 = new SqlDataAdapter(@"SELECT TOP 3 * FROM SALE_REPORT", conn);
+            // 执行查询，并将数据导入DataSet.
+            adapter2.Fill(testDataSet, "result_data2");
+
 
             // 关闭数据库连接.
             conn.Close();
@@ -81,11 +89,20 @@ namespace A0160_SQL_Server.Sample
 
 
             // 处理DataSet中的每一行数据.
+            Console.WriteLine("第一个 DataTable.");
             foreach (DataRow testRow in testDataSet.Tables["result_data"].Rows)
             {
                 // 将检索出来的数据，输出到屏幕上.
                 Console.WriteLine("NO:{0} ;  Date:{1} ; Money:{2}   ",
                     testRow["NO"], testRow["SALE_DATE"], testRow["SUM_MONEY"]
+                    );
+            }
+
+            Console.WriteLine("第二个 DataTable.");
+            foreach (DataRow testRow in testDataSet.Tables["result_data2"].Rows)
+            {
+                Console.WriteLine("Date:{0} ; Money:{1}   ",
+                    testRow["SALE_DATE"], testRow["SALE_MONEY"]
                     );
             }
 
