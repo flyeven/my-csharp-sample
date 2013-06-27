@@ -101,5 +101,17 @@ namespace A0060_Enum.Sample
 
         }
 
+
+
+        /// <summary>
+        /// 测试： 根据枚举， 获取枚举的 Int 数值.
+        /// </summary>
+        public void TestGetValue()
+        {
+            EnumSample1 data = EnumSample1.Blcak;
+            Console.WriteLine("枚举{0} 对应的 int 数值为 {1}", data,  Convert.ToInt32(data));
+        }
+
+
     }
 }

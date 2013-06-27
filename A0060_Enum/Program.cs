@@ -30,6 +30,9 @@ namespace A0060_Enum
             // 测试通过 得到枚举的某一值对应的名称
             sample.TestGetName();
 
+            // 测试根据枚举， 获取枚举的 Int 数值.
+            sample.TestGetValue();
+
             Console.ReadLine();
         }
     }
