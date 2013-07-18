@@ -44,6 +44,14 @@ namespace A0160_SQL_Server
             longTimeCaller.TestCallLongTimeProc();
 
 
+
+
+            Console.WriteLine("===== 二进制文件读写测试 =====");
+            ReadWriteBinData binTest = new ReadWriteBinData();
+            binTest.TestWriteAndRead();
+
+
+
             Console.ReadLine();
 
         }

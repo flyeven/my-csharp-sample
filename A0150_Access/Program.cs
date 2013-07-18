@@ -30,7 +30,13 @@ namespace A0150_Access
             access2.TestInsertUpdateDelete();
 
 
-            
+
+
+
+            Console.WriteLine("===== 二进制文件读写测试 =====");
+            ReadWriteBinData binTest = new ReadWriteBinData();
+            binTest.TestWriteAndRead();
+
 
             Console.ReadLine();
 

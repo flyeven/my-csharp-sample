@@ -102,3 +102,10 @@ CREATE TABLE test_SCOPE_IDENTITY (
 )
 go
 
+
+
+-- 测试 二进制数据的存储.
+CREATE TABLE Test_BinData (
+  Test_Name    varchar(10)  PRIMARY KEY,
+  Test_Data    varbinary(MAX)
+);
