@@ -197,6 +197,14 @@ B b = new B();
       <td> 文件编码格式转换 的例子 </td>
     </tr>
 
+	<tr>
+      <td>A0104_ConvertHtmlToUTF8</td>
+      <td> 
+	  某个小工具代码，用于将 普通编码的 html 文件， 转换为 utf-8 的 html 文件 
+	  （本工具会覆盖掉原有的代码，使用前需做好备份）
+	  </td>
+    </tr>
+
 
     <tr>
       <td>A0110_DateTime</td>
@@ -286,7 +294,20 @@ B b = new B();
       </td>
     </tr>
 
+	
+	
 
+	<tr>
+      <td>A0165_SQL_Server_Oracle</td>
+      <td>
+		用于测试  System.Transactions.TransactionScope 跨数据库的事务处理的例子。
+		SQL Server 中有一个存储过程  test_SqlServer_Proc。  Oracle 中有一个存储过程  test_Oracle_Proc 。
+		先执行 SQL Server 的存储过程，  后执行 Oracle 的存储过程。
+		只要这2个存储过程中，任意一个失败了， 那么全部回滚掉。
+	  </td>
+    </tr>	
+	
+	
     <tr>
       <td> A0170_Oracle </td>
       <td>访问 Oracle 数据库的例子
@@ -436,9 +457,33 @@ B b = new B();
 
     <tr>
       <td>A0411_ChinesePinyin  </td>
-      <td> 汉语拼音 的例子 </td>
+      <td> 汉语拼音 的例子 
+	  (注:  此项目需要  安装  Visual Studio International Pack 1.0 SR1 中的   
+	  [Simplified Chinese Pin-Yin Conversion Library - 支持获取简体中文字符的常用属性比如拼音，多音字，同音字，笔画数。] )
+	  </td>
     </tr>
 
+	
+	<tr>
+      <td>A0412_ChinesePinyin </td>
+      <td>汉语拼音 的例子 
+	  (注:  此项目需要  安装  Visual Studio International Pack 1.0 SR1 中的   
+	  [Simplified Chinese Pin-Yin Conversion Library - 支持获取简体中文字符的常用属性比如拼音，多音字，同音字，笔画数。] )
+	  </td>
+    </tr>	
+	
+	<tr>
+      <td>A0415_NumericFormatting</td>
+      <td>
+	  数字 格式化为 汉字的处理， 例如 456789 处理成  
+简体中文: 四十五万六千七百八十九
+繁体中文: 肆拾伍萬陸仟柒佰捌拾玖
+日文: 四拾伍萬六阡七百八拾九	  
+
+(注:  此项目需要  安装  Visual Studio International Pack 2.0   )
+	  </td>
+    </tr>	
+	
 
     <tr>
       <td>A0420_Log  </td>
