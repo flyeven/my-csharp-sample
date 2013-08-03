@@ -33,6 +33,10 @@ namespace A0060_Enum
             // 测试根据枚举， 获取枚举的 Int 数值.
             sample.TestGetValue();
 
+
+            //  测试 int 强制转换为 枚举.
+            sample.TestIntToEnum();
+
             Console.ReadLine();
         }
     }

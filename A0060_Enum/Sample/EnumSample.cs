@@ -113,5 +113,16 @@ namespace A0060_Enum.Sample
         }
 
 
+        /// <summary>
+        /// 测试 int 强制转换为 枚举.
+        /// </summary>
+        public void TestIntToEnum()
+        {
+            int iVal = 255;
+            EnumSample1 data = (EnumSample1)iVal;
+
+            Console.WriteLine("强制转换 {0} 的结果为：{1}", iVal, data);
+        }
+
     }
 }
