@@ -154,6 +154,7 @@
     <Content Include="html\JsonResultPostTest.htm" />
     <Content Include="html\CachePostTest.htm" />
     <Content Include="html\AsyncPostTest.htm" />
+    <Content Include="html\SessionTest.htm" />
     <Content Include="index.htm" />
     <Content Include="jq\BasicInput.htm" />
     <Content Include="jq\MainSubCheckBox.htm" />
@@ -167,6 +168,8 @@
     <Content Include="Scripts\jquery.mobile-1.2.0.min.js" />
     <Content Include="Scripts\json2.js" />
     <Content Include="Scripts\json2.min.js" />
+    <Content Include="TestJsonWebService.asmx" />
+    <Content Include="TestWebService.asmx" />
     <Content Include="WcfMyDemoService.svc" />
     <Content Include="WcfTestPostService.svc" />
     <Content Include="WcfTestService.svc" />
@@ -198,6 +201,14 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SelectOption.cs" />
+    <Compile Include="TestJsonWebService.asmx.cs">
+      <DependentUpon>TestJsonWebService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TestWebService.asmx.cs">
+      <DependentUpon>TestWebService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="WcfMyDemoService.svc.cs">
       <DependentUpon>WcfMyDemoService.svc</DependentUpon>
     </Compile>

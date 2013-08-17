@@ -164,9 +164,6 @@ namespace A0160_SQL_Server.Sample
             insertCommand.CommandText = INSERT_SQL;
 
             // 定义要查询的参数.
-            // 注意：Access 与 Oracle/SQL Server 不同，
-            //       Access 的SQL中的查询的参数，无法命名。只能用 ? 来表明这是外部传入的参数.
-            //       因此，参数只能按照 SQL 中 ? 的顺序，进行添加.
             insertCommand.Parameters.Add(new SqlParameter("@Test_Name", TEST_TYPE_CODE));
 
             System.IO.FileStream fs = new System.IO.FileStream(TEST_BIN_FILENAME, System.IO.FileMode.Open);

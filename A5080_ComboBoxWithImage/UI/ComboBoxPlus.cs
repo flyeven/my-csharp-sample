@@ -28,7 +28,11 @@ namespace A5080_ComboBoxWithImage.UI
         /// <summary>
         /// 图片对应的属性名称.
         /// </summary>
+        [DefaultValue("")]
+        [Editor("System.Windows.Forms.Design.DataMemberFieldEditor, System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(System.Drawing.Design.UITypeEditor))]
+        [Description("指示要为控件中指示的图片的属性"), Category("数据"), Browsable(true)]
         public string ImageMember { set; get; }
+
 
         /// <summary>
         /// 在 this.DropDownStyle = ComboBoxStyle.DropDownList 模式下

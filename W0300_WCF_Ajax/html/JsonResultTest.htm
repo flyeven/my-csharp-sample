@@ -19,6 +19,10 @@
         $(document).ready(function () {
 
 
+            // -------------------- 调用 “启用了 AJAX 的 WCF 服务” -------------------- 
+            // 传递的数据格式为 Json.
+
+
             // 返回一个对象 按钮的 点击处理事件.
             $("#btnGetUser").click(function () {
 
@@ -57,11 +61,11 @@
                     url: "/WcfTestService.svc/GetAllUser",
                     type: "get",
                     success: function (data) {
-                        var vTempResult = "";                        
-                        for(var i = 0; i < data.d.length; i ++) {
+                        var vTempResult = "";
+                        for (var i = 0; i < data.d.length; i++) {
                             vTempResult = vTempResult + "用户名：" + data.d[i].LoginName + "; 密码：" + data.d[i].Password + ";";
                         }
-                        ShowAjaxResult(vTempResult);                        
+                        ShowAjaxResult(vTempResult);
                     },
                     error: function (msg) {
                         alert(msg.responseText);
@@ -69,6 +73,68 @@
                 });
 
             });
+
+
+
+
+            // -------------------- 调用 “Web 服务” -------------------- 
+            // 传递的数据格式为 XML
+
+
+            // 返回一个对象 按钮的 点击处理事件.
+            $("#btnGetUserXml").click(function () {
+
+                // 获取用户输入的参数.
+                var vParam = $("#txtUserNameX").val();
+
+                // 调用 ajax 
+                $.ajax({
+                    url: "/TestWebService.asmx/GetUser",
+                    type: "post",
+                    data: "userName=" + vParam,
+                    dataType: "xml",
+                    success: function (xml) {
+
+                        var vResult = "";
+                        $(xml).find("UserInfo").each(function (i) {
+                            vResult = vResult + "用户名：" + $(this).find("LoginName").text() + "; 密码：" + $(this).find("Password").text();
+                        });
+
+                        ShowAjaxResult(vResult);
+
+                    },
+                    error: function (msg) {
+                        alert(msg.responseText);
+                    }
+                });
+            });
+
+
+
+
+            // 返回一个对象列表 按钮的 点击处理事件.
+            $("#btnGetAllUserXml").click(function () {
+
+                // 调用 ajax 
+                $.ajax({
+                    url: "/TestWebService.asmx/GetAllUser",
+                    type: "post",
+                    dataType: "xml",
+                    success: function (xml) {
+                        var vResult = "";
+                        $(xml).find("UserInfo").each(function (i) {
+                            vResult = vResult + " 用户名：" + $(this).find("LoginName").text() + "; 密码：" + $(this).find("Password").text();
+                        });
+
+                        ShowAjaxResult(vResult);
+                    },
+                    error: function (msg) {
+                        alert(msg.responseText);
+                    }
+                });
+
+            });
+
 
 
 
@@ -93,12 +159,15 @@
 
 <body>
 
+
+
+
+  <form id="form1" action="#">
+
 <h4>
 简单调用，返回结果为 json 格式化的对象.
 </h4>
 
-
-  <form id="form1" action="#">
      <table>
        <tr>
          <td>  需要查询的用户名：<input id="txtUserName" type="text" value="zhao" />   </td>
@@ -114,6 +183,32 @@
 
 
      </table> 
+
+
+
+<h4>
+简单调用，返回结果为 Xml 格式化的对象.
+</h4>
+
+
+
+     <table>
+       <tr>
+         <td>  需要查询的用户名：<input id="txtUserNameX" type="text" value="qian" />   </td>
+         <td> <input id="btnGetUserXml" type="button" value="返回一个对象" title="返回一个对象" /> </td>
+       </tr>
+
+
+
+       <tr>
+         <td> 返回所有的用户 不需要输入查询条件 </td>
+         <td> <input id="btnGetAllUserXml" type="button" value="返回一个对象列表" title="返回一个对象列表" /> </td>
+       </tr>
+
+
+     </table> 
+
+
 
 
 
