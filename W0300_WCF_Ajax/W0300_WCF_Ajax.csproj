@@ -160,6 +160,7 @@
     <Content Include="jq\MainSubCheckBox.htm" />
     <Content Include="jq\MainSubTable.htm" />
     <Content Include="jq\TableResult.htm" />
+    <Content Include="jq\MainSubCheckBoxPlus.htm" />
     <Content Include="Scripts\MyPageInfo.js" />
     <Content Include="Scripts\jquery-1.8.2-vsdoc.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
@@ -237,7 +238,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>56762</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

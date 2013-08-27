@@ -54,5 +54,9 @@ namespace W0300_WCF_Ajax
             set;
             get;
         }
+
+
     }
+
+
 }

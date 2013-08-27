@@ -219,6 +219,53 @@ namespace W0300_WCF_Ajax
 
 
 
+
+        #region 模拟 CheckBox  联动  Plus  的例子.
+
+
+        /// <summary>
+        /// 获取所有的 市.
+        /// </summary>
+        /// <returns></returns>
+        [OperationContract]
+        [WebGet(ResponseFormat = WebMessageFormat.Json)]
+        public List<SelectOption> GetAllCityPlus()
+        {
+            // 预期结果列表.
+            List<SelectOption> resultList = new List<SelectOption>();
+
+            // 设置返回结果.
+            foreach (City city in CityList)
+            {
+                // 首先， 仅仅加入一个市.
+                resultList.Add(new SelectOption(city.ID.ToString(), city.CityName));
+
+
+                // 然后，以  市-区  的方式， 依次加入数据.
+                var query =
+                    from data in DistrictList
+                    where data.CID == city.ID
+                    orderby data.ID
+                    select data;
+
+                foreach (District dist in query)
+                {
+                    resultList.Add(new SelectOption(
+                        String.Format("{0}-{1}", city.ID, dist.ID),
+                        String.Format("{0}-{1}", city.CityName, dist.DistrictName)));
+                }
+            }
+
+
+            // 返回.
+            return resultList;
+        }
+
+
+
+
+        #endregion
+
     }
 
 
@@ -296,6 +343,32 @@ namespace W0300_WCF_Ajax
         /// 区县名
         /// </summary>
         public string DistrictName { set; get; }
+    }
+
+
+
+    /// <summary>
+    /// 商圈.
+    /// </summary>
+    public class ShoppingDistrict
+    {
+        /// <summary>
+        /// 商圈编号.
+        /// </summary>
+        public int ID { set; get; }
+
+
+        /// <summary>
+        /// 区编号.
+        /// </summary>
+        public int DID { set; get; }
+
+
+        /// <summary>
+        /// 商圈名.
+        /// </summary>
+        public string ShoppingDistrictName { set; get; }
+
     }
 
 

@@ -7,7 +7,7 @@
 
 <style type="text/css">
 
-.CitySelect 
+.CitySelect, .DistrictSelect 
 {
     /* 颜色 */
     color: Blue;
@@ -17,15 +17,6 @@
     white-space:nowrap;
 }
 
-.DistrictSelect 
-{
-    /* 颜色 */
-    color: Blue;
-    /* 光标 */
-    cursor:pointer;
-    /* 强制不换行 */
-    white-space:nowrap;
-}
 
 </style>
 
@@ -74,7 +65,7 @@
 
 
 
-        // 初始化  曲线表格.
+        // 初始化  区县表格.
         function InitDistricTable(pCity) {
 
             // 执行 ajax 查询.
@@ -112,6 +103,12 @@
             // 通过 live() 方法附加的事件处理程序适用于匹配选择器的当前及未来的元素.
 
 
+            // 请注意这里使用了  “live”
+            // 因为  目标对象，是 画面后期， 用 js 动态创建的。
+            // 画面初期加载的时候， 这个目标对象还不存在！
+
+
+
             // 鼠标进入， 设置样式.
             $("tr.CityData,tr.DistrictData").live("mouseover", function () {
                 oldBgColor = $(this).css("background-color");
@@ -141,6 +138,7 @@
                 // 初始化区县表格.
                 InitDistricTable(vSelectCityID);
             });
+
 
 
             // 区县的选择处理.
