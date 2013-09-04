@@ -13,7 +13,7 @@ namespace A0530_LINQ_SQL
 		/// SQL Server 的数据库连接字符串.
 		/// </summary>
 		private const String connString =
-			@"Data Source=localhost\SQLEXPRESS;Initial Catalog=Test;Integrated Security=True";
+			@"Data Source=localhost\SQLEXPRESS;Initial Catalog=TestLinq2Sql;Integrated Security=True";
 
 
 
@@ -36,6 +36,14 @@ namespace A0530_LINQ_SQL
             ExecuteCommandTest();
 
 
+            // 测试单表 identity 处理.
+            TestIdeneity();
+
+            // 测试调存储过程.
+            CallProc();
+
+            // 测试调函数
+            CallFunc();
 
             Console.ReadLine();
 		}
@@ -221,7 +229,7 @@ namespace A0530_LINQ_SQL
             Test context = new Test(connString);
 
             Console.WriteLine("手动执行 SQL : SELECT * FROM test_main WHERE id = 2 ");
-            var mainData = context.ExecuteQuery<TestMain>("SELECT * FROM test_main WHERE id = 2");
+            var mainData = context.ExecuteQuery<TestMain>("SELECT * FROM TestMain WHERE id = 2");
 
             foreach (TestMain data in mainData)
             {
@@ -242,23 +250,118 @@ namespace A0530_LINQ_SQL
             Test context = new Test(connString);
 
 
-            Console.WriteLine("手动执行 SQL : INSERT INTO test_main(id, value) VALUES (4, 'FOUR') ");
-            int r1 = context.ExecuteCommand("INSERT INTO test_main(id, value) VALUES (4, 'FOUR') ");
+            Console.WriteLine("手动执行 SQL : INSERT INTO TestMain(id, value) VALUES (4, 'FOUR') ");
+            int r1 = context.ExecuteCommand("INSERT INTO TestMain(id, value) VALUES (4, 'FOUR') ");
             Console.WriteLine("执行结果：{0}", r1);
 
 
 
-            Console.WriteLine("手动执行 SQL : SELECT * FROM test_main WHERE id = 4 ");
-            var mainData = context.ExecuteQuery<TestMain>("SELECT * FROM test_main WHERE id = 4");
+            Console.WriteLine("手动执行 SQL : SELECT * FROM TestMain WHERE id = 4 ");
+            var mainData = context.ExecuteQuery<TestMain>("SELECT * FROM TestMain WHERE id = 4");
             foreach (TestMain data in mainData)
             {
                 Console.WriteLine("Main[{0}, {1}]", data.Id, data.Value);
             }
 
 
-            Console.WriteLine("手动执行 SQL : DELETE test_main WHERE  id = 4");
-            int r2 = context.ExecuteCommand("DELETE test_main WHERE  id = 4");
+            Console.WriteLine("手动执行 SQL : DELETE TestMain WHERE  id = 4");
+            int r2 = context.ExecuteCommand("DELETE TestMain WHERE  id = 4");
             Console.WriteLine("执行结果：{0}", r2);
+        }
+
+
+
+        /// <summary>
+        /// 测试 Identity 的处理.
+        /// </summary>
+        private static void TestIdeneity()
+        {
+
+            Console.WriteLine("===== 测试父子关系表的 Identity 的处理.");
+
+            using (Test context = new Test(connString))
+            {
+                test_Identity_tab testMainData = new test_Identity_tab()
+                {
+                    value = "测试主"
+                };
+
+                test_Identity_tab_Sub testSubData = new test_Identity_tab_Sub()
+                {
+                    Value = "测试子"
+                };
+
+                testSubData.test_Identity_tab = testMainData;
+
+
+                // 插入.
+                context.test_Identity_tab.InsertOnSubmit(testMainData);
+                context.test_Identity_tab_Sub.InsertOnSubmit(testSubData);
+
+                Console.WriteLine("Before SubmitChanges testMainData.id = {0}", testMainData.id);
+                Console.WriteLine("Before SubmitChanges testSubData.id = {0}", testSubData.Id);
+
+                context.SubmitChanges();
+
+                Console.WriteLine("After SubmitChanges testMainData.id = {0}", testMainData.id);
+                Console.WriteLine("After SubmitChanges testSubData.id = {0}", testSubData.Id);
+            }
+
+        }
+
+
+
+        /// <summary>
+        /// 调存储过程.
+        /// </summary>
+        private static void CallProc()
+        {
+            Console.WriteLine("===== 测试执行存储过程的处理.");
+
+            using (Test context = new Test(connString))
+            {
+                string outVal = "", inoutVal=" Hello";
+
+                int result = context.HelloWorld2("Edward", ref outVal, ref inoutVal);
+
+                Console.WriteLine("执行存储过程 HelloWorld2， 返回值={0}， out参数1={1}, out参数2={2}",
+                    result, outVal, inoutVal);
+
+
+
+                // 执行返回结果集的存储过程.
+                var query = context.testProc();
+
+                foreach (testProcResult data in query)
+                {
+                    Console.WriteLine("执行返回结果集的存储过程，执行结果：A={0},B={1}", data.A, data.B);
+                }
+
+            }
+        }
+
+
+
+        /// <summary>
+        /// 调函数.
+        /// </summary>
+        private static void CallFunc()
+        {
+            Console.WriteLine("===== 测试执行函数的处理.");
+
+            using (Test context = new Test(connString))
+            {
+                string test = context.HelloWorldFunc();
+                Console.WriteLine("调用 HelloWorldFunc， 返回结果={0}", test);
+
+
+                var query = context.getHelloWorld();
+                foreach (getHelloWorldResult data in query)
+                {
+                    Console.WriteLine("调用返回结果集的函数，返回结果 A={0}; B={1}", data.A, data.B);
+                }
+
+            }
         }
 
 
