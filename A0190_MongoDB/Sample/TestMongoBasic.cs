@@ -66,7 +66,7 @@ namespace A0190_MongoDB.Sample
             // 步骤四.   取得一个  MongoCollection  对象.
             // ------------------------------
             // Get a Reference to a Collection Object
-            // "TestMain" is the name of the collection
+            // "TestBasic" is the name of the collection
             MongoCollection<TestBasic> collection = database.GetCollection<TestBasic>("TestBasic");
 
 

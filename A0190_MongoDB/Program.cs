@@ -27,8 +27,23 @@ namespace A0190_MongoDB
 
 
             // 复制集的测试.
-            TestMongoReplSet testMongoReplSet = new TestMongoReplSet();
-            testMongoReplSet.DoTest();
+            //TestMongoReplSet testMongoReplSet = new TestMongoReplSet();
+            //testMongoReplSet.DoTest();
+
+
+
+            // 分片的测试.
+            //TestMongoShard testMongoShard = new TestMongoShard();
+            //testMongoShard.DoTest();
+
+
+
+
+
+            // 内嵌方式的订单的 测试.
+            TestMongoOrderProcess testMongoOrderProcess = new TestMongoOrderProcess();
+            testMongoOrderProcess.DoTest();
+
 
 
             //Console.ReadLine();

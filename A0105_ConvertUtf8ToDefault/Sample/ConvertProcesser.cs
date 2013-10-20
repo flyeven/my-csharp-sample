@@ -7,7 +7,7 @@ using System.IO;
 using System.Diagnostics;
 
 
-namespace A0104_ConvertHtmlToUTF8.Sample
+namespace A0105_ConvertUtf8ToDefault.Sample
 {
 
     /// <summary>
@@ -19,14 +19,15 @@ namespace A0104_ConvertHtmlToUTF8.Sample
         /// <summary>
         /// 需要追加的 head 文本.
         /// </summary>
-        private const string HEAD_STRING = "  <meta http-equiv=\"Content-Type\" content=\"text/html;charset=utf-8\"  />";
+        private const string OLD_HEAD_STRING = "content=\"text/html;charset=utf-8\"";
+        private const string NEW_HEAD_STRING = "  <meta http-equiv=\"Content-Type\" content=\"text/html;charset=GBK\" />";
 
 
         /// <summary>
-        /// html 文件转换 为 utf-8 编码.
+        /// html 文件 utf-8 转换为 GBK 编码.
         /// </summary>
         /// <param name="fileName"></param>
-        public static void ConvertToUtf8(string fileName)
+        public static void ConvertUtf8ToGBK(string fileName)
         {
             Console.WriteLine("读取{0}文件信息开始！", fileName);
 
@@ -44,8 +45,8 @@ namespace A0104_ConvertHtmlToUTF8.Sample
                     return;
                 }
 
-                // 以默认编码，打开指定文件.
-                sr = new StreamReader(fileName, Encoding.Default);
+                // 以 UTF-8 编码，打开指定文件.
+                sr = new StreamReader(fileName, Encoding.UTF8);
 
                 // 用于暂存 文本文件数据的 行.
                 String line = null;
@@ -56,13 +57,17 @@ namespace A0104_ConvertHtmlToUTF8.Sample
                     line = sr.ReadLine();
                     if (line != null)
                     {
-                        buff.AppendLine(line);
 
-                        if (line.Contains("<head>"))
+                        if (line.Contains(OLD_HEAD_STRING))
                         {
-                            // 检测到 <head> 以后， 追加 utf-8 定义.
-                            buff.AppendLine(HEAD_STRING);
+                            // 检测到 charset=utf-8   本行更换为 GBK
+                            buff.AppendLine(NEW_HEAD_STRING);
+                            continue;
                         }
+
+
+                        buff.AppendLine(line);
+                        
                     }
 
                 } while (line != null);
@@ -122,7 +127,7 @@ namespace A0104_ConvertHtmlToUTF8.Sample
                 // 也就是说，如果第2个参数 是 false， 可以不用写前面的 判断文件存在则删除的代码.
 
                 // 第3个参数为编码方式， 读取和写入，尽可能使用统一的编码
-                sw = new StreamWriter(fileName, false, Encoding.UTF8);
+                sw = new StreamWriter(fileName, false, Encoding.Default);
 
                 // 写入数据.
                 sw.Write(buff.ToString());

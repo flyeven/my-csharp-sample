@@ -72,7 +72,44 @@
                 } else {
                     $("#checkResult").html("用户取消了：" + vUserSelectVal);
                 }
+
+
+                // 新追加：
+                // 设置 已选择 chkResult 数据部分.
+                if ($(this).attr("checked") == "checked") {
+                    // 用户选择了.
+                    $("#chkResultUl").append("<li code='" + vUserSelectVal + "'>" + vUserSelectVal + "</li>");
+                } else {
+                    // 用户取消了
+                    $("#chkResultUl").children().each(function () {
+                        if ($(this).attr("code") == vUserSelectVal) {
+                            $(this).remove();
+                        }
+                    });
+                }
+
             });
+
+
+
+            // 强制全部选择.
+            $("#chkAll").change(function () {
+                if ($(this).attr("checked") == "checked") {
+                    $("input[name='chkABCD']").each(function (index) {
+                        // 设置 checkbox 的选择.
+                        $(this).attr("checked", "checked");
+                        // 锁定，不允许修改
+                        $(this).attr("disabled", "disabled");
+                    });
+                } else {
+                    $("input[name='chkABCD']").each(function (index) {
+                        // 取消锁定，允许修改
+                        $(this).removeAttr("disabled");
+                    });
+                }
+            });
+
+
 
             // 全选  点击处理事件.
             $("#btnTestSelectAllCheckbox").click(function () {
@@ -256,6 +293,21 @@
             });
 
 
+            // 测试清除 Select
+            $("#btnTestClearSelect").click(function () {
+                $("#cboABCD option").each(function (index) {
+                    $(this).remove();
+                });
+            });
+
+            // 测试初始化 Select
+            $("#btnTestInitSelect").click(function () {
+                $("#cboABCD").append('<option value="A" selected="selected">A1</option>');
+                $("#cboABCD").append('<option value="B">B2</option>');
+                $("#cboABCD").append('<option value="C">C3</option>');
+                $("#cboABCD").append('<option value="D">D4</option>');
+            });
+
 
             // -------------------- Select --------------------
 
@@ -345,10 +397,17 @@
 
   <h4> Checkbox </h4>
 
+
+  <ul id="chkResultUl">
+
+  </ul>
+
+
   <table>
 
     <tr>
-      <td> A <input id="chkA" name="chkABCD" type="checkbox"  value="A" 
+      <td> A 
+          <input id="chkA" name="chkABCD" type="checkbox"  value="A" 
               checked="checked" title="选择A" /> </td>
       <td> B <input id="chkB" name="chkABCD" type="checkbox"  value="B" title="选择B" /> </td>
       <td> C <input id="chkC" name="chkABCD" type="checkbox"  value="C" title="选择C" /> </td>
@@ -372,6 +431,11 @@
       </td>
     </tr>
 
+    <tr>
+      <td colspan="4">
+          强制全部选择 <input id="chkAll" type="checkbox"  title="强制全部选择" />
+      </td>
+    </tr>
 
     <tr>
 	  <td>
@@ -458,6 +522,17 @@
         <input id="btnTestWriteSelect" type="button" value="测试写入 Select = C" />
       </td>
     </tr>
+
+    <tr>
+      <td>
+        <input id="btnTestClearSelect" type="button" value="测试清除 Select" />
+      </td>
+
+      <td>
+        <input id="btnTestInitSelect" type="button" value="测试初始化 Select" />
+      </td>
+    </tr>
+
   </table>
 
 

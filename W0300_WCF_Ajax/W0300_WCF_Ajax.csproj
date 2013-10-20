@@ -89,6 +89,14 @@
     <Content Include="css\zTreeStyle\img\zTreeStandard.gif" />
     <Content Include="css\zTreeStyle\img\zTreeStandard.png" />
     <Content Include="css\zTreeStyle\zTreeStyle.css" />
+    <Content Include="Error\err404.jpg" />
+    <Content Include="Error\err500.jpg" />
+    <Content Include="Error\err403.jpg" />
+    <Content Include="Error\Error403.aspx" />
+    <Content Include="Error\Error404.aspx" />
+    <Content Include="Error\Error500.aspx" />
+    <Content Include="Error\ErrorPage.aspx" />
+    <Content Include="Global.asax" />
     <Content Include="html5\baidu\map\helloworld.html" />
     <Content Include="html5\buttons\buttons-grouped.html" />
     <Content Include="html5\buttons\buttons-icons.html" />
@@ -212,12 +220,16 @@
     <Content Include="superfish\megamenu_horizontal.htm" />
     <Content Include="superfish\megamenu_vertical.htm" />
     <Content Include="superfish\megamenu_vertical_horizontal.htm" />
+    <Content Include="TestError.aspx" />
     <Content Include="TestJsonWebService.asmx" />
+    <Content Include="TestReWriteUrl.aspx" />
     <Content Include="TestWebService.asmx" />
     <Content Include="WcfMyDemoService.svc" />
     <Content Include="WcfTestPostService.svc" />
     <Content Include="WcfTestService.svc" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -229,6 +241,37 @@
     <Content Include="ztree\index.htm" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Error\Error403.aspx.cs">
+      <DependentUpon>Error403.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error\Error403.aspx.designer.cs">
+      <DependentUpon>Error403.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Error\Error404.aspx.cs">
+      <DependentUpon>Error404.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error\Error404.aspx.designer.cs">
+      <DependentUpon>Error404.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Error\Error500.aspx.cs">
+      <DependentUpon>Error500.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error\Error500.aspx.designer.cs">
+      <DependentUpon>Error500.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Error\ErrorPage.aspx.cs">
+      <DependentUpon>ErrorPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error\ErrorPage.aspx.designer.cs">
+      <DependentUpon>ErrorPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="html5\pages\RunLongTimeDialog.aspx.cs">
       <DependentUpon>RunLongTimeDialog.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -248,9 +291,23 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SelectOption.cs" />
+    <Compile Include="TestError.aspx.cs">
+      <DependentUpon>TestError.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestError.aspx.designer.cs">
+      <DependentUpon>TestError.aspx</DependentUpon>
+    </Compile>
     <Compile Include="TestJsonWebService.asmx.cs">
       <DependentUpon>TestJsonWebService.asmx</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TestReWriteUrl.aspx.cs">
+      <DependentUpon>TestReWriteUrl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestReWriteUrl.aspx.designer.cs">
+      <DependentUpon>TestReWriteUrl.aspx</DependentUpon>
     </Compile>
     <Compile Include="TestWebService.asmx.cs">
       <DependentUpon>TestWebService.asmx</DependentUpon>
