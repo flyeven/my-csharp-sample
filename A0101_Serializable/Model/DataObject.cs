@@ -35,6 +35,23 @@ namespace A0101_Serializable.Model
         public List<string> FirendList { set; get; }
 
 
+        /// <summary>
+        /// 密码列不参与 序列化处理.
+        /// </summary>
+        [NonSerialized]
+        private string password;
+
+
+        /// <summary>
+        /// 加入 XmlIgnoreAttribute 标志， 意味着 xml 序列化的时候，忽略该列.
+        /// </summary>
+        [System.Xml.Serialization.XmlIgnoreAttribute]
+        public string Password {
+            set { password = value; }
+            get { return password; }
+        }
+
+
 
         /// <summary>
         /// 调试用。
@@ -45,6 +62,7 @@ namespace A0101_Serializable.Model
             StringBuilder buff = new StringBuilder();
 
             buff.AppendFormat("UserName = {0} ", UserName);
+            buff.AppendFormat("Password = {0} ", Password);
 
             if (FirendList != null)
             {

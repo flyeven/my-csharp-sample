@@ -184,9 +184,12 @@
     <Content Include="html\AsyncPostTest.htm" />
     <Content Include="html\SessionTest.htm" />
     <Content Include="index.htm" />
+    <Content Include="jq\BasicInput.aspx" />
     <Content Include="jq\BasicInput.htm" />
+    <Content Include="jq\Calendar.htm" />
     <Content Include="jq\MainSubCheckBox.htm" />
     <Content Include="jq\MainSubTable.htm" />
+    <Content Include="jq\TableClick.htm" />
     <Content Include="jq\TableResult.htm" />
     <Content Include="jq\MainSubCheckBoxPlus.htm" />
     <Content Include="js\jquery-1.4.4.min.js" />
@@ -285,6 +288,13 @@
     </Compile>
     <Compile Include="html5\pages\RunLongTimePage.aspx.designer.cs">
       <DependentUpon>RunLongTimePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="jq\BasicInput.aspx.cs">
+      <DependentUpon>BasicInput.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="jq\BasicInput.aspx.designer.cs">
+      <DependentUpon>BasicInput.aspx</DependentUpon>
     </Compile>
     <Compile Include="PhotoUploadHandler.ashx.cs">
       <DependentUpon>PhotoUploadHandler.ashx</DependentUpon>

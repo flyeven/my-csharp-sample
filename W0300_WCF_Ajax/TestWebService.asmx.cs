@@ -125,10 +125,10 @@ namespace W0300_WCF_Ajax
         /// </summary>
         private static List<UserInfo> testUserList = new List<UserInfo>()
         {
-            new UserInfo() { LoginName = "zhao", Password = "123" }, 
-            new UserInfo() { LoginName = "qian", Password = "456" } ,
-            new UserInfo() { LoginName = "sun", Password = "789" } ,
-            new UserInfo() { LoginName = "li", Password = "abc" } ,
+            new UserInfo() { LoginName = "zhao", Password = "123", Phone ="13800000001" }, 
+            new UserInfo() { LoginName = "qian", Password = "456", Phone ="13800000002" } ,
+            new UserInfo() { LoginName = "sun", Password = "789", Phone ="13800000003" } ,
+            new UserInfo() { LoginName = "li", Password = "abc", Phone ="13800000004" } ,
         };
 
 

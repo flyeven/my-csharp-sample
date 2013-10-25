@@ -39,7 +39,7 @@
                         if (data.d == null) {
                             ShowAjaxResult("名称为 " + vParam + " 的用户不存在！");
                         } else {
-                            ShowAjaxResult("用户名：" + data.d.LoginName + "; 密码：" + data.d.Password);
+                            ShowAjaxResult("用户名：" + data.d.LoginName + "; 密码：" + data.d.Password + "; 电话：" + data.d.Phone);
                         }
 
                     },
@@ -63,12 +63,37 @@
                     success: function (data) {
                         var vTempResult = "";
                         for (var i = 0; i < data.d.length; i++) {
-                            vTempResult = vTempResult + "用户名：" + data.d[i].LoginName + "; 密码：" + data.d[i].Password + ";";
+                            vTempResult = vTempResult + "用户名：" + data.d[i].LoginName + "; 密码：" + data.d[i].Password + "; 电话：" + data.d[i].Phone + "<br/>";
                         }
                         ShowAjaxResult(vTempResult);
                     },
                     error: function (msg) {
                         alert(msg.responseText);
+                    }
+                });
+
+            });
+
+
+
+
+
+            // 返回一个 Dictionary 对象 按钮的 点击处理事件.
+            $("#btnGetAllUserDictionary").click(function () {
+
+                // 调用 ajax 
+                $.ajax({
+                    url: "/WcfTestService.svc/GetAllUserDictionary",
+                    type: "get",
+                    success: function (data) {
+                        var vTempResult = "";
+                        for (var i = 0; i < data.d.length; i++) {
+                            vTempResult = vTempResult + "用户名：" + data.d[i].Key + "; 电话：" + data.d[i].Value + "<br/>";
+                        }
+                        ShowAjaxResult(vTempResult);
+                    },
+                    error: function (msg) {
+                        ShowAjaxResult(msg.responseText);
                     }
                 });
 
@@ -97,7 +122,7 @@
 
                         var vResult = "";
                         $(xml).find("UserInfo").each(function (i) {
-                            vResult = vResult + "用户名：" + $(this).find("LoginName").text() + "; 密码：" + $(this).find("Password").text();
+                            vResult = vResult + "用户名：" + $(this).find("LoginName").text() + "; 密码：" + $(this).find("Password").text() + "; 电话：" + $(this).find("Phone").text();
                         });
 
                         ShowAjaxResult(vResult);
@@ -123,7 +148,7 @@
                     success: function (xml) {
                         var vResult = "";
                         $(xml).find("UserInfo").each(function (i) {
-                            vResult = vResult + " 用户名：" + $(this).find("LoginName").text() + "; 密码：" + $(this).find("Password").text();
+                            vResult = vResult + " 用户名：" + $(this).find("LoginName").text() + "; 密码：" + $(this).find("Password").text() + "; 电话：" + $(this).find("Phone").text() + "<br/>";
                         });
 
                         ShowAjaxResult(vResult);
@@ -185,6 +210,8 @@
      </table> 
 
 
+<hr />
+
 
 <h4>
 简单调用，返回结果为 Xml 格式化的对象.
@@ -209,6 +236,21 @@
      </table> 
 
 
+
+<hr />
+
+<h4>
+简单调用，返回结果为 Json  格式化的 Dictionary 数据 .
+</h4>
+
+     <table>
+       <tr>
+         <td> 返回所有的用户 不需要输入查询条件 </td>
+         <td> <input id="btnGetAllUserDictionary" type="button" value="返回一个 Dictionary 对象" title="返回一个 Dictionary 对象" /> </td>
+       </tr>
+
+
+     </table> 
 
 
 

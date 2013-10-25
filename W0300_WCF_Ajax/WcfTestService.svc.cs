@@ -140,10 +140,10 @@ namespace W0300_WCF_Ajax
         /// </summary>
         private static List<UserInfo> testUserList = new List<UserInfo>()
         {
-            new UserInfo() { LoginName = "zhao", Password = "123" }, 
-            new UserInfo() { LoginName = "qian", Password = "456" } ,
-            new UserInfo() { LoginName = "sun", Password = "789" } ,
-            new UserInfo() { LoginName = "li", Password = "abc" } ,
+            new UserInfo() { LoginName = "zhao", Password = "123", Phone ="13800000001" }, 
+            new UserInfo() { LoginName = "qian", Password = "456", Phone ="13800000002" } ,
+            new UserInfo() { LoginName = "sun", Password = "789", Phone ="13800000003" } ,
+            new UserInfo() { LoginName = "li", Password = "abc", Phone ="13800000004" } ,
         };
 
 
@@ -175,6 +175,25 @@ namespace W0300_WCF_Ajax
 
         #endregion
 
+
+
+
+        #region  返回值 是 Dictionary 对象.
+
+
+        [OperationContract]
+        [WebGet(ResponseFormat = WebMessageFormat.Json)]
+        public Dictionary<string, string> GetAllUserDictionary()
+        {
+            Dictionary<string, string> result = new Dictionary<string, string>();
+            foreach (UserInfo user in testUserList)
+            {
+                result.Add(user.LoginName, user.Phone);
+            }
+            return result;
+        }
+
+        #endregion
 
 
 
@@ -262,12 +281,29 @@ public class UserInfo
     public string LoginName { set; get; }
 
 
+
     /// <summary>
     /// 密码.
+    /// 
+    /// 注意： 下面的 ScriptIgnore， 意味着这个属性， 不参与 json 序列化的处理.
+    /// 也就是 js 在传送 json 数据的时候， 客户端将获取不到这个属性的数值.
+    /// 
+    /// 
+    /// 如果仅仅加了  ScriptIgnore， 会导致 json 看不到了， 但是 xml 方式依然可以看到.
+    /// 通过  XmlIgnoreAttribute  标志， 使得 xml 上面， 也看不到数据.
+    /// 
     /// </summary>
-    [DataMember]
+    [System.Web.Script.Serialization.ScriptIgnore]
+    [System.Xml.Serialization.XmlIgnoreAttribute]
     public string Password { set; get; }
 
-    
+
+
+    /// <summary>
+    /// 电话
+    /// </summary>
+    [DataMember]
+    public string Phone { set; get; }
+
     
 }

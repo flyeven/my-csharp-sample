@@ -22,6 +22,7 @@ namespace A0101_Serializable
 
             DataObject testData = new DataObject();
             testData.UserName = "测试 序列化 / 反序列化";
+            testData.Password = "123456";
 
             testData.FirendList = new List<string>();
             testData.FirendList.Add("XMLDataObjectSerialization");
