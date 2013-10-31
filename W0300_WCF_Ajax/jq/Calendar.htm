@@ -18,6 +18,37 @@
         var vCurrentMode;
 
 
+        function TestData(pTestDate, pTestTitle, pTestValue) {
+            this.TestDate = pTestDate;
+            this.TestTitle = pTestTitle;
+            this.TestValue = pTestValue;
+        }
+
+
+        // 模拟测试数据.
+        function GetTestData() {
+            var vResult = new Array();
+
+            for (var i = 0; i < vCurrentMode; i++) {
+                var vTmpDay = new Date(vStartDate.getFullYear(), vStartDate.getMonth(), vStartDate.getDate() + i);
+                var vKeyword = getShortDateString(vTmpDay);
+
+                var vData = new TestData(vKeyword, "测试项目1", i);
+                vResult.push(vData);
+
+                var vData2 = new TestData(vKeyword, "测试项目2", i + 1);
+                vResult.push(vData2);
+            }
+
+            return vResult;
+        }
+
+        // ==============================================================
+
+
+
+
+
         $(document).ready(function () {
 
             // 开始日期 = 今天.
@@ -25,24 +56,15 @@
 
             $("#txtDay").val(getShortDateString(vStartDate));
 
-            // 日.
-            $("#btnDay").click(function () {
-                vCurrentMode = 1;
-                showDay();
-            });
 
-            // 周.
-            $("#btnWeek").click(function () {
-                vCurrentMode = 7;
-                showWeek();
-            });
+            // 天/ 周 / 月 选择发生变化.
+            $(":radio[name='rdoDayMode']").change(function () {
+                // 取得用户输入.
+                vCurrentMode = $(this).val();
+                showCalendarData();
 
-            // 月
-            $("#btnMonth").click(function () {
-                vCurrentMode = 30;
-                showMonth();
+                showTestData();
             });
-
 
 
             // 上一页.
@@ -259,6 +281,47 @@
 
 
 
+        function showTestData() {
+            var vTestData = GetTestData();
+
+            // 日， 周  显示明细.
+            if (vCurrentMode == 1 || vCurrentMode == 7) {
+
+                for (var i = 0; i < vTestData.length; i++) {
+
+                    var vDay = vTestData[i].TestDate;
+
+                    var vDiv = "<div>" + vTestData[i].TestTitle +
+                           " <br/> " + vTestData[i].TestValue +
+                           "</div>";
+
+                    $("#data_" + vDay).append(vDiv);
+                }
+                return;
+            }
+
+
+            // 月模式下仅仅显示 汇总.
+            var vMonthArray = new Array();
+
+            for (var i = 0; i < vTestData.length; i++) {
+                var vDay = vTestData[i].TestDate;
+                if(vMonthArray[vDay] == undefined 
+                    || vMonthArray[vDay] == null) {
+                    vMonthArray[vDay] = 1;
+                } else {
+                    vMonthArray[vDay] = vMonthArray[vDay]  + 1;
+                }
+            }
+
+
+            for (var vDay in vMonthArray)
+            {
+                $("#data_" + vDay).append("数据量=" + vMonthArray[vDay]  );
+                
+            }
+        }
+
 
 
 
@@ -468,17 +531,27 @@
 <table>
   <tr>
     <td>
-      <input id="btnPrevPage" type="button" value="上一页" />
+      <input id="btnPrevPage" type="button" value="<<" />
     </td>
 
     <td>
-<input id="btnDay" type="button" value="日" />
-<input id="btnWeek" type="button" value="周" />
-<input id="btnMonth" type="button" value="月" />
+
+<div id="radioDayMode">
+    <input id="rdoDay" name="rdoDayMode" type="radio"  value="1" title="一天" />
+    <label for="rdoDay">一天</label>
+
+    <input id="rdoWeek" name="rdoDayMode" type="radio"  value="7" title="一周"  checked="checked" />
+    <label for="rdoWeek">一周</label>
+
+    <input id="rdoMonth" name="rdoDayMode" type="radio"  value="30" title="一月" />
+    <label for="rdoMonth">一月</label>
+</div>
+
+
     </td>
 
     <td>
-    <input id="btnNextPage" type="button" value="下一页" />
+    <input id="btnNextPage" type="button" value=">>" />
     </td>
 
   </tr>

@@ -488,10 +488,10 @@
 
             // 测试初始化 Select
             $("#btnTestInitSelect").click(function () {
-                $("#<%=cboABCD.ClientID %>").append('<option value="A" selected="selected">A1</option>');
-                $("#<%=cboABCD.ClientID %>").append('<option value="B">B2</option>');
-                $("#<%=cboABCD.ClientID %>").append('<option value="C">C3</option>');
-                $("#<%=cboABCD.ClientID %>").append('<option value="D">D4</option>');
+                $("#<%=cboABCD.ClientID %>").append('<option value="W" selected="selected">W1</option>');
+                $("#<%=cboABCD.ClientID %>").append('<option value="X">X2</option>');
+                $("#<%=cboABCD.ClientID %>").append('<option value="Y">Y3</option>');
+                $("#<%=cboABCD.ClientID %>").append('<option value="Z">Z4</option>');
             });
 
 
@@ -624,7 +624,7 @@
     </tr>
 
     <tr>
-	  <td>
+	  <td colspan="2">
 	    <input id="btnTestReadCheckBox" type="button" value="测试读取" />
 	  </td>
 
@@ -633,6 +633,19 @@
           <input id="btnTestWriteCheckBox" type="button" value="测试写入 = A,C" />
       </td>
     </tr>
+
+
+    <tr>
+      <td colspan="2">  
+          <asp:Button ID="btnReadCheckBox" runat="server" Text="后台获取读取数据" 
+              onclick="btnReadCheckBox_Click" />
+      </td>
+      
+      <td colspan="2">
+          <asp:Label ID="lblReadCheckBoxResult" runat="server" Text="Label"></asp:Label>
+      </td>
+    </tr>
+
 
   </table>
 
@@ -686,7 +699,7 @@
     </tr>
 
     <tr>
-	  <td>
+	  <td colspan="2">
 	    <input id="btnTestReadCheckBoxList" type="button" value="测试读取" />
 	  </td>
 
@@ -695,6 +708,19 @@
           <input id="btnTestWriteCheckBoxList" type="button" value="测试写入 = A,C" />
       </td>
     </tr>
+
+
+    <tr>
+      <td colspan="2">  
+          <asp:Button ID="btnReadCheckBoxList" runat="server" Text="后台获取读取数据" 
+              onclick="btnReadCheckBoxList_Click"  />
+      </td>
+      
+      <td colspan="2">
+          <asp:Label ID="lblReadCheckBoxListResult" runat="server" Text="Label"></asp:Label>
+      </td>
+    </tr>
+
 
   </table>
 
@@ -828,6 +854,16 @@
 
       <td>
         <input id="btnTestInitSelect" type="button" value="测试初始化 Select" />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+          <asp:Button ID="btnTestDropDownListSelectedValue" runat="server" 
+              Text="后台获取 SelectValue" onclick="btnTestDropDownListSelectedValue_Click" />
+      </td>
+      <td>
+          <asp:Label ID="lblDropDownListSelectedValue" runat="server" Text="Label"></asp:Label>
       </td>
     </tr>
 
