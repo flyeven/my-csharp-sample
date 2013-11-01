@@ -73,6 +73,8 @@
     <Content Include="Content\jquery.mobile.structure-1.2.0.min.css" />
     <Content Include="Content\jquery.mobile.theme-1.2.0.css" />
     <Content Include="Content\jquery.mobile.theme-1.2.0.min.css" />
+    <Content Include="CrossDomain\test.js" />
+    <Content Include="CrossDomain\TestGetScript.htm" />
     <Content Include="css\megafish-vertica.css" />
     <Content Include="css\megafish.css" />
     <Content Include="css\superfish-navbar.css" />
@@ -255,6 +257,9 @@
     <Content Include="ztree\index.htm" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CrossDomain\TestAjax.ashx.cs">
+      <DependentUpon>TestAjax.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Error\Error403.aspx.cs">
       <DependentUpon>Error403.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -358,6 +363,7 @@
     <Content Include="PhotoUploadHandler.ashx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CrossDomain\TestAjax.ashx" />
     <None Include="html5\Cache\test.appcache" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
