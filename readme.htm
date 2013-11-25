@@ -5,7 +5,7 @@
 </head>
 
 <body>
-  <table border="1">
+  <table border="1" style="white-space: pre-wrap;">
     <tr>
       <td>A0000_BaseFunction</td>
       <td> System.Collections 下 ArrayList、Hashtable、Queue、SortedList、Stack 操作的例子 </td>
@@ -24,6 +24,17 @@
     <tr>
       <td>A0003_TraceLog</td>
       <td> Trace 方法  实现 跟踪配置 处理的使用例子 </td>
+    </tr>
+
+    <tr>
+      <td>A0004_yield</td>
+      <td>
+yield 的使用例子.
+优点在于, 当需要返回一个比较大的数据列表.  并且结果列表的每一行, 都要花费比较长的时间进行处理的情况下.
+普通的处理方式, 是全部结果数据都获取完了, 才能返回.
+yield 的处理方式, 是有一行数据, 先返回一行. 而不是全部获取完了， 才一起返回.
+这样对于某些耗时的处理， 可以迅速地先返回部分数据， 让用户能够看到。
+	  </td>
     </tr>
 
     <tr>
@@ -67,17 +78,18 @@
 
     <tr>
       <td> A0015_OverloadOperator </td>
-      <td> 重载运算符 的例子 
-	  
-	  这里通过一个  长度3位，范围 000 - Z99，其中低位为十进制 范围 00 - 99，高位为 36进制 范围 0-9 A-Z 的 序列号类来做 重载运算符 的操作。
+      <td> 重载运算符 的例子
+这里通过一个  长度3位，范围 000 - Z99，其中低位为十进制 范围 00 - 99，高位为 36进制 范围 0-9 A-Z 的 序列号类来做 重载运算符 的操作。
 	  </td>
     </tr>
 
     <tr>
       <td> A0016_ExtensionMethods </td>
-      <td> 扩展方法给我们提供了一种很便捷的方式，
-	      通过这种方式我可以给那些不是我们自己创建的类(如第三方组件里面的)
-		  或是我们不能直接修改的类添加方法。 </td>
+      <td>
+扩展方法给我们提供了一种很便捷的方式，
+通过这种方式我可以给那些不是我们自己创建的类(如第三方组件里面的)
+或是我们不能直接修改的类添加方法。
+	  </td>
     </tr>
 
 
@@ -154,8 +166,8 @@ B b = new B();
       <td> Switch 语句， goto 处理的例子 </td>
     </tr>
 
-	
-	
+
+
     <tr>
       <td>A0070_CustomAttributes</td>
       <td> 类特性 的例子 </td>
@@ -212,9 +224,9 @@ B b = new B();
 
 	<tr>
       <td>A0104_ConvertHtmlToUTF8</td>
-      <td> 
-	  某个小工具代码，用于将 普通编码的 html 文件， 转换为 utf-8 的 html 文件 
-	  （本工具会覆盖掉原有的代码，使用前需做好备份）
+      <td>
+某个小工具代码，用于将 普通编码的 html 文件， 转换为 utf-8 的 html 文件
+（本工具会覆盖掉原有的代码，使用前需做好备份）
 	  </td>
     </tr>
 
@@ -239,14 +251,14 @@ B b = new B();
       <td> Socket 客户端处理 的例子 </td>
     </tr>
 
-	
+
     <tr>
       <td>A0145_WebRequest_WebClient </td>
       <td> 使用 WebRequest,  WebClient  来从网页上面获取数据的例子 </td>
-    </tr>	
-	
-	
-	
+    </tr>
+
+
+
     <tr>
       <td>A0150_Access </td>
       <td>访问 Access 数据库的例子 </td>
@@ -266,73 +278,53 @@ B b = new B();
     <tr>
       <td> A0161_SQL_Server_Porc_UnitTest </td>
       <td> SQL Server 数据库存储过程／函数　单元测试的例子　
-        <p> 本存储过程，为 SQL Server 下，创建 流水号的 的处理.
-        支持
-        [固定前缀]+年月日+序号 、
-        [固定前缀]+年月+序号 、
-        [固定前缀]+年+序号
-        等的 生成方式。
-        </p>
+本存储过程，为 SQL Server 下，创建 流水号的 的处理.
+支持
+[固定前缀]+年月日+序号 、
+[固定前缀]+年月+序号 、
+[固定前缀]+年+序号
+等的 生成方式。
       </td>
     </tr>
 
     <tr>
       <td> A0162_SQL_Server_Func_MyRule_UnitTest </td>
       <td> SQL Server 数据库 函数　单元测试的例子　
-        <p> 本次测试的函数，为 SQL Server 下， 组织结构、用户、角色、模块、模块动作的 一套体系结构。
-        其中、组织结构 与 模块结构 为 树型体系结构.
-        角色为独立结构（非树型）
+本次测试的函数，为 SQL Server 下， 组织结构、用户、角色、模块、模块动作的 一套体系结构。
+其中、组织结构 与 模块结构 为 树型体系结构.
+角色为独立结构（非树型）
+  用户  多对多  组织结构
+  用户  多对多  角色
+  用户  多对多  模块
+  用户  多对多  模块动作
+  角色  多对多  模块
+  角色  多对多  模块动作
 
-        <ol>
-          <li>用户  多对多  组织结构     </li>
-          <li>用户  多对多  角色         </li>
-          <li>用户  多对多  模块         </li>
-          <li>用户  多对多  模块动作     </li>
-          <li>角色  多对多  模块         </li>
-          <li>角色  多对多  模块动作     </li>
-        </ol>
-
-        对于一个用户
-        <ul>
-          <li>
-            最终可访问的模块 =
-                用户直接可访问模块（包含模块的子模块）
-                + 用户角色直接可访问模块（包含模块的子模块）
-          </li>
-          <li>
-            最终可访问的模块动作 =
-                用户最终可访问的模块下的“默认可访问模块动作”
-                + 针对用户设置的可访问模块动作
-                + 针对用户角色设置的可访问模块动作
-          </li>
-          <li>
-            最终可访问的数据 =
-                用户所属部门(以及下属部门)的数据.
-          </li>
-        </ul>
-
-        </p>
+对于一个用户
+  最终可访问的模块 =	用户直接可访问模块（包含模块的子模块）+ 用户角色直接可访问模块（包含模块的子模块）
+  最终可访问的模块动作 = 用户最终可访问的模块下的“默认可访问模块动作” + 针对用户设置的可访问模块动作 + 针对用户角色设置的可访问模块动作 
+  最终可访问的数据 = 用户所属部门(以及下属部门)的数据.
       </td>
     </tr>
 
-	
-	
+
+
 
 	<tr>
       <td>A0165_SQL_Server_Oracle</td>
       <td>
-		用于测试  System.Transactions.TransactionScope 跨数据库的事务处理的例子。
-		SQL Server 中有一个存储过程  test_SqlServer_Proc。  Oracle 中有一个存储过程  test_Oracle_Proc 。
-		先执行 SQL Server 的存储过程，  后执行 Oracle 的存储过程。
-		只要这2个存储过程中，任意一个失败了， 那么全部回滚掉。
+用于测试  System.Transactions.TransactionScope 跨数据库的事务处理的例子。
+SQL Server 中有一个存储过程  test_SqlServer_Proc。  Oracle 中有一个存储过程  test_Oracle_Proc 。
+先执行 SQL Server 的存储过程，  后执行 Oracle 的存储过程。
+只要这2个存储过程中，任意一个失败了， 那么全部回滚掉。
 	  </td>
-    </tr>	
-	
-	
+    </tr>
+
+
     <tr>
       <td> A0170_Oracle </td>
       <td>访问 Oracle 数据库的例子
-	      （使用 微软的类库来访问。  命名空间为  System.Data.OracleClient ）
+（使用 微软的类库来访问。  命名空间为  System.Data.OracleClient ）
 	  </td>
     </tr>
 
@@ -340,17 +332,17 @@ B b = new B();
 	<tr>
       <td> A0171_Oracle_ODAC </td>
       <td>访问 Oracle 数据库的例子
-	      ( 使用 Oracle 的 ODAC 来访问。 命名空间为  Oracle.DataAccess.Client )
+( 使用 Oracle 的 ODAC 来访问。 命名空间为  Oracle.DataAccess.Client )
 	  </td>
     </tr>
 
 	<tr>
       <td> A0172_Oracle_MyRule </td>
       <td>
-	    使用 Oracle 来 实现  A0162_SQL_Server_Func_MyRule_UnitTest 的 处理 。
-	    因为 Oracle 中， 没有 SQL Server 那种 “表值函数” 的东西。
-		因此，具体业务处理逻辑， 是以 C# 代码的方式实现的。
-		( 本项目 使用 Entity Framework 进行处理 )
+使用 Oracle 来 实现  A0162_SQL_Server_Func_MyRule_UnitTest 的 处理 。
+因为 Oracle 中， 没有 SQL Server 那种 “表值函数” 的东西。
+因此，具体业务处理逻辑， 是以 C# 代码的方式实现的。
+( 本项目 使用 Entity Framework 进行处理 )
 	  </td>
     </tr>
 
@@ -358,7 +350,7 @@ B b = new B();
     <tr>
       <td> A0175_PostgreSQL </td>
       <td>访问 PostgreSQL 数据库的例子
-	      （使用 Npgsql.dll 来访问。  命名空间为  Npgsql， C# 端不用安装 PostgreSQL 相关软件 ）
+（使用 Npgsql.dll 来访问。  命名空间为  Npgsql， C# 端不用安装 PostgreSQL 相关软件 ）
 	  </td>
     </tr>
 
@@ -383,9 +375,9 @@ B b = new B();
       <td> A0190_A0190_MongoDB </td>
       <td> 访问 MongoDB 数据库的例子 </td>
     </tr>
-	
-	
-	
+
+
+
     <tr>
       <td>A0200_XML </td>
       <td> XML 读取/写入 的例子 </td>
@@ -453,14 +445,14 @@ B b = new B();
     <tr>
       <td> A0351_WinFormThreadTwoPart </td>
       <td> WinForm 下，多线程处理 的例子
-      （几种 串行/并行 处理方式的对比，）
-      某些 Case 使用了 .NET 4.0 的新特性. </td>
+（几种 串行/并行 处理方式的对比，）
+某些 Case 使用了 .NET 4.0 的新特性. </td>
     </tr>
 
 	<tr>
       <td> A0352_WinFormThreadInvokeParam </td>
       <td> WinForm 下， Control.Invoke 方法， 获取返回值的处理例子。
-	  因为某些情况下， 多线程的处理过程中， 需要先从画面上， 获取部分数据，然后再针对获取到的数据，执行相应的处理。
+因为某些情况下， 多线程的处理过程中， 需要先从画面上， 获取部分数据，然后再针对获取到的数据，执行相应的处理。
 	  </td>
     </tr>
 
@@ -485,33 +477,32 @@ B b = new B();
 
     <tr>
       <td>A0411_ChinesePinyin  </td>
-      <td> 汉语拼音 的例子 
-	  (注:  此项目需要  安装  Visual Studio International Pack 1.0 SR1 中的   
-	  [Simplified Chinese Pin-Yin Conversion Library - 支持获取简体中文字符的常用属性比如拼音，多音字，同音字，笔画数。] )
+      <td> 汉语拼音 的例子
+(注:  此项目需要  安装  Visual Studio International Pack 1.0 SR1 中的
+[Simplified Chinese Pin-Yin Conversion Library - 支持获取简体中文字符的常用属性比如拼音，多音字，同音字，笔画数。] )
 	  </td>
     </tr>
 
-	
+
 	<tr>
       <td>A0412_ChinesePinyin </td>
-      <td>汉语拼音 的例子 
-	  (注:  此项目需要  安装  Visual Studio International Pack 1.0 SR1 中的   
-	  [Simplified Chinese Pin-Yin Conversion Library - 支持获取简体中文字符的常用属性比如拼音，多音字，同音字，笔画数。] )
+      <td>汉语拼音 的例子
+(注:  此项目需要  安装  Visual Studio International Pack 1.0 SR1 中的
+[Simplified Chinese Pin-Yin Conversion Library - 支持获取简体中文字符的常用属性比如拼音，多音字，同音字，笔画数。] )
 	  </td>
-    </tr>	
-	
+    </tr>
+
 	<tr>
       <td>A0415_NumericFormatting</td>
       <td>
-	  数字 格式化为 汉字的处理， 例如 456789 处理成  
+数字 格式化为 汉字的处理， 例如 456789 处理成
 简体中文: 四十五万六千七百八十九
 繁体中文: 肆拾伍萬陸仟柒佰捌拾玖
-日文: 四拾伍萬六阡七百八拾九	  
-
+日文: 四拾伍萬六阡七百八拾九
 (注:  此项目需要  安装  Visual Studio International Pack 2.0   )
 	  </td>
-    </tr>	
-	
+    </tr>
+
 
     <tr>
       <td>A0420_Log  </td>
@@ -534,20 +525,21 @@ B b = new B();
 
     <tr>
       <td> A0500_LINQ_Base3 </td>
-      <td> 以 Nunit 的方式，
-           测试 All、Any、
-           Count、
-           First、FirstOrDefault、
-           Last、LastOrDefault、
-           Max、Min、
-           OrderBy、OrderByDescending、
-           Reverse、
-           Select、SelectMany、
-           Single、SingleOrDefault、
-           Skip、SkipWhile、
-           Sum、
-           Take、TakeWhile、
-           Where 方法的例子。
+      <td>
+以 Nunit 的方式，
+测试 All、Any、
+Count、
+First、FirstOrDefault、
+Last、LastOrDefault、
+Max、Min、
+OrderBy、OrderByDescending、
+Reverse、
+Select、SelectMany、
+Single、SingleOrDefault、
+Skip、SkipWhile、
+Sum、
+Take、TakeWhile、
+Where 方法的例子。
       </td>
     </tr>
 
@@ -577,8 +569,8 @@ B b = new B();
 	<tr>
       <td>A0530_LINQ_SQL_Access</td>
       <td> LINQ to SQL  访问  Access  数据库的例子   </td>
-    </tr>	
-	
+    </tr>
+
 
     <tr>
       <td> A0540_LINQ_SQL </td>
@@ -616,20 +608,14 @@ B b = new B();
 	<tr>
       <td> A0620_EFv4 </td>
       <td> Entity Framework v4.1 的例子 (需要 .NET 4.0)
-      <p>
-      本例子中，没有以前的那种 命令行下 执行 EdmGen 产生源代码的处理。
+本例子中，没有以前的那种 命令行下 执行 EdmGen 产生源代码的处理。
+本例子在 C# 中定义了一个 mr_demo_data 类。
+在 SQL Server 中，定义一个 mr_demo_data 表
+类中的属性，与表中的字段，一一对应。
 
-      本例子在 C# 中定义了一个 mr_demo_data 类。
-      在 SQL Server 中，定义一个 mr_demo_data 表
-      类中的属性，与表中的字段，一一对应。
-      </p>
-
-      <p>
-      通过定义一个 DbContext 类。
-      在 DbContext 中， 为表定义 DbSet。
-
-      Business 类 将直接使用 DbContext ，来对特定的表，进行 更新、删除、查询的处理。
-      </p>
+通过定义一个 DbContext 类。
+在 DbContext 中， 为表定义 DbSet。
+Business 类 将直接使用 DbContext ，来对特定的表，进行 更新、删除、查询的处理。
       </td>
     </tr>
 
@@ -637,20 +623,17 @@ B b = new B();
     <tr>
       <td> A0621_EF_CodeFirst </td>
       <td> Entity Framework CodeFirst 的例子  (需要 .NET 4.0)
-        <p>
-          CodeFirst 意味着，不是先设计表、或者数据库模型。
-          而是先从设计 C# 的类开始。
-          定义具体的业务需求。
-          最后，通过 C# 中的定义， 来创建数据库与表。
-          此功能需要 Entity Framework 4.x 支持。
-        </p>
+CodeFirst 意味着，不是先设计表、或者数据库模型。
+而是先从设计 C# 的类开始。
+定义具体的业务需求。
+最后，通过 C# 中的定义， 来创建数据库与表。
+此功能需要 Entity Framework 4.x 支持。
       </td>
     </tr>
 
     <tr>
       <td> A0622_EF_OneToMany </td>
       <td> Entity Framework 的 One To Many 例子 (需要 .NET 4.0)
-        <p>
 Code First在处理多重性关系时应用了一系列规则。
 规则使用导航属性确定多重性关系。
 即可以是一对导航属性互相指定（双向关系），也可以是单个导航属性（单向关系）。
@@ -662,7 +645,6 @@ Code First在处理多重性关系时应用了一系列规则。
 
 如果你的类包含两个引用属性，Code First会视为一对一关系；
 在一对一关系中，你需要提供附加信息以使Code First获知何为主何为辅。
-        </p>
       </td>
     </tr>
 
@@ -681,13 +663,11 @@ Code First在处理多重性关系时应用了一系列规则。
     <tr>
       <td> A0630_EF_Inherit_TPH </td>
       <td> Entity Framework 的 继承处理的例子 (需要 .NET 4.0)
-        <p>
-          本例子用于演示 Entity Framework CodeFirst 中 继承 的处理方式。
-          这里使用的是 默认的 TPH 方式。
-          也就是 所有的子类，使用同一张表。
-          该表有一个 Discriminator 列，用于区分各个子类。
-          这个表的列，包含了各个子类的属性。
-        </p>
+本例子用于演示 Entity Framework CodeFirst 中 继承 的处理方式。
+这里使用的是 默认的 TPH 方式。
+也就是 所有的子类，使用同一张表。
+该表有一个 Discriminator 列，用于区分各个子类。
+这个表的列，包含了各个子类的属性。
       </td>
     </tr>
 
@@ -695,12 +675,10 @@ Code First在处理多重性关系时应用了一系列规则。
     <tr>
       <td> A0631_EF_Inherit_TPT </td>
       <td> Entity Framework 的 继承处理的例子 (需要 .NET 4.0)
-        <p>
-          本例子用于演示 Entity Framework CodeFirst 中 继承 的处理方式。
-          这里使用的是 TPT 的方式。
-          也就是 基类使用一张表。
-          各个子类的使用各自单独的表。
-        </p>
+本例子用于演示 Entity Framework CodeFirst 中 继承 的处理方式。
+这里使用的是 TPT 的方式。
+也就是 基类使用一张表。
+各个子类的使用各自单独的表。
       </td>
     </tr>
 
@@ -715,29 +693,25 @@ Code First在处理多重性关系时应用了一系列规则。
     <tr>
       <td> A0650_EF_Oracle </td>
       <td> Entity Framework  处理  Oracle 的例子代码
-	    <p>
-		主要测试项目包含：
-			使用/不使用 延迟加载的对比；
-			序列号的处理；
-			存储过程的处理；
-			事务处理；
-			并发处理失败的情况
-	    </p>
+主要测试项目包含：
+	使用/不使用 延迟加载的对比；
+	序列号的处理；
+	存储过程的处理；
+	事务处理；
+	并发处理失败的情况
       </td>
     </tr>
 
     <tr>
       <td> A0650_EF_SqlServer </td>
       <td> Entity Framework  处理  SqlServer 的例子代码
-	    <p>
-		主要测试项目包含：
-			使用/不使用 延迟加载的对比；
-			Identity 的处理；
-			存储过程的处理；
-			事务处理；
-			并发处理失败的情况；
-			Model First 的处理。
-		</p>
+主要测试项目包含：
+	使用/不使用 延迟加载的对比；
+	Identity 的处理；
+	存储过程的处理；
+	事务处理；
+	并发处理失败的情况；
+	Model First 的处理。
       </td>
     </tr>
 
@@ -745,10 +719,10 @@ Code First在处理多重性关系时应用了一系列规则。
 	<tr>
       <td> A0650_EF_Document </td>
       <td>  通过修改 Edmx 文件， 实现为 代码增加注释的功能
-		因为使用的是 通过 数据库 产生的 edmx 文件。
-		在数据库中，  表 与 字段，是有备注信息的。
-		但是将表导入到 开发环境中， 这个 备注信息没有被带过来。
-		这里写一个程序， 从数据库 读取 表/字段 的备注信息， 然后再去 更新  那个  edmx 文件.
+因为使用的是 通过 数据库 产生的 edmx 文件。
+在数据库中，  表 与 字段，是有备注信息的。
+但是将表导入到 开发环境中， 这个 备注信息没有被带过来。
+这里写一个程序， 从数据库 读取 表/字段 的备注信息， 然后再去 更新  那个  edmx 文件.
 	  </td>
     </tr>
 
@@ -768,23 +742,24 @@ Code First在处理多重性关系时应用了一系列规则。
 
     <tr>
       <td> A0711_Merge </td>
-      <td> 泛型处理 的例子 （要求用户数据类实现 MergeAble 接口） </td>
+      <td>
+泛型处理 的例子 （要求用户数据类实现 MergeAble 接口）
+这里使用了  where（泛型类型约束）  关键字.
+	  </td>
     </tr>
 
 
     <tr>
       <td> A0720_MultiTime </td>
       <td>
-	  存在有指定行数的数据，才做处理 的处理例子。
-	  例如 一个月内，消费 2次以上（含2次）的顾客， 享受双倍积分，
-	  <p>
-	  为什么写这个类，而不用 SQL 语句直接查询的处理的原因有2点：
-	  <br/>
-	  1、存在 退货的情况。 一个退货要取消掉 一个消费。
-	  <br/>
-	  2、需要避免重复计算。
-	  例如 本月15号的时候，已经把上半月 满足 消费 2次以上（含2次）条件的， 都赠送了 双倍的积分了。
-	  月末再次计算的时候，单纯用 SQL 语句处理， 较为麻烦。
+存在有指定行数的数据，才做处理 的处理例子。
+例如 一个月内，消费 2次以上（含2次）的顾客， 享受双倍积分，
+<p>
+为什么写这个类，而不用 SQL 语句直接查询的处理的原因有2点：
+1、存在 退货的情况。 一个退货要取消掉 一个消费。
+2、需要避免重复计算。
+例如 本月15号的时候，已经把上半月 满足 消费 2次以上（含2次）条件的， 都赠送了 双倍的积分了。
+月末再次计算的时候，单纯用 SQL 语句处理， 较为麻烦。
 	  </p>
 	  </td>
     </tr>
@@ -801,27 +776,18 @@ Code First在处理多重性关系时应用了一系列规则。
 	<tr>
       <td>A0740_AutoMatch</td>
       <td> 自动匹配处理类.
-<br/>
 用于 顾客 VIP 积分自动兑换礼品处理的算法。
 两种算法：
-<br/>
 一种是  大数字优先， 也就是  贪婪算法。
 优先兑换掉  大积分的商品。
 最大积分商品不能兑换时， 尝试兑换 积分第二大的商品。
 直到没有商品可兑换了， 结束处理。
 
-<br/>
 一种是  最小剩余，也就是 尽可能把所有的积分使用完毕，不留下多余的部分出来。
-<br/>
-
 例如 礼品有 500；400；300 三个积分档次。
-<br/>
 对于 一个有 1200 积分的顾客。
-<br/>
 大数字优先算法， 将为该顾客优先兑换 2个 500分的礼品， 然后剩余 200分。
-<br/>
 最小剩余算法， 将为该顾客兑换 500；400；300  各一个，  然后剩余 0 分。
-
 	  </td>
     </tr>
 
@@ -830,7 +796,6 @@ Code First在处理多重性关系时应用了一系列规则。
       <td>A0750_MainSub</td>
       <td>
 主账户-子帐户拆分处理.
-
 用于 将一个大的金额， 拆分处理成多个 固定大小的金额。
 消耗的时候，从前向后消耗， 补充的时候，从后向前补充（补充数值不能大于初始值）。
 	  </td>
@@ -841,11 +806,9 @@ Code First在处理多重性关系时应用了一系列规则。
       <td>A0760_PageToken</td>
       <td>
 页面令牌管理.
-
 用于避免画面重复提交的处理。
 每个画面初始化的时候， 系统产生一个令牌。
 如果画面处理完毕，那么结束。
-
 如果发生一个画面， 多次提交了，由于令牌是唯一的。
 那么后续的提交，将失败。
 	  </td>
@@ -860,22 +823,17 @@ Code First在处理多重性关系时应用了一系列规则。
     <tr>
       <td> A0801_Excel </td>
       <td> 数据导入/导出 Excel 的例子 (A0800_Excel 的重构)
-           <p>
-           目的为了支持 1个数据类，能够创建多种结构的 Excel 表格。
-           </p>
+目的为了支持 1个数据类，能够创建多种结构的 Excel 表格。
       </td>
     </tr>
 
     <tr>
       <td> A0802_Excel </td>
-      <td> 数据导入/导出 Excel 的例子
-           (A0800_Excel / A0801_Excel 的重构)
-           <p>
-           将 Excel 数据导出的结构代码定义， 独立出来。
-           与 Model 数据类分离.
-           用户数据类不实现任何接口，仅仅存储基础数据。
-           Excel 格式的处理，由单独的类进行处理。
-           </p>
+      <td> 数据导入/导出 Excel 的例子 (A0800_Excel / A0801_Excel 的重构)
+将 Excel 数据导出的结构代码定义， 独立出来。
+与 Model 数据类分离.
+用户数据类不实现任何接口，仅仅存储基础数据。
+Excel 格式的处理，由单独的类进行处理。
       </td>
     </tr>
 
@@ -883,22 +841,17 @@ Code First在处理多重性关系时应用了一系列规则。
 
     <tr>
       <td> A0803_Excel </td>
-      <td> 数据导入/导出 Excel 的例子
-           (A0802_Excel 的 异步处理版本)
-           <p>
-           关于导出：
-           本例子代码是 结合 A0340_ThreadReadWrite  与  A0802_Excel 的综合处理.
-           通过多线程处理
-           Excel 导出作为  消费者线程来处理数据。
-           主线程产生数据， 提供给 Excel 导出处理。
-           </p>
+      <td> 数据导入/导出 Excel 的例子 (A0802_Excel 的 异步处理版本)
+关于导出：
+本例子代码是 结合 A0340_ThreadReadWrite  与  A0802_Excel 的综合处理.
+通过多线程处理
+Excel 导出作为  消费者线程来处理数据。
+主线程产生数据， 提供给 Excel 导出处理。
 
-           <p>
-           关于导入：
-           本例子代码是结合 A0030_Event 与   A0802_Excel 的综合处理.
-           通过事件处理
-           当 Excel 读取到一定行数以后，触发事件给主线程处理。
-           </p>
+关于导入：
+本例子代码是结合 A0030_Event 与   A0802_Excel 的综合处理.
+通过事件处理
+当 Excel 读取到一定行数以后，触发事件给主线程处理。
       </td>
     </tr>
 
@@ -942,7 +895,7 @@ Code First在处理多重性关系时应用了一系列规则。
 	<tr>
       <td>A1050_Email</td>
       <td> 通过  System.Net.Mail.MailMessage  构造电子邮件信息.
-	       通过  SmtpClient  发送电子邮件的例子.
+通过  SmtpClient  发送电子邮件的例子.
 	  </td>
     </tr>
 
@@ -1018,7 +971,7 @@ Code First在处理多重性关系时应用了一系列规则。
     <tr>
       <td>A5060_TwoScreen</td>
       <td>
-	  当计算机有2个屏幕的情况下， 程序自动把主窗口，定位在主屏幕上， 把子窗口，定位在第二个屏幕上的处理例子。
+当计算机有2个屏幕的情况下， 程序自动把主窗口，定位在主屏幕上， 把子窗口，定位在第二个屏幕上的处理例子。
 	  </td>
     </tr>
 
@@ -1027,17 +980,17 @@ Code First在处理多重性关系时应用了一系列规则。
       <td>A5070_CheckAbleComboBox</td>
       <td> WinForm 下面的 自定义控件， 用于显示 可 Check 的 ComboBox </td>
     </tr>
-	
-	
+
+
     <tr>
       <td>A5080_ComboBoxWithImage</td>
-      <td> WinForm 下面的 自定义控件， 用于显示 带图片显示 的 ComboBox 
-	  本项目涉及到的知识点, 还包含  根据大图片,  制作缩略图的处理.
-	  以及 自定义控件中, 如何设置 自定义属性的 扩展的备注信息.
+      <td> WinForm 下面的 自定义控件， 用于显示 带图片显示 的 ComboBox
+本项目涉及到的知识点, 还包含  根据大图片,  制作缩略图的处理.
+以及 自定义控件中, 如何设置 自定义属性的 扩展的备注信息.
 	  </td>
     </tr>
 
-	
+
 
     <tr>
       <td>-</td>
@@ -1061,15 +1014,13 @@ Code First在处理多重性关系时应用了一系列规则。
     <tr>
       <td> B0010_NVelocity </td>
       <td> NVelocity 使用的例子
-          <p>
-            NVelocity 是 java 的 Velocity 的 .NET 版本
-            主要是一套模板的引擎。
-            用于实现  数据 + 模板 = 结果.
+NVelocity 是 java 的 Velocity 的 .NET 版本
+主要是一套模板的引擎。
+用于实现  数据 + 模板 = 结果.
 
-            可以用于 Web 开发。
-            本人一般用它来做 代码生成器。
-            也就是 读取 DB的信息， + 模板文件 =  代码.
-          </p>
+可以用于 Web 开发。
+本人一般用它来做 代码生成器。
+也就是 读取 DB的信息， + 模板文件 =  代码.
       </td>
     </tr>
 
@@ -1077,10 +1028,8 @@ Code First在处理多重性关系时应用了一系列规则。
     <tr>
       <td> B0020_Log4Net </td>
       <td> Log4Net 使用的例子
-        <p>
-            Log4Net  是 java 的 Log4J 的 .NET 版本
-            主要是一套 日志处理系统。
-        </p>
+Log4Net  是 java 的 Log4J 的 .NET 版本
+主要是一套 日志处理系统。
       </td>
     </tr>
 
@@ -1088,9 +1037,7 @@ Code First在处理多重性关系时应用了一系列规则。
     <tr>
       <td> B0030_Ninject </td>
       <td> Ninject 使用的例子  (简单的 HelloWorld 例子)
-        <p>
-            Ninject 是一套 轻量级的 IOC 依赖注入的框架.
-        </p>
+Ninject 是一套 轻量级的 IOC 依赖注入的框架.
       </td>
     </tr>
 
@@ -1098,12 +1045,9 @@ Code First在处理多重性关系时应用了一系列规则。
     <tr>
       <td> B0031_Ninject </td>
       <td> Ninject 使用的例子
-        <p>
-            本例子用于演示 多种 Bind 方式。
-            例如： To、ToConstant、ToMethod、ToProvider
-
-            以及 IEnumerable 类型的 [Inject] 处理。
-        </p>
+本例子用于演示 多种 Bind 方式。
+例如： To、ToConstant、ToMethod、ToProvider
+以及 IEnumerable 类型的 [Inject] 处理。
       </td>
     </tr>
 
@@ -1112,10 +1056,8 @@ Code First在处理多重性关系时应用了一系列规则。
     <tr>
       <td> B0032_Ninject </td>
       <td> Ninject 使用的例子
-        <p>
-            本例子用于演示 Object Scopes 演示例子.。
-            也就是  普通的范围、 单例的范围、 线程的范围。
-        </p>
+本例子用于演示 Object Scopes 演示例子.。
+也就是  普通的范围、 单例的范围、 线程的范围。
       </td>
     </tr>
 
@@ -1123,22 +1065,16 @@ Code First在处理多重性关系时应用了一系列规则。
     <tr>
       <td> B0033_Ninject </td>
       <td> Ninject 使用的例子
-        <p>
-            本例子用于演示 Ninject  中的  Contextual Binding。
-
-            包含 Named bindings  attribute bindings
-        </p>
+本例子用于演示 Ninject  中的  Contextual Binding。
+包含 Named bindings  attribute bindings
       </td>
     </tr>
 
     <tr>
       <td> B0035_Ninject </td>
       <td> Ninject 综合使用的例子
-        <p>
-            本例子用于演示 Ninject 处理一个略为复杂的例子.
-
-            本例子包含多个接口,多个实现, 实现中包含依赖注入.
-        </p>
+本例子用于演示 Ninject 处理一个略为复杂的例子.
+本例子包含多个接口,多个实现, 实现中包含依赖注入.
       </td>
     </tr>
 
@@ -1162,16 +1098,16 @@ Code First在处理多重性关系时应用了一系列规则。
 
     <tr>
       <td>B0200_MapApi</td>
-      <td> 
-		阿里云地图Api 调用，  百度地图Api调用 
-		注：这里仅仅是 通过 地址名称， 获取经纬度。
-		目前执行的结果是： 同一个地址， 两者返回的 经纬度 差距比较大。
-		<br/>
-		也就是调用 阿里云 的接口，返回的经纬度数据， 就在阿里云的 地图上面去定位。
-		调用 百度 的接口，返回的经纬度数据， 就在百度的 地图上面去定位。
-		<br/>
-		不要用阿里云 的接口，返回的经纬度数据， 跑去百度地图上面使用。
-		或者 调用 百度 的接口，返回的经纬度数据，跑去 阿里云上面使用。
+      <td>
+阿里云地图Api 调用，  百度地图Api调用
+注：这里仅仅是 通过 地址名称， 获取经纬度。
+目前执行的结果是： 同一个地址， 两者返回的 经纬度 差距比较大。
+
+也就是调用 阿里云 的接口，返回的经纬度数据， 就在阿里云的 地图上面去定位。
+调用 百度 的接口，返回的经纬度数据， 就在百度的 地图上面去定位。
+
+不要用阿里云 的接口，返回的经纬度数据， 跑去百度地图上面使用。
+或者 调用 百度 的接口，返回的经纬度数据，跑去 阿里云上面使用。
 	  </td>
     </tr>
 
@@ -1184,38 +1120,36 @@ Code First在处理多重性关系时应用了一系列规则。
 	<tr>
       <td>G0001_Sudoku</td>
       <td>
-	    一个数独计算的项目。
-	    通过 递归， 来实现 回朔 的计算处理。
+一个数独计算的项目。
+通过 递归， 来实现 回朔 的计算处理。
 
-		算法是
-		1、首先根据现有的数据， 计算出每一个单元格   可能选择 的数据。
-		2、按照 可能选择 的数据 最少的单元格，  尝试设置数据。 然后再次更新 剩余的 未设置的单元格的 可能选择 的数据。
-		3、如果全部设置完毕的情况下，返回 true。
-		4、如果设置后，导致 存在有 还没有设置数据的单元格， 没有 可能选择 的数据 了， 那么意味着本次处理失败， 继续处理 本单元格的 下一个可选数字.
-		5、如果设置后，当前数据表格中， 所有的未设置数据，都至少存在一个可能选择 的数据，  那么首先将本次处理的数据， 保存到 ”todoList“
-		6、递归处理 （相当于 继续到 2 的处理步骤去）
-		7、如果 递归处理 的结果失败了，那么 将本次处理的数据， 从 "todoList" 列表中删除，然后继续处理 本单元格的 下一个可选数字.
-		8、如果本节点的全部  可能选择 的数据， 都处理失败了， 那么返回 fasle. 回朔到上一个节点去进行判断.
+算法是
+1、首先根据现有的数据， 计算出每一个单元格   可能选择 的数据。
+2、按照 可能选择 的数据 最少的单元格，  尝试设置数据。 然后再次更新 剩余的 未设置的单元格的 可能选择 的数据。
+3、如果全部设置完毕的情况下，返回 true。
+4、如果设置后，导致 存在有 还没有设置数据的单元格， 没有 可能选择 的数据 了， 那么意味着本次处理失败， 继续处理 本单元格的 下一个可选数字.
+5、如果设置后，当前数据表格中， 所有的未设置数据，都至少存在一个可能选择 的数据，  那么首先将本次处理的数据， 保存到 ”todoList“
+6、递归处理 （相当于 继续到 2 的处理步骤去）
+7、如果 递归处理 的结果失败了，那么 将本次处理的数据， 从 "todoList" 列表中删除，然后继续处理 本单元格的 下一个可选数字.
+8、如果本节点的全部  可能选择 的数据， 都处理失败了， 那么返回 fasle. 回朔到上一个节点去进行判断.
 	  </td>
     </tr>
 
 
     <tr>
       <td>G0011_Elevator</td>
-      <td>一个 模拟电梯 上下运行的例子
-	  主要涉及到的知识点：
-
-	  状态模式.
-	  多线程处理.
-
+      <td>
+一个 模拟电梯 上下运行的例子
+主要涉及到的知识点：
+  状态模式.
+  多线程处理.
 	  </td>
     </tr>
 
 
     <tr>
       <td>G0021_Calculate.App / G0021_Calculate.Service</td>
-      <td> 模拟出一道计算题，由操作者选择正确答案的情况。
-	  （基本无技术含量）
+      <td> 模拟出一道计算题，由操作者选择正确答案的情况。（基本无技术含量）
 	  </td>
     </tr>
 
@@ -1284,8 +1218,7 @@ Code First在处理多重性关系时应用了一系列规则。
 
     <tr>
       <td>G0081_ImageSwitch</td>
-      <td> 两个图片切换效果的处理.
-	  包含左右、上下旋转  与 左右、上下移动。
+      <td> 两个图片切换效果的处理. 包含左右、上下旋转  与 左右、上下移动。
 	  </td>
     </tr>
 
@@ -1457,32 +1390,24 @@ Code First在处理多重性关系时应用了一系列规则。
 
 	<tr>
       <td>S0001_GROUP_CONCAT</td>
-      <td>
-	  在 SQL Server 下，实现 MySQL 的 GROUP_CONCAT 函数的功能.
-	  </td>
+      <td>  在 SQL Server 下，实现 MySQL 的 GROUP_CONCAT 函数的功能.  </td>
     </tr>
 
 	<tr>
       <td>S0011_MEDIAN</td>
-      <td>
-	  在 SQL Server 下， 实现 Oracle 的 Median （中位数）函数的功能.
-	  </td>
+      <td> 在 SQL Server 下， 实现 Oracle 的 Median （中位数）函数的功能. </td>
     </tr>
 
 
 	<tr>
       <td>S0021_GetPinYin</td>
-      <td>
-	  在 SQL Server 下， 获取汉字拼音首字母的函数的处理.
-	  </td>
+      <td>  在 SQL Server 下， 获取汉字拼音首字母的函数的处理.  </td>
     </tr>
 
 
 	<tr>
       <td>S0031_IsTableExists</td>
-      <td>
-	  在 SQL Server 下， 函数中执行动态 SQL 的一个例子.
-	  </td>
+      <td>  在 SQL Server 下， 函数中执行动态 SQL 的一个例子.  </td>
     </tr>
 
 
@@ -1494,108 +1419,87 @@ Code First在处理多重性关系时应用了一系列规则。
 	<tr>
       <td>W0001_WCFDataService</td>
       <td> WCF 数据服务的例子
-        <p> 本例子仅仅包含最简单的
-        控制台程序  ---WCF---  ADO.NET实体数据模型 --- 数据库的  LINQ 查询的例子
-
-        需要自己建表、造测试数据。
-        </p>
+本例子仅仅包含最简单的
+控制台程序  ---WCF---  ADO.NET实体数据模型 --- 数据库的  LINQ 查询的例子
+需要自己建表、造测试数据。
       </td>
     </tr>
 
 	<tr>
       <td>W0100_WebService</td>
-      <td>
-		<p> Web Service 的简单例子代码.  </p>
-
-		包含 普通客户端调用。
-		与使用 SoapHeader 安全验证的调用。
+      <td>Web Service 的简单例子代码.
+包含 普通客户端调用。
+与使用 SoapHeader 安全验证的调用。
 	  </td>
     </tr>
 
 	<tr>
       <td>W0200_WCF</td>
-      <td>
-		<p>  WCF 的简单例子代码.  </p>
-
-		包含在VS2010中，添加服务引用的方式，产生客户端代码的调用方式。
-		与手动编写客户端代码与配置文件的调用方式。
+      <td>WCF 的简单例子代码.
+包含在VS2010中，添加服务引用的方式，产生客户端代码的调用方式。
+与手动编写客户端代码与配置文件的调用方式。
 	  </td>
     </tr>
 
 	<tr>
       <td>W0201_WCF_Detail</td>
-      <td>
-		<p>  WCF 的略微复杂的例子代码.  </p>
+      <td>WCF 的略微复杂的例子代码.
+解决方案包含 5个项目， 分别为 ：
+Contract (基本的接口定义与数据类定义) 、
+Service (接口服务的具体实现) 、
+Hosting (控制台程序方式的 WCF 服务端代码) 、
+Web (Web方式的 WCF 服务端代码) 、
+Client (调用 WCF 服务的代码 具体调用 控制台的服务端，还是 Web服务端， 通过配置文件定义。)
 
-		解决方案包含 5个项目， 分别为 ：
-		Contract (基本的接口定义与数据类定义) 、
-		Service (接口服务的具体实现) 、
-		Hosting (控制台程序方式的 WCF 服务端代码) 、
-		Web (Web方式的 WCF 服务端代码) 、
-		Client (调用 WCF 服务的代码 具体调用 控制台的服务端，还是 Web服务端， 通过配置文件定义。)
-
-		具体步骤见该目录下的  readme.txt
+具体步骤见该目录下的  readme.txt
 	  </td>
     </tr>
 
 
 	<tr>
       <td>W0202_WCF_Fault</td>
-      <td>
-		<p>  WCF 异常处理的例子代码.  </p>
+      <td>WCF 异常处理的例子代码.
+解决方案包含 2个项目， 分别为 ：
+MyWcfServiceLibrary ( WCF 服务库) 、
+MyWcfServiceClient ( WCF 客户端 控制台应用程序)
 
-		解决方案包含 2个项目， 分别为 ：
-		MyWcfServiceLibrary ( WCF 服务库) 、
-		MyWcfServiceClient ( WCF 客户端 控制台应用程序)
-
-		具体步骤见该目录下的  readme.txt
+具体步骤见该目录下的  readme.txt
 	  </td>
     </tr>
 
 
 	<tr>
       <td>W0203_WCF_Scurity_NetTcp</td>
-      <td>
-		<p>  WCF 在使用NetTcpBinding绑定的服务上启动消息加密.  </p>
-		具体步骤见该目录下的  readme.txt
+      <td>WCF 在使用NetTcpBinding绑定的服务上启动消息加密. 
+具体步骤见该目录下的  readme.txt
 	  </td>
     </tr>
 
 
 	<tr>
       <td>W0204_WCF_Scurity_BaseHttp</td>
-      <td>
-		<p>  WCF 在使用 BasicHttpBing 绑定的服务上启动传输加密.  </p>
+      <td>  WCF 在使用 BasicHttpBing 绑定的服务上启动传输加密. 
 
-		解决方案包含 5个项目， 分别为 ：
-		Contract (基本的接口定义与数据类定义) 、
-		Service (接口服务的具体实现) 、
+解决方案包含 5个项目， 分别为 ：
+Contract (基本的接口定义与数据类定义) 、
+Service (接口服务的具体实现) 、
+Web (Web方式的 WCF 服务端代码)  需要服务器配置好 SSL   、
+Client (调用 WCF 服务的代码  手动编写调用的处理)
+Client_ByAuto (调用 WCF 服务的代码  通过 VS 添加服务引用的方式， 产生客户端代码的处理。)
 
-
-		Web (Web方式的 WCF 服务端代码)  需要服务器配置好 SSL   、
-		Client (调用 WCF 服务的代码  手动编写调用的处理)
-
-		Client_ByAuto (调用 WCF 服务的代码  通过 VS 添加服务引用的方式， 产生客户端代码的处理。)
-
-
-		具体步骤见该目录下的  readme.txt
+具体步骤见该目录下的  readme.txt
 	  </td>
     </tr>
 
 
 	<tr>
       <td>W0205_WCF_Scurity_BaseHttp</td>
-      <td>
-	    <p> WCF 在使用 BasicHttpBing 绑定的服务上启动传输加密.  </p>
-
-		此项目结构与  W0204_WCF_Scurity_BaseHttp  基本一致
-
-		区别在于  W0204_WCF_Scurity_BaseHttp  只做了 传输加密.
-
-		W0205_WCF_Scurity_BaseHttp 在 传输加密的基础之上， 还做了 Windows 操作系统认证的处理。
-		(主要工作是 修改配置文件，  以及客户端增加  用户名/密码的 代码 )
-
-		具体步骤见该目录下的  readme.txt
+      <td> WCF 在使用 BasicHttpBing 绑定的服务上启动传输加密. 
+此项目结构与  W0204_WCF_Scurity_BaseHttp  基本一致
+区别在于  W0204_WCF_Scurity_BaseHttp  只做了 传输加密.
+W0205_WCF_Scurity_BaseHttp 在 传输加密的基础之上， 还做了 Windows 操作系统认证的处理。
+(主要工作是 修改配置文件，  以及客户端增加  用户名/密码的 代码 )
+具体步骤见该目录下的  readme.txt
 	  </td>
     </tr>
 
@@ -1603,45 +1507,41 @@ Code First在处理多重性关系时应用了一系列规则。
 
 	<tr>
       <td> W0240_WCF_Transaction </td>
-      <td>
-		<p> WCF 事务处理的简单例子 </p>
-		此项目在 WCF 服务处理代码中， 简单使用 System.Data.SqlClient 包进行 数据更新处理操作。
-		代码中没有直接使用 SqlTransaction 来进行事务管理。
-		而是让 WCF 进行事务的管理。
-		具体步骤见该目录下的  readme.txt
+      <td> WCF 事务处理的简单例子
+此项目在 WCF 服务处理代码中， 简单使用 System.Data.SqlClient 包进行 数据更新处理操作。
+代码中没有直接使用 SqlTransaction 来进行事务管理。
+而是让 WCF 进行事务的管理。
+具体步骤见该目录下的  readme.txt
 	  </td>
     </tr>
 
 
 	<tr>
       <td> W0241_WCF_Trans_Linq2sql </td>
-      <td>
-		<p> WCF 事务处理的简单例子 </p>
-		此项目在 WCF 服务处理代码中， 使用 LINQ2SQL 包进行 数据更新处理操作。
-		让 WCF 进行事务的管理。
-		具体步骤见该目录下的  readme.txt
+      <td> WCF 事务处理的简单例子 
+此项目在 WCF 服务处理代码中， 使用 LINQ2SQL 包进行 数据更新处理操作。
+让 WCF 进行事务的管理。
+具体步骤见该目录下的  readme.txt
 	  </td>
     </tr>
 
 
 	<tr>
       <td> W0242_WCF_Trans_EF </td>
-      <td>
-		<p> WCF 事务处理的简单例子 </p>
-		此项目在 WCF 服务处理代码中， 使用 Entity Framework 包进行数据更新处理操作。
-		让 WCF 进行事务的管理。
-		具体步骤见该目录下的  readme.txt
+      <td> WCF 事务处理的简单例子 
+此项目在 WCF 服务处理代码中， 使用 Entity Framework 包进行数据更新处理操作。
+让 WCF 进行事务的管理。
+具体步骤见该目录下的  readme.txt
 	  </td>
     </tr>
 
 
 	<tr>
       <td> W0242_WCF_Trans_EF_Ora </td>
-      <td>
-		<p> WCF 事务处理的简单例子 </p>
-		此项目在 WCF 服务处理代码中， 使用 Entity Framework 包进行数据更新处理操作。  ( 访问 Oracle 数据库 )
-		让 WCF 进行事务的管理。
-		具体步骤见该目录下的  readme.txt
+      <td> WCF 事务处理的简单例子 
+此项目在 WCF 服务处理代码中， 使用 Entity Framework 包进行数据更新处理操作。  ( 访问 Oracle 数据库 )
+让 WCF 进行事务的管理。
+具体步骤见该目录下的  readme.txt
 	  </td>
     </tr>
 
@@ -1651,13 +1551,12 @@ Code First在处理多重性关系时应用了一系列规则。
 
 	<tr>
       <td>W0250_WCF_EF</td>
-      <td>
-		<p>  WCF 与 Entity Framework 配合使用的例子  </p>
+      <td> WCF 与 Entity Framework 配合使用的例子 
 
-		此项目主要用于解决 默认的 “Entity Framework” 代码生成器， 不能生成带有 [DataContract] 与 [DataMember]  标记的类的问题。
-		以及 Context 使用 代理类，导致 WCF 序列化出错的问题。
+此项目主要用于解决 默认的 “Entity Framework” 代码生成器， 不能生成带有 [DataContract] 与 [DataMember]  标记的类的问题。
+以及 Context 使用 代理类，导致 WCF 序列化出错的问题。
 
-		具体步骤见该目录下的  readme.txt
+具体步骤见该目录下的  readme.txt
 	  </td>
     </tr>
 

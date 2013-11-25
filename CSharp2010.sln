@@ -239,6 +239,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0105_ConvertUtf8ToDefault"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0145_WebRequest_WebClient", "A0145_WebRequest_WebClient\A0145_WebRequest_WebClient.csproj", "{D4200DB9-21E1-492B-926B-8157FA5C6437}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0004_yield", "A0004_yield\A0004_yield.csproj", "{C376DF00-4B05-46FA-A15B-5D0648B37B47}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -1439,6 +1441,16 @@ Global
 		{D4200DB9-21E1-492B-926B-8157FA5C6437}.Release|Mixed Platforms.Build.0 = Release|x86
 		{D4200DB9-21E1-492B-926B-8157FA5C6437}.Release|x86.ActiveCfg = Release|x86
 		{D4200DB9-21E1-492B-926B-8157FA5C6437}.Release|x86.Build.0 = Release|x86
+		{C376DF00-4B05-46FA-A15B-5D0648B37B47}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{C376DF00-4B05-46FA-A15B-5D0648B37B47}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{C376DF00-4B05-46FA-A15B-5D0648B37B47}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{C376DF00-4B05-46FA-A15B-5D0648B37B47}.Debug|x86.ActiveCfg = Debug|x86
+		{C376DF00-4B05-46FA-A15B-5D0648B37B47}.Debug|x86.Build.0 = Debug|x86
+		{C376DF00-4B05-46FA-A15B-5D0648B37B47}.Release|Any CPU.ActiveCfg = Release|x86
+		{C376DF00-4B05-46FA-A15B-5D0648B37B47}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{C376DF00-4B05-46FA-A15B-5D0648B37B47}.Release|Mixed Platforms.Build.0 = Release|x86
+		{C376DF00-4B05-46FA-A15B-5D0648B37B47}.Release|x86.ActiveCfg = Release|x86
+		{C376DF00-4B05-46FA-A15B-5D0648B37B47}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
