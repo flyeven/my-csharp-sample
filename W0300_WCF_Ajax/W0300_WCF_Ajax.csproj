@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.4.5.10\lib\net40\Newtonsoft.Json.dll</HintPath>
@@ -57,8 +61,70 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Autocomplete\AutocompleteTest2.htm" />
+    <Content Include="css\jquery.autocomplete.css" />
+    <Content Include="css\rating\delete.gif" />
+    <Content Include="css\rating\jquery.rating.css" />
+    <Content Include="css\rating\star.gif" />
+    <Content Include="css\Raty\css\application.css" />
+    <Content Include="css\Raty\css\common.css" />
+    <Content Include="css\Raty\css\demo.css" />
+    <Content Include="css\Raty\css\font-awesome.css" />
+    <Content Include="css\Raty\css\normalize.css" />
+    <Content Include="css\Raty\css\pygments.css" />
+    <Content Include="css\Raty\img\0.png" />
+    <Content Include="css\Raty\img\1.png" />
+    <Content Include="css\Raty\img\2.png" />
+    <Content Include="css\Raty\img\3.png" />
+    <Content Include="css\Raty\img\4.png" />
+    <Content Include="css\Raty\img\5.png" />
+    <Content Include="css\Raty\img\cancel-custom-off.png" />
+    <Content Include="css\Raty\img\cancel-custom-on.png" />
+    <Content Include="css\Raty\img\cancel-off-big.png" />
+    <Content Include="css\Raty\img\cancel-on-big.png" />
+    <Content Include="css\Raty\img\cookie-half.png" />
+    <Content Include="css\Raty\img\cookie-off.png" />
+    <Content Include="css\Raty\img\cookie-on.png" />
+    <Content Include="css\Raty\img\off.png" />
+    <Content Include="css\Raty\img\on.png" />
+    <Content Include="css\Raty\img\star-half-big.png" />
+    <Content Include="css\Raty\img\star-off-big.png" />
+    <Content Include="css\Raty\img\star-on-big.png" />
+    <Content Include="lib\img\cancel-off.png" />
+    <Content Include="lib\img\cancel-on.png" />
+    <Content Include="lib\img\star-half.png" />
+    <Content Include="lib\img\star-off.png" />
+    <Content Include="lib\img\star-on.png" />
+    <Content Include="lib\jquery.raty.js" />
+    <Content Include="lib\jquery.raty.min.js" />
+    <Content Include="Login\Login.aspx" />
+    <Content Include="Login\LoginInfo.aspx" />
+    <Content Include="Login\MyCheckCode.aspx" />
+    <Content Include="Pagination\pagenav1.1.cn.js" />
+    <Content Include="Pagination\TestPage.htm" />
+    <Content Include="Rating\TestJqueryRaty.htm" />
+    <Content Include="Rating\TestRating.htm" />
+    <Content Include="Scripts\jquery-1.8.2-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.8.2.js" />
+    <Content Include="Scripts\jquery-1.8.2.min.js" />
+    <Content Include="Scripts\jquery-1.9.1.js" />
+    <Content Include="Scripts\jquery-2.0.3-vsdoc.js" />
+    <Content Include="Scripts\jquery-2.0.3.js" />
+    <Content Include="Scripts\jquery-2.0.3.min.js" />
+    <Content Include="Scripts\jquery.ajaxQueue.js" />
+    <Content Include="Scripts\jquery.autocomplete.js" />
+    <Content Include="Scripts\jquery.bgiframe.min.js" />
+    <Content Include="Scripts\jquery.cookie.js" />
+    <Content Include="Scripts\jquery.MetaData.js" />
+    <Content Include="Scripts\jquery.rating.js" />
+    <Content Include="Scripts\jquery.rating.pack.js" />
+    <Content Include="Upload\TestUploadMulFile.aspx" />
+    <Content Include="Upload\UploadPreview.aspx" />
+    <Content Include="ztree\ZtreeTest.htm" />
     <None Include="Autocomplete\city.json" />
     <None Include="Autocomplete\beijing.json" />
+    <Content Include="Autocomplete\search.ashx" />
+    <Content Include="Autocomplete\JsonSearch.ashx" />
     <None Include="Autocomplete\shanghai.json" />
     <None Include="Autocomplete\guangzhou.json" />
     <Content Include="Autocomplete\AutocompleteTest.htm" />
@@ -250,9 +316,6 @@
     <Content Include="Scripts\jquery.tinycarousel.js" />
     <Content Include="Scripts\jquery.tinycarousel.min.js" />
     <Content Include="Scripts\MyPageInfo.js" />
-    <Content Include="Scripts\jquery-1.8.2-vsdoc.js" />
-    <Content Include="Scripts\jquery-1.8.2.js" />
-    <Content Include="Scripts\jquery-1.8.2.min.js" />
     <Content Include="Scripts\jquery.mobile-1.2.0.js" />
     <Content Include="Scripts\jquery.mobile-1.2.0.min.js" />
     <Content Include="Scripts\json2.js" />
@@ -270,10 +333,33 @@
     <Content Include="superfish\megamenu_horizontal.htm" />
     <Content Include="superfish\megamenu_vertical.htm" />
     <Content Include="superfish\megamenu_vertical_horizontal.htm" />
+    <Content Include="Tab\easytabs.js" />
+    <Content Include="Tab\EasyTabTest.htm" />
+    <Content Include="Tab\menu.css" />
     <Content Include="TestError.aspx" />
     <Content Include="TestJsonWebService.asmx" />
     <Content Include="TestReWriteUrl.aspx" />
     <Content Include="TestWebService.asmx" />
+    <Content Include="Tree\images\ajax-loader.gif" />
+    <Content Include="Tree\images\file.gif" />
+    <Content Include="Tree\images\folder-closed.gif" />
+    <Content Include="Tree\images\folder.gif" />
+    <Content Include="Tree\images\minus.gif" />
+    <Content Include="Tree\images\plus.gif" />
+    <Content Include="Tree\images\treeview-black-line.gif" />
+    <Content Include="Tree\images\treeview-black.gif" />
+    <Content Include="Tree\images\treeview-default-line.gif" />
+    <Content Include="Tree\images\treeview-default.gif" />
+    <Content Include="Tree\images\treeview-famfamfam-line.gif" />
+    <Content Include="Tree\images\treeview-famfamfam.gif" />
+    <Content Include="Tree\images\treeview-gray-line.gif" />
+    <Content Include="Tree\images\treeview-gray.gif" />
+    <Content Include="Tree\images\treeview-red-line.gif" />
+    <Content Include="Tree\images\treeview-red.gif" />
+    <Content Include="Tree\jquery.cookie.js" />
+    <Content Include="Tree\jquery.treeview.css" />
+    <Content Include="Tree\jquery.treeview.js" />
+    <Content Include="Tree\TreeviewTest.htm" />
     <Content Include="UploadImages\dolphin32.png" />
     <Content Include="UploadImages\dolphin48.png" />
     <Content Include="Upload\FaceUpload.htm" />
@@ -293,8 +379,20 @@
     <Content Include="ZtreeMenuWebService.asmx" />
     <Content Include="ztree\Blank.htm" />
     <Content Include="ztree\index.htm" />
+    <Content Include="Login\CommonHandler.ashx" />
+    <Content Include="Login\CustomerLoginHandler.ashx" />
+    <Content Include="Login\CustomerLogoutHandler.ashx" />
+    <None Include="css\Raty\font\fontawesome-webfont.ttf" />
+    <None Include="Scripts\jquery-2.0.3.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Autocomplete\JsonSearch.ashx.cs">
+      <DependentUpon>JsonSearch.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Autocomplete\search.ashx.cs">
+      <DependentUpon>search.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Autocomplete\TestCityData.cs" />
     <Compile Include="Common\ImgClassLib\commonfun.cs" />
     <Compile Include="Common\ImgClassLib\imgcrop.cs" />
     <Compile Include="Common\ImgClassLib\skeletonize.cs" />
@@ -354,6 +452,36 @@
     </Compile>
     <Compile Include="jq\BasicInput.aspx.designer.cs">
       <DependentUpon>BasicInput.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login\AbstractHandler.cs" />
+    <Compile Include="Login\CommonHandler.ashx.cs">
+      <DependentUpon>CommonHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Login\CommonHandleResult.cs" />
+    <Compile Include="Login\CustomerLoginHandler.ashx.cs">
+      <DependentUpon>CustomerLoginHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Login\CustomerLogoutHandler.ashx.cs">
+      <DependentUpon>CustomerLogoutHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Login\HandleResultConvert.cs" />
+    <Compile Include="Login\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login\LoginInfo.aspx.cs">
+      <DependentUpon>LoginInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login\LoginInfo.aspx.designer.cs">
+      <DependentUpon>LoginInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login\MyCheckCode.aspx.cs">
+      <DependentUpon>MyCheckCode.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Map\Aliyun.cs" />
     <Compile Include="Map\Baidu.cs" />
@@ -416,6 +544,20 @@
     </Compile>
     <Compile Include="Upload\TestUpload.aspx.designer.cs">
       <DependentUpon>TestUpload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Upload\TestUploadMulFile.aspx.cs">
+      <DependentUpon>TestUploadMulFile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Upload\TestUploadMulFile.aspx.designer.cs">
+      <DependentUpon>TestUploadMulFile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Upload\UploadPreview.aspx.cs">
+      <DependentUpon>UploadPreview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Upload\UploadPreview.aspx.designer.cs">
+      <DependentUpon>UploadPreview.aspx</DependentUpon>
     </Compile>
     <Compile Include="WcfMyDemoService.svc.cs">
       <DependentUpon>WcfMyDemoService.svc</DependentUpon>
