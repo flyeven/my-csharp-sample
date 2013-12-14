@@ -22,7 +22,18 @@ namespace W0300_WCF_Ajax.Autocomplete
             context.Response.ContentType = "text/plain";
 
             // 取得查询关键字.
+            // 这里的  q  是 typeahead 的参数那里手工设定的， 可以根据需要修改.
             string queryKeyword = context.Request["q"];
+
+
+
+            // Jquery UI 传递的参数名称是  term 
+            // 这个  term  是默认值， 不需要手工指定.
+            if (String.IsNullOrEmpty(queryKeyword))
+            {
+                queryKeyword = context.Request["term"];
+            }
+
 
             var query =
                 from data in TestCityData.testCityList

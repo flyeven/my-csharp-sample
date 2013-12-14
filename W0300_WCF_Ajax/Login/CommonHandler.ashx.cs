@@ -8,7 +8,7 @@ namespace W0300_WCF_Ajax.Login
     /// <summary>
     /// CommonHandler 的摘要说明
     /// </summary>
-    public class CommonHandler : AbstractHandler
+    public class CommonHandler : AbstractHandler<CommonHandleResult> 
     {
 
 

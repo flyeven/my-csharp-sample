@@ -8,7 +8,7 @@ namespace W0300_WCF_Ajax.Login
     /// <summary>
     /// CustomerLogoutHandler 的摘要说明
     /// </summary>
-    public class CustomerLogoutHandler : AbstractHandler
+    public class CustomerLogoutHandler : AbstractHandler<CommonHandleResult> 
     {
 
         protected override CommonHandleResult GetDefaultHandleResult()

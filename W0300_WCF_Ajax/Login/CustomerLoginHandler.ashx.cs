@@ -3,17 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
+using System.Threading;
+
 namespace W0300_WCF_Ajax.Login
 {
     /// <summary>
     /// CustomerLoginHandler 的摘要说明
     /// </summary>
-    public class CustomerLoginHandler : AbstractHandler
+    public class CustomerLoginHandler : AbstractHandler<LoginHandleResult> 
     {
 
-        protected override CommonHandleResult GetDefaultHandleResult()
+        protected override LoginHandleResult GetDefaultHandleResult()
         {
-            return new CommonHandleResult()
+            return new LoginHandleResult()
             {
                 Result = false,
             };
@@ -28,7 +30,7 @@ namespace W0300_WCF_Ajax.Login
 
 
 
-        protected override void DoProcess(HttpContext context, CommonHandleResult result)
+        protected override void DoProcess(HttpContext context, LoginHandleResult result)
         {
             string userName = context.Request["u"];
             string password = context.Request["p"];
@@ -92,8 +94,12 @@ namespace W0300_WCF_Ajax.Login
             // 成功.
             context.Session[Session_Keyword_Is_Pbulic_User] = userName;
 
+            // 写入公用的数据.
             result.Result = true;
             result.ResultMessage = "登录成功！";
+
+            // 写入独特的数据.
+            result.NackName = "管理员";
         }
 
 

@@ -91,6 +91,51 @@
             });
         });
 
+
+
+
+
+        $(".result_star").raty({
+            // 只读.
+            readOnly: true,
+            // 数据来自 data-score 属性值.
+            score: function () {
+                return $(this).attr('data-score');
+            }
+        });
+
+
+
+
+
+        // 每个图片显示效果不一样.
+        $("#divDiffPic").raty({
+            iconRange: [
+                { range: 1, on: 'number_1.png', off: 'coins.png' },
+                { range: 2, on: 'number_2.png', off: 'coins.png' },
+                { range: 3, on: 'number_3.png', off: 'coins.png' },
+                { range: 4, on: 'coin_yuan.png', off: 'coins.png' },
+                { range: 5, on: 'coin_euro.png', off: 'coins.png' }
+              ]
+        });
+
+
+
+
+        // 每个图片显示效果不一样. 并且只显示被选择的项目。
+        $("#divDiffPicSingle").raty({
+            iconRange: [
+                { range: 1, on: 'number_1.png', off: 'coins.png' },
+                { range: 2, on: 'number_2.png', off: 'coins.png' },
+                { range: 3, on: 'number_3.png', off: 'coins.png' },
+                { range: 4, on: 'coin_yuan.png', off: 'coins.png' },
+                { range: 5, on: 'coin_euro.png', off: 'coins.png' }
+              ],
+
+            single: true 
+        });
+
+
     });
 </script>
 
@@ -172,6 +217,57 @@
 
  统计结果：
    <div id="divSum" class="star"></div>
+
+
+
+
+
+
+
+<hr />
+
+
+<h3> 数据列表中的只读效果： </h3>
+
+
+<table>
+
+  <tr>
+    <td> 评分对象1 </td>
+    <td> <div id="div1" class="result_star" data-score="4"></div> </td>
+  </tr>
+
+  <tr>
+    <td> 评分对象2 </td>
+    <td> <div id="div2" class="result_star" data-score="3.6"></div> </td>
+  </tr>
+
+  <tr>
+    <td> 评分对象3 </td>
+    <td> <div id="div3" class="result_star" data-score="4.4"></div> </td>
+  </tr>
+
+</table>
+
+
+
+
+
+<hr />
+
+每个选择，显示得不一样
+
+   <div id="divDiffPic" class="star"></div>
+
+
+
+<hr />
+
+每个选择，显示得不一样, 并且只显示被选择的项目。
+
+   <div id="divDiffPicSingle" class="star"></div>
+
+
 
 
 

@@ -17,7 +17,8 @@ namespace W0300_WCF_Ajax.Login
     /// <summary>
     /// 抽象处理程序.
     /// </summary>
-    public abstract class AbstractHandler : IHttpHandler, IRequiresSessionState
+    public abstract class AbstractHandler<T> : IHttpHandler, IRequiresSessionState
+        where T : CommonHandleResult
     {
 
         /// <summary>
@@ -29,14 +30,14 @@ namespace W0300_WCF_Ajax.Login
         /// 获取 默认的 处理结果.
         /// </summary>
         /// <returns></returns>
-        protected abstract CommonHandleResult GetDefaultHandleResult();
+        protected abstract T GetDefaultHandleResult();
 
         /// <summary>
         /// 处理逻辑.
         /// </summary>
         /// <param name="context"></param>
         /// <param name="result"></param>
-        protected abstract void DoProcess(HttpContext context, CommonHandleResult result);
+        protected abstract void DoProcess(HttpContext context, T result);
 
 
 
@@ -58,7 +59,7 @@ namespace W0300_WCF_Ajax.Login
 
         public void ProcessRequest(HttpContext context)
         {
-            CommonHandleResult result = GetDefaultHandleResult();
+            T result = GetDefaultHandleResult();
 
             try
             {
