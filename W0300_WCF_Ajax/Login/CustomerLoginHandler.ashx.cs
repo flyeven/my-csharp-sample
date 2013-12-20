@@ -72,9 +72,19 @@ namespace W0300_WCF_Ajax.Login
             }
 
 
+            // 这里简单把 用户数据， 暂存在 Application 里面.
+            if (context.Application["TEST_USER"] == null)
+            {
+                Dictionary<string, string> tmpData = new Dictionary<string, string>();
+                tmpData.Add("admin", "admin");
+                context.Application.Add("TEST_USER", tmpData);
+            }
+
+            Dictionary<string, string> userDictionary = 
+                context.Application["TEST_USER"] as Dictionary<string, string>;
 
            
-            if (userName != "admin")
+            if (!userDictionary.ContainsKey(userName))
             {
                 // 用户不存在.
                 result.ResultMessage = "用户名不存在，或者密码错误！";
@@ -82,7 +92,8 @@ namespace W0300_WCF_Ajax.Login
                 context.Session[Session_Keyword_Is_Pbulic_User_LoginFailCount] = loginFailCount;
                 return;
             }
-            if (password != "admin")
+
+            if (userDictionary[userName] != password)
             {
                 // 密码不匹配.
                 result.ResultMessage = "用户名不存在，或者密码错误！！";
@@ -90,6 +101,9 @@ namespace W0300_WCF_Ajax.Login
                 context.Session[Session_Keyword_Is_Pbulic_User_LoginFailCount] = loginFailCount;
                 return;
             }
+
+
+
 
             // 成功.
             context.Session[Session_Keyword_Is_Pbulic_User] = userName;

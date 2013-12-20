@@ -73,7 +73,13 @@
 
 
 <asp:Panel ID="pnlWithoutLogin" runat="server">
+
 <a id="hlLoginIn" href="Login.aspx"> 登录 </a>
+
+&nbsp;&nbsp;&nbsp;
+
+<a id="hlRegister" href="Register.aspx"> 注册 </a>
+
 </asp:Panel>
 
 

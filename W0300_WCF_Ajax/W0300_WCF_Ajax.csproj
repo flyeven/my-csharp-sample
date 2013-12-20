@@ -166,6 +166,7 @@
     <Content Include="Login\LoginInfo.aspx" />
     <Content Include="Login\LoginInfo.htm" />
     <Content Include="Login\MyCheckCode.aspx" />
+    <Content Include="Login\Register.aspx" />
     <Content Include="Pagination\pagenav1.1.cn.js" />
     <Content Include="Pagination\TestPage.htm" />
     <Content Include="Rating\TestJqueryRaty.htm" />
@@ -454,6 +455,7 @@
     <Content Include="Login\CustomerLogoutHandler.ashx" />
     <None Include="css\Raty\font\fontawesome-webfont.ttf" />
     <Content Include="Login\DoSomethigHandler.ashx" />
+    <Content Include="Login\CustomerUserNameCheckHandler.ashx" />
     <None Include="Scripts\jquery-2.0.3.min.map" />
   </ItemGroup>
   <ItemGroup>
@@ -535,6 +537,9 @@
     <Compile Include="Login\CustomerLogoutHandler.ashx.cs">
       <DependentUpon>CustomerLogoutHandler.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Login\CustomerUserNameCheckHandler.ashx.cs">
+      <DependentUpon>CustomerUserNameCheckHandler.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Login\DoSomethigHandler.ashx.cs">
       <DependentUpon>DoSomethigHandler.ashx</DependentUpon>
     </Compile>
@@ -557,6 +562,13 @@
     <Compile Include="Login\MyCheckCode.aspx.cs">
       <DependentUpon>MyCheckCode.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
     <Compile Include="Map\Aliyun.cs" />
     <Compile Include="Map\Baidu.cs" />

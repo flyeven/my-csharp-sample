@@ -227,6 +227,7 @@ namespace A1020_Hardware
 
             /*  
              * 可用参数：
+			 
  
             Win32_1394Controller
             Win32_1394ControllerDevice
@@ -574,6 +575,12 @@ namespace A1020_Hardware
              */
 
 
+			/*
+			
+			其他参考:
+			http://msdn.microsoft.com/zh-cn/library/aa392727(v=vs.85).aspx
+			
+			*/
 
             Console.ReadLine();
         }
