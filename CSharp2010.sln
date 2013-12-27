@@ -243,6 +243,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0004_yield", "A0004_yield\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A5090_MovablePanel", "A5090_MovablePanel\A5090_MovablePanel.csproj", "{4FA3EE8C-FF0E-4710-B463-D6E566879694}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A5100_WndProc", "A5100_WndProc\A5100_WndProc.csproj", "{BC134A7A-D128-4C12-948A-D43375415F36}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -1463,6 +1465,16 @@ Global
 		{4FA3EE8C-FF0E-4710-B463-D6E566879694}.Release|Mixed Platforms.Build.0 = Release|x86
 		{4FA3EE8C-FF0E-4710-B463-D6E566879694}.Release|x86.ActiveCfg = Release|x86
 		{4FA3EE8C-FF0E-4710-B463-D6E566879694}.Release|x86.Build.0 = Release|x86
+		{BC134A7A-D128-4C12-948A-D43375415F36}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{BC134A7A-D128-4C12-948A-D43375415F36}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{BC134A7A-D128-4C12-948A-D43375415F36}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{BC134A7A-D128-4C12-948A-D43375415F36}.Debug|x86.ActiveCfg = Debug|x86
+		{BC134A7A-D128-4C12-948A-D43375415F36}.Debug|x86.Build.0 = Debug|x86
+		{BC134A7A-D128-4C12-948A-D43375415F36}.Release|Any CPU.ActiveCfg = Release|x86
+		{BC134A7A-D128-4C12-948A-D43375415F36}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{BC134A7A-D128-4C12-948A-D43375415F36}.Release|Mixed Platforms.Build.0 = Release|x86
+		{BC134A7A-D128-4C12-948A-D43375415F36}.Release|x86.ActiveCfg = Release|x86
+		{BC134A7A-D128-4C12-948A-D43375415F36}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
