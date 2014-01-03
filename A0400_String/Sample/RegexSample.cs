@@ -280,6 +280,32 @@ namespace A0401_String.Sample
                 Console.WriteLine("[06]使用正则表达式静态方法IsMatch({0}, {1})的结果为：{2}", value, emailPat, Regex.IsMatch(value, emailPat));
             }
 
+			
+
+            // 网页匹配.
+            String[] testArray = { 
+                "http://localhost:7735/%E5%85%AC%E5%8F%B8%E7%BD%91%E7%AB%99/home.htm",
+                "adf.htm",
+                "aas/sfg.htm",
+                "http://xyz.com/4-91.htm",
+                                 };
+
+            string patWeb = @"([^/]+).htm";
+            // 初始化 正则表达式  忽略大小写
+            Regex rWeb = new Regex(patWeb, RegexOptions.IgnoreCase);
+
+            foreach (string str in testArray)
+            {
+                // 指定的输入字符串中搜索 Regex 构造函数中指定的正则表达式的第一个匹配项。
+                Match mWeb = rWeb.Match(str);
+                if (mWeb.Success)
+                {
+                    Group g = mWeb.Groups[0];
+                    Console.WriteLine("[06] 原始数据：{0}, 解析后的结果：{1} ", str, g.Value);
+                }
+            }
+			
+			
 		}
 
 

@@ -155,6 +155,9 @@
     <Content Include="css\Raty\img\star-half-big.png" />
     <Content Include="css\Raty\img\star-off-big.png" />
     <Content Include="css\Raty\img\star-on-big.png" />
+    <Content Include="lazyload\LongTimeImage.aspx" />
+    <Content Include="lazyload\TestLazyload.htm" />
+    <Content Include="lazyload\TestNoLazyload.htm" />
     <Content Include="lib\img\cancel-off.png" />
     <Content Include="lib\img\cancel-on.png" />
     <Content Include="lib\img\star-half.png" />
@@ -185,6 +188,8 @@
     <Content Include="Scripts\jquery.bgiframe.min.js" />
     <Content Include="Scripts\jquery.blockUI.js" />
     <Content Include="Scripts\jquery.cookie.js" />
+    <Content Include="Scripts\jquery.lazyload.js" />
+    <Content Include="Scripts\jquery.lazyload.min.js" />
     <Content Include="Scripts\jquery.MetaData.js" />
     <Content Include="Scripts\jquery.rating.js" />
     <Content Include="Scripts\jquery.rating.pack.js" />
@@ -525,6 +530,13 @@
     </Compile>
     <Compile Include="jq\BasicInput.aspx.designer.cs">
       <DependentUpon>BasicInput.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="lazyload\LongTimeImage.aspx.cs">
+      <DependentUpon>LongTimeImage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lazyload\LongTimeImage.aspx.designer.cs">
+      <DependentUpon>LongTimeImage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login\AbstractHandler.cs" />
     <Compile Include="Login\CommonHandler.ashx.cs">
