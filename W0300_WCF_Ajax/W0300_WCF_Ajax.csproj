@@ -165,6 +165,8 @@
     <Content Include="lib\img\star-on.png" />
     <Content Include="lib\jquery.raty.js" />
     <Content Include="lib\jquery.raty.min.js" />
+    <Content Include="LoginNet\Default.aspx" />
+    <Content Include="LoginNet\Login.aspx" />
     <Content Include="Login\Login.aspx" />
     <Content Include="Login\LoginInfo.aspx" />
     <Content Include="Login\LoginInfo.htm" />
@@ -538,6 +540,21 @@
     <Compile Include="lazyload\LongTimeImage.aspx.designer.cs">
       <DependentUpon>LongTimeImage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="LoginNet\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginNet\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoginNet\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginNet\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoginNet\LoginService.cs" />
     <Compile Include="Login\AbstractHandler.cs" />
     <Compile Include="Login\CommonHandler.ashx.cs">
       <DependentUpon>CommonHandler.ashx</DependentUpon>
